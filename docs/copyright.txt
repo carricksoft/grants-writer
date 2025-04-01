@@ -1,0 +1,2 @@
+Copyright (c) $originalComment.match("Copyright \(c\) (\d+)", 1, "-") $today.format("dd MMM yyyy"), Andrew Grant of Carrick Software .
+All rights reserved.

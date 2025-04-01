@@ -1,0 +1,9 @@
+Smith => Smith
+smith => Smith
+SMITH => Smith
+smith jones => Smith Jones
+smith-jones => Smith-Jones
+mcSmith => McSmith
+macsmith => Macsmith
+macSmith => MacSmith
+mcsmith => McSmith

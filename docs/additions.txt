@@ -1,0 +1,13 @@
+1:Domain
+2:Service
+3:Repository
+5:List Controller
+5:List Screen
+6:Command
+7:Converter
+8:Edit Controller
+9:Edit Screen
+10:Conditioning
+11:Validator
+
+

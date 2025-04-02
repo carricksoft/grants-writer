@@ -36,7 +36,25 @@ public class TextMappingConstants {
     @SuppressWarnings({"unused"})
     public static final String DOCUMENT_TEXT_EDIT = "documentText/{id}/edit";
 
-
+    public static final String PERSON_TEXT_LIST = "/personTexts";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_NEXT = "/personTexts/next";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_PREVIOUS = "/personTexts/prev";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_REWIND = "/personTexts/rewind";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_FF = "/personTexts/ff";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_NEW = "/personText/new";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT = "/personText";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_SHOW = "/personText/{id}/show";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_DELETE = "/personTexts/{id}/delete";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_EDIT = "personText/{id}/edit";
   
 }
 

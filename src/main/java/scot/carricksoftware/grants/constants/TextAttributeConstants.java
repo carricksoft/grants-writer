@@ -19,6 +19,11 @@ public class TextAttributeConstants {
     @SuppressWarnings({"unused"})
     public static final String DOCUMENT_TEXT_COMMAND = "document_text_Command";
 
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXTS = "document_texts";
+    @SuppressWarnings({"unused"})
+    public static final String PERSON_TEXT_COMMAND = "document_text_Command";
+
     @SuppressWarnings("unused")
     public static final String PERSON_IMAGES = "personImages";
     @SuppressWarnings({"unused"})

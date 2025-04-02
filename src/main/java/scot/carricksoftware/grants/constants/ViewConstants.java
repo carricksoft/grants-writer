@@ -59,5 +59,10 @@ public class ViewConstants {
 
     public static final String DOCUMENT_TEXT_LIST = "text/documentText/list";
     public static final String DOCUMENT_TEXT_FORM = "text/documentText/form";
+
+    public static final String PERSON_TEXT_LIST = "text/personText/list";
+    public static final String PERSON_TEXT_FORM = "text/personText/form";
+
 }
+
 

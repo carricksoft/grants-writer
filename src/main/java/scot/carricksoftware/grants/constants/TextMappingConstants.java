@@ -56,6 +56,7 @@ public class TextMappingConstants {
     @SuppressWarnings({"unused"})
     public static final String PERSON_TEXT_EDIT = "personText/{id}/edit";
 
+    @SuppressWarnings("unused")
     public static final String PLACE_TEXT_LIST = "/placeTexts";
     @SuppressWarnings({"unused"})
     public static final String PLACE_TEXT_NEXT = "/placeTexts/next";

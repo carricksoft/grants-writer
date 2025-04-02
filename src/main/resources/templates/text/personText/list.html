@@ -23,16 +23,17 @@
             <thead class="table-dark">
             <tr>
                 <th>ID</th>
-                <th></th>
+                <th>Person</th>
                 <th></th>
                 <th></th>
             </tr>
             </thead>
 
             <!--/*@thymesVar id="text" type="scot.carricksoftware.grants.domains.text.PersonText"*/-->
+            <!--/*@thymesVar id="person" type="scot.carricksoftware.grants.domains.people.Person"*/-->
             <tr th:each="text : ${document_texts}">
                 <td th:text="${text.id}">123</td>
-                <td></td>
+                <td th:text="${text.person.toString()}">123</td>
                 <td></td>
                 <td><span>
                         <a th:action="delete" class="btn btn-danger btn-sm" href=""

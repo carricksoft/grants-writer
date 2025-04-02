@@ -55,7 +55,27 @@ public class TextMappingConstants {
     public static final String PERSON_TEXT_DELETE = "/personTexts/{id}/delete";
     @SuppressWarnings({"unused"})
     public static final String PERSON_TEXT_EDIT = "personText/{id}/edit";
-  
+
+    public static final String PLACE_TEXT_LIST = "/placeTexts";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_NEXT = "/placeTexts/next";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_PREVIOUS = "/placeTexts/prev";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_REWIND = "/placeTexts/rewind";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_FF = "/placeTexts/ff";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_NEW = "/placeText/new";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT = "/placeText";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_SHOW = "/placeText/{id}/show";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_DELETE = "/placeTexts/{id}/delete";
+    @SuppressWarnings({"unused"})
+    public static final String PLACE_TEXT_EDIT = "placeText/{id}/edit";
+    
 }
 
 

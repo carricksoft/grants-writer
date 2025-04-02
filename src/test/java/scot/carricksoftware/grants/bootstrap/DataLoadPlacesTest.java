@@ -76,6 +76,7 @@ public class DataLoadPlacesTest {
         ArgumentCaptor<Place> captor = ArgumentCaptor.forClass(Place.class);
         dataLoadPlaces.load();
         verify(placeServiceMock, atLeast(2)).save(captor.capture());
+        //noinspection SpellCheckingInspection
         assertTrue(captor.getAllValues().stream().anyMatch(place -> place.getName().equals("5 Bellfield Park")
                 && place.getRegion().getName().equals("Inverness")));
     }

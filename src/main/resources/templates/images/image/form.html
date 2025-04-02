@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--suppress XmlHighlighting -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--suppress SpellCheckingInspection -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--suppress SpellCheckingInspection -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Grants - images</title>
+
+</head>
+<body>
+<!--/*@thymesVar id="personCommand" type="scot.carricksoftware.grants.commands.people.PersonCommand"*/-->
+<div th:insert="~{fragments/layout::banner}"></div>
+
+<div class="container border border-info rounded-3 text-center p-4">
+    <form th:object="${imageCommand}" th:action="@{/person}" method="post">
+        <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+            <p>Please Correct The Errors Below</p>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-xs-2">
+                <label for="id">Database Id<span style="color: rgb(255,0,0);">*</span></label>
+                <input class="form-control" id="id"
+                       th:field="*{id}" type="text" readonly>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Commit</button>
+        <a class="btn btn-secondary" th:href="@{/people}" th:text="${'List all'}">List all</a>
+        <a class="btn btn-success" th:href="@{/}" th:text="${'Home'}">Home</a>
+        <h6><span style="color: rgb(255,0,0);">*</span><span> Cannot be edited</span></h6>
+    </form>
+</div>
+</body>
+</html>

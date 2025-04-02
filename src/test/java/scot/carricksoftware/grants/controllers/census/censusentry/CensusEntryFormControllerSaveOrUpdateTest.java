@@ -84,6 +84,7 @@ public class CensusEntryFormControllerSaveOrUpdateTest {
         Long id = 4L;
         censusEntryCommand.setId(id);
         when(bindingResultMock.hasErrors()).thenReturn(true);
+        //noinspection SpellCheckingInspection
         assertEquals("censusentry/form", censusEntryController.saveOrUpdate(censusEntryCommand, bindingResultMock, modelMock));
     }
 

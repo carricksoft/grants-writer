@@ -42,6 +42,7 @@ public class DataLoadPeopleTest {
         dataLoadPeople.load();
         verify(personServiceMock, atLeast(2)).save(captor.capture());
         assertTrue(captor.getAllValues().stream().anyMatch(person -> person.getFirstName().equals("Dorothy")));
+        //noinspection SpellCheckingInspection
         assertTrue(captor.getAllValues().stream().anyMatch(person -> person.getLastName().equals("Bramall")));
     }
 

@@ -39,6 +39,7 @@ public class DataLoadPeople {
     private void loadMum() {
         final Person mum = new Person();
         mum.setFirstName("Dorothy");
+        //noinspection SpellCheckingInspection
         mum.setLastName("Bramall");
         personService.save(mum);
 

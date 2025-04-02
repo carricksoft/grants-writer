@@ -69,6 +69,7 @@ public class DataLoadPlaces {
         final Place bellFieldPark = new Place();
         final Place wilsonAvenue = new Place();
 
+        //noinspection SpellCheckingInspection
         bellFieldPark.setName("5 Bellfield Park");
         bellFieldPark.setRegion(inverness);
         placeService.save(bellFieldPark);

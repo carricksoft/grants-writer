@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import scot.carricksoftware.grants.constants.*;
 import scot.carricksoftware.grants.controllers.ControllerHelper;
-import scot.carricksoftware.grants.services.images.image.ImageService;
+import scot.carricksoftware.grants.services.text.documenttext.DocumentTextService;
 
 import static java.lang.Integer.max;
 
@@ -25,13 +25,14 @@ public class DocumentTextListControllerImpl implements DocumentTextListControlle
 
     private int currentPage = 0;
     private final ControllerHelper controllerHelper;
-    private final ImageService imageService;
+    private final DocumentTextService documentTextService;
 
     public DocumentTextListControllerImpl(ControllerHelper controllerHelper,
-                                          ImageService imageService) {
+                                          DocumentTextService documentTextService) {
         this.controllerHelper = controllerHelper;
-        this.imageService = imageService;
+        this.documentTextService = documentTextService;
     }
+
 
     @SuppressWarnings("SameReturnValue")
     @GetMapping(TextMappingConstants.DOCUMENT_TEXT_LIST)
@@ -44,7 +45,7 @@ public class DocumentTextListControllerImpl implements DocumentTextListControlle
 
     @SuppressWarnings("SameReturnValue")
     private String sendAttributesAndReturn(Model model) {
-        model.addAttribute(TextAttributeConstants.DOCUMENT_TEXTS, imageService.getPagedImages(currentPage));
+        model.addAttribute(TextAttributeConstants.DOCUMENT_TEXTS, documentTextService.getPagedDocumentTexts(currentPage));
         controllerHelper.addAttributes(model);
         return ViewConstants.DOCUMENT_TEXT_LIST;
     }
@@ -80,7 +81,7 @@ public class DocumentTextListControllerImpl implements DocumentTextListControlle
     @Override
     public final String getLastPage(final Model model) {
         logger.debug("DocumentTextListControllerImpl::getLastPage");
-        long imageCount = imageService.count();
+        long imageCount = documentTextService.count();
         currentPage = (int) (imageCount / ApplicationConstants.DEFAULT_PAGE_SIZE);
         return sendAttributesAndReturn(model);
     }
@@ -91,7 +92,7 @@ public class DocumentTextListControllerImpl implements DocumentTextListControlle
     @Override
     public final String DocumentTextDelete(@PathVariable final String id) {
         logger.debug("DocumentTextListControllerImpl::imageDelete");
-        imageService.deleteById(Long.valueOf(id));
+        documentTextService.deleteById(Long.valueOf(id));
         return MappingConstants.REDIRECT + TextMappingConstants.DOCUMENT_TEXT;
     }
 

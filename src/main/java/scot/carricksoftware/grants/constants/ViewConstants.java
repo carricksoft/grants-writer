@@ -56,5 +56,8 @@ public class ViewConstants {
 
     public static final String PLACE_IMAGE_LIST = "images/placeImage/list";
     public static final String PLACE_IMAGE_FORM = "images/placeImage/form";
+
+    public static final String DOCUMENT_TEXT_LIST = "text/documentText/list";
+    public static final String DOCUMENT_TEXT_FORM = "text/documentText/form";
 }
 

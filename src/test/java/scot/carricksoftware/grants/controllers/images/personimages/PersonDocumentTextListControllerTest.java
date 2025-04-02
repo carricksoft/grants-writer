@@ -27,7 +27,7 @@ import static scot.carricksoftware.grants.GenerateRandomNumberValues.GetRandomLo
 
 
 @ExtendWith(MockitoExtension.class)
-public class PersonImageListControllerTest {
+public class PersonDocumentTextListControllerTest {
 
     private PersonImageListControllerImpl controller;
 

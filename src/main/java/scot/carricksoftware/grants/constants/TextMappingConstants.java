@@ -32,7 +32,7 @@ public class TextMappingConstants {
     @SuppressWarnings({"unused"})
     public static final String DOCUMENT_TEXT_SHOW = "/documentText/{id}/show";
     @SuppressWarnings({"unused"})
-    public static final String DOCUMENT_TEXT_DELETE = "/documentText/{id}/delete";
+    public static final String DOCUMENT_TEXT_DELETE = "/documentTexts/{id}/delete";
     @SuppressWarnings({"unused"})
     public static final String DOCUMENT_TEXT_EDIT = "documentText/{id}/edit";
 

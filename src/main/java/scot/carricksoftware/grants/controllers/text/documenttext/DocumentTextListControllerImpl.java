@@ -93,7 +93,7 @@ public class DocumentTextListControllerImpl implements DocumentTextListControlle
     public final String DocumentTextDelete(@PathVariable final String id) {
         logger.debug("DocumentTextListControllerImpl::imageDelete");
         documentTextService.deleteById(Long.valueOf(id));
-        return MappingConstants.REDIRECT + TextMappingConstants.DOCUMENT_TEXT;
+        return MappingConstants.REDIRECT + TextMappingConstants.DOCUMENT_TEXT_LIST;
     }
 
     @Override

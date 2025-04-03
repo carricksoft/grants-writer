@@ -22,7 +22,7 @@
 <div th:insert="~{fragments/layout::banner}"></div>
 
 <div class="container border border-info rounded-3 text-center p-4">
-    <form th:object="${imageCommand}" th:action="@{/person}" method="post">
+    <form th:object="${imageCommand}" th:action="@{/image}" method="post">
         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
             <p>Please Correct The Errors Below</p>
         </div>

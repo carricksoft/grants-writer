@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
-import scot.carricksoftware.grants.commands.text.PersonTextCommand;
+import scot.carricksoftware.grants.commands.text.DocumentTextCommand;
 
 @SuppressWarnings("unused")
 @Component
@@ -17,7 +17,7 @@ public class DocumentTextCommandValidator {
 
     private static final Logger logger = LogManager.getLogger(DocumentTextCommandValidator.class);
 
-    public void validate(PersonTextCommand personTextCommand, BindingResult bindingResult) {
+    public void validate(DocumentTextCommand documentTextCommand, BindingResult bindingResult) {
       logger.debug("DocumentTextCommandValidator::validate");
 
     }

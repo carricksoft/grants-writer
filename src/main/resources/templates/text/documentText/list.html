@@ -30,7 +30,7 @@
             </thead>
 
             <!--/*@thymesVar id="text" type="scot.carricksoftware.grants.domains.text.DocumentText"*/-->
-            <tr th:each="text : ${document_texts}">
+            <tr th:each="text : ${documentTexts}">
                 <td th:text="${text.id}">123</td>
                 <td></td>
                 <td></td>
@@ -51,7 +51,7 @@
                          <a th:action="back" class="btn btn-secondary btn-sm"
                             th:href="@{/documentTexts/prev}" th:text="'<'"></a>
                          <a th:action="new" class="btn btn-primary btn-sm" th:href="@{/documentText/new}"
-                            th:text="'New Document'"></a>
+                            th:text="'New Document Text'"></a>
                          <a th:action="home" class="btn btn-success btn-sm"
                             th:href="@{/}" th:text="'Home'"></a>
                          <a th:action="forward" class="btn btn-secondary btn-sm"

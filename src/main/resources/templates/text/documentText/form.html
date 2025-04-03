@@ -18,11 +18,11 @@
 
 </head>
 <body>
-<!--/*@thymesVar id="personCommand" type="scot.carricksoftware.grants.commands.people.PersonCommand"*/-->
+<!--/*@thymesVar id="documentTextCommand" type="scot.carricksoftware.grants.commands.text.DocumentTextCommand"*/-->
 <div th:insert="~{fragments/layout::banner}"></div>
 
 <div class="container border border-info rounded-3 text-center p-4">
-    <form th:object="${imageCommand}" th:action="@{/person}" method="post">
+    <form th:object="${documentTextCommand}" th:action="@{/documentText}" method="post">
         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
             <p>Please Correct The Errors Below</p>
         </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Commit</button>
-        <a class="btn btn-secondary" th:href="@{/people}" th:text="${'List all'}">List all</a>
+        <a class="btn btn-secondary" th:href="@{/documentTexts}" th:text="${'List all'}">List all</a>
         <a class="btn btn-success" th:href="@{/}" th:text="${'Home'}">Home</a>
         <h6><span style="color: rgb(255,0,0);">*</span><span> Cannot be edited</span></h6>
     </form>

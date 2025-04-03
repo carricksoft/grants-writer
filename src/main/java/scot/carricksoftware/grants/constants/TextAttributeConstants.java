@@ -15,19 +15,19 @@ public class TextAttributeConstants {
     }
 
     @SuppressWarnings({"unused"})
-    public static final String DOCUMENT_TEXTS = "document_texts";
+    public static final String DOCUMENT_TEXTS = "documentTexts";
     @SuppressWarnings({"unused"})
-    public static final String DOCUMENT_TEXT_COMMAND = "document_text_Command";
+    public static final String DOCUMENT_TEXT_COMMAND = "documentTextCommand";
 
     @SuppressWarnings({"unused"})
-    public static final String PERSON_TEXTS = "document_texts";
+    public static final String PERSON_TEXTS = "personTexts";
     @SuppressWarnings({"unused"})
-    public static final String PERSON_TEXT_COMMAND = "document_text_Command";
+    public static final String PERSON_TEXT_COMMAND = "documentTextCommand";
 
     @SuppressWarnings({"unused"})
-    public static final String PLACE_TEXTS = "place_texts";
+    public static final String PLACE_TEXTS = "placeTexts";
     @SuppressWarnings({"unused"})
-    public static final String PLACE_TEXT_COMMAND = "place_text_Command";
+    public static final String PLACE_TEXT_COMMAND = "placeTextCommand";
 
     @SuppressWarnings("unused")
     public static final String PERSON_IMAGES = "personImages";

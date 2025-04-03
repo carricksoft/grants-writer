@@ -56,7 +56,7 @@ public class PlaceTextFormControllerImpl implements PlaceTextFormController {
     public final String getNewPlaceText(final Model model) {
         logger.debug("PlaceTextFormControllerImpl::getNewPlaceText");
         model.addAttribute(TextAttributeConstants.PLACE_TEXT_COMMAND, new PlaceTextCommandImpl());
-        model.addAttribute(AttributeConstants.PEOPLE, placeService.findAll());
+        model.addAttribute(AttributeConstants.PLACES, placeService.findAll());
         return ViewConstants.PLACE_TEXT_FORM;
     }
 

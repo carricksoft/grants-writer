@@ -46,7 +46,7 @@ class PlaceTextCommandValidatorTest {
     }
 
     @Test
-    void validateNullPerson() {
+    void validateNullPlaceTest() {
         validator.validate(placeTextCommand, bindingResultMock);
 
         verify(bindingResultMock).rejectValue(stringArgumentCaptor.capture(),

@@ -45,7 +45,7 @@ class PersonTextCommandValidatorTest {
     }
 
     @Test
-    void validateNullPerson() {
+    void validateNullPersonTest() {
 
         validator.validate(personTextCommand, bindingResultMock);
 

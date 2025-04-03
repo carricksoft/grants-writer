@@ -31,7 +31,7 @@
 
             <!--/*@thymesVar id="text" type="scot.carricksoftware.grants.domains.text.PersonText"*/-->
             <!--/*@thymesVar id="person" type="scot.carricksoftware.grants.domains.people.Person"*/-->
-            <tr th:each="text : ${document_texts}">
+            <tr th:each="text : ${personTexts}">
                 <td th:text="${text.id}">123</td>
                 <td th:text="${text.person.toString()}">123</td>
                 <td></td>
@@ -52,7 +52,7 @@
                          <a th:action="back" class="btn btn-secondary btn-sm"
                             th:href="@{/personTexts/prev}" th:text="'<'"></a>
                          <a th:action="new" class="btn btn-primary btn-sm" th:href="@{/personText/new}"
-                            th:text="'New Document'"></a>
+                            th:text="'New Person Text'"></a>
                          <a th:action="home" class="btn btn-success btn-sm"
                             th:href="@{/}" th:text="'Home'"></a>
                          <a th:action="forward" class="btn btn-secondary btn-sm"

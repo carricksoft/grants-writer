@@ -22,7 +22,7 @@ public class TextAttributeConstants {
     @SuppressWarnings({"unused"})
     public static final String PERSON_TEXTS = "personTexts";
     @SuppressWarnings({"unused"})
-    public static final String PERSON_TEXT_COMMAND = "documentTextCommand";
+    public static final String PERSON_TEXT_COMMAND = "personTextCommand";
 
     @SuppressWarnings({"unused"})
     public static final String PLACE_TEXTS = "placeTexts";

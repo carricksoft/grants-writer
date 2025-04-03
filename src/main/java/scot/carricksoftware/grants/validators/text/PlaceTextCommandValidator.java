@@ -21,6 +21,7 @@ public class PlaceTextCommandValidator {
 
     public void validate(PlaceTextCommand personTextCommand, BindingResult bindingResult) {
       logger.debug("PlaceTextCommandValidator::validate");
+
         if (personTextCommand.getPlace() == null) {
             bindingResult.rejectValue("place", ApplicationConstants.EMPTY_STRING,
                     null,

@@ -18,11 +18,12 @@
 
 </head>
 <body>
-<!--/*@thymesVar id="personTextCommand" type="scot.carricksoftware.grants.commands.text.PersonTextCommand"*/-->
+<!--/*@thymesVar id="placeTextCommand" type="scot.carricksoftware.grants.commands.text.PlaceTextCommand"*/-->
+<!--/*@thymesVar id="place" type="scot.carricksoftware.grants.domains.places.Place"*/-->
 <div th:insert="~{fragments/layout::banner}"></div>
 
 <div class="container border border-info rounded-3 text-center p-4">
-    <form th:object="${imageCommand}" th:action="@{/person}" method="post">
+    <form th:object="${placeTextCommand}" th:action="@{/placeText}" method="post">
         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
             <p>Please Correct The Errors Below</p>
         </div>
@@ -33,6 +34,23 @@
                        th:field="*{id}" type="text" readonly>
             </div>
         </div>
+
+        <div class="col-xs-4" style="margin-right:20px;">
+            <label for="place">Place</label>
+            <div>
+                <select id="place" style="width: 300px;" name="place" th:field="*{place}">
+                    <option th:value="${''}" th:text="${''}"></option>
+                    <option th:each="place : ${places}"
+                            th:value="${place.id}" th:text="${place.toString()}"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('place')}">
+                    <ul class="text-danger">
+                        <li th:each="err : ${#fields.errors('place')}" th:text="${err}"/>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Commit</button>
         <a class="btn btn-secondary" th:href="@{/people}" th:text="${'List all'}">List all</a>
         <a class="btn btn-success" th:href="@{/}" th:text="${'Home'}">Home</a>

@@ -32,33 +32,33 @@
             <!--/*@thymesVar id="text" type="scot.carricksoftware.grants.domains.text.PlaceText"*/-->
             <!--/*@thymesVar id="place" type="scot.carricksoftware.grants.domains.places.Place"*/-->
 
-            <tr th:each="text : ${place_texts}">
+            <tr th:each="text : ${placeTexts}">
                 <td th:text="${text.id}">123</td>
                 <td th:text="${text.place.toString()}">123</td>
                 <td></td>
                 <td><span>
                         <a th:action="delete" class="btn btn-danger btn-sm" href=""
-                           th:href="'personTexts/' + ${text.id} + '/delete'"
+                           th:href="'placeTexts/' + ${text.id} + '/delete'"
                            th:text="Delete"></a>
                     <a th:action="edit" class="btn btn-warning btn-sm"
-                       th:href="'personText/' + ${text.id} + '/edit'"
+                       th:href="'placedText/' + ${text.id} + '/edit'"
                        th:text="Edit"></a>
                     </span></td>
             </tr>
             <tfoot>
             <tr>
                 <td colspan="4"><span>
-                        <a th:action="rewind" class="btn btn-secondary btn-sm" th:href="@{/personTexts/rewind}"
+                        <a th:action="rewind" class="btn btn-secondary btn-sm" th:href="@{/placeTexts/rewind}"
                            th:text="'<<'"></a>
                          <a th:action="back" class="btn btn-secondary btn-sm"
-                            th:href="@{/personTexts/prev}" th:text="'<'"></a>
-                         <a th:action="new" class="btn btn-primary btn-sm" th:href="@{/personText/new}"
+                            th:href="@{/placeTexts/prev}" th:text="'<'"></a>
+                         <a th:action="new" class="btn btn-primary btn-sm" th:href="@{/placeText/new}"
                             th:text="'New Document'"></a>
                          <a th:action="home" class="btn btn-success btn-sm"
                             th:href="@{/}" th:text="'Home'"></a>
                          <a th:action="forward" class="btn btn-secondary btn-sm"
                             th:href="@{/personTexts/next}" th:text="'>'"></a>
-                         <a th:action="end" class="btn btn-secondary btn-sm" th:href="@{/personTexts/ff}"
+                         <a th:action="end" class="btn btn-secondary btn-sm" th:href="@{/placeTexts/ff}"
                             th:text="'>>'"></a>
                         </span></td>
             </tr>

@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.commands.census.CensusCommand;
 import scot.carricksoftware.grants.commands.census.CensusCommandImpl;
@@ -21,6 +22,7 @@ import scot.carricksoftware.grants.services.places.places.PlaceService;
 import java.time.LocalDate;
 
 @Component
+@Profile("dev")
 public class DataLoadCensus {
 
     private static final Logger logger = LogManager.getLogger(DataLoadCensus.class);

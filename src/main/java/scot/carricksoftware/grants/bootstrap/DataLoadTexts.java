@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.commands.text.*;
 import scot.carricksoftware.grants.services.people.PersonService;
@@ -16,6 +17,7 @@ import scot.carricksoftware.grants.services.text.persontext.PersonTextService;
 import scot.carricksoftware.grants.services.text.placetext.PlaceTextService;
 
 @Component
+@Profile("dev")
 public class DataLoadTexts {
 
     private static final Logger logger = LogManager.getLogger(DataLoadTexts.class);

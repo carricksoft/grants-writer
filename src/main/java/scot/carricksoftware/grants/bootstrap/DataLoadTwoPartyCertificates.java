@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.domains.certificates.DivorceCertificate;
 import scot.carricksoftware.grants.domains.certificates.MarriageCertificate;
@@ -15,6 +16,7 @@ import scot.carricksoftware.grants.services.certificates.marriagecertificates.Ma
 import scot.carricksoftware.grants.services.people.PersonService;
 
 @Component
+@Profile("dev")
 public class DataLoadTwoPartyCertificates {
 
     private static final Logger logger = LogManager.getLogger(DataLoadTwoPartyCertificates.class);

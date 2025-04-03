@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.domains.certificates.BirthCertificate;
 import scot.carricksoftware.grants.domains.certificates.DeathCertificate;
@@ -15,6 +16,7 @@ import scot.carricksoftware.grants.services.certificates.deathcertificates.Death
 import scot.carricksoftware.grants.services.people.PersonService;
 
 @Component
+@Profile("dev")
 public class DataLoadCertificates {
 
     private static final Logger logger = LogManager.getLogger(DataLoadCertificates.class);

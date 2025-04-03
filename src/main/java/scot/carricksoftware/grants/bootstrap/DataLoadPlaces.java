@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.domains.places.Country;
 import scot.carricksoftware.grants.domains.places.Place;
@@ -16,6 +17,7 @@ import scot.carricksoftware.grants.services.places.places.PlaceService;
 import scot.carricksoftware.grants.services.places.regions.RegionService;
 
 @Component
+@Profile("dev")
 public class DataLoadPlaces {
 
     private static final Logger logger = LogManager.getLogger(DataLoadPlaces.class);

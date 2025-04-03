@@ -7,12 +7,14 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.services.people.PersonService;
 
 
 @Component
+@Profile("dev")
 public class DataLoadPeople {
 
     private static final Logger logger = LogManager.getLogger(DataLoadPeople.class);

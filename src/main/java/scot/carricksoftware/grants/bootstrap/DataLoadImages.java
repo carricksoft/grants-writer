@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.commands.images.*;
 import scot.carricksoftware.grants.services.images.image.ImageService;
@@ -16,6 +17,7 @@ import scot.carricksoftware.grants.services.people.PersonService;
 import scot.carricksoftware.grants.services.places.places.PlaceService;
 
 @Component
+@Profile("dev")
 public class DataLoadImages {
 
     private static final Logger logger = LogManager.getLogger(DataLoadImages.class);

@@ -1,0 +1,3 @@
+First run only: mvn clean test liquibase:updateSQL
+
+Then:   mvn clean test liquibase:update

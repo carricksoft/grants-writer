@@ -17,7 +17,6 @@ public class Region extends BaseEntity {
 
     private String name;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "region_country_id")
     private Country country;

@@ -14,6 +14,7 @@ import scot.carricksoftware.grants.commands.census.CensusCommandImpl;
 import scot.carricksoftware.grants.commands.census.CensusEntryCommand;
 import scot.carricksoftware.grants.commands.census.CensusEntryCommandImpl;
 import scot.carricksoftware.grants.domains.places.Place;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.services.census.CensusEntryService;
 import scot.carricksoftware.grants.services.census.CensusService;
 import scot.carricksoftware.grants.services.people.PersonService;
@@ -65,6 +66,7 @@ public class DataLoadCensus {
         censusEntryCommand.setName("Archie Grant");
         censusEntryCommand.setCensus(censusService.findById(1L));
         censusEntryCommand.setPerson(personService.findById(1L));
+        censusEntryCommand.setRelationship(CensusEntryRelationship.COUSIN);
         censusEntryService.saveCensusEntryCommand(censusEntryCommand);
     }
 

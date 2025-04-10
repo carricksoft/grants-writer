@@ -20,6 +20,7 @@ public class CensusEntryConverterImpl implements CensusEntryConverter {
         result.setName(source.getName());
         result.setCensus(source.getCensus());
         result.setPerson(source.getPerson());
+        result.setRelationship(source.getRelationship());
         return result;
     }
 }

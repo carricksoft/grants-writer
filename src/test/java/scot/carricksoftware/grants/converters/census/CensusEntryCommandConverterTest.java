@@ -12,8 +12,10 @@ import scot.carricksoftware.grants.commands.census.CensusEntryCommandImpl;
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.census.CensusEntry;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static scot.carricksoftware.grants.GenerateCensusEntryRelationshipRandomValue.GetRandomCensusEntryRelationship;
 import static scot.carricksoftware.grants.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grants.GenerateRandomCensusValues.GetRandomCensus;
 import static scot.carricksoftware.grants.GenerateRandomNumberValues.GetRandomLong;
@@ -32,6 +34,7 @@ class CensusEntryCommandConverterTest {
     void convertTest() {
         Long id = GetRandomLong();
         String name = GetRandomString();
+        CensusEntryRelationship relationship = GetRandomCensusEntryRelationship();
         CensusEntryCommand source = new CensusEntryCommandImpl();
         Census census = GetRandomCensus();
         Person person = GetRandomPerson();
@@ -41,6 +44,7 @@ class CensusEntryCommandConverterTest {
         source.setName(name);
         source.setCensus(census);
         source.setPerson(person);
+        source.setRelationship(relationship);
 
 
         CensusEntry target = converter.convert(source);
@@ -50,5 +54,6 @@ class CensusEntryCommandConverterTest {
         assertEquals(name, target.getName());
         assertEquals(census, target.getCensus());
         assertEquals(person, target.getPerson());
+        assertEquals(relationship, target.getRelationship());
     }
 }

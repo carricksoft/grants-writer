@@ -5,11 +5,10 @@
 
 package scot.carricksoftware.grants.domains.census;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 @Entity
 public class CensusEntry extends BaseEntity {
@@ -25,6 +24,9 @@ public class CensusEntry extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
+
+    @Enumerated(EnumType.STRING)
+    private CensusEntryRelationship relationship;
 
     public Person getPerson() {
         return person;
@@ -54,5 +56,11 @@ public class CensusEntry extends BaseEntity {
         return census.toString();
     }
 
+    public CensusEntryRelationship getRelationship() {
+        return relationship;
+    }
 
+    public void setRelationship(CensusEntryRelationship relationship) {
+        this.relationship = relationship;
+    }
 }

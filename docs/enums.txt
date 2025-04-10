@@ -1,0 +1,6 @@
+1:Create Enum
+2: Domain
+3: Domain getter and setter
+4 : Random Value
+5: test getter and setter
+6: Enums Test

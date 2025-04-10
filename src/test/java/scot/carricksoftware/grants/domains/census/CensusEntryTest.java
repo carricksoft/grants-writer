@@ -65,7 +65,6 @@ class CensusEntryTest {
         assertEquals(string, entry.toString());
     }
 
-
     @Test
     void getPersonTest() {
         assertNull(entry.getPerson());

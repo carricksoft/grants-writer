@@ -1,6 +1,8 @@
 1:Create Enum
 2: Domain
 3: Domain getter and setter
-4 : Random Value
-5: test getter and setter
-6: Enums Test
+4 :Random Value
+5: Test getter and setter in Domain Enums Test
+6: Command
+8: Command getter and setter in Command Enums Test
+9:

@@ -1,3 +1,4 @@
+0:Switch to dev
 1:Create Enum
 2: Domain
 3: Domain getter and setter
@@ -10,3 +11,8 @@
 11: Bootstrap
 12: Bootstrap Test
 13: Modify the form
+14: Switch to uat
+15: Generate changelog (ctrl-shift-A) as sql
+16: Add the new file to master.xml
+16: Run in terminal  mvn clean test liquibase:update
+

@@ -40,7 +40,7 @@ rounded-3 text-center p-4">
             <div class="col-xs-4" style="margin-right:20px;">
                 <label for="census">Census</label>
                 <div>
-                    <select id="census" style="width: 300px;" name="census" th:field="*{census}">
+                    <select id="census" style="width: 500px;" name="census" th:field="*{census}">
                         <option th:value="${''}" th:text="${''}"></option>
                         <option th:each="census : ${censuses}"
                                 th:value="${census.id}" th:text="${census.toString()}"></option>
@@ -54,10 +54,10 @@ rounded-3 text-center p-4">
             </div>
         </div>
         <div class="form-group row justify-content-center">
-            <div class="col-xs-4" style="margin-right:20px;">
+            <div class="col-md-3" style="margin-right:20px;">
                 <label for="person">Person</label>
                 <div>
-                    <select id="person" style="width: 300px;" name="person" th:field="*{person}">
+                    <select id="person" style="width: 200px;" name="person" th:field="*{person}">
                         <option th:value="${''}" th:text="${''}"></option>
                         <option th:each="person : ${people}"
                                 th:value="${person.id}" th:text="${person.toString()}"></option>
@@ -69,17 +69,26 @@ rounded-3 text-center p-4">
                     </div>
                 </div>
             </div>
-            <div class="col-md-3" >
-                <label for="name">Untracked Person</label>
+            <div class="col-md-3">
+                <label for="name">Untracked Person<span style="color: rgb(255,0,0);">+</span></label>
                 <input class="form-control" id="name"
-                       th:field="*{name}" type="text" style="width: 300px;" >
+                       th:field="*{name}" type="text" style="width: 200px;">
                 <div th:if="${#fields.hasErrors('name')}">
                     <ul class="text-danger">
                         <li th:each="err : ${#fields.errors('name')}" th:text="${err}" style="width: 300px;"/>
                     </ul>
                 </div>
             </div>
-
+            <div class="col-md-3">
+                <label for="relationship">Relationship to Head</label>
+                <div>
+                    <select id="relationship" style="width: 200px;" name="relationship" th:field="*{relationship}">
+                        <option th:value="${''}" th:text="${''}"></option>
+                        <option th:each="value : ${T(scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship).values()}"
+                                th:value="${value}" th:text="${value}"></option>
+                    </select>
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Commit</button>
         <a class="btn btn-secondary" th:href="@{/censusEntries}" th:text="${'List all'}">List all</a>

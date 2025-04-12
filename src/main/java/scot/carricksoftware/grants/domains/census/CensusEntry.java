@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
 import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
 @Entity
 public class CensusEntry extends BaseEntity {
@@ -27,6 +28,9 @@ public class CensusEntry extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private CensusEntryRelationship relationship;
+
+    @Enumerated(EnumType.STRING)
+    private CensusEntryCondition condition;
 
     public Person getPerson() {
         return person;
@@ -63,4 +67,14 @@ public class CensusEntry extends BaseEntity {
     public void setRelationship(CensusEntryRelationship relationship) {
         this.relationship = relationship;
     }
+
+    public CensusEntryCondition getCondition() {
+        return this.condition;
+    }
+
+    public void setCondition(CensusEntryCondition condition) {
+        this.condition = condition;
+    }
+
+
 }

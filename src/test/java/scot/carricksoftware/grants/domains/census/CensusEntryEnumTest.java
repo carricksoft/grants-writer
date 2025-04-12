@@ -9,10 +9,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static scot.carricksoftware.grants.GenerateCensusEntryConditionRandomValue.GetRandomCensusEntryCondition;
 import static scot.carricksoftware.grants.GenerateCensusEntryRelationshipRandomValue.GetRandomCensusEntryRelationship;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,10 +33,22 @@ class CensusEntryEnumTest {
     }
 
     @Test
-    void setPersonTest() {
+    void setRelationshipTest() {
         CensusEntryRelationship relationship = GetRandomCensusEntryRelationship();
         entry.setRelationship(relationship);
         assertEquals(relationship, entry.getRelationship());
+    }
+
+    @Test
+    void getConditionTest() {
+        assertNull(entry.getCondition());
+    }
+
+    @Test
+    void setConditionTest() {
+        CensusEntryCondition condition = GetRandomCensusEntryCondition();
+        entry.setCondition(condition);
+        assertEquals(condition, entry.getCondition());
     }
 
 }

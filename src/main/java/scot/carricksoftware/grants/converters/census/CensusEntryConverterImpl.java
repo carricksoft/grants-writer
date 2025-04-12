@@ -13,6 +13,7 @@ import scot.carricksoftware.grants.domains.census.CensusEntry;
 @Component
 public class CensusEntryConverterImpl implements CensusEntryConverter {
 
+    @SuppressWarnings("DuplicatedCode")
     @Override
     public CensusEntryCommand convert(CensusEntry source) {
         CensusEntryCommand result = new CensusEntryCommandImpl();
@@ -21,6 +22,7 @@ public class CensusEntryConverterImpl implements CensusEntryConverter {
         result.setCensus(source.getCensus());
         result.setPerson(source.getPerson());
         result.setRelationship(source.getRelationship());
+        result.setCondition(source.getCondition());
         return result;
     }
 }

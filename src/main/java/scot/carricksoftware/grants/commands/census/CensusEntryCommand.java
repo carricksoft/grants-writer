@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.commands.census;
 
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 public interface CensusEntryCommand {
@@ -30,4 +31,8 @@ public interface CensusEntryCommand {
     CensusEntryRelationship getRelationship();
 
     void setRelationship(CensusEntryRelationship relationship);
+
+    CensusEntryCondition getCondition();
+
+    void setCondition(CensusEntryCondition condition);
 }

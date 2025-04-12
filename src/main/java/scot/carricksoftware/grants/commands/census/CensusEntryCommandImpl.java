@@ -8,6 +8,7 @@ package scot.carricksoftware.grants.commands.census;
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
 public class CensusEntryCommandImpl implements CensusEntryCommand {
 
@@ -20,6 +21,8 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     private Person person;
 
     private CensusEntryRelationship relationship;
+
+    private CensusEntryCondition condition;
 
     public Long getId() {
         return id;
@@ -67,5 +70,15 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     @Override
     public void setRelationship(CensusEntryRelationship relationship) {
         this.relationship = relationship;
+    }
+
+    @Override
+    public CensusEntryCondition getCondition() {
+        return condition;
+    }
+
+    @Override
+    public void setCondition(CensusEntryCondition condition) {
+        this.condition = condition;
     }
 }

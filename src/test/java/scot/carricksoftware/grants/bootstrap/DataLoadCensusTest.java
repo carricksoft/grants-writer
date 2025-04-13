@@ -11,6 +11,7 @@ import scot.carricksoftware.grants.commands.census.CensusEntryCommand;
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.domains.places.Place;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.services.census.CensusEntryService;
 import scot.carricksoftware.grants.services.census.CensusService;
@@ -72,6 +73,7 @@ public class DataLoadCensusTest {
         Census census = GetRandomCensus();
         Person person = GetRandomPerson();
         CensusEntryRelationship relationship = CensusEntryRelationship.COUSIN;
+        CensusEntryCondition condition = CensusEntryCondition.MARRIED;
         when(censusServiceMock.findById(1L)).thenReturn(census);
         when(personServiceMock.findById(1L)).thenReturn(person);
 
@@ -82,6 +84,7 @@ public class DataLoadCensusTest {
         assertEquals(census, captor.getValue().getCensus());
         assertEquals(person, captor.getValue().getPerson());
         assertEquals(relationship, captor.getValue().getRelationship());
+        assertEquals(condition, captor.getValue().getCondition());
     }
 
 

@@ -55,7 +55,7 @@ class CensusEntryConverterTest {
         assertEquals(name, target.getName());
         assertEquals(census, target.getCensus());
         assertEquals(person, target.getPerson());
-        assertEquals(person, target.getPerson());
+        assertEquals(relationship, target.getRelationship());
         assertEquals(condition, target.getCondition());
     }
 }

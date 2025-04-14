@@ -11,12 +11,12 @@ import scot.carricksoftware.grants.commands.census.CensusEntryCommand;
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.census.CensusEntry;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryCondition;
-import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryRelationship;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.*;
 import static scot.carricksoftware.grants.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grants.GenerateRandomCensusValues.GetRandomCensus;
 import static scot.carricksoftware.grants.GenerateRandomNumberValues.GetRandomLong;
@@ -39,6 +39,7 @@ class CensusEntryConverterTest {
         CensusEntry source = new CensusEntry();
         CensusEntryRelationship relationship = GetRandomCensusEntryRelationship();
         CensusEntryCondition condition = GetRandomCensusEntryCondition();
+        CensusEntryGaelic gaelic = GetRandomCensusEntryGaelic();
         Person person = GetRandomPerson();
 
         source.setId(id);
@@ -47,6 +48,7 @@ class CensusEntryConverterTest {
         source.setPerson(person);
         source.setRelationship(relationship);
         source.setCondition(condition);
+        source.setGaelic(gaelic);
 
         CensusEntryCommand target = converter.convert(source);
 
@@ -57,5 +59,6 @@ class CensusEntryConverterTest {
         assertEquals(person, target.getPerson());
         assertEquals(relationship, target.getRelationship());
         assertEquals(condition, target.getCondition());
+        assertEquals(gaelic, target.getGaelic());
     }
 }

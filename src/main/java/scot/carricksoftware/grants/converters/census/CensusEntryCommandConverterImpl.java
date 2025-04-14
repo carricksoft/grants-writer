@@ -22,6 +22,7 @@ public class CensusEntryCommandConverterImpl implements CensusEntryCommandConver
         result.setPerson(source.getPerson());
         result.setRelationship(source.getRelationship());
         result.setCondition(source.getCondition());
+        result.setGaelic(source.getGaelic());
         return result;
     }
 

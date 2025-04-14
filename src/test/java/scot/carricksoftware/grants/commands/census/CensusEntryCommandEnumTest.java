@@ -9,12 +9,12 @@ package scot.carricksoftware.grants.commands.census;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryCondition;
-import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryRelationship;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.*;
 
 class CensusEntryCommandEnumTest {
 
@@ -49,6 +49,16 @@ class CensusEntryCommandEnumTest {
         assertEquals(condition, command.getCondition());
     }
 
+    @Test
+    void getGaelicTest() {
+        assertNull(command.getGaelic());
+    }
 
+    @Test
+    void setGaelicTest() {
+        CensusEntryGaelic gaelic = GetRandomCensusEntryGaelic();
+        command.setGaelic(gaelic);
+        assertEquals(gaelic, command.getGaelic());
+    }
 
 }

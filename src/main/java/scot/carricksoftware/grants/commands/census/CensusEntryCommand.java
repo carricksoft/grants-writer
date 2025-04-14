@@ -8,6 +8,7 @@ package scot.carricksoftware.grants.commands.census;
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 public interface CensusEntryCommand {
@@ -35,4 +36,8 @@ public interface CensusEntryCommand {
     CensusEntryCondition getCondition();
 
     void setCondition(CensusEntryCondition condition);
+
+    CensusEntryGaelic getGaelic();
+
+    void setGaelic(CensusEntryGaelic gaelic);
 }

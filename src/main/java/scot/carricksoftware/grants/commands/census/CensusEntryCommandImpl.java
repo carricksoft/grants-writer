@@ -7,6 +7,7 @@ package scot.carricksoftware.grants.commands.census;
 
 import scot.carricksoftware.grants.domains.census.Census;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
@@ -23,6 +24,8 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     private CensusEntryRelationship relationship;
 
     private CensusEntryCondition condition;
+
+    private CensusEntryGaelic gaelic;
 
     public Long getId() {
         return id;
@@ -80,5 +83,15 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     @Override
     public void setCondition(CensusEntryCondition condition) {
         this.condition = condition;
+    }
+
+    @Override
+    public CensusEntryGaelic getGaelic() {
+        return gaelic;
+    }
+
+    @Override
+    public void setGaelic(CensusEntryGaelic gaelic) {
+        this.gaelic = gaelic;
     }
 }

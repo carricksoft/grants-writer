@@ -7,7 +7,7 @@ package scot.carricksoftware.grants.enums.censusentry;
 
 public enum CensusEntryGaelic {
     @SuppressWarnings("unused") GAELIC("Gaelic"),
-    @SuppressWarnings("unused") GAELICANDENGLISH("Gaelic and English");
+    @SuppressWarnings({"unused", "SpellCheckingInspection"}) GAELICANDENGLISH("Gaelic and English");
 
     @SuppressWarnings("unused")
     public final String label;

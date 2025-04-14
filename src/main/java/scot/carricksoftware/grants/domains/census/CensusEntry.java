@@ -31,7 +31,7 @@ public class CensusEntry extends BaseEntity {
     private CensusEntryRelationship relationship;
 
     @Enumerated(EnumType.STRING)
-    private CensusEntryGaelic Gaelic;
+    private CensusEntryGaelic gaelic;
 
     @Enumerated(EnumType.STRING)
     private CensusEntryCondition condition;
@@ -81,10 +81,10 @@ public class CensusEntry extends BaseEntity {
     }
 
     public CensusEntryGaelic getGaelic() {
-        return Gaelic;
+        return this.gaelic;
     }
 
     public void setGaelic(CensusEntryGaelic gaelic) {
-        Gaelic = gaelic;
+        this.gaelic = gaelic;
     }
 }

@@ -85,7 +85,7 @@ rounded-3 text-center p-4">
                     <select id="relationship" style="width: 200px;" name="relationship" th:field="*{relationship}">
                         <option th:value="${''}" th:text="${''}"></option>
                         <option th:each="value : ${T(scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship).values()}"
-                                th:value="${value}" th:text="${value}"></option>
+                                th:value="${value}" th:text="${value.label}"></option>
                     </select>
                 </div>
             </div>
@@ -95,7 +95,7 @@ rounded-3 text-center p-4">
                     <select id="condition" style="width: 200px;" name="condition" th:field="*{condition}">
                         <option th:value="${''}" th:text="${''}"></option>
                         <option th:each="value : ${T(scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition).values()}"
-                                th:value="${value}" th:text="${value}"></option>
+                                th:value="${value}" th:text="${value.label}"></option>
                     </select>
                 </div>
             </div>
@@ -105,7 +105,7 @@ rounded-3 text-center p-4">
                     <select id="gaelic" style="width: 200px;" name="gaelic" th:field="*{gaelic}">
                         <option th:value="${''}" th:text="${''}"></option>
                         <option th:each="value : ${T(scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic).values()}"
-                                th:value="${value}" th:text="${value}"></option>
+                                th:value="${value}" th:text="${value.label}"></option>
                     </select>
                 </div>
             </div>

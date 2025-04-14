@@ -5,15 +5,16 @@
 
 package scot.carricksoftware.grants.enums.censusentry;
 
-public enum CensusEntryGaelic {
-    @SuppressWarnings("unused") GAELIC("Gaelic"),
-    GAELIC_AND_ENGLISH("Gaelic and English");
+public enum CensusEntryWorker {
+    @SuppressWarnings("unused") WORKER("Worker"),
+    @SuppressWarnings("unused") EMPLOYER("Widower"),
+    @SuppressWarnings("unused") OWN_ACCOUNT("Own Account"),;
 
     @SuppressWarnings("unused")
     public final String label;
 
     @SuppressWarnings("unused")
-    CensusEntryGaelic(String label) {
+    CensusEntryWorker(String label) {
         this.label = label;
     }
 }

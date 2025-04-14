@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -61,6 +62,18 @@ class CensusEntryEnumTest {
         CensusEntryGaelic gaelic = GetRandomCensusEntryGaelic();
         entry.setGaelic(gaelic);
         assertEquals(gaelic, entry.getGaelic());
+    }
+
+    @Test
+    void getWorkerTest() {
+        assertNull(entry.getCondition());
+    }
+
+    @Test
+    void setWorkerTest() {
+        CensusEntryWorker worker = GetRandomCensusEntryWorker();
+        entry.setWorker(worker);
+        assertEquals(worker, entry.getWorker());
     }
 
 }

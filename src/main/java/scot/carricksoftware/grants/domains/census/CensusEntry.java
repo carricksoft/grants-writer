@@ -11,6 +11,7 @@ import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 @Entity
 public class CensusEntry extends BaseEntity {
@@ -35,6 +36,9 @@ public class CensusEntry extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private CensusEntryCondition condition;
+
+    @Enumerated(EnumType.STRING)
+    private CensusEntryWorker worker;
 
     public Person getPerson() {
         return person;
@@ -86,5 +90,13 @@ public class CensusEntry extends BaseEntity {
 
     public void setGaelic(CensusEntryGaelic gaelic) {
         this.gaelic = gaelic;
+    }
+
+    public CensusEntryWorker getWorker() {
+        return worker;
+    }
+
+    public void setWorker(CensusEntryWorker worker) {
+        this.worker = worker;
     }
 }

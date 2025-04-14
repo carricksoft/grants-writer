@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 import java.util.Random;
 
@@ -33,12 +34,19 @@ public class GenerateCensusEntryRandomEnums {
         return gaelicArray[randomInt];
     }
 
-
     public static CensusEntryRelationship GetRandomCensusEntryRelationship() {
         CensusEntryRelationship[] relationships = CensusEntryRelationship.values();
 
         Random random = new Random();
         int randomInt = random.nextInt(0, relationships.length );
         return relationships[randomInt];
+    }
+
+    public static CensusEntryWorker GetRandomCensusEntryWorker() {
+        CensusEntryWorker[] workers = CensusEntryWorker.values();
+
+        Random random = new Random();
+        int randomInt = random.nextInt(0, workers.length );
+        return workers[randomInt];
     }
 }

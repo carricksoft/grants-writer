@@ -10,6 +10,7 @@ import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 public interface CensusEntryCommand {
 
@@ -40,4 +41,8 @@ public interface CensusEntryCommand {
     CensusEntryGaelic getGaelic();
 
     void setGaelic(CensusEntryGaelic gaelic);
+
+    CensusEntryWorker getWorker();
+
+    void setWorker(CensusEntryWorker worker);
 }

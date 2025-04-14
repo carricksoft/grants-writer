@@ -10,6 +10,7 @@ import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 public class CensusEntryCommandImpl implements CensusEntryCommand {
 
@@ -26,6 +27,8 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     private CensusEntryCondition condition;
 
     private CensusEntryGaelic gaelic;
+
+    private CensusEntryWorker worker;
 
     public Long getId() {
         return id;
@@ -93,5 +96,15 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     @Override
     public void setGaelic(CensusEntryGaelic gaelic) {
         this.gaelic = gaelic;
+    }
+
+    @Override
+    public CensusEntryWorker getWorker() {
+        return worker;
+    }
+
+    @Override
+    public void setWorker(CensusEntryWorker worker) {
+        this.worker = worker;
     }
 }

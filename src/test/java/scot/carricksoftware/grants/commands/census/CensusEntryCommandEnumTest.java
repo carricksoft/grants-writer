@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -61,4 +62,16 @@ class CensusEntryCommandEnumTest {
         assertEquals(gaelic, command.getGaelic());
     }
 
+    @Test
+    void getWorkerTest() {
+        assertNull(command.getWorker());
+    }
+
+    @Test
+    void setWorkerTest() {
+        CensusEntryWorker worker = GetRandomCensusEntryWorker();
+        command.setWorker(worker);
+        assertEquals(worker, command.getWorker());
+    }
+    
 }

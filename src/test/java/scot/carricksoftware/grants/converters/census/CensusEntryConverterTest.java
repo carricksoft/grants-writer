@@ -15,8 +15,8 @@ import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static scot.carricksoftware.grants.GenerateCensusEntryConditionRandomValue.GetRandomCensusEntryCondition;
-import static scot.carricksoftware.grants.GenerateCensusEntryRelationshipRandomValue.GetRandomCensusEntryRelationship;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryCondition;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryRelationship;
 import static scot.carricksoftware.grants.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grants.GenerateRandomCensusValues.GetRandomCensus;
 import static scot.carricksoftware.grants.GenerateRandomNumberValues.GetRandomLong;

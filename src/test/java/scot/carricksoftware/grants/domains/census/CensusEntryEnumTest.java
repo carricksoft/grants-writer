@@ -11,11 +11,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static scot.carricksoftware.grants.GenerateCensusEntryConditionRandomValue.GetRandomCensusEntryCondition;
-import static scot.carricksoftware.grants.GenerateCensusEntryRelationshipRandomValue.GetRandomCensusEntryRelationship;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.*;
 
 @ExtendWith(MockitoExtension.class)
 class CensusEntryEnumTest {
@@ -49,6 +49,18 @@ class CensusEntryEnumTest {
         CensusEntryCondition condition = GetRandomCensusEntryCondition();
         entry.setCondition(condition);
         assertEquals(condition, entry.getCondition());
+    }
+
+    @Test
+    void getGaelicTest() {
+        assertNull(entry.getCondition());
+    }
+
+    @Test
+    void setGaelicTest() {
+        CensusEntryGaelic gaelic = GetRandomCensusEntryGaelic();
+        entry.setGaelic(gaelic);
+        assertEquals(gaelic, entry.getGaelic());
     }
 
 }

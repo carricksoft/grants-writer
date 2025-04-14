@@ -8,6 +8,7 @@ package scot.carricksoftware.grants.domains.census;
 import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
 import scot.carricksoftware.grants.domains.people.Person;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 
@@ -28,6 +29,9 @@ public class CensusEntry extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private CensusEntryRelationship relationship;
+
+    @Enumerated(EnumType.STRING)
+    private CensusEntryGaelic Gaelic;
 
     @Enumerated(EnumType.STRING)
     private CensusEntryCondition condition;
@@ -76,5 +80,11 @@ public class CensusEntry extends BaseEntity {
         this.condition = condition;
     }
 
+    public CensusEntryGaelic getGaelic() {
+        return Gaelic;
+    }
 
+    public void setGaelic(CensusEntryGaelic gaelic) {
+        Gaelic = gaelic;
+    }
 }

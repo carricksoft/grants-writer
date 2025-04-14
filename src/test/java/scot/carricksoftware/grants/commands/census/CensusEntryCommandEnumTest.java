@@ -13,8 +13,8 @@ import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static scot.carricksoftware.grants.GenerateCensusEntryConditionRandomValue.GetRandomCensusEntryCondition;
-import static scot.carricksoftware.grants.GenerateCensusEntryRelationshipRandomValue.GetRandomCensusEntryRelationship;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryCondition;
+import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.GetRandomCensusEntryRelationship;
 
 class CensusEntryCommandEnumTest {
 

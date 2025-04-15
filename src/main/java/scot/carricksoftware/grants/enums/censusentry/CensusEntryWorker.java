@@ -7,8 +7,8 @@ package scot.carricksoftware.grants.enums.censusentry;
 
 public enum CensusEntryWorker {
     @SuppressWarnings("unused") WORKER("Worker"),
-    @SuppressWarnings("unused") EMPLOYER("Widower"),
-    @SuppressWarnings("unused") OWN_ACCOUNT("Own Account"),;
+    @SuppressWarnings("unused") EMPLOYER("Employer"),
+    OWN_ACCOUNT("Own Account");
 
     @SuppressWarnings("unused")
     public final String label;

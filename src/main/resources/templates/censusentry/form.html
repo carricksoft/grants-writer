@@ -109,6 +109,16 @@ rounded-3 text-center p-4">
                     </select>
                 </div>
             </div>
+            <div class="col-md-3">
+                <label for="worker">Worker</label>
+                <div>
+                    <select id="worker" style="width: 200px;" name="worker" th:field="*{worker}">
+                        <option th:value="${''}" th:text="${''}"></option>
+                        <option th:each="value : ${T(scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker).values()}"
+                                th:value="${value}" th:text="${value.label}"></option>
+                    </select>
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Commit</button>
         <a class="btn btn-secondary" th:href="@{/censusEntries}" th:text="${'List all'}">List all</a>

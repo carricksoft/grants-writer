@@ -15,6 +15,7 @@ import scot.carricksoftware.grants.domains.people.Person;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static scot.carricksoftware.grants.GenerateCensusEntryRandomEnums.*;
@@ -39,6 +40,7 @@ class CensusEntryCommandConverterTest {
         CensusEntryRelationship relationship = GetRandomCensusEntryRelationship();
         CensusEntryCondition condition = GetRandomCensusEntryCondition();
         CensusEntryGaelic gaelic = GetRandomCensusEntryGaelic();
+        CensusEntryWorker worker = GetRandomCensusEntryWorker();
         CensusEntryCommand source = new CensusEntryCommandImpl();
         Census census = GetRandomCensus();
         Person person = GetRandomPerson();
@@ -51,6 +53,7 @@ class CensusEntryCommandConverterTest {
         source.setRelationship(relationship);
         source.setCondition(condition);
         source.setGaelic(gaelic);
+        source.setWorker(worker);
 
         CensusEntry target = converter.convert(source);
 
@@ -62,5 +65,6 @@ class CensusEntryCommandConverterTest {
         assertEquals(relationship, target.getRelationship());
         assertEquals(condition, target.getCondition());
         assertEquals(gaelic, target.getGaelic());
+        assertEquals(worker, target.getWorker());
     }
 }

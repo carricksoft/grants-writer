@@ -24,6 +24,7 @@ public class CensusEntryConverterImpl implements CensusEntryConverter {
         result.setRelationship(source.getRelationship());
         result.setCondition(source.getCondition());
         result.setGaelic(source.getGaelic());
+        result.setWorker(source.getWorker());
         return result;
     }
 }

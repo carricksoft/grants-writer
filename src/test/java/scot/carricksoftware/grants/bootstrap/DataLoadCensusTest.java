@@ -14,6 +14,7 @@ import scot.carricksoftware.grants.domains.places.Place;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 import scot.carricksoftware.grants.services.census.CensusEntryService;
 import scot.carricksoftware.grants.services.census.CensusService;
 import scot.carricksoftware.grants.services.people.PersonService;
@@ -73,9 +74,6 @@ public class DataLoadCensusTest {
         ArgumentCaptor<CensusEntryCommand> captor = ArgumentCaptor.forClass(CensusEntryCommand.class);
         Census census = GetRandomCensus();
         Person person = GetRandomPerson();
-        CensusEntryRelationship relationship = CensusEntryRelationship.COUSIN;
-        CensusEntryCondition condition = CensusEntryCondition.MARRIED;
-        CensusEntryGaelic gaelic = CensusEntryGaelic.GAELIC;
         when(censusServiceMock.findById(1L)).thenReturn(census);
         when(personServiceMock.findById(1L)).thenReturn(person);
 
@@ -85,9 +83,10 @@ public class DataLoadCensusTest {
         assertEquals("Archie Grant", captor.getValue().getName());
         assertEquals(census, captor.getValue().getCensus());
         assertEquals(person, captor.getValue().getPerson());
-        assertEquals(relationship, captor.getValue().getRelationship());
-        assertEquals(condition, captor.getValue().getCondition());
-        assertEquals(gaelic, captor.getValue().getGaelic());
+        assertEquals(CensusEntryRelationship.COUSIN, captor.getValue().getRelationship());
+        assertEquals(CensusEntryCondition.MARRIED, captor.getValue().getCondition());
+        assertEquals(CensusEntryGaelic.GAELIC, captor.getValue().getGaelic());
+        assertEquals(CensusEntryWorker.WORKER, captor.getValue().getWorker());
     }
 
 

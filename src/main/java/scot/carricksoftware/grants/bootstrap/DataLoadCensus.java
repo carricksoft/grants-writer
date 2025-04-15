@@ -17,6 +17,7 @@ import scot.carricksoftware.grants.domains.places.Place;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryCondition;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryGaelic;
 import scot.carricksoftware.grants.enums.censusentry.CensusEntryRelationship;
+import scot.carricksoftware.grants.enums.censusentry.CensusEntryWorker;
 import scot.carricksoftware.grants.services.census.CensusEntryService;
 import scot.carricksoftware.grants.services.census.CensusService;
 import scot.carricksoftware.grants.services.people.PersonService;
@@ -71,6 +72,7 @@ public class DataLoadCensus {
         censusEntryCommand.setRelationship(CensusEntryRelationship.COUSIN);
         censusEntryCommand.setCondition(CensusEntryCondition.MARRIED);
         censusEntryCommand.setGaelic(CensusEntryGaelic.GAELIC);
+        censusEntryCommand.setWorker(CensusEntryWorker.WORKER);
         censusEntryService.saveCensusEntryCommand(censusEntryCommand);
     }
 

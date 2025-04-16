@@ -1,13 +1,21 @@
-1:Domain
-2:Service
-3:Repository
-5:List Controller
-5:List Screen
-6:Command
-7:Converter
-8:Edit Controller
-9:Edit Screen
-10:Conditioning
-11:Validator
+0:Switch to dev
+1: Domain
+2: Domain getter and setter
+3: Test getter and setter in Domain Test
+4: Command
+5: Command getter and setter in Command Enums Test
+6: Converter
+7: Converter Test
+8: Bootstrap (random string)
+9: Bootstrap Test (not null)
+10: Validator
+11: Validator Test
+13: Modify the form
+14: Switch to uat
+15: Generate changelog (ctrl-shift-A) as sql
+16: Add the new file to master.xml
+16: Run in terminal  mvn clean test liquibase:update
+
+
 
 

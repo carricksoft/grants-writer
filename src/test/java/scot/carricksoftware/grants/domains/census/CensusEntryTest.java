@@ -77,4 +77,28 @@ class CensusEntryTest {
         assertEquals(person, entry.getPerson());
     }
 
+    @Test
+    void getAgeTest() {
+        assertNull(entry.getAge());
+    }
+
+    @Test
+    void setAgeTest() {
+        String age = GetRandomString();
+        entry.setAge(age);
+        assertEquals(age, entry.getAge());
+    }
+
+    @Test
+    void getWhereBornTest() {
+        assertNull(entry.getWhereBorn());
+    }
+
+    @Test
+    void setWhereBornTest() {
+        String whereBorn = GetRandomString();
+        entry.setWhereBorn(whereBorn);
+        assertEquals(whereBorn, entry.getWhereBorn());
+    }
+
 }

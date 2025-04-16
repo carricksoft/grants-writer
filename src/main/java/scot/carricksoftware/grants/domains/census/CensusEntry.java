@@ -40,6 +40,11 @@ public class CensusEntry extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private CensusEntryWorker worker;
 
+    private String age;
+
+    private String whereBorn;
+
+
     public Person getPerson() {
         return person;
     }
@@ -98,5 +103,21 @@ public class CensusEntry extends BaseEntity {
 
     public void setWorker(CensusEntryWorker worker) {
         this.worker = worker;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getWhereBorn() {
+        return whereBorn;
+    }
+
+    public void setWhereBorn(String whereBorn) {
+        this.whereBorn = whereBorn;
     }
 }

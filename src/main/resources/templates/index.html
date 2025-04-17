@@ -11,123 +11,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Grants Application - home page</title>
+    <title>Grants Application - writer home</title>
 </head>
 <body>
 
 <div th:insert="~{fragments/layout::banner}"></div>
 
-<div class="mx-auto" style="width:50%">
-    <h1 id="pageHeader">Available Functions</h1>
+<div class="mx-auto" style="width:50%;text-align:center;">
+    <h1 id="pageHeader">Writer Starter Page</h1>
     <table class="table table-bordered">
 
         <tbody>
         <tr>
             <td>
-
+                <a class="btn btn-primary btn-lg btn-block" href="output">Specify Output</a>
             </td>
             <td>
-                <a class="btn btn-primary btn-lg btn-block" href="people">People</a>
+                <a class="btn btn-primary btn-lg btn-block" href="Tex">Create Tex</a>
             </td>
             <td>
-                <a class="btn btn-primary btn-lg btn-block" href="places">Places</a>
+                <a class="btn btn-primary btn-lg btn-block" href="pdf">Build Pdf</a>
             </td>
             <td>
-                <a class="btn btn-primary btn-lg btn-block" href="censuses">Censuses</a>
-            </td>
-            <td>
-                <a class="btn btn-primary btn-lg btn-block" href="images">Images</a>
+                <a class="btn btn-primary btn-lg btn-block" href="print">Print</a>
             </td>
         </tr>
-        <tr>
-            <td>
 
-            </td>
-
-
-            <td>
-
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="countries">Countries</a>
-            </td>
-            <td>
-                <a class="btn btn-primary btn-lg btn-block" href="censusEntries">Census Entries</a>
-            </td>
-            <td>
-            <a class="btn btn-outline-secondary btn-sm btn-block" href="personImages">Person Images</a>
-                </td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-
-            </td>
-            <td>
-                <a class="btn btn-primary btn-sm btn-block" href="birthCertificates">Birth Certificates</a>
-            </td>
-            <td>
-                <!--suppress HtmlUnknownTarget -->
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="regions">Regions></a>
-            </td>
-            <td>
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="placeImages">Place Images</a>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-
-            </td>
-            <td>
-                <a class="btn btn-primary btn-sm btn-block" href="deathCertificates">Death Certificates</a>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="documentTexts">Document Texts</a>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-
-            </td>
-            <td>
-                <a class="btn btn-primary btn-sm btn-block"
-                   href="marriageCertificates">Marriage Certificates</a>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="personTexts">Person Texts</a>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-
-            </td>
-            <td>
-                <a class="btn btn-primary btn-sm btn-block"
-                   href="divorceCertificates">Divorce Certificates</a>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary btn-sm btn-block" href="placeTexts">Place Texts</a>
-            </td>
-        </tr>
         </tbody>
     </table>
 

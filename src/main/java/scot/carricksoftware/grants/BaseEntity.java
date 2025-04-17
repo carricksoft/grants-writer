@@ -22,6 +22,7 @@ public class BaseEntity {
         this.id = id;
     }
 
+    @SuppressWarnings("unused")
     public Long getId() {
         return id;
     }

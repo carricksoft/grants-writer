@@ -14,16 +14,5 @@ import scot.carricksoftware.grants.domains.people.Person;
 @Entity
 public class DeathCertificate extends BaseEntity {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person deceased;
 
-    public Person getDeceased() {
-        return deceased;
-    }
-
-    public void setDeceased(Person deceased) {
-        this.deceased = deceased;
-    }
 }

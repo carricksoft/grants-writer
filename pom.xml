@@ -14,7 +14,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>scot.carricksoftware</groupId>
-    <artifactId>grants</artifactId>
+    <artifactId>grants-writer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>grants</name>
     <description>grants</description>

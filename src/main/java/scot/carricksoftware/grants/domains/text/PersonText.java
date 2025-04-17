@@ -14,16 +14,5 @@ import scot.carricksoftware.grants.domains.people.Person;
 @Entity
 public class PersonText extends BaseEntity {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 }

@@ -14,17 +14,4 @@ import scot.carricksoftware.grants.domains.places.Place;
 @Entity
 public class PlaceImage extends BaseEntity {
 
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "place_id")
-    private Place place;
-
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
 }

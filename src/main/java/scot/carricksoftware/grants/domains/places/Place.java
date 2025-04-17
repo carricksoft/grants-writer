@@ -16,44 +16,4 @@ import java.util.List;
 @Entity
 public class Place extends BaseEntity {
 
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "place_region_id")
-    private Region region;
-
-    @SuppressWarnings("unused")
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Census> censuses = new ArrayList<>();
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Region getRegion() {
-        return region;
-    }
-
-    public void setRegion(Region region) {
-        this.region = region;
-    }
-
-    public List<Census> getCensuses() {
-        return censuses;
-    }
-
-    public void setCensuses(List<Census> censuses) {
-        this.censuses = censuses;
-    }
-
-    @Override
-    public String toString() {
-        return name +
-                ", " + region.getName() +
-                ", " + region.getCountry().getName();
-    }
 }

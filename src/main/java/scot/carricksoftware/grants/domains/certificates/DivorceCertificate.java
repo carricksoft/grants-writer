@@ -15,29 +15,5 @@ import scot.carricksoftware.grants.domains.people.Person;
 public class DivorceCertificate extends BaseEntity {
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "first_party_id")
-    private Person firstParty;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "second_party_id")
-    private Person secondParty;
-
-    public Person getFirstParty() {
-        return firstParty;
-    }
-
-    public void setFirstParty(Person firstParty) {
-        this.firstParty = firstParty;
-    }
-
-    public Person getSecondParty() {
-        return secondParty;
-    }
-
-    public void setSecondParty(Person secondParty) {
-        this.secondParty = secondParty;
-    }
 }

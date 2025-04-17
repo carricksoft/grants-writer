@@ -25,6 +25,8 @@ public class CensusEntryConverterImpl implements CensusEntryConverter {
         result.setCondition(source.getCondition());
         result.setGaelic(source.getGaelic());
         result.setWorker(source.getWorker());
+        result.setAge(source.getAge());
+        result.setWhereBorn(source.getWhereBorn());
         return result;
     }
 }

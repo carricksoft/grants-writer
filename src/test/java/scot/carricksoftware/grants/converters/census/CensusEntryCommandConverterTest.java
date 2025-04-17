@@ -44,6 +44,8 @@ class CensusEntryCommandConverterTest {
         CensusEntryCommand source = new CensusEntryCommandImpl();
         Census census = GetRandomCensus();
         Person person = GetRandomPerson();
+        String age = GetRandomString();
+        String whereBorn = GetRandomString();
 
 
         source.setId(id);
@@ -54,6 +56,8 @@ class CensusEntryCommandConverterTest {
         source.setCondition(condition);
         source.setGaelic(gaelic);
         source.setWorker(worker);
+        source.setAge(age);
+        source.setWhereBorn(whereBorn);
 
         CensusEntry target = converter.convert(source);
 
@@ -66,5 +70,7 @@ class CensusEntryCommandConverterTest {
         assertEquals(condition, target.getCondition());
         assertEquals(gaelic, target.getGaelic());
         assertEquals(worker, target.getWorker());
+        assertEquals(age, target.getAge());
+        assertEquals(whereBorn, target.getWhereBorn());
     }
 }

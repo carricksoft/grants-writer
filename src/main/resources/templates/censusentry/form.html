@@ -120,6 +120,19 @@ rounded-3 text-center p-4">
                 </div>
             </div>
         </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-md-2">
+                <label for="age">Age</label>
+                <input class="form-control" id="age"
+                       th:field="*{age}" type="text">
+            </div>
+            <div class="col-md-2">
+                <label for="whereBorn">Where Born</label>
+                <input class="form-control" id="whereBorn"
+                       th:field="*{whereBorn}" type="text">
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Commit</button>
         <a class="btn btn-secondary" th:href="@{/censusEntries}" th:text="${'List all'}">List all</a>
         <a class="btn btn-success" th:href="@{/}" th:text="${'Home'}">Home</a>

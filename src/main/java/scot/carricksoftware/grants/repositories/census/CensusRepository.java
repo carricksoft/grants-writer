@@ -9,18 +9,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grants.domains.census.Census;
 
-import java.util.Optional;
-
+@SuppressWarnings("unused")
 @Repository
 public interface CensusRepository extends PagingAndSortingRepository<Census, Long> {
 
-    Census save(Census census);
-
-    long count();
-
-    void deleteById(Long id);
-
-    Optional<Census> findById(Long id);
-
-    Iterable<Census> findAll();
 }

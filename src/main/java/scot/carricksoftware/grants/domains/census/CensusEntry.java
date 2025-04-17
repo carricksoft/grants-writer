@@ -7,7 +7,6 @@ package scot.carricksoftware.grants.domains.census;
 
 import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
-import scot.carricksoftware.grants.domains.people.Person;
 
 
 @Entity

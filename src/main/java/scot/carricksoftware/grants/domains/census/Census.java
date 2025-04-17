@@ -7,11 +7,6 @@ package scot.carricksoftware.grants.domains.census;
 
 import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
-import scot.carricksoftware.grants.domains.places.Place;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Census extends BaseEntity {

@@ -9,9 +9,6 @@ package scot.carricksoftware.grants.domains.places;
 import jakarta.persistence.*;
 import scot.carricksoftware.grants.BaseEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 public class Region extends BaseEntity {
 

@@ -9,19 +9,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grants.domains.places.Country;
 
-import java.util.Optional;
-
+@SuppressWarnings("unused")
 @Repository
 public interface CountryRepository extends PagingAndSortingRepository<Country, Long> {
 
-    Country save(Country country);
-
-    long count();
-
-    void deleteById(Long id);
-
-    Optional<Country> findById(Long id);
-
-    Iterable<Country> findAll();
 
 }

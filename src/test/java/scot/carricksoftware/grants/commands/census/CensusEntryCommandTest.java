@@ -71,5 +71,27 @@ class CensusEntryCommandTest {
         assertEquals(person, command.getPerson());
     }
 
+    @Test
+    void getAgeTest() {
+        assertNull(command.getAge());
+    }
 
+    @Test
+    void setAgeTest() {
+        String age = GetRandomString();
+        command.setAge(age);
+        assertEquals(age, command.getAge());
+    }
+
+    @Test
+    void getWhereBornTest() {
+        assertNull(command.getWhereBorn());
+    }
+
+    @Test
+    void setWhereBornTest() {
+        String whereBorn = GetRandomString();
+        command.setWhereBorn(whereBorn);
+        assertEquals(whereBorn, command.getWhereBorn());
+    }
 }

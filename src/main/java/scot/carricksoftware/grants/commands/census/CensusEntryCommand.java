@@ -45,4 +45,12 @@ public interface CensusEntryCommand {
     CensusEntryWorker getWorker();
 
     void setWorker(CensusEntryWorker worker);
+
+    String getAge();
+
+    void setAge(String age);
+
+    String getWhereBorn();
+
+    void setWhereBorn(String whereBorn);
 }

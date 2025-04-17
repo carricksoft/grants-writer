@@ -30,6 +30,10 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
 
     private CensusEntryWorker worker;
 
+    private String age;
+
+    private String whereBorn;
+
     public Long getId() {
         return id;
     }
@@ -106,5 +110,25 @@ public class CensusEntryCommandImpl implements CensusEntryCommand {
     @Override
     public void setWorker(CensusEntryWorker worker) {
         this.worker = worker;
+    }
+
+    @Override
+    public String getAge() {
+        return age;
+    }
+
+    @Override
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    @Override
+    public String getWhereBorn() {
+        return whereBorn;
+    }
+
+    @Override
+    public void setWhereBorn(String whereBorn) {
+        this.whereBorn = whereBorn;
     }
 }

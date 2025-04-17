@@ -3,11 +3,11 @@
 2: Domain getter and setter
 3: Test getter and setter in Domain Test
 4: Command
-5: Command getter and setter in Command Enums Test
+5: Command getter and setter in Command Test
 6: Converter
 7: Converter Test
-8: Bootstrap (random string)
-9: Bootstrap Test (not null)
+8: Bootstrap (use random string)
+9: Bootstrap Test (tst for not null)
 10: Validator
 11: Validator Test
 13: Modify the form

@@ -23,6 +23,8 @@ import scot.carricksoftware.grants.services.census.CensusService;
 import scot.carricksoftware.grants.services.people.PersonService;
 import scot.carricksoftware.grants.services.places.places.PlaceService;
 
+
+
 import java.time.LocalDate;
 
 @Component
@@ -73,6 +75,9 @@ public class DataLoadCensus {
         censusEntryCommand.setCondition(CensusEntryCondition.MARRIED);
         censusEntryCommand.setGaelic(CensusEntryGaelic.GAELIC);
         censusEntryCommand.setWorker(CensusEntryWorker.WORKER);
+        censusEntryCommand.setAge("72");
+        censusEntryCommand.setWhereBorn("Edinburgh");
+
         censusEntryService.saveCensusEntryCommand(censusEntryCommand);
     }
 

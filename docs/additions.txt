@@ -6,8 +6,8 @@
 5: Command getter and setter in Command Test
 6: Converter
 7: Converter Test
-8: Bootstrap (use random string)
-9: Bootstrap Test (tst for not null)
+8: Bootstrap (use personal details)
+9: Bootstrap
 10: Validator
 11: Validator Test
 13: Modify the form

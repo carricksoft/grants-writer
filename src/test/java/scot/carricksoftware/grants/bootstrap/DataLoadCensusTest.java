@@ -87,6 +87,8 @@ public class DataLoadCensusTest {
         assertEquals(CensusEntryCondition.MARRIED, captor.getValue().getCondition());
         assertEquals(CensusEntryGaelic.GAELIC, captor.getValue().getGaelic());
         assertEquals(CensusEntryWorker.WORKER, captor.getValue().getWorker());
+        assertEquals("72", captor.getValue().getAge());
+        assertEquals("Edinburgh", captor.getValue().getWhereBorn());
     }
 
 

@@ -26,21 +26,21 @@ class IndexControllerTest {
 
     @Test
     void specifyOutput() {
-        assertEquals("not-available",controller.specifyOutput(modelMock));
+        assertEquals("not-available", controller.specifyOutput(modelMock));
     }
 
     @Test
     void createTex() {
-        assertEquals("not-available",controller.createTex(modelMock));
+        assertEquals("not-available", controller.createTex(modelMock));
     }
 
     @Test
     void buildPDF() {
-        assertEquals("not-available",controller.buildPDF(modelMock));
+        assertEquals("not-available", controller.buildPDF(modelMock));
     }
 
     @Test
     void print() {
-        assertEquals("not-available",controller.print(modelMock));
+        assertEquals("not-available", controller.print(modelMock));
     }
 }

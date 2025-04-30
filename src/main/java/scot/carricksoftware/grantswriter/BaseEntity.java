@@ -17,12 +17,10 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @SuppressWarnings("unused")
     public void setId(Long id) {
         this.id = id;
     }
 
-    @SuppressWarnings("unused")
     public Long getId() {
         return id;
     }

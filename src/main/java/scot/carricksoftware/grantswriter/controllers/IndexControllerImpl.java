@@ -19,13 +19,6 @@ public class IndexControllerImpl implements IndexController {
 
     private static final Logger logger = LogManager.getLogger(IndexControllerImpl.class);
 
-    @SuppressWarnings("SameReturnValue")
-    @GetMapping(MappingConstants.SPECIFY_OUTPUT)
-    @Override
-    public final String specifyOutput(final Model model) {
-        logger.debug("IndexControllerImpl::specifyOutput");
-        return ViewConstants.NOT_AVAILABLE;
-    }
 
     @SuppressWarnings("SameReturnValue")
     @GetMapping(MappingConstants.CREATE_TEX)

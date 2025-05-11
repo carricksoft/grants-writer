@@ -13,9 +13,6 @@ import scot.carricksoftware.grantswriter.constants.MappingConstants;
 
 public interface IndexController {
 
-    @SuppressWarnings("SameReturnValue")
-    @GetMapping(MappingConstants.SPECIFY_OUTPUT)
-    String specifyOutput(Model model);
 
     @SuppressWarnings("SameReturnValue")
     @GetMapping(MappingConstants.CREATE_TEX)

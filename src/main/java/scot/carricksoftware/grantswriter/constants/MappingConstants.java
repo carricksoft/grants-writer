@@ -14,8 +14,7 @@ public class MappingConstants {
         // to stop checkstyle complaining
     }
 
-
-    public static final String SPECIFY_OUTPUT = "/output";
+    public static final String FILES = "/files";
 
     public static final String CREATE_TEX = "/tex";
 

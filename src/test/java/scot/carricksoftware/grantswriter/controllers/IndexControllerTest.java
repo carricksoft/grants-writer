@@ -7,11 +7,14 @@ package scot.carricksoftware.grantswriter.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.ui.Model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class IndexControllerTest {
 
     private IndexController controller;
@@ -24,10 +27,6 @@ class IndexControllerTest {
         controller = new IndexControllerImpl();
     }
 
-    @Test
-    void specifyOutput() {
-        assertEquals("not-available", controller.specifyOutput(modelMock));
-    }
 
     @Test
     void createTex() {

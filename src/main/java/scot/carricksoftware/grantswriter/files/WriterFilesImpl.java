@@ -5,32 +5,15 @@
 
 package scot.carricksoftware.grantswriter.files;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class WriterFilesImpl implements WriterFiles {
 
-    private String directory;
-    private String inputFileName;
     private String latexFileName;
     private String pdfFileName;
 
-    @Override
-    public String getDirectory() {
-        return directory;
-    }
-
-    @Override
-    public void setDirectory(String directory) {
-        this.directory = directory;
-    }
-
-    @Override
-    public String getInputFileName() {
-        return inputFileName;
-    }
-
-    @Override
-    public void setInputFileName(String inputFileName) {
-        this.inputFileName = inputFileName;
-    }
 
     @Override
     public String getLatexFileName() {

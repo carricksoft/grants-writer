@@ -7,39 +7,20 @@ package scot.carricksoftware.grantswriter.files;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class WriterFilesImplTest {
 
     private WriterFiles writerFiles;
 
+
     @BeforeEach
     void setUp() {
         writerFiles = new WriterFilesImpl();
-    }
-
-    @Test
-    void getDirectoryTest() {
-        assertNull(writerFiles.getDirectory());
-    }
-
-    @Test
-    void setDirectoryTest() {
-        String string = "test";
-        writerFiles.setDirectory(string);
-    }
-
-    @Test
-    void getInputFileNameTest() {
-        assertNull(writerFiles.getInputFileName());
-    }
-
-    @Test
-    void setInputFileNameTest() {
-        String string = "test";
-        writerFiles.setInputFileName(string);
-        assertEquals(string, writerFiles.getInputFileName());
     }
 
     @Test

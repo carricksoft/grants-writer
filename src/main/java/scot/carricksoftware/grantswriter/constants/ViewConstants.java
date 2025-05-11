@@ -16,5 +16,7 @@ public class ViewConstants {
 
     public static final String NOT_AVAILABLE = "not-available";
 
+    @SuppressWarnings("unused")
+    public static final String FILES = "files";
 
 }

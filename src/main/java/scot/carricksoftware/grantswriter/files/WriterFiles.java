@@ -6,13 +6,7 @@
 package scot.carricksoftware.grantswriter.files;
 
 public interface WriterFiles {
-    String getDirectory();
 
-    void setDirectory(String directory);
-
-    String getInputFileName();
-
-    void setInputFileName(String inputFileName);
 
     String getLatexFileName();
 

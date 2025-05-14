@@ -24,12 +24,12 @@ rounded-3 text-center p-4">
     <form th:object="${writerFiles}" th:action="@{/files}" method="post">
 
         <div class="form-group row justify-content-center">
-            <div class="col-xs-3" style="margin-right:20px;">
+            <div class="col" style="margin-right:20px;">
                 <label for="latexFileName">Latex File (input):</label>
                 <input class="form-control" id="latexFileName"
                        th:field="*{latexFileName}" type="text">
             </div>
-            <div class="col-xs-3" style="margin-right:20px;">
+            <div class="col" style="margin-right:20px;">
                 <label for="pdfFileName">Latex File (input):</label>
                 <input class="form-control" id="pdfFileName"
                        th:field="*{pdfFileName}" type="text">

@@ -32,7 +32,7 @@ class FilesControllerTest {
     }
 
     @Test
-    void filesReturnsTheCorrectPageTest(){
+    void filesReturnsTheCorrectPageTest() {
         assertEquals("files", controller.getFiles(modelMock));
     }
 }

@@ -15,6 +15,8 @@ import scot.carricksoftware.grantswriter.constants.MappingConstants;
 import scot.carricksoftware.grantswriter.constants.ViewConstants;
 import scot.carricksoftware.grantswriter.files.WriterFiles;
 
+import static java.util.Objects.isNull;
+
 @Controller
 public class FilesControllerImpl implements FilesController {
 
@@ -30,6 +32,10 @@ public class FilesControllerImpl implements FilesController {
     @Override
     public String getFiles(Model model) {
        logger.debug("FilesControllerImpl::getSelectionPage");
+       if (isNull(writerFiles.getLatexFileName()))
+       {
+          writerFiles.init();
+       }
        model.addAttribute(AttributeConstants.WRITER_FILES, writerFiles);
        return ViewConstants.FILES;
     }

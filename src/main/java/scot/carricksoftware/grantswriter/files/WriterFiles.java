@@ -10,9 +10,13 @@ public interface WriterFiles {
 
     String getLatexFileName();
 
+    @SuppressWarnings("unused")
     void setLatexFileName(String latexFileName);
 
     String getPdfFileName();
 
+    @SuppressWarnings("unused")
     void setPdfFileName(String pdfFileName);
+
+    void init();
 }

@@ -11,5 +11,6 @@ import org.springframework.ui.Model;
 
 public interface FilesController {
 
+    @SuppressWarnings("SameReturnValue")
     String getFiles(Model model);
 }

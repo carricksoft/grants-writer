@@ -5,11 +5,17 @@
 
 package scot.carricksoftware.grantswriter.files;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+
+import java.io.File;
 
 
 @Component
 public class WriterFilesImpl implements WriterFiles {
+
+    private static final Logger logger = LogManager.getLogger(WriterFilesImpl.class);
 
     private String latexFileName;
     private String pdfFileName;
@@ -33,5 +39,13 @@ public class WriterFilesImpl implements WriterFiles {
     @Override
     public void setPdfFileName(String pdfFileName) {
         this.pdfFileName = pdfFileName;
+    }
+
+    @Override
+    public void init() {
+        logger.debug("WriterFiles::init");
+        String root = System.getProperty("user.home");
+        setLatexFileName(root + File.separator + "carricksoftware" + File.separator + "grants.tex");
+        setPdfFileName(root + File.separator + "carricksoftware" + File.separator + "grants.pdf");
     }
 }

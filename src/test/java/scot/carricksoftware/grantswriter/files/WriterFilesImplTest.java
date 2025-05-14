@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -17,33 +19,23 @@ class WriterFilesImplTest {
 
     private WriterFiles writerFiles;
 
-
     @BeforeEach
     void setUp() {
         writerFiles = new WriterFilesImpl();
     }
 
     @Test
-    void getLatexFileNameTest() {
+    void constructorTest() {
         assertNull(writerFiles.getLatexFileName());
-    }
-
-    @Test
-    void setLatexFileNameTest() {
-        String string = "test";
-        writerFiles.setLatexFileName(string);
-        assertEquals(string, writerFiles.getLatexFileName());
-    }
-
-    @Test
-    void getPdfFileNameTest() {
         assertNull(writerFiles.getPdfFileName());
     }
 
     @Test
-    void setPdfFileNameTest() {
-        String string = "test";
-        writerFiles.setPdfFileName(string);
-        assertEquals(string, writerFiles.getPdfFileName());
+    void initTest() {
+        writerFiles.init();
+        assertEquals(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.tex",
+                writerFiles.getLatexFileName());
+        assertEquals(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.pdf",
+                writerFiles.getPdfFileName());
     }
 }

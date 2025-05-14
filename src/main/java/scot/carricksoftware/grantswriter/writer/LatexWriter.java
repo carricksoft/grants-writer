@@ -7,5 +7,9 @@ package scot.carricksoftware.grantswriter.writer;
 
 public interface LatexWriter {
     @SuppressWarnings("unused")
-    void openOutput(String filename);
+    boolean open(String fileName);
+
+    boolean isOpen();
+
+    void close();
 }

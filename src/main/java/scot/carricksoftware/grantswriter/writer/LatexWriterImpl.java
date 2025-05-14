@@ -5,10 +5,39 @@
 
 package scot.carricksoftware.grantswriter.writer;
 
+import java.io.PrintWriter;
+
 public class LatexWriterImpl implements LatexWriter {
 
+    private PrintWriter latexFile;
+
+    private boolean isOpen = false;
+
+
     @Override
-    public void openOutput(String filename) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean open(String fileName) {
+        try {
+            latexFile = new PrintWriter(fileName);
+            isOpen = true;
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
+
+    @Override
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    @Override
+    public void close() {
+        if (isOpen) {
+            latexFile.close();
+            isOpen = false;
+        }
+
+    }
+
+
 }

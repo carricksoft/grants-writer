@@ -44,8 +44,7 @@ public class WriterFilesImpl implements WriterFiles {
     @Override
     public void init() {
         logger.debug("WriterFiles::init");
-        String root = System.getProperty("user.home");
-        setLatexFileName(root + File.separator + "carricksoftware" + File.separator + "grants.tex");
-        setPdfFileName(root + File.separator + "carricksoftware" + File.separator + "grants.pdf");
+        setLatexFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.tex");
+        setPdfFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.pdf");
     }
 }

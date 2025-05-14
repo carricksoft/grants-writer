@@ -19,5 +19,10 @@ public class GenerateRandomNumberValues {
         return rand.nextLong();
     }
 
+    @SuppressWarnings("SameReturnValue")
+    public static String GetRandomString() {
+        return "Andrew";
+    }
+
 
 }

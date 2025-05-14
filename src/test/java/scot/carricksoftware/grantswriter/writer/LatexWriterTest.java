@@ -60,6 +60,14 @@ class LatexWriterTest {
         assertTrue(writer.isOpen());
     }
 
+    @Test
+    void afterAFileIsOpenedAndClosedIsOpenReturnsTrueTest() {
+        String filename = System.getProperty("user.home") + File.separator + "test.tex";
+        writer.open(filename);
+        writer.close();
+        assertFalse(writer.isOpen());
+    }
+
 
 }
 

@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class LatexWriterTest {
@@ -38,25 +39,13 @@ class LatexWriterTest {
     }
 
     @Test
-    void isOpenIsFirstClosedTest() {
-        assertFalse(writer.isOpen());
+    void printlnWhenClosedThrowsAnErrorTest() {
+        assertThrows(Exception.class, () -> writer.println(GetRandomString()));
     }
 
     @Test
-    void isOpenIsTrueAfterAFileIsOpenTest() {
-        writer.open(System.getProperty("user.home") + File.separator + "test.tex");
-        assertTrue(writer.isOpen());
+    void printWhenClosedThrowsAnErrorTest() {
+        assertThrows(Exception.class, () -> writer.print(GetRandomString()));
     }
-
-    @Test
-    void isOpenIsFalseAfterAFileIsClosedTest() {
-        writer.open(System.getProperty("user.home") + File.separator + "test.tex");
-        assertTrue(writer.isOpen());
-        writer.close();
-        assertFalse(writer.isOpen());
-    }
-
-
-
-
 }
+

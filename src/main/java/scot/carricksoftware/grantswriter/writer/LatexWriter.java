@@ -9,7 +9,11 @@ public interface LatexWriter {
     @SuppressWarnings("unused")
     boolean open(String fileName);
 
+    void close();
+
     boolean isOpen();
 
-    void close();
+    void print(String string);
+
+    void println(String string);
 }

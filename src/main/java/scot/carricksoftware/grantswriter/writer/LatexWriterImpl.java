@@ -13,7 +13,6 @@ public class LatexWriterImpl implements LatexWriter {
 
     private boolean isOpen = false;
 
-
     @Override
     public boolean open(String fileName) {
         try {
@@ -26,18 +25,29 @@ public class LatexWriterImpl implements LatexWriter {
     }
 
     @Override
-    public boolean isOpen() {
-        return isOpen;
-    }
-
-    @Override
     public void close() {
         if (isOpen) {
             latexFile.close();
             isOpen = false;
         }
-
     }
 
+    @Override
+    public boolean isOpen() {
+        return isOpen;
+    }
 
+    @Override
+    public void print(String string) {
+        latexFile.println(string);
+    }
+
+    @Override
+    public void println(String string) {
+        try {
+            latexFile.println(string);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

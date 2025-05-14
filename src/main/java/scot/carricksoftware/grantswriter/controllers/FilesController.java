@@ -6,8 +6,10 @@
 package scot.carricksoftware.grantswriter.controllers;
 
 
+import org.springframework.ui.Model;
+
+
 public interface FilesController {
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
-    String getFiles();
+    String getFiles(Model model);
 }

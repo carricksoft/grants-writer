@@ -15,11 +15,29 @@
 </head>
 <body>
 
-<div th:insert="~{fragments/layout::banner}"></div>
-
 <div class="mx-auto" style="width:50%;text-align:center;">
     <h1 id="pageHeader">Writer Specify Files</h1>
     <div th:insert="~{fragments/layout::banner}"></div>
+</div>
+<div class="container border border-info
+rounded-3 text-center p-4">
+    <form th:object="${writerFiles}" th:action="@{/files}" method="post">
+
+        <div class="form-group row justify-content-center">
+            <div class="col-xs-3" style="margin-right:20px;">
+                <label for="latexFileName">Latex File (input):</label>
+                <input class="form-control" id="latexFileName"
+                       th:field="*{latexFileName}" type="text">
+            </div>
+            <div class="col-xs-3" style="margin-right:20px;">
+                <label for="pdfFileName">Latex File (input):</label>
+                <input class="form-control" id="pdfFileName"
+                       th:field="*{pdfFileName}" type="text">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Commit</button>
+    </form>
+
 </div>
 </body>
 </html>

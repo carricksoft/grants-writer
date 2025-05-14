@@ -47,5 +47,10 @@ class LatexWriterTest {
     void printWhenClosedThrowsAnErrorTest() {
         assertThrows(Exception.class, () -> writer.print(GetRandomString()));
     }
+
+    @Test
+    void initiallyIsOpenIsFalse() {
+        assertFalse(writer.isOpen());
+    }
 }
 

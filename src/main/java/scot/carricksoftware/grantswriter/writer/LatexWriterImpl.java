@@ -39,7 +39,11 @@ public class LatexWriterImpl implements LatexWriter {
 
     @Override
     public void print(String string) {
-        latexFile.println(string);
+        try {
+            latexFile.println(string);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

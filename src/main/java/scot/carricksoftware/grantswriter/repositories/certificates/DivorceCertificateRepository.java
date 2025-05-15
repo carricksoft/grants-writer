@@ -14,5 +14,4 @@ import scot.carricksoftware.grantswriter.domains.certificates.DivorceCertificate
 public interface DivorceCertificateRepository extends PagingAndSortingRepository<DivorceCertificate, Long> {
 
 
-
 }

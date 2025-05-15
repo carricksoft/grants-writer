@@ -14,5 +14,4 @@ import scot.carricksoftware.grantswriter.domains.certificates.DeathCertificate;
 public interface DeathCertificateRepository extends PagingAndSortingRepository<DeathCertificate, Long> {
 
 
-
 }

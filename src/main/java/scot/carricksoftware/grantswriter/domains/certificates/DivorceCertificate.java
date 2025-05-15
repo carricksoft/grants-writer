@@ -12,5 +12,4 @@ import scot.carricksoftware.grantswriter.BaseEntity;
 public class DivorceCertificate extends BaseEntity {
 
 
-
 }

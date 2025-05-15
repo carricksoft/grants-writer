@@ -20,7 +20,6 @@ public class WriterFilesImpl implements WriterFiles {
     private String latexFileName;
     private String pdfFileName;
 
-
     @Override
     public String getLatexFileName() {
         return latexFileName;

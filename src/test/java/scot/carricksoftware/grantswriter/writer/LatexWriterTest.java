@@ -68,6 +68,16 @@ class LatexWriterTest {
         assertFalse(writer.isOpen());
     }
 
+    @Test
+    void closeTest() {
+        String filename = System.getProperty("user.home") + File.separator + "test.tex";
+        writer.open(filename);
+        writer.close();
+        assertThrows(Exception.class, () -> writer.println(GetRandomString()));
+    }
+
+
+
 
 }
 

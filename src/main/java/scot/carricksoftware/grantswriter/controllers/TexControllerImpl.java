@@ -36,8 +36,7 @@ public class TexControllerImpl implements TexController {
             writerFiles.init();
         }
         model.addAttribute(AttributeConstants.WRITER_FILES, writerFiles);
-        String status = "status";
-        model.addAttribute(AttributeConstants.STATUS, status);
+        writerFiles.setStatus("Running");
         return ViewConstants.TEX;
     }
 }

@@ -15,6 +15,5 @@ public class AttributeConstants {
     }
 
     public static final String WRITER_FILES = "writerFiles";
-    public static final String STATUS = "status";
 
 }

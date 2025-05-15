@@ -33,7 +33,7 @@ class WriterFilesImplTest {
 
     @Test
     void getStatusTest() {
-        assert(writerFiles.getStatus() == null);
+        assert (writerFiles.getStatus() == null);
     }
 
     @SuppressWarnings("unused")
@@ -42,7 +42,6 @@ class WriterFilesImplTest {
         writerFiles.setStatus(status);
         assertEquals(status, writerFiles.getStatus());
     }
-
 
 
     @Test

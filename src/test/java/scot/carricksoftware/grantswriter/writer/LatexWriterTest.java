@@ -69,14 +69,12 @@ class LatexWriterTest {
     }
 
     @Test
-    void closeTest() {
+    void closeReallyClosesTest() {
         String filename = System.getProperty("user.home") + File.separator + "test.tex";
         writer.open(filename);
         writer.close();
         assertThrows(Exception.class, () -> writer.println(GetRandomString()));
     }
-
-
 
 
 }

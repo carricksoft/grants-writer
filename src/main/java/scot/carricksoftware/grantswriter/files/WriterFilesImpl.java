@@ -41,8 +41,8 @@ public class WriterFilesImpl implements WriterFiles {
         this.pdfFileName = pdfFileName;
     }
 
-    @SuppressWarnings("unused")
-    public String getStatus() {
+@Override
+public String getStatus() {
         return status;
     }
 

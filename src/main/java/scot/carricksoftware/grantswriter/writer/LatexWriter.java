@@ -13,7 +13,5 @@ public interface LatexWriter {
 
     boolean isOpen();
 
-    void print(String string);
-
     void println(String string);
 }

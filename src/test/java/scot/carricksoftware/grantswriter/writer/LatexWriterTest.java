@@ -28,7 +28,7 @@ class LatexWriterTest {
 
     @Test
     void openAFileTest() {
-        String filename = System.getProperty("user.home") + File.separator + "test.tex";
+        String filename = System.getProperty("java.io.tmpdir") + File.separator + "test.tex";
         assertTrue(writer.open(filename));
     }
 
@@ -43,10 +43,6 @@ class LatexWriterTest {
         assertThrows(Exception.class, () -> writer.println(GetRandomString()));
     }
 
-    @Test
-    void printWhenClosedThrowsAnErrorTest() {
-        assertThrows(Exception.class, () -> writer.print(GetRandomString()));
-    }
 
     @Test
     void initiallyIsOpenIsFalse() {

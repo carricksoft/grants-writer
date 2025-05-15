@@ -45,12 +45,6 @@ public class LatexWriterImpl implements LatexWriter {
     }
 
     @Override
-    public void print(String string) {
-        logger.debug("LatexWriterImp::print");
-        latexFile.print(string);
-    }
-
-    @Override
     public void println(String string) {
         logger.debug("LatexWriterImp::println");
         latexFile.println(string);

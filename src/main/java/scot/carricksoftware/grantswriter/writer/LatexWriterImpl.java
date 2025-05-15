@@ -10,17 +10,16 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.PrintWriter;
 
-@SuppressWarnings("LoggingSimilarMessage")
 public class LatexWriterImpl implements LatexWriter {
 
     private static final Logger logger = LogManager.getLogger(LatexWriterImpl.class);
 
     private PrintWriter latexFile;
-
     private boolean isOpen = false;
 
     @Override
     public boolean open(String fileName) {
+        logger.debug("LatexWriterImp::open");
         try {
             latexFile = new PrintWriter(fileName);
             isOpen = true;
@@ -32,6 +31,7 @@ public class LatexWriterImpl implements LatexWriter {
 
     @Override
     public void close() {
+        logger.debug("LatexWriterImp::close");
         if (isOpen) {
             latexFile = null;
             isOpen = false;
@@ -40,30 +40,27 @@ public class LatexWriterImpl implements LatexWriter {
 
     @Override
     public boolean isOpen() {
+        logger.debug("LatexWriterImp::isOpen");
         return isOpen;
     }
 
     @Override
     public void print(String string) {
+        logger.debug("LatexWriterImp::print");
         try {
             latexFile.println(string);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            //noinspection StringConcatenationArgumentToLogCall
-            logger.debug("Printed " + string);
         }
     }
 
     @Override
     public void println(String string) {
+        logger.debug("LatexWriterImp::println");
         try {
             latexFile.println(string);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            //noinspection StringConcatenationArgumentToLogCall
-            logger.debug("Printed " + string);
         }
     }
 }

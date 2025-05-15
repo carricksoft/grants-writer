@@ -55,4 +55,11 @@ class TexControllerTest {
         verify(writerFilesMock, times(0)).init();
     }
 
+    @Test
+    void startSetTheStatusToRunningTest() {
+        controller.start(modelMock);
+        verify(writerFilesMock).setStatus("Running");
+    }
+
+
 }

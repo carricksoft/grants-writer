@@ -27,7 +27,6 @@ public class LatexWriterImpl implements LatexWriter {
     @Override
     public void close() {
         if (isOpen) {
-            latexFile.close();
             latexFile = null;
             isOpen = false;
         }

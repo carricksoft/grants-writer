@@ -53,10 +53,6 @@ public class LatexWriterImpl implements LatexWriter {
     @Override
     public void println(String string) {
         logger.debug("LatexWriterImp::println");
-        try {
-            latexFile.println(string);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        latexFile.println(string);
     }
 }

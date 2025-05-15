@@ -5,9 +5,15 @@
 
 package scot.carricksoftware.grantswriter.writer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.PrintWriter;
 
+@SuppressWarnings("LoggingSimilarMessage")
 public class LatexWriterImpl implements LatexWriter {
+
+    private static final Logger logger = LogManager.getLogger(LatexWriterImpl.class);
 
     private PrintWriter latexFile;
 
@@ -43,6 +49,9 @@ public class LatexWriterImpl implements LatexWriter {
             latexFile.println(string);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            //noinspection StringConcatenationArgumentToLogCall
+            logger.debug("Printed " + string);
         }
     }
 
@@ -52,6 +61,9 @@ public class LatexWriterImpl implements LatexWriter {
             latexFile.println(string);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        } finally {
+            //noinspection StringConcatenationArgumentToLogCall
+            logger.debug("Printed " + string);
         }
     }
 }

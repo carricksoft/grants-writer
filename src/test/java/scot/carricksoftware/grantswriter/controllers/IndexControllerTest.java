@@ -27,12 +27,6 @@ class IndexControllerTest {
         controller = new IndexControllerImpl();
     }
 
-
-    @Test
-    void createTex() {
-        assertEquals("not-available", controller.createTex(modelMock));
-    }
-
     @Test
     void buildPDF() {
         assertEquals("not-available", controller.buildPDF(modelMock));

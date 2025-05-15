@@ -18,5 +18,7 @@ public interface WriterFiles {
     @SuppressWarnings("unused")
     void setPdfFileName(String pdfFileName);
 
+    void setStatus(String status);
+
     void init();
 }

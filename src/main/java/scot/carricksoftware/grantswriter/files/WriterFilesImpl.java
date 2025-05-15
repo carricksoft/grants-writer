@@ -19,6 +19,7 @@ public class WriterFilesImpl implements WriterFiles {
 
     private String latexFileName;
     private String pdfFileName;
+    private String status;
 
     @Override
     public String getLatexFileName() {
@@ -40,10 +41,21 @@ public class WriterFilesImpl implements WriterFiles {
         this.pdfFileName = pdfFileName;
     }
 
+    @SuppressWarnings("unused")
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public void init() {
         logger.debug("WriterFiles::init");
         setLatexFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.tex");
         setPdfFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.pdf");
+        setStatus("Ready");
     }
 }

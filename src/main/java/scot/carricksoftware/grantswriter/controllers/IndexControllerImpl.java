@@ -20,13 +20,6 @@ public class IndexControllerImpl implements IndexController {
     private static final Logger logger = LogManager.getLogger(IndexControllerImpl.class);
 
 
-    @SuppressWarnings("SameReturnValue")
-    @GetMapping(MappingConstants.CREATE_TEX)
-    @Override
-    public final String createTex(final Model model) {
-        logger.debug("IndexControllerImpl::createTex");
-        return ViewConstants.NOT_AVAILABLE;
-    }
 
     @SuppressWarnings("SameReturnValue")
     @GetMapping(MappingConstants.BUILD_PDF)

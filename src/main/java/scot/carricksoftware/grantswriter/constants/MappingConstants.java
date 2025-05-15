@@ -16,7 +16,7 @@ public class MappingConstants {
 
     public static final String FILES = "/files";
 
-    public static final String CREATE_TEX = "/tex";
+    public static final String TEX = "/tex";
 
     public static final String BUILD_PDF = "/pdf";
 

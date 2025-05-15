@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @ExtendWith(MockitoExtension.class)
-class CreateTexControllerTest {
+class TexControllerTest {
 
-    private CreateTexController controller;
+    private TexController controller;
 
     @BeforeEach
     void setUp() {
-        controller = new CreateTexControllerImpl();
+        controller = new TexControllerImpl();
     }
 
     @Test

@@ -21,20 +21,29 @@
 </div>
 <div class="container border border-info
 rounded-3 text-center p-4">
-    <form th:object="${writerFiles}" th:action="@{/files}" method="post">
+    <form th:object="${writerFiles}" th:action="@{/tex}" method="post">
         <div class="form-group row justify-content-center">
             <div class="col" style="margin-right:20px;">
                 <label for="latexFileName">Latex File (input):</label>
                 <input class="form-control" id="latexFileName"
-                       th:field="*{latexFileName}" type="text">
+                       th:field="*{latexFileName}" type="text" readonly>
             </div>
             <div class="col" style="margin-right:20px;">
                 <label for="pdfFileName">Latex File (input):</label>
                 <input class="form-control" id="pdfFileName"
-                       th:field="*{pdfFileName}" type="text">
+                       th:field="*{pdfFileName}" type="text"
+                       readonly>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Commit</button>
+        <div class="form-group row justify-content-center">
+            <div class="col" style="margin-right:20px;">
+                <label for="status">Status:</label>
+                <input class="form-control" id="status"
+                       th:field="*{status}" type="text"
+                       readonly>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Start</button>
     </form>
 
 </div>

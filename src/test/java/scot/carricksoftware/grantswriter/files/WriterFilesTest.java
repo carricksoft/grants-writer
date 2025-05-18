@@ -57,5 +57,16 @@ class WriterFilesTest {
         assertEquals(string, writerFiles.getStatus());
     }
 
+    @Test
+    public void InitTest() {
+        writerFiles.init();
+        assertEquals("Ready", writerFiles.getStatus());
+        assertEquals("/home/apg/grants.tex", writerFiles.getLatexFileName());
+        assertEquals("/home/apg/grants.pdf", writerFiles.getPdfFileName());
+
+    }
+
+
+
 
 }

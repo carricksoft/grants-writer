@@ -10,11 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.ui.Model;
 import scot.carricksoftware.grantswriter.files.WriterFiles;
 import scot.carricksoftware.grantswriter.writer.TexWriter;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -28,16 +29,29 @@ class TexControllerTest {
     @Mock
     private TexWriter texWriterMock;
 
+    @Mock
+    private Model modelMock;
+
     @BeforeEach
     void setUp() {
         controller = new TexControllerImpl(writerFilesMock, texWriterMock);
     }
 
     @Test
-    public void dummyTest() {
-        assertNotNull(controller);
+    public void startReturnsTheCorrectView() throws Exception {
+        assertEquals("index", controller.start(modelMock));
     }
 
+    @Test
+    public void startReturnsCallsTexWriterWriteTest() throws Exception {
+        controller.start(modelMock);
+        verify(texWriterMock).write(writerFilesMock.getLatexFileName());
+    }
 
+    @Test
+    public void screenReturnsTheCorrectView() {
+        assertEquals("tex", controller.screen(modelMock));
+    }
 
 }
+

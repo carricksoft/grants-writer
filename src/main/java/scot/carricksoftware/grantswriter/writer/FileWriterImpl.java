@@ -40,6 +40,14 @@ public class FileWriterImpl implements FileWriter {
             throw new RuntimeException(e);
         }
     }
+
+    public OutputStream getOs() {
+        return os;
+    }
+
+    public void setOs(OutputStream os) {
+        this.os = os;
+    }
 }
 
 

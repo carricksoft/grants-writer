@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import scot.carricksoftware.grantswriter.constants.AttributeConstants;
 import scot.carricksoftware.grantswriter.constants.MappingConstants;
 import scot.carricksoftware.grantswriter.constants.ViewConstants;
@@ -31,11 +32,19 @@ public class FilesControllerImpl implements FilesController {
     @GetMapping(MappingConstants.FILES)
     @Override
     public String getFiles(Model model) {
-        logger.debug("FilesControllerImpl::getSelectionPage");
+        logger.debug("FilesControllerImpl::getFiles");
         if (isNull(writerFiles.getLatexFileName())) {
             writerFiles.init();
         }
         model.addAttribute(AttributeConstants.WRITER_FILES, writerFiles);
         return ViewConstants.FILES;
+    }
+
+    @PostMapping(MappingConstants.FILES)
+    @Override
+    public String gotFiles(Model model) {
+        logger.debug("FilesControllerImpl::gotFiles");
+        model.addAttribute(AttributeConstants.WRITER_FILES, writerFiles);
+        return ViewConstants.HOME;
     }
 }

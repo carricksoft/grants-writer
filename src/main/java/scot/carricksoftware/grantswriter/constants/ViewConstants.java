@@ -19,5 +19,6 @@ public class ViewConstants {
     @SuppressWarnings("unused")
     public static final String FILES = "files";
     public static final String TEX = "tex";
+    public static final String HOME = "index";
 
 }

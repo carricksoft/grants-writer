@@ -20,7 +20,6 @@ public class IndexControllerImpl implements IndexController {
     private static final Logger logger = LogManager.getLogger(IndexControllerImpl.class);
 
 
-
     @SuppressWarnings("SameReturnValue")
     @GetMapping(MappingConstants.BUILD_PDF)
     @Override

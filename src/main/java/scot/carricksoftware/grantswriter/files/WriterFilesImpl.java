@@ -54,8 +54,8 @@ public String getStatus() {
     @Override
     public void init() {
         logger.debug("WriterFiles::init");
-        setLatexFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.tex");
-        setPdfFileName(System.getProperty("user.home") + File.separator + "carricksoftware" + File.separator + "grants.pdf");
+        setLatexFileName(System.getProperty("user.home")  + File.separator + "grants.tex");
+        setPdfFileName(System.getProperty("user.home") + File.separator + "grants.pdf");
         setStatus("Ready");
     }
 }

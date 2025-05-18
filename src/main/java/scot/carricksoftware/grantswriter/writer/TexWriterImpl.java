@@ -21,7 +21,6 @@ public class TexWriterImpl implements TexWriter {
     @Override
     public void write(String filename) throws IOException {
         fileWriter.init(filename);
-        fileWriter.writeLine("Archie");
         fileWriter.close();
     }
 }

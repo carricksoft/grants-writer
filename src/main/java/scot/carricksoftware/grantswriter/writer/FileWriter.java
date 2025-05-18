@@ -6,15 +6,16 @@
 package scot.carricksoftware.grantswriter.writer;
 
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.PrintWriter;
 
 public interface FileWriter {
 
-    void init(String texFilename) throws IOException;
+
+    void init(String fileName) throws IOException;
+
     void close();
 
     void writeLine(String line);
 
-    OutputStream getOs();
-
+    PrintWriter getPrintWriter();
 }

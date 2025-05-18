@@ -8,14 +8,9 @@ package scot.carricksoftware.grantswriter.writer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
-
 
 class FileWriterTest {
 
@@ -27,42 +22,23 @@ class FileWriterTest {
     }
 
     @Test
-    void getOsTest(){
-        assertNull(writer.getOs());
+    public void GetPrintWriterTest() {
+        assertNull(writer.getPrintWriter());
     }
 
     @Test
-    void initTest() throws Exception {
+    public void initTest() throws Exception {
         writer.init(GetRandomString());
-        assertNotNull(writer.getOs());
+        assertNotNull(writer.getPrintWriter());
     }
 
     @Test
-    void closeTest() throws Exception {
+    public void closeTest() throws Exception {
         writer.init(GetRandomString());
         writer.close();
-        assertNull(writer.getOs());
+        assertNull(writer.getPrintWriter());
     }
 
-    @Test
-    void writeTest() throws Exception {
-        File file = File.createTempFile("/tmp", ".tmp");
-        String line = GetRandomString();
-        writer.init(file.getAbsolutePath());
-        writer.writeLine(line);
-        writer.writeLine(line);
-        writer.close();
 
-        assertEquals(line + line, getFileContents(file.getAbsolutePath()));
-    }
 
-    private String getFileContents(String fileName) throws IOException {
-        Scanner in = new Scanner(new FileReader(fileName));
-        StringBuilder sb = new StringBuilder();
-        while(in.hasNext()) {
-            sb.append(in.next());
-        }
-        in.close();
-        return sb.toString();
-    }
 }

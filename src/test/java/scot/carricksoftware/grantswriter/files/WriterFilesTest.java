@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
 
 class WriterFilesTest {
 
@@ -19,8 +20,42 @@ class WriterFilesTest {
         writerFiles = new WriterFilesImpl();
     }
 
+
     @Test
-    public void setUpTest() {
-        assertNotNull(writerFiles);
+    public void getLatexFileNameTest() {
+        assertNull(writerFiles.getLatexFileName());
     }
+
+    @Test
+    public void SetLatexFileNameTest() {
+        String string = GetRandomString();
+        writerFiles.setLatexFileName(string);
+        assertEquals(string, writerFiles.getLatexFileName());
+    }
+
+    @Test
+    public void getPdfFileNameTest() {
+        assertNull(writerFiles.getPdfFileName());
+    }
+
+    @Test
+    public void SetPdfFileNameTest() {
+        String string = GetRandomString();
+        writerFiles.setPdfFileName(string);
+        assertEquals(string, writerFiles.getPdfFileName());
+    }
+
+    @Test
+    public void getStatusTest() {
+        assertNull(writerFiles.getStatus());
+    }
+
+    @Test
+    public void SetStatusTest() {
+        String string = GetRandomString();
+        writerFiles.setStatus(string);
+        assertEquals(string, writerFiles.getStatus());
+    }
+
+
 }

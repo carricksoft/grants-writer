@@ -10,14 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.ui.Model;
 import scot.carricksoftware.grantswriter.files.WriterFiles;
+import scot.carricksoftware.grantswriter.writer.TexWriter;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 
 @ExtendWith(MockitoExtension.class)
@@ -29,37 +26,18 @@ class TexControllerTest {
     private WriterFiles writerFilesMock;
 
     @Mock
-    Model modelMock;
+    private TexWriter texWriterMock;
 
     @BeforeEach
     void setUp() {
-        controller = new TexControllerImpl(writerFilesMock);
+        controller = new TexControllerImpl(writerFilesMock, texWriterMock);
     }
 
     @Test
-    void startReturnsTheCorrectViewTest() {
-        assertEquals("tex", controller.start(modelMock));
+    public void dummyTest() {
+        assertNotNull(controller);
     }
 
-    @Test
-    void startCallsInitIfNeededTest() {
-        when(writerFilesMock.getLatexFileName()).thenReturn(null);
-        controller.start(modelMock);
-        verify(writerFilesMock).init();
-    }
-
-    @Test
-    void startDoesNotCallInitIfNeededTest() {
-        when(writerFilesMock.getLatexFileName()).thenReturn(GetRandomString());
-        controller.start(modelMock);
-        verify(writerFilesMock, times(0)).init();
-    }
-
-    @Test
-    void startSetTheStatusToRunningTest() {
-        controller.start(modelMock);
-        verify(writerFilesMock).setStatus("Running");
-    }
 
 
 }

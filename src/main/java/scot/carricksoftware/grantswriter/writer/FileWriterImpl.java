@@ -29,6 +29,7 @@ public class FileWriterImpl implements FileWriter {
     public void close() throws IOException {
         logger.debug("FileWriterImpl::close");
         os.close();
+        os = null;
     }
 
     @Override
@@ -36,6 +37,7 @@ public class FileWriterImpl implements FileWriter {
         logger.debug("FileWriterImpl::writeLine");
         try {
             os.write(line.getBytes());
+            os.write(System.lineSeparator().getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

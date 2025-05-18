@@ -8,6 +8,12 @@ package scot.carricksoftware.grantswriter.writer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
@@ -39,6 +45,34 @@ class FileWriterTest {
         assertNull(writer.getPrintWriter());
     }
 
+    @Test
+    public void writeLineTest() throws Exception {
+       String tempFileName = getTemporaryFileName();
+       deleteTempFile(tempFileName);
+       String line = GetRandomString();
+
+       writer.init(tempFileName);
+       writer.writeLine(line);
+       writer.close();
+
+       List<String> contents = getTempFileContents(tempFileName);
+        assertEquals(line, contents.get(0));
+    }
+
+    private List<String> getTempFileContents(String tempFileName) throws Exception {
+        return Files.readAllLines(Paths.get(tempFileName));
+    }
+
+    private void deleteTempFile(String tempFileName) {
+        File file = new File(tempFileName);
+        //noinspection ResultOfMethodCallIgnored
+        file.delete();
+    }
+
+    private String getTemporaryFileName() throws Exception {
+        File file = File.createTempFile("/tmp", "tmp");
+        return file.getAbsolutePath();
+    }
 
 
 }

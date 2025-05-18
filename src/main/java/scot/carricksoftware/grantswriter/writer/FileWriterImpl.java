@@ -19,6 +19,7 @@ public class FileWriterImpl implements FileWriter {
 
     private PrintWriter printWriter = null;
 
+
     @Override
     public void init(String fileName) throws IOException {
         logger.debug("FileWriterImpl::init");
@@ -28,6 +29,7 @@ public class FileWriterImpl implements FileWriter {
     @Override
     public void close() {
         logger.debug("FileWriterImpl::close");
+        printWriter.close();
         printWriter = null;
     }
 

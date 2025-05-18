@@ -11,7 +11,7 @@ import java.io.OutputStream;
 public interface FileWriter {
 
     void init(String texFilename) throws IOException;
-    void close() throws IOException;
+    void close();
 
     void writeLine(String line);
 

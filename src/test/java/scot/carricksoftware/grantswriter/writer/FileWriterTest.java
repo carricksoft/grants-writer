@@ -50,9 +50,10 @@ class FileWriterTest {
         String line = GetRandomString();
         writer.init(file.getAbsolutePath());
         writer.writeLine(line);
+        writer.writeLine(line);
         writer.close();
 
-        assertEquals(line, getFileContents(file.getAbsolutePath()));
+        assertEquals(line + line, getFileContents(file.getAbsolutePath()));
     }
 
     private String getFileContents(String fileName) throws IOException {

@@ -26,9 +26,8 @@ public class FileWriterImpl implements FileWriter {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {
         logger.debug("FileWriterImpl::close");
-        os.close();
         os = null;
     }
 

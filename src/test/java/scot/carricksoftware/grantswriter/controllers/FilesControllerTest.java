@@ -36,21 +36,32 @@ class FilesControllerTest {
     }
 
     @Test
-    void filesReturnsTheCorrectPageTest() {
+    void getFilesReturnsTheCorrectPageTest() {
         assertEquals("files", controller.getFiles(modelMock));
     }
 
     @Test
-    void filesInitIfNullTest() {
+    void getFilesCallsInitIfNullTest() {
         when(writerFilesMock.getLatexFileName()).thenReturn(null);
         controller.getFiles(modelMock);
         verify(writerFilesMock).init();
     }
 
     @Test
-    void filesDoesNotInitIfNotNullTest() {
+    void getFilesDoesNotCallInitIfNotNullTest() {
         when(writerFilesMock.getLatexFileName()).thenReturn(GetRandomString());
         controller.getFiles(modelMock);
         verify(writerFilesMock, times(0)).init();
+    }
+
+    @Test
+    void gotFilesReturnsTheCorrectPageTest() {
+        assertEquals("index", controller.gotFiles(modelMock));
+    }
+
+    @Test
+    void gotFilesSetsTheWriterFilesAttribute() {
+        controller.gotFiles(modelMock);
+        verify(modelMock).addAttribute("writerFiles", writerFilesMock);
     }
 }

@@ -17,5 +17,4 @@ public interface FileWriter {
 
     OutputStream getOs();
 
-    void setOs(OutputStream os);
 }

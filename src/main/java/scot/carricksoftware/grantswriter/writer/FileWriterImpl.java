@@ -46,10 +46,7 @@ public class FileWriterImpl implements FileWriter {
         return os;
     }
 
-    @Override
-    public void setOs(OutputStream os) {
-        this.os = os;
-    }
+
 }
 
 

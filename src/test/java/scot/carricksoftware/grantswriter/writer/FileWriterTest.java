@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
 
 
 class FileWriterTest {
@@ -21,7 +22,13 @@ class FileWriterTest {
     }
 
     @Test
-    public void dummyTest() {
-        assertNotNull(writer);
+    void getOsTest(){
+        assertNull(writer.getOs());
+    }
+
+    @Test
+    void initTest() throws Exception {
+        writer.init(GetRandomString());
+        assertNotNull(writer.getOs());
     }
 }

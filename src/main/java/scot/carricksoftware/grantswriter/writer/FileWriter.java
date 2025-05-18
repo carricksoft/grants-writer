@@ -6,6 +6,7 @@
 package scot.carricksoftware.grantswriter.writer;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 public interface FileWriter {
 
@@ -13,4 +14,8 @@ public interface FileWriter {
     void close() throws IOException;
 
     void writeLine(String line);
+
+    OutputStream getOs();
+
+    void setOs(OutputStream os);
 }

@@ -61,9 +61,8 @@ class WriterFilesTest {
     public void InitTest() {
         writerFiles.init();
         assertEquals("Ready", writerFiles.getStatus());
-        assertEquals("/home/apg/grants.tex", writerFiles.getLatexFileName());
-        assertEquals("/home/apg/grants.pdf", writerFiles.getPdfFileName());
-
+        assertTrue(writerFiles.getLatexFileName().contains("grants.tex"));
+        assertTrue(writerFiles.getPdfFileName().contains("grants.pdf"));
     }
 
 

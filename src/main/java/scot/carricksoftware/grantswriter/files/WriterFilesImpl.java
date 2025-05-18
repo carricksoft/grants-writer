@@ -41,8 +41,8 @@ public class WriterFilesImpl implements WriterFiles {
         this.pdfFileName = pdfFileName;
     }
 
-@Override
-public String getStatus() {
+    @Override
+    public String getStatus() {
         return status;
     }
 
@@ -54,7 +54,7 @@ public String getStatus() {
     @Override
     public void init() {
         logger.debug("WriterFiles::init");
-        setLatexFileName(System.getProperty("user.home")  + File.separator + "grants.tex");
+        setLatexFileName(System.getProperty("user.home") + File.separator + "grants.tex");
         setPdfFileName(System.getProperty("user.home") + File.separator + "grants.pdf");
         setStatus("Ready");
     }

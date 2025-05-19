@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentStart;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.inOrder;
@@ -24,9 +25,12 @@ class TexWriterTest {
     @Mock
     private FileWriter fileWriterMock;
 
+    @Mock
+    private LatexDocumentStart docStartMockMock;
+
     @BeforeEach
     void setUp() {
-        texWriter = new TexWriterImpl(fileWriterMock);
+        texWriter = new TexWriterImpl(fileWriterMock, docStartMockMock);
     }
 
     @Test

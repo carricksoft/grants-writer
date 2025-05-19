@@ -17,8 +17,6 @@ import scot.carricksoftware.grantswriter.constants.ViewConstants;
 import scot.carricksoftware.grantswriter.files.WriterFiles;
 import scot.carricksoftware.grantswriter.writer.TexWriter;
 
-import java.io.IOException;
-
 import static java.util.Objects.isNull;
 
 @Controller
@@ -50,7 +48,7 @@ public class TexControllerImpl implements TexController {
 
     @PostMapping(MappingConstants.TEX)
     @Override
-    public String start(Model model) throws IOException {
+    public String start(Model model) throws Exception {
         logger.debug("FilesControllerImpl::start");
         texWriter.write(writerFiles.getLatexFileName());
 

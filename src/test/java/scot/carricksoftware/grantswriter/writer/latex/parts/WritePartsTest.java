@@ -34,6 +34,7 @@ class WritePartsTest {
 
     @Test
     void writeTest(){
-        verify(writeParts).write();
+        writeParts.write();
+        verify(peoplePartsMock).write();
     }
 }

@@ -15,7 +15,7 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
-class LatexDocumentStartImplTest {
+class LatexDocumentStartTest {
 
     private LatexDocumentStart documentStart;
 

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentStart;
 
 import static org.mockito.ArgumentMatchers.anyString;
@@ -26,17 +27,21 @@ class TexWriterTest {
     private FileWriter fileWriterMock;
 
     @Mock
-    private LatexDocumentStart docStartMockMock;
+    private LatexDocumentStart docStartMock;
+
+    @Mock
+    private LatexDocumentEnd docEndMock;
 
     @BeforeEach
     void setUp() {
-        texWriter = new TexWriterImpl(fileWriterMock, docStartMockMock);
+        texWriter = new TexWriterImpl(fileWriterMock, docStartMock, docEndMock);
     }
 
     @Test
-    void initAndCloseTest() throws Exception {
+    void writeTest() throws Exception {
         InOrder inorder = inOrder(fileWriterMock, fileWriterMock);
         texWriter.write(GetRandomString());
+
         inorder.verify(fileWriterMock).init(anyString());
         inorder.verify(fileWriterMock).close();
     }

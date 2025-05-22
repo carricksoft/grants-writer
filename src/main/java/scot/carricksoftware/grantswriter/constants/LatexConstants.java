@@ -15,5 +15,6 @@ public class LatexConstants {
     }
 
     public static final String DOCUMENT_START = "\\begin{document}";
+    public static final String DOCUMENT_END = "\\end{document}";
 
 }

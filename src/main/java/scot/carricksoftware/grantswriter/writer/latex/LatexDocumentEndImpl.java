@@ -5,12 +5,16 @@
 
 package scot.carricksoftware.grantswriter.writer.latex;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 @Component
 public class LatexDocumentEndImpl implements LatexDocumentEnd {
+
+    private static final Logger logger = LogManager.getLogger(LatexDocumentEndImpl.class);
 
     private final FileWriter fileWriter;
 
@@ -20,6 +24,7 @@ public class LatexDocumentEndImpl implements LatexDocumentEnd {
 
     @Override
     public void write() {
+        logger.info("LatexDocumentEndImpl.write()");
         fileWriter.writeLine(LatexConstants.DOCUMENT_END);
     }
 }

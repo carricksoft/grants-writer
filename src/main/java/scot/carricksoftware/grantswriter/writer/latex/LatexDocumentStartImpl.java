@@ -20,6 +20,7 @@ public class LatexDocumentStartImpl implements LatexDocumentStart {
 
     @Override
     public void write() {
+        fileWriter.writeLine(LatexConstants.DOCUMENT_CLASS);
         fileWriter.writeLine(LatexConstants.DOCUMENT_START);
     }
 }

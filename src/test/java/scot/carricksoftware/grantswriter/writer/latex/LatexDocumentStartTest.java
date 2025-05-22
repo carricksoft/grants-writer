@@ -8,12 +8,13 @@ package scot.carricksoftware.grantswriter.writer.latex;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.inOrder;
 
 @ExtendWith(SpringExtension.class)
 class LatexDocumentStartTest {
@@ -35,7 +36,11 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
+        InOrder inorder = inOrder(fileWriterMock, fileWriterMock);
         documentStart.write();
-        verify(fileWriterMock).writeLine("\\begin{document}");
+
+        //noinspection SpellCheckingInspection
+        inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt]{memoir}");
+        inorder.verify(fileWriterMock).writeLine("\\start{document}");
     }
 }

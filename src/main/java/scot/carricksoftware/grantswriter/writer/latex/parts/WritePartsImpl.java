@@ -7,7 +7,9 @@ package scot.carricksoftware.grantswriter.writer.latex.parts;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WritePartsImpl implements WriteParts {
 
     private static final Logger logger = LogManager.getLogger(WritePartsImpl.class);

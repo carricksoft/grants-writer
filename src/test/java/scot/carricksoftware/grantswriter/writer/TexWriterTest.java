@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentStart;
+import scot.carricksoftware.grantswriter.writer.latex.parts.WriteParts;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.inOrder;
@@ -32,18 +33,22 @@ class TexWriterTest {
     @Mock
     private LatexDocumentEnd docEndMock;
 
+    @Mock
+    private WriteParts writePartsMock;
+
     @BeforeEach
     void setUp() {
-        texWriter = new TexWriterImpl(fileWriterMock, docStartMock, docEndMock);
+        texWriter = new TexWriterImpl(fileWriterMock, docStartMock, docEndMock, writePartsMock);
     }
 
     @Test
     void writeTest() throws Exception {
-        InOrder inorder = inOrder(fileWriterMock, docStartMock, docEndMock,fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, docStartMock, docEndMock,writePartsMock,fileWriterMock);
         texWriter.write(GetRandomString());
 
         inorder.verify(fileWriterMock).init(anyString());
         inorder.verify(docStartMock).write();
+        inorder.verify(writePartsMock).write();
         inorder.verify(docEndMock).write();
         inorder.verify(fileWriterMock).close();
     }

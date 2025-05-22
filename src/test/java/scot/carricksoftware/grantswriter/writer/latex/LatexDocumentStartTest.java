@@ -13,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 class LatexDocumentStartTest {
@@ -30,5 +31,11 @@ class LatexDocumentStartTest {
     @Test
     public void constructorTest() {
         assertNotNull(documentStart);
+    }
+
+    @Test
+    public void writeTest() {
+        documentStart.write();
+        verify(fileWriterMock).writeLine("\\begin{document}");
     }
 }

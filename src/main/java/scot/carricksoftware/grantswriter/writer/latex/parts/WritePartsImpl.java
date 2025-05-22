@@ -14,8 +14,15 @@ public class WritePartsImpl implements WriteParts {
 
     private static final Logger logger = LogManager.getLogger(WritePartsImpl.class);
 
+    private final PeopleParts peopleParts;
+
+    public WritePartsImpl(PeopleParts peopleParts) {
+        this.peopleParts = peopleParts;
+    }
+
     @Override
     public void write() {
         logger.info("WritePartsImpl.write()");
+        peopleParts.write();
     }
 }

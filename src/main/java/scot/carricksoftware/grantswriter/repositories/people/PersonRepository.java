@@ -5,14 +5,12 @@
 
 package scot.carricksoftware.grantswriter.repositories.people;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 @SuppressWarnings("unused")
 @Repository
-public interface PersonRepository extends PagingAndSortingRepository<Person, Long> {
-
+public interface PersonRepository extends ReadOnlyRepository<Person, Long> {
 
 
 }

@@ -5,12 +5,12 @@
 
 package scot.carricksoftware.grantswriter.repositories.census;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
+import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
 @Repository
-public interface CensusEntryRepository extends PagingAndSortingRepository<CensusEntry, Long> {
+public interface CensusEntryRepository extends ReadOnlyRepository<CensusEntry, Long> {
 
 }

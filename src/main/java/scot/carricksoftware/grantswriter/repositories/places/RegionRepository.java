@@ -5,13 +5,13 @@
 
 package scot.carricksoftware.grantswriter.repositories.places;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.places.Region;
+import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
 @Repository
-public interface RegionRepository extends PagingAndSortingRepository<Region, Long> {
+public interface RegionRepository extends ReadOnlyRepository<Region, Long> {
 
 
 }

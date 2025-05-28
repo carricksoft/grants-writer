@@ -5,10 +5,10 @@
 
 package scot.carricksoftware.grantswriter.repositories.images;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import scot.carricksoftware.grantswriter.domains.images.PersonImage;
+import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
-public interface PersonImageRepository extends PagingAndSortingRepository<PersonImage, Long> {
+public interface PersonImageRepository extends ReadOnlyRepository<PersonImage, Long> {
 
 }

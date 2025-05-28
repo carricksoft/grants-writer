@@ -5,13 +5,13 @@
 
 package scot.carricksoftware.grantswriter.repositories.certificates;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.BirthCertificate;
+import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
 @Repository
-public interface BirthCertificateRepository extends PagingAndSortingRepository<BirthCertificate, Long> {
+public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCertificate, Long> {
 
 
 }

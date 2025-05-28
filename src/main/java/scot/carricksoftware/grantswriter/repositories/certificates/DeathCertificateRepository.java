@@ -5,13 +5,13 @@
 
 package scot.carricksoftware.grantswriter.repositories.certificates;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.DeathCertificate;
+import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
 @Repository
-public interface DeathCertificateRepository extends PagingAndSortingRepository<DeathCertificate, Long> {
+public interface DeathCertificateRepository extends ReadOnlyRepository<DeathCertificate, Long> {
 
 
 }

@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePart;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartHeader;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
@@ -22,9 +24,12 @@ class WritePartsTest {
     @Mock
     PeoplePart peoplePartMock;
 
+    @Mock
+    PeoplePartHeader peoplePartHeaderMock;
+
     @BeforeEach
     void setUp() {
-        writeParts = new WritePartsImpl(peoplePartMock);
+        writeParts = new WritePartsImpl(peoplePartMock, peoplePartHeaderMock);
     }
 
     @Test

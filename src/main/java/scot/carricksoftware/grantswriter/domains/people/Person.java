@@ -18,11 +18,9 @@ public class Person extends BaseEntity {
     @Column(name = "`last_name`")
     String lastName;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`recorded_year_of_birth`")
     String recordedYearOfBirth;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`certified_year_of_birth`")
     String certifiedYearOfBirth;
 

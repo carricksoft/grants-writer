@@ -41,6 +41,6 @@ class LatexDocumentStartTest {
 
         //noinspection SpellCheckingInspection
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt]{memoir}");
-        inorder.verify(fileWriterMock).writeLine("\\start{document}");
+        inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }
 }

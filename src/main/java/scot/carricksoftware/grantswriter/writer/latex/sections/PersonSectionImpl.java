@@ -10,6 +10,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 
 @Component
 public class PersonSectionImpl implements PersonSection {
+
     @Override
     public void write(Person person) {
 

@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +23,7 @@ public class PeoplePartImpl implements PeoplePart {
 
     private final PersonSection personSection;
 
+
     public PeoplePartImpl(PersonService personService, PersonSection personSection) {
         this.personService = personService;
         this.personSection = personSection;
@@ -31,6 +32,7 @@ public class PeoplePartImpl implements PeoplePart {
     @Override
     public void write() {
         logger.info("PeoplePartsImpl.write()");
+
         List<Person> people = personService.findAll();
         for (Person person : people) {
             personSection.write(person);

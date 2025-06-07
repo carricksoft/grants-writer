@@ -12,6 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.people.PersonService;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePart;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartImpl;
 import scot.carricksoftware.grantswriter.writer.latex.sections.PersonSection;
 
 import java.util.ArrayList;

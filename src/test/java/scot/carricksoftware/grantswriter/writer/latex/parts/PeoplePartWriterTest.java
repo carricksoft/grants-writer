@@ -60,4 +60,10 @@ class PeoplePartWriterTest {
         peoplePartWriter.write();
         verify(personSectionMock, times(limit)).write(any());
     }
+
+    @Test
+    void peopleHeaderWasCalledTest() {
+        peoplePartWriter.write();
+        verify(peopleHeaderMock).write();
+    }
 }

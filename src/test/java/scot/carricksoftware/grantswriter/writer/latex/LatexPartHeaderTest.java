@@ -7,12 +7,15 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
 
-
+@ExtendWith(MockitoExtension.class)
 class LatexPartHeaderTest {
 
     private LatexPartHeader header;
@@ -26,7 +29,10 @@ class LatexPartHeaderTest {
     }
 
     @Test
-    void ConstructorTest() {
-       assertNotNull(header);
+    void writeTest() {
+        String title = GetRandomString();
+        header.write(title);
+        String requiredString = "\\part{" + title + "}";
+        verify(fileWriterMock).writeLine(requiredString);
     }
 }

@@ -5,7 +5,7 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts;
 
-public interface PeopleParts {
+public interface PeoplePart {
 
     void write();
 }

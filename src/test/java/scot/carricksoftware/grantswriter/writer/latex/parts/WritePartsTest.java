@@ -20,11 +20,11 @@ class WritePartsTest {
     private WriteParts writeParts;
 
     @Mock
-    PeopleParts peoplePartsMock;
+    PeoplePart peoplePartMock;
 
     @BeforeEach
     void setUp() {
-        writeParts = new WritePartsImpl(peoplePartsMock);
+        writeParts = new WritePartsImpl(peoplePartMock);
     }
 
     @Test
@@ -35,6 +35,6 @@ class WritePartsTest {
     @Test
     void writeTest(){
         writeParts.write();
-        verify(peoplePartsMock).write();
+        verify(peoplePartMock).write();
     }
 }

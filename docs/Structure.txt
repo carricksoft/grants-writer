@@ -1,0 +1,5 @@
+TexController -> TexWriter -> PartsWriter -> PeoplePartWriter -> {PeoplePartHeader PersonSectionWriter}
+
+
+
+

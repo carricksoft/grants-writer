@@ -13,7 +13,7 @@ import scot.carricksoftware.grantswriter.writer.latex.LatexPartHeader;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class PeoplePartHeaderTest {
+class PeoplePartWriterHeaderTest {
 
     private PeoplePartHeader header;
 

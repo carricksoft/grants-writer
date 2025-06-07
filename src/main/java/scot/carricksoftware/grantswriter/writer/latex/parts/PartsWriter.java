@@ -5,7 +5,7 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts;
 
-public interface WriteParts {
+public interface PartsWriter {
 
     @SuppressWarnings("unused")
     void write();

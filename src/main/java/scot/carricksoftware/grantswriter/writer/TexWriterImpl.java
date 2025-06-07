@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDocumentStart;
-import scot.carricksoftware.grantswriter.writer.latex.parts.WriteParts;
+import scot.carricksoftware.grantswriter.writer.latex.parts.PartsWriter;
 
 @Component
 public class TexWriterImpl implements TexWriter {
@@ -21,14 +21,14 @@ public class TexWriterImpl implements TexWriter {
 
     private final LatexDocumentStart docStart;
     private final LatexDocumentEnd docEnd;
-    private final WriteParts writeParts;
+    private final PartsWriter partsWriter;
 
 
-    public TexWriterImpl(FileWriter fileWriter, LatexDocumentStart docStart, LatexDocumentEnd docEnd, WriteParts writeParts) {
+    public TexWriterImpl(FileWriter fileWriter, LatexDocumentStart docStart, LatexDocumentEnd docEnd, PartsWriter partsWriter) {
         this.fileWriter = fileWriter;
         this.docStart = docStart;
         this.docEnd = docEnd;
-        this.writeParts = writeParts;
+        this.partsWriter = partsWriter;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class TexWriterImpl implements TexWriter {
         logger.info("TexWriter::write");
         fileWriter.init(filename);
         docStart.write();
-        writeParts.write();
+        partsWriter.write();
         docEnd.write();
         fileWriter.close();
     }

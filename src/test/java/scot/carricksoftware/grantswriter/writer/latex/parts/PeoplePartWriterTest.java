@@ -12,8 +12,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.people.PersonService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePart;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriter;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriterImpl;
 import scot.carricksoftware.grantswriter.writer.latex.sections.PersonSection;
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class PeoplePartTest {
+class PeoplePartWriterTest {
 
-    private PeoplePart peoplePart;
+    private PeoplePartWriter peoplePartWriter;
 
     @Mock
     private PersonService personServiceMock;
@@ -36,10 +37,13 @@ class PeoplePartTest {
     @Mock
     private PersonSection personSectionMock;
 
+    @Mock
+    private PeoplePartHeader peopleHeaderMock;
+
     @SuppressWarnings("EmptyMethod")
     @BeforeEach
     void setUp() {
-        peoplePart = new PeoplePartImpl(personServiceMock, personSectionMock);
+        peoplePartWriter = new PeoplePartWriterImpl(personServiceMock, peopleHeaderMock, personSectionMock);
     }
 
     @Test
@@ -53,7 +57,7 @@ class PeoplePartTest {
 
         when(personServiceMock.findAll()).thenReturn(people);
 
-        peoplePart.write();
+        peoplePartWriter.write();
         verify(personSectionMock, times(limit)).write(any());
     }
 }

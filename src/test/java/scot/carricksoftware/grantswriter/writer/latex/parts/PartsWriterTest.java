@@ -10,36 +10,33 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePart;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriter;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
-class WritePartsTest {
+class PartsWriterTest {
 
-    private WriteParts writeParts;
-
-    @Mock
-    PeoplePart peoplePartMock;
+    private PartsWriter partsWriter;
 
     @Mock
-    PeoplePartHeader peoplePartHeaderMock;
+    PeoplePartWriter peoplePartWriterMock;
+
 
     @BeforeEach
     void setUp() {
-        writeParts = new WritePartsImpl(peoplePartMock, peoplePartHeaderMock);
+        partsWriter = new PartsWriterImpl(peoplePartWriterMock);
     }
 
     @Test
     void constructorTest(){
-        assertNotNull(writeParts);
+        assertNotNull(partsWriter);
     }
 
     @Test
     void writeTest(){
-        writeParts.write();
-        verify(peoplePartMock).write();
+        partsWriter.write();
+        verify(peoplePartWriterMock).write();
     }
 }

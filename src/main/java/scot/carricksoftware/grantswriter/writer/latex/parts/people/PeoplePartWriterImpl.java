@@ -15,17 +15,20 @@ import scot.carricksoftware.grantswriter.writer.latex.sections.PersonSection;
 import java.util.List;
 
 @Component
-public class PeoplePartImpl implements PeoplePart {
+public class PeoplePartWriterImpl implements PeoplePartWriter {
 
-    private static final Logger logger = LogManager.getLogger(PeoplePartImpl.class);
+    private static final Logger logger = LogManager.getLogger(PeoplePartWriterImpl.class);
 
     private final PersonService personService;
-
+    private final PeoplePartHeader peopleHeader;
     private final PersonSection personSection;
 
 
-    public PeoplePartImpl(PersonService personService, PersonSection personSection) {
+    public PeoplePartWriterImpl(PersonService personService,
+                                PeoplePartHeader peopleHeader,
+                                PersonSection personSection) {
         this.personService = personService;
+        this.peopleHeader = peopleHeader;
         this.personSection = personSection;
     }
 
@@ -33,6 +36,7 @@ public class PeoplePartImpl implements PeoplePart {
     public void write() {
         logger.info("PeoplePartsImpl.write()");
 
+        peopleHeader.write();
         List<Person> people = personService.findAll();
         for (Person person : people) {
             personSection.write(person);

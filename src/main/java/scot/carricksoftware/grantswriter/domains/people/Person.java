@@ -70,13 +70,11 @@ public class Person extends BaseEntity {
         if (certifiedYearOfBirth != null) {
             builder.append(certifiedYearOfBirth);
             builder.append(" ");
-        }  else {
-            if (recordedYearOfBirth != null) {
-                builder.append("(");
-                builder.append(recordedYearOfBirth);
-                builder.append(")");
-                builder.append(" ");
-            }
+        } else {
+            builder.append("(");
+            builder.append(recordedYearOfBirth);
+            builder.append(")");
+            builder.append(" ");
         }
         builder.append("-");
 

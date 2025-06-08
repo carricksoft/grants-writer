@@ -5,7 +5,7 @@
 
 package scot.carricksoftware.grantswriter.data;
 
-import scot.carricksoftware.grantswriter.domains.CensusEntry;
+import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.List;
 import java.util.SortedMap;
@@ -16,7 +16,8 @@ public interface TimelineData {
     @SuppressWarnings("unused")
     void clear();
     @SuppressWarnings({"EmptyMethod", "unused"})
-    void add(@SuppressWarnings("unused") List<CensusEntry> censusEntryList);
+
+    void add(List<CensusEntry> censusEntryList);
 
     @SuppressWarnings("unused")
     SortedMap<String, String> getTimeline();

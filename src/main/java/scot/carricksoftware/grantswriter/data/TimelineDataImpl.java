@@ -6,7 +6,7 @@
 package scot.carricksoftware.grantswriter.data;
 
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.domains.CensusEntry;
+import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.List;
 import java.util.SortedMap;

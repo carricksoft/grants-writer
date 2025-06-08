@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
 
-class TimelineDataTest {
+class TimelineDataGetterAndSetterTest {
 
     private TimelineData timelineData;
 

@@ -3,7 +3,7 @@
  *
  */
 
-package data;
+package scot.carricksoftware.grantswriter.data;
 
 import scot.carricksoftware.grantswriter.domains.CensusEntry;
 

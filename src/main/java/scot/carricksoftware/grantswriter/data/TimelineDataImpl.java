@@ -3,7 +3,7 @@
  *
  */
 
-package data;
+package scot.carricksoftware.grantswriter.data;
 
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.CensusEntry;
@@ -11,6 +11,8 @@ import scot.carricksoftware.grantswriter.domains.CensusEntry;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 @Component
 public class TimelineDataImpl implements TimelineData {
@@ -18,6 +20,11 @@ public class TimelineDataImpl implements TimelineData {
     private SortedMap<String, String> timeline;
 
     private SortedSet<String> refs;
+
+    public TimelineDataImpl() {
+        this.timeline = new TreeMap<>();
+        this.refs = new TreeSet<>();
+    }
 
     @Override
     public void clear() {

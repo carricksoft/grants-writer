@@ -7,6 +7,8 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,9 +16,12 @@ class LatexSectionHeaderTest {
 
    private LatexSectionHeader header;
 
+   @Mock
+   private FileWriter fileWriterMock;
+
     @BeforeEach
     void setUp() {
-        header = new LatexSectionHeaderImpl();
+        header = new LatexSectionHeaderImpl(fileWriterMock);
     }
 
     @Test

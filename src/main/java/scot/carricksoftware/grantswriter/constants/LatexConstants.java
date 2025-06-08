@@ -20,6 +20,7 @@ public class LatexConstants {
     public static final String DOCUMENT_END = "\\end{document}";
 
     public static final String PART_TERM = "\\part{";
+    public static final String SECTION_TERM = "\\section{";
     public static final String TERM_END = "}";
 
 }

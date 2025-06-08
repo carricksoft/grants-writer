@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.people.PersonRepository;
@@ -33,17 +34,19 @@ class PersonServiceTest {
         service = new PersonServiceImpl(personRepositoryMock);
     }
 
-    @Test
-    void constructorTest() {
-        assertNotNull(service);
-    }
 
     @Test
     public void testFindAll() {
         List<Person> people = new ArrayList<>();
         people.add(GetRandomPerson());
-        when(personRepositoryMock.findAll()).thenReturn(people);
+        when(personRepositoryMock.findAll(getSort())).thenReturn(people);
         assertEquals(people, service.findAll());
+    }
+
+    private Sort getSort() {
+        return Sort.by(
+                Sort.Order.asc("lastName"),
+                Sort.Order.asc("firstName"));
     }
 
 }

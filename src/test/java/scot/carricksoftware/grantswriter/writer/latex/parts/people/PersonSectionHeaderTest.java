@@ -10,9 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSectionHeader;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PersonSectionHeaderTest {
@@ -22,13 +24,19 @@ class PersonSectionHeaderTest {
     @Mock
     LatexSectionHeader latexSectionHeaderMock;
 
+    @Mock
+    Person personMock;
+
     @BeforeEach
     void setUp() {
         personSectionHeader = new PersonSectionHeaderImpl(latexSectionHeaderMock);
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(personSectionHeader);
+    void writeTest() {
+        String toString = personSectionHeader.toString();
+        when(personMock.toString()).thenReturn(toString);
+        personSectionHeader.write(personMock);
+        verify(latexSectionHeaderMock).write(toString);
     }
 }

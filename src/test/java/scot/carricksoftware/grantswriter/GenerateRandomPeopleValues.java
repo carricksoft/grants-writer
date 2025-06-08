@@ -5,15 +5,15 @@
 
 package scot.carricksoftware.grantswriter;
 
-import org.springframework.stereotype.Component;
+
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
-
 
 @SuppressWarnings("unused")
-@Component
+
+
 public class GenerateRandomPeopleValues {
 
     @SuppressWarnings("unused")

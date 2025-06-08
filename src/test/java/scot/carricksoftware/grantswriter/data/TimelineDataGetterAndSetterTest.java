@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 class TimelineDataGetterAndSetterTest {
 

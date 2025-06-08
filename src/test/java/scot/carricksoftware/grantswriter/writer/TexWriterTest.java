@@ -17,7 +17,7 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.PartsWriter;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.inOrder;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class TexWriterTest {

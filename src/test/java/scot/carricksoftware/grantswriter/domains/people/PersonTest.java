@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 
 class PersonTest {

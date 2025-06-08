@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.mockito.Mockito.verify;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class LatexSectionHeaderTest {

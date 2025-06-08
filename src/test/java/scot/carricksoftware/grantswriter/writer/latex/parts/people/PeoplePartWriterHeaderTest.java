@@ -8,11 +8,14 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.latex.LatexPartHeader;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
 
+@ExtendWith(MockitoExtension.class)
 class PeoplePartWriterHeaderTest {
 
     private PeoplePartHeader header;
@@ -26,8 +29,8 @@ class PeoplePartWriterHeaderTest {
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(header);
+    void writeTest() {
+        header.write();
+        verify(latexPartHeaderMock).write("People");
     }
-
 }

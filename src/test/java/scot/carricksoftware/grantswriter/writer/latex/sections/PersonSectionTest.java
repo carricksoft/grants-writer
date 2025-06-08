@@ -7,18 +7,24 @@ package scot.carricksoftware.grantswriter.writer.latex.sections;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.PersonSectionHeader;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
 
-
+@ExtendWith(MockitoExtension.class)
 class PersonSectionTest {
 
     private PersonSection personSection;
 
     @Mock
-    PersonSectionHeader personSectionHeaderMock;
+    private PersonSectionHeader personSectionHeaderMock;
+
+    @Mock
+    private Person personMock;
 
     @BeforeEach
     void setUp() {
@@ -26,7 +32,8 @@ class PersonSectionTest {
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(personSection);
+    void writeTest() {
+        personSection.write(personMock);
+        verify(personSectionHeaderMock).write(personMock);
     }
 }

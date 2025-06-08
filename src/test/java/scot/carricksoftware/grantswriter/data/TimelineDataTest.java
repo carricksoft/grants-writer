@@ -52,5 +52,22 @@ class TimelineDataTest {
         assertEquals(timeline, timelineData.getTimeline());
     }
 
+    @Test
+    void clearTimeLineTest() {
+        SortedMap<String, String> timeline   = new TreeMap<>();
+        timeline.put(GetRandomString(), GetRandomString());
+        timelineData.setTimeline(timeline);
+        timelineData.clear();
+        assertEquals(0, timelineData.getTimeline().size());
+    }
+
+    @Test
+    void clearRefsTest() {
+        SortedSet<String> refs = new TreeSet<>();
+        refs.add(GetRandomString());
+        timelineData.setRefs(refs);
+        timelineData.clear();
+        assertEquals(0, timelineData.getRefs().size());
+    }
 
 }

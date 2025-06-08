@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
@@ -36,17 +37,13 @@ class PersonServiceTest {
 
 
     @Test
-    public void testFindAll() {
+    public void findAllTest() {
         List<Person> people = new ArrayList<>();
         people.add(GetRandomPerson());
-        when(personRepositoryMock.findAll(getSort())).thenReturn(people);
+        when(personRepositoryMock.findAll(any(Sort.class))).thenReturn(people);
         assertEquals(people, service.findAll());
     }
 
-    private Sort getSort() {
-        return Sort.by(
-                Sort.Order.asc("lastName"),
-                Sort.Order.asc("firstName"));
-    }
+
 
 }

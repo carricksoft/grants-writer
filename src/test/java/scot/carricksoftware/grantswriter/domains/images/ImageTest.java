@@ -8,8 +8,10 @@ package scot.carricksoftware.grantswriter.domains.images;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
+
 
 class ImageTest {
     private Image image;

@@ -17,35 +17,35 @@ import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRan
 
 class PlaceImageTest {
 
-    private PlaceImage image;
+    private PlaceImage placeImage;
 
     @BeforeEach
     void setUp() {
-        image = new PlaceImage();
+        placeImage = new PlaceImage();
     }
 
     @Test
     public void getIdTest() {
-        assertNull(image.getId());
+        assertNull(placeImage.getId());
     }
 
     @Test
     public void setIdTest() {
         Long id = GetRandomLong();
-        image.setId(id);
-        assertEquals(id, image.getId());
+        placeImage.setId(id);
+        assertEquals(id, placeImage.getId());
     }
 
     @Test
     public void getPlaceTest() {
-        assertNull(image.getPlace());
+        assertNull(placeImage.getPlace());
     }
 
     @Test
     public void setPlaceTest() {
         Place place = GetRandomPlace();
-        image.setPlace(place);
-        assertEquals(place, image.getPlace());
+        placeImage.setPlace(place);
+        assertEquals(place, placeImage.getPlace());
     }
 
 }

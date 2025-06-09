@@ -34,6 +34,17 @@ public class TimelineDataImpl implements TimelineData {
 
     @Override
     public void add(List<CensusEntry> censusEntryList) {
+        for (CensusEntry censusEntry : censusEntryList) {
+            timeline.put(censusEntry.getCensus().getCensusDate().label,
+                    "Recorded as being at " +
+                            censusEntry.getCensus().getPlace().toString());
+            if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
+                timeline.put(censusEntry.getCensus().getCensusDate().label,
+                        "Occupation recorded as " +
+                                censusEntry.getPersonalOccupation());
+            }
+            refs.add(censusEntry.getCensus().toString());
+        }
 
     }
 

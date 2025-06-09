@@ -59,4 +59,12 @@ public class CensusEntry extends BaseEntity {
     public void setPersonalOccupation(String personalOccupation) {
         this.personalOccupation = personalOccupation;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
 }

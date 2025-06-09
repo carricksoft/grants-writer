@@ -8,13 +8,11 @@ package scot.carricksoftware.grantswriter.domains.people;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
-
-class PersonTest {
-
+public class PersonTest {
     Person person;
 
     @BeforeEach
@@ -69,6 +67,4 @@ class PersonTest {
         person.setCertifiedYearOfBirth(certifiedYearOfBirth);
         assertEquals(certifiedYearOfBirth, person.getCertifiedYearOfBirth());
     }
-
-
 }

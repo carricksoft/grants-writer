@@ -6,8 +6,8 @@
 package scot.carricksoftware.grantswriter.writer.latex.parts.people;
 
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSectionHeader;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 
 @Component
 public class PersonSectionHeaderImpl implements PersonSectionHeader {

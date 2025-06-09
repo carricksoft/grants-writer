@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-class PersonToStringTest {
+public class PersonToStringTest {
 
     private Person person;
 
@@ -36,5 +35,4 @@ class PersonToStringTest {
         person.setCertifiedYearOfBirth("1955");
         assertEquals("last, first, 1955 -", person.toString());
     }
-
 }

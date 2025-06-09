@@ -5,6 +5,7 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts.people;
 
+
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface PersonSectionHeader {

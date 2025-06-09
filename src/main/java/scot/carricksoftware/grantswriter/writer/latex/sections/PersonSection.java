@@ -8,6 +8,6 @@ package scot.carricksoftware.grantswriter.writer.latex.sections;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface PersonSection {
-    @SuppressWarnings({"unused", "EmptyMethod"})
+
     void write(Person person);
 }

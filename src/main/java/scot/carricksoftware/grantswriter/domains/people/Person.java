@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Andrew Grant of Carrick Software 18/03/2025, 01:50. All rights reserved.
+ * Copyright (c) 2025.  Andrew Grant Carrick Software. All rights reserved
  *
  */
 
@@ -12,52 +12,48 @@ import scot.carricksoftware.grantswriter.BaseEntity;
 @Entity
 public class Person extends BaseEntity {
 
+    @Column(name = "`last_name`")
+    private String lastName;
+
     @Column(name = "`first_name`")
     private String firstName;
 
-    @Column(name = "`last_name`")
-    String lastName;
+    @Column(name = "`certified_year_of_birth`")
+    private String certifiedYearOfBirth;
 
     @Column(name = "`recorded_year_of_birth`")
-    String recordedYearOfBirth;
-
-    @Column(name = "`certified_year_of_birth`")
-    String certifiedYearOfBirth;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    private String recordedYearOfBirth;
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    @SuppressWarnings("unused")
-    public String getRecordedYearOfBirth() {
-        return recordedYearOfBirth;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    @SuppressWarnings("unused")
-    public void setRecordedYearOfBirth(String recordedYearOfBirth) {
-        this.recordedYearOfBirth = recordedYearOfBirth;
-    }
-
-    @SuppressWarnings("unused")
     public String getCertifiedYearOfBirth() {
         return certifiedYearOfBirth;
     }
 
-    @SuppressWarnings("unused")
     public void setCertifiedYearOfBirth(String certifiedYearOfBirth) {
         this.certifiedYearOfBirth = certifiedYearOfBirth;
+    }
+
+    public String getRecordedYearOfBirth() {
+        return recordedYearOfBirth;
+    }
+
+    public void setRecordedYearOfBirth(String recordedYearOfBirth) {
+        this.recordedYearOfBirth = recordedYearOfBirth;
     }
 
     @Override
@@ -80,5 +76,5 @@ public class Person extends BaseEntity {
 
         return builder.toString();
     }
-
 }
+

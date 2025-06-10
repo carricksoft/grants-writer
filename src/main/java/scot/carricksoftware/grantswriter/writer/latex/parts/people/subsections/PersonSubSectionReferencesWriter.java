@@ -9,5 +9,5 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface PersonSubSectionReferencesWriter {
 
-    void write(Person person);
+    void write(@SuppressWarnings("unused") Person person);
 }

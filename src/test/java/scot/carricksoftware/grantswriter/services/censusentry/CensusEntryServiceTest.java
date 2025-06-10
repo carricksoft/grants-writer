@@ -8,16 +8,29 @@ package scot.carricksoftware.grantswriter.services.censusentry;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.censusentry.CensusEntryRepository;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateRandomCensusValues.GetRandomCensusEntry;
+
+@ExtendWith(MockitoExtension.class)
 class CensusEntryServiceTest {
     private CensusEntryService censusEntryService;
 
     @Mock
     private CensusEntryRepository censusEntryRepositoryMock;
+
+    @Mock
+    private Person personMock;
 
     @BeforeEach
     void setUp() {
@@ -25,7 +38,12 @@ class CensusEntryServiceTest {
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(censusEntryService);
+    public void findAllByPersonTest() {
+        List<CensusEntry> censusEntries = new ArrayList<>();
+        censusEntries.add(GetRandomCensusEntry());
+        when(censusEntryRepositoryMock.findAllByPerson(personMock)).thenReturn(censusEntries);
+        assertEquals(censusEntries, censusEntryService.findAllByPerson(personMock));
     }
+
+
 }

@@ -28,6 +28,6 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     public void write(Person person) {
         // get census record for name
         latexSubSectionHeader.write("Timeline");
-        List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
+        @SuppressWarnings("unused") List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
     }
 }

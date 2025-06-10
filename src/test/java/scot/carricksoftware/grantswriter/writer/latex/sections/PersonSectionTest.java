@@ -41,5 +41,7 @@ class PersonSectionTest {
     void writeTest() {
         personSection.write(personMock);
         verify(personSectionHeaderMock).write(personMock);
+        verify(personSubSectionTimeLineWriterMock).write(personMock);
+        verify(personSubSectionReferencesWriterMock).write(personMock);
     }
 }

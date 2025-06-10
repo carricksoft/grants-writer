@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.sections;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 class PersonSubSectionTimeLineWriterTest {
 
@@ -25,7 +26,7 @@ class PersonSubSectionTimeLineWriterTest {
     }
 
     @Test
-    void constructTest() {
+    void constructorTest() {
         assertNotNull(writer);
     }
 }

@@ -12,10 +12,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.people.PersonService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.headers.PeoplePartHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriterImpl;
-import scot.carricksoftware.grantswriter.writer.latex.sections.PersonSection;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.sections.PersonSection;
 
 import java.util.ArrayList;
 import java.util.List;

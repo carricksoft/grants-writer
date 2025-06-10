@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.sections;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.people.Person;

@@ -3,11 +3,11 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.sections;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.sections;
 
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
-public interface PersonSubSectionReferencesWriter {
+public interface PersonSection {
 
     void write(Person person);
 }

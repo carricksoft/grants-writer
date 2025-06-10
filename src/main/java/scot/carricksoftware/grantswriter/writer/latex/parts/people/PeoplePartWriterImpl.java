@@ -10,7 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.people.PersonService;
-import scot.carricksoftware.grantswriter.writer.latex.sections.PersonSection;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.sections.PersonSection;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.headers.PeoplePartHeader;
 
 import java.util.List;
 

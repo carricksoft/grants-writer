@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.headers;
 
 
 import scot.carricksoftware.grantswriter.domains.people.Person;

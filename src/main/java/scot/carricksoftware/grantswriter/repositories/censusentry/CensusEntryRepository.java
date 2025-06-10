@@ -3,14 +3,17 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.repositories.people;
+package scot.carricksoftware.grantswriter.repositories.censusentry;
 
 import org.springframework.stereotype.Repository;
+import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 @Repository
-public interface PersonRepository extends ReadOnlyRepository<Person, Long> {
-
+public interface CensusEntryRepository extends ReadOnlyRepository<CensusEntry, Long> {
+    List<CensusEntry> findAllByPerson(Person person);
 }

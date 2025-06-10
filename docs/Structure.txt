@@ -1,4 +1,4 @@
-TexController -> TexWriter -> PartsWriter -> PeoplePartWriter -> (PeoplePartHeader+PersonSectionWriter) -> (PersonPart SubSectionHeading + PersonTimeLineWriter)
+TexController -> TexWriter -> PartsWriter -> PeoplePartWriter -> (PeoplePartHeader+PersonSectionWriter) -> (PersonPart SubSectionHeading + PersonSubSectionTimeLineWriter)
 
 
 

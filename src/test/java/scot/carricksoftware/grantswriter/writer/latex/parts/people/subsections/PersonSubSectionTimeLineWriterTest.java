@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 
 import static org.mockito.Mockito.verify;
@@ -24,11 +25,14 @@ class PersonSubSectionTimeLineWriterTest {
     private LatexSubSectionHeader latexSubSectionHeaderMock;
 
     @Mock
+    private CensusEntryService censusEntryServiceMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock);
+        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock, censusEntryServiceMock);
     }
 
     @Test

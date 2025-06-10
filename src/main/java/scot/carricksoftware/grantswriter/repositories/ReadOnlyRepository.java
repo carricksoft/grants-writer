@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.repositories.people;
+package scot.carricksoftware.grantswriter.repositories;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.NoRepositoryBean;
@@ -15,4 +15,5 @@ import java.util.List;
 public interface ReadOnlyRepository<T, ID> extends Repository<T, ID> {
 
     List<T> findAll(Sort sort);
+
 }

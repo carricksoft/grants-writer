@@ -22,9 +22,5 @@ private final LatexSubSectionHeader latexSubSectionHeader;
     public void write(Person person) {
         // get census record for name
         latexSubSectionHeader.write("Timeline");
-
-        // write timeline
-        latexSubSectionHeader.write("References");
-        // write refs
     }
 }

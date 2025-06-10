@@ -24,11 +24,17 @@ class PersonSectionTest {
     private PersonSectionHeader personSectionHeaderMock;
 
     @Mock
+    private PersonSubSectionTimeLineWriter personSubSectionTimeLineWriterMock;
+
+    @Mock
+    private PersonSubSectionReferencesWriter personSubSectionReferencesWriterMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        personSection = new PersonSectionImpl(personSectionHeaderMock);
+        personSection = new PersonSectionImpl(personSectionHeaderMock, personSubSectionTimeLineWriterMock, personSubSectionReferencesWriterMock);
     }
 
     @Test

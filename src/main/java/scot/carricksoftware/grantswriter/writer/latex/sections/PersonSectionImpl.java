@@ -13,13 +13,21 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 public class PersonSectionImpl implements PersonSection {
 
     private final PersonSectionHeader personSectionHeader;
+    private final PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter;
+    private final PersonSubSectionReferencesWriter personSubSectionReferencesWriter;
 
-    public PersonSectionImpl(PersonSectionHeader personSectionHeader) {
+    public PersonSectionImpl(PersonSectionHeader personSectionHeader,
+                             PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter,
+                             PersonSubSectionReferencesWriter personSubSectionReferencesWriter) {
         this.personSectionHeader = personSectionHeader;
+        this.personSubSectionTimeLineWriter = personSubSectionTimeLineWriter;
+        this.personSubSectionReferencesWriter = personSubSectionReferencesWriter;
     }
 
     @Override
     public void write(Person person) {
         personSectionHeader.write(person);
+        personSubSectionTimeLineWriter.write(person);
+        personSubSectionReferencesWriter.write(person);
     }
 }

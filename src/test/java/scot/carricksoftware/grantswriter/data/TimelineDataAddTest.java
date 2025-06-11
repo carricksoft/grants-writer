@@ -48,7 +48,6 @@ public class TimelineDataAddTest {
 
         censusEntryList = new ArrayList<>();
         censusEntryList.add(censusEntry);
-
     }
 
     @Test

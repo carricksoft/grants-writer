@@ -12,7 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class LatexLongTableStartTest {
@@ -28,7 +29,10 @@ class LatexLongTableStartTest {
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(latexLongTableStart);
+    void writeTest() {
+        String columns = GetRandomString();
+        @SuppressWarnings("SpellCheckingInspection") String required = "\\begin{longtable}{" + columns + "}";
+        latexLongTableStart.write(columns);
+        verify(fileWriterMock).writeLine(required);
     }
 }

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.data.TimelineData;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
@@ -28,11 +29,14 @@ class PersonSubSectionTimeLineWriterTest {
     private CensusEntryService censusEntryServiceMock;
 
     @Mock
+    private TimelineData timelineDataMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock, censusEntryServiceMock);
+        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock, censusEntryServiceMock, timelineDataMock);
     }
 
     @Test

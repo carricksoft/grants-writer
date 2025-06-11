@@ -7,16 +7,24 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class LatexLongTableStartTest {
 
     private LatexLongTableStart latexLongTableStart;
 
+    @Mock
+    private FileWriter fileWriterMock;
+
     @BeforeEach
     void setUp() {
-        latexLongTableStart = new LatexLongTableStartImpl();
+        latexLongTableStart = new LatexLongTableStartImpl(fileWriterMock);
     }
 
     @Test

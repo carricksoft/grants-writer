@@ -20,6 +20,8 @@ public class LatexConstants {
     public static final String DOCUMENT_END = "\\end{document}";
     @SuppressWarnings("SpellCheckingInspection")
     public static final String LONG_TABLE_END = "\\end{longtable}";
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final String LONG_TABLE_START = "\\begin{longtable}{";
 
     public static final String PART_TERM = "\\part{";
     public static final String SECTION_TERM = "\\section{";

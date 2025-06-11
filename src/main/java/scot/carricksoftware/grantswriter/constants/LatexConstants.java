@@ -22,6 +22,8 @@ public class LatexConstants {
     public static final String PART_TERM = "\\part{";
     public static final String SECTION_TERM = "\\section{";
     public static final String SUBSECTION_TERM = "\\subsection{";
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final String USE_PACKAGE_TERM = "\\usepackage{";
     public static final String TERM_END = "}";
 
 }

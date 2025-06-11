@@ -22,11 +22,14 @@ class LatexDocumentStartTest {
     private LatexDocumentStart documentStart;
 
     @Mock
-    private FileWriter fileWriterMock ;
+    private FileWriter fileWriterMock;
+
+    @Mock
+    private LatexPackageDeclaration latexPackageDeclarationMock;
 
     @BeforeEach
     void setUp() {
-        documentStart = new LatexDocumentStartImpl(fileWriterMock);
+        documentStart = new LatexDocumentStartImpl(fileWriterMock, latexPackageDeclarationMock);
     }
 
     @Test

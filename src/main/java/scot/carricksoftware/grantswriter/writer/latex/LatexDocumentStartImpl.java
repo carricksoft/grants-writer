@@ -18,14 +18,22 @@ public class LatexDocumentStartImpl implements LatexDocumentStart {
 
     private final FileWriter fileWriter;
 
-    public LatexDocumentStartImpl(FileWriter fileWriter) {
+    private final LatexPackageDeclaration latexPackageDeclaration;
+
+    public LatexDocumentStartImpl(FileWriter fileWriter,
+                                  LatexPackageDeclaration latexPackageDeclaration) {
         this.fileWriter = fileWriter;
+        this.latexPackageDeclaration = latexPackageDeclaration;
     }
 
     @Override
     public void write() {
         logger.info("LatexDocumentStartImpl.write()");
         fileWriter.writeLine(LatexConstants.DOCUMENT_CLASS);
+        //noinspection SpellCheckingInspection
+        latexPackageDeclaration.write("longtable");
         fileWriter.writeLine(LatexConstants.DOCUMENT_START);
+
+
     }
 }

@@ -6,23 +6,22 @@
 package scot.carricksoftware.grantswriter.data;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.List;
-import java.util.SortedMap;
 import java.util.SortedSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 @Component
 public class TimelineDataImpl implements TimelineData {
 
-    private SortedMap<String, String> timeline;
+    private LinkedMultiValueMap<String, String> timeline;
 
     private SortedSet<String> refs;
 
     public TimelineDataImpl() {
-        this.timeline = new TreeMap<>();
+        this.timeline = new LinkedMultiValueMap<>();
         this.refs = new TreeSet<>();
     }
 
@@ -35,26 +34,25 @@ public class TimelineDataImpl implements TimelineData {
     @Override
     public void add(List<CensusEntry> censusEntryList) {
         for (CensusEntry censusEntry : censusEntryList) {
-            timeline.put(censusEntry.getCensus().getCensusDate().label,
+            timeline.add(censusEntry.getCensus().getCensusDate().label,
                     "Recorded as being at " +
                             censusEntry.getCensus().getPlace().toString());
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
-                timeline.put(censusEntry.getCensus().getCensusDate().label,
+                timeline.add(censusEntry.getCensus().getCensusDate().label,
                         "Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
             }
             refs.add(censusEntry.getCensus().toString());
         }
-
     }
 
     @Override
-    public SortedMap<String, String> getTimeline() {
+    public LinkedMultiValueMap<String, String> getTimeline() {
         return timeline;
     }
 
     @Override
-    public void setTimeline(SortedMap<String, String> timeline) {
+    public void setTimeline(LinkedMultiValueMap<String, String> timeline) {
         this.timeline = timeline;
     }
 

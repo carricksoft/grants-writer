@@ -6,6 +6,7 @@
 package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.data.TimelineData;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
@@ -18,16 +19,19 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
 
     private final LatexSubSectionHeader latexSubSectionHeader;
     private final CensusEntryService censusEntryService;
+    private final TimelineData timelineData;
 
-    public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader, CensusEntryService censusEntryService) {
+    public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader, CensusEntryService censusEntryService, TimelineData timelineData) {
         this.latexSubSectionHeader = latexSubSectionHeader;
         this.censusEntryService = censusEntryService;
+        this.timelineData = timelineData;
     }
 
     @Override
     public void write(Person person) {
         // get census record for name
         latexSubSectionHeader.write("Timeline");
-        @SuppressWarnings("unused") List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
+        List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
+        timelineData.add(censusEntryList);
     }
 }

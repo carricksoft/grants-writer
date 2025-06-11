@@ -18,6 +18,8 @@ public class LatexConstants {
     public static final String DOCUMENT_CLASS = "\\documentclass[a4paper,11pt]{memoir}";
     public static final String DOCUMENT_START = "\\begin{document}";
     public static final String DOCUMENT_END = "\\end{document}";
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final String LONG_TABLE_END = "\\end{longtable}";
 
     public static final String PART_TERM = "\\part{";
     public static final String SECTION_TERM = "\\section{";

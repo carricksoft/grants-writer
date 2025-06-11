@@ -21,7 +21,15 @@ public class GenerateRandomPlaceValues {
     public static Place GetRandomPlace() {
         Place place = new Place();
         place.setName(GetRandomString());
+        place.setRegion(GetRandomRegion());
         return place;
+    }
+
+    public static Region GetRandomRegion() {
+        Region region = new Region();
+        region.setName(GetRandomString());
+        region.setCountry(GetRandomCountry());
+        return region;
     }
 
     public static Country GetRandomCountry() {
@@ -31,11 +39,7 @@ public class GenerateRandomPlaceValues {
     }
 
 
-    public static Region GetRandomRegion() {
-        Region region = new Region();
-        region.setName(GetRandomString());
-        return region;
-    }
+
 
 
 

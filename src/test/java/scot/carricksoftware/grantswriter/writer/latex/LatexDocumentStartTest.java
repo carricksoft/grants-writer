@@ -39,11 +39,13 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
-        InOrder inorder = inOrder(fileWriterMock, fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock,fileWriterMock);
         documentStart.write();
 
         //noinspection SpellCheckingInspection
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt]{memoir}");
+        //noinspection SpellCheckingInspection
+        inorder.verify(latexPackageDeclarationMock).write("longtable");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }
 }

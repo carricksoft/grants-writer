@@ -5,9 +5,11 @@
 
 package scot.carricksoftware.grantswriter.writer.latex;
 
+import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
+@Component
 public class LatexLongTabLeEndImpl implements LatexLongTabLeEnd {
 
     private final FileWriter fileWriter;
@@ -15,7 +17,6 @@ public class LatexLongTabLeEndImpl implements LatexLongTabLeEnd {
     public LatexLongTabLeEndImpl(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
-
 
     @Override
     public void write() {

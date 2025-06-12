@@ -29,5 +29,7 @@ public class LatexConstants {
     @SuppressWarnings("SpellCheckingInspection")
     public static final String USE_PACKAGE_TERM = "\\usepackage{";
     public static final String TERM_END = "}";
+    public static final String TABLE_COLUMN_END = "&";
+    public static final String TABLE_LINE_END = "&\\\\";
 
 }

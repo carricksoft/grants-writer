@@ -8,5 +8,5 @@ package scot.carricksoftware.grantswriter.writer.latex;
 public interface LatexLongTableStart {
 
     @SuppressWarnings({"EmptyMethod", "unused"})
-    void write(@SuppressWarnings("unused") String columns);
+    void write(String columns);
 }

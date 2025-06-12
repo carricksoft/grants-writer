@@ -33,7 +33,10 @@ public class CensusEntryServiceImpl implements CensusEntryService {
         logger.debug("PersonServiceImpl::findAll");
         List<CensusEntry> result = new ArrayList<>();
         Iterable<CensusEntry> censusEntryIterable = censusEntryRepository.findAllByPerson(person);
-        censusEntryIterable.forEach(result::add);
+        for (CensusEntry censusEntry : censusEntryIterable) {
+            result.add(censusEntry);
+        }
+   //     censusEntryIterable.forEach(result::add);
         return result;
     }
 

@@ -12,10 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.TimelineData;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
-import scot.carricksoftware.grantswriter.writer.FileWriter;
-import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
-import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -34,22 +32,14 @@ class PersonSubSectionTimeLineWriterTest {
     private TimelineData timelineDataMock;
 
     @Mock
-    private FileWriter fileWriterMock;
-
-    @Mock
-    private LatexLongTableStart latexLongTableStartMock;
-
-    @Mock
-    private LatexLongTabLeEnd latexLongTableEndMock;
+    private WriteTimeLine writeTimeLineMock;
 
     @BeforeEach
     void setUp() {
         writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock,
                 censusEntryServiceMock,
                 timelineDataMock,
-                fileWriterMock,
-                latexLongTableStartMock,
-                latexLongTableEndMock);
+                writeTimeLineMock);
     }
 
     @Test

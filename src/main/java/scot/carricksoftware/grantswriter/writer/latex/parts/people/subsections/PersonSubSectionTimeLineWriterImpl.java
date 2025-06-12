@@ -32,7 +32,10 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     private final TimelineData timelineData;
     private final FileWriter fileWriter;
 
-    public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader, CensusEntryService censusEntryService, TimelineData timelineData, FileWriter fileWriter) {
+    public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader,
+                                              CensusEntryService censusEntryService,
+                                              TimelineData timelineData,
+                                              FileWriter fileWriter) {
         this.latexSubSectionHeader = latexSubSectionHeader;
         this.censusEntryService = censusEntryService;
         this.timelineData = timelineData;

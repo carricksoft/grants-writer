@@ -14,7 +14,9 @@ import scot.carricksoftware.grantswriter.data.TimelineData;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
+import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,13 +39,19 @@ class PersonSubSectionTimeLineWriterTest {
     @Mock
     private TimelineData timelineDataMock;
 
+    @Mock
+    private FileWriter fileWriterMock;
+
 
     @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock, censusEntryServiceMock, timelineDataMock);
+        writer = new PersonSubSectionTimeLineWriterImpl(latexSubSectionHeaderMock,
+                censusEntryServiceMock,
+                timelineDataMock,
+                fileWriterMock);
     }
 
     @Test

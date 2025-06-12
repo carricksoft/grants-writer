@@ -30,9 +30,12 @@ class WriteTimeLineTest {
     @Mock
     private LatexLongTabLeEnd latexLongTabLeEndMock;
 
+    @Mock
+    private DateSortLinkedMultiValueMap dateSortLinkedMultiValueMapMock;
+
     @BeforeEach
     void setUp() {
-        writeTimeLine = new WriteTimeLineImpl(fileWriterMock, latexLongTableStartMock, latexLongTabLeEndMock);
+        writeTimeLine = new WriteTimeLineImpl(fileWriterMock, latexLongTableStartMock, latexLongTabLeEndMock, dateSortLinkedMultiValueMapMock);
     }
 
     @Test

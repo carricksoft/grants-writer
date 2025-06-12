@@ -25,13 +25,15 @@ public class WriteTimeLineImpl implements WriteTimeLine {
     private final FileWriter fileWriter;
     private final LatexLongTableStart latexLongTableStart;
     private final LatexLongTabLeEnd latexLongTabLeEnd;
+    private final DateSortLinkedMultiValueMap dateSortLinkedMultiValueMap;
 
     public WriteTimeLineImpl(FileWriter fileWriter,
                              LatexLongTableStart latexLongTableStart,
-                             LatexLongTabLeEnd latexLongTabLeEnd) {
+                             LatexLongTabLeEnd latexLongTabLeEnd, DateSortLinkedMultiValueMap dateSortLinkedMultiValueMap) {
         this.fileWriter = fileWriter;
         this.latexLongTableStart = latexLongTableStart;
         this.latexLongTabLeEnd = latexLongTabLeEnd;
+        this.dateSortLinkedMultiValueMap = dateSortLinkedMultiValueMap;
     }
 
     @Override
@@ -39,6 +41,7 @@ public class WriteTimeLineImpl implements WriteTimeLine {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexLongTableStart.write("l l");
+        map = dateSortLinkedMultiValueMap.sort(map);
         writeTheData(map);
         latexLongTabLeEnd.write();
     }

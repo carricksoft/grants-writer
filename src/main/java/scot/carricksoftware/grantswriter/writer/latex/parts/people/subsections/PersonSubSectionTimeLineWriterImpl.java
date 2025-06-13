@@ -13,6 +13,7 @@ import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.DateSortLinkedMultiValueMap;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
 import java.util.List;
@@ -26,15 +27,18 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     private final CensusEntryService censusEntryService;
     private final TimelineData timelineData;
     private final WriteTimeLine writeTimeLine;
+    private final DateSortLinkedMultiValueMap dateSortLinkedMultiValueMap;
 
     public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader,
                                               CensusEntryService censusEntryService,
                                               TimelineData timelineData,
-                                              WriteTimeLine writeTimeLine) {
+                                              WriteTimeLine writeTimeLine,
+                                              DateSortLinkedMultiValueMap dateSortLinkedMultiValueMapTwoMap) {
         this.latexSubSectionHeader = latexSubSectionHeader;
         this.censusEntryService = censusEntryService;
         this.timelineData = timelineData;
         this.writeTimeLine = writeTimeLine;
+        this.dateSortLinkedMultiValueMap = dateSortLinkedMultiValueMapTwoMap;
     }
 
     @Override
@@ -42,9 +46,11 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexSubSectionHeader.write("Timeline");
-        List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
+        List<CensusEntry> censusEntryList = censusEntryService.findAllByPerson(person);
         timelineData.clear();
-       timelineData.add(censusEntryList);
+        timelineData.add(censusEntryList);
+
+        dateSortLinkedMultiValueMap.sort(timelineData.getTimeline());
 
         writeTimeLine.write(timelineData.getTimeline());
     }

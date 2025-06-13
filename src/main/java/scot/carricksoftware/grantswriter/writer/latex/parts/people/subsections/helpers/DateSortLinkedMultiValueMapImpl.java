@@ -10,71 +10,50 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
+
 
 @Component
 public class DateSortLinkedMultiValueMapImpl implements DateSortLinkedMultiValueMap {
-
 
     private static final Logger logger = LogManager.getLogger(DateSortLinkedMultiValueMapImpl.class);
 
     @Override
     public LinkedMultiValueMap<String, String> sort(LinkedMultiValueMap<String, String> map) {
+        logger.info("DateSortLinkedMultiValueMapImpl::sort");
+        LinkedHashMap<String, List<String>> tempMap = new LinkedHashMap<>();
+        mapConvert(map, tempMap);
+        dateSort(tempMap);
+        deConvert(tempMap, map);
+        return map;
+    }
 
-        logger.debug("LinkedMultiValueMapImpl::sort");
+    private void deConvert(HashMap<String, List<String>> tempMap, LinkedMultiValueMap<String, String> map) {
+        logger.info("DateSortLinkedMultiValueMapImpl::deConvert");
+        Set<String> keys = tempMap.keySet();
+        for (String key : keys) {
+            map.put(key, Objects.requireNonNull(map.get(key)));
+        }
+    }
+
+    private void mapConvert(LinkedMultiValueMap<String, String> map, LinkedHashMap<String, List<String>> tempMap) {
         Set<String> keys = map.keySet();
-        List<String> keyList = new ArrayList<>(keys);
-        if (keyList.size() > 1) {
-            sortKeyList(keyList);
+        for (String key : keys) {
+            tempMap.put(key, map.get(key));
         }
-        LinkedMultiValueMap<String, String> newMap = new LinkedMultiValueMap<>();
-        for (String key : keyList) {
-            List<String> values = map.get(key);
-            assert values != null;
-            newMap.put(key, values);
-        }
-        return newMap;
     }
 
-    @SuppressWarnings({"CommentedOutCode", "EmptyMethod", "unused"})
-    private void sortKeyList(List<String> keyList) {
-        //       int n = keyList.size();
-        //      boolean swapped;
-//        do {
-//            swapped = false;
-//            for (int i = 0; i < n - 1; i++) {
-//                if (compareTo(keyList.get(i), keyList.get(i + 1)) > 0) {
-//                    swapEntries(keyList, i + 1, i);
-//                    swapped = true;
-//                }
-//            }
-//        } while (swapped);
-
+    @SuppressWarnings({"EmptyMethod", "unused"})
+    private void dateSort(LinkedHashMap<String, List<String>> map) {
+        logger.info("DateSortLinkedMultiValueMapImpl::dateSort");
     }
 
-    @Override
-    public void swapEntries(List<String> keyList, int i, int j) {
-        String temp = keyList.get(i);
-        keyList.set(i, keyList.get(j));
-        keyList.set(j, temp);
-    }
 
-    @Override
-    public int compareDates(String a, String b) {
-        String[] aParts = a.split("/");
-        String[] bParts = b.split("/");
-        if (Integer.parseInt(aParts[0]) > Integer.parseInt(bParts[0])) {
-            return 1;
-        }
-        if (Integer.parseInt(aParts[1]) > Integer.parseInt(bParts[1])) {
-            return 1;
-        }
-        if (Integer.parseInt(aParts[2]) > Integer.parseInt(bParts[2])) {
-            return 1;
-        }
-        return 0;
-    }
+
+
 }
 

@@ -8,6 +8,8 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 class DateSortLinkedMultiValueMapTest {
 
     @SuppressWarnings("unused")
@@ -20,6 +22,6 @@ class DateSortLinkedMultiValueMapTest {
 
     @Test
     void constructorTest() {
-        underTest = new DateSortLinkedMultiValueMapImpl();
+        assertNotNull(underTest);
     }
 }

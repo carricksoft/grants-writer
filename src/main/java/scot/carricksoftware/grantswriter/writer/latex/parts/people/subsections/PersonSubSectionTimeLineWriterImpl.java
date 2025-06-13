@@ -44,7 +44,7 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
         latexSubSectionHeader.write("Timeline");
         List<CensusEntry>  censusEntryList = censusEntryService.findAllByPerson(person);
         timelineData.clear();
-        timelineData.add(censusEntryList);
+       timelineData.add(censusEntryList);
 
         writeTimeLine.write(timelineData.getTimeline());
     }

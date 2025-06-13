@@ -41,8 +41,8 @@ public class WriteTimeLineImpl implements WriteTimeLine {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexLongTableStart.write("l l");
-        map = dateSortLinkedMultiValueMap.sort(map);
-        writeTheData(map);
+        LinkedMultiValueMap<String, String> newMap = dateSortLinkedMultiValueMap.sort(map);
+        writeTheData(newMap);
         latexLongTabLeEnd.write();
     }
 

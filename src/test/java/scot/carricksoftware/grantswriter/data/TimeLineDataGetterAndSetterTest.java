@@ -7,6 +7,10 @@ package scot.carricksoftware.grantswriter.data;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.enums.census.CensusDate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,13 +22,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
+@ExtendWith(MockitoExtension.class)
 class TimeLineDataGetterAndSetterTest {
 
     private TimeLineData timelineData;
 
+
+    @Mock
+    private TimeLineDateComparator  timeLineDateComparatorMock;
+
+    @SuppressWarnings("unused")
+    @Mock
+    private TreeMap<String, List<String>> mapMock;
+
+    @SuppressWarnings("unused")
+    @Mock
+    private TreeSet<CensusDate> censusDateSetMock;
+
     @BeforeEach
     void setUp() {
-        timelineData = new TimeLineDataImpl();
+        timelineData = new TimeLineDataImpl(timeLineDateComparatorMock);
     }
 
     @Test

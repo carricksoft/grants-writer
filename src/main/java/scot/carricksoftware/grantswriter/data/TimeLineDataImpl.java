@@ -21,8 +21,12 @@ public class TimeLineDataImpl implements TimeLineData {
 
     private SortedSet<String> refs;
 
-    public TimeLineDataImpl() {
-        this.timeline = new TreeMap<>();
+    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    private final TimeLineDateComparator timeLineDateComparator;
+
+    public TimeLineDataImpl(TimeLineDateComparator timeLineDateComparator) {
+        this.timeLineDateComparator = timeLineDateComparator;
+        this.timeline = new TreeMap<>(new TimeLineDateComparator());
         this.refs = new TreeSet<>();
     }
 
@@ -45,7 +49,6 @@ public class TimeLineDataImpl implements TimeLineData {
             timeline.put(key, values);
 
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
-                values = timeline.get(key);
                 values.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
                 timeline.put(key, values);
@@ -73,4 +76,5 @@ public class TimeLineDataImpl implements TimeLineData {
     public void setRefs(SortedSet<String> refs) {
         this.refs = refs;
     }
+
 }

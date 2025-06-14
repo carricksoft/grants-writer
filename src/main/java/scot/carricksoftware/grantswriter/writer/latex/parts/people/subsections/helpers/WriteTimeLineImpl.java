@@ -44,18 +44,16 @@ public class WriteTimeLineImpl implements WriteTimeLine {
     }
 
     private void writeTheData(TreeMap<String, List<String>> map) {
-        logger.info("PersonSubSectionTimeLineWriterImp::writeTHeData");
+        logger.info("PersonSubSectionTimeLineWriterImp::writeTheData");
 
         for (String key : map.keySet()) {
-            List<String> value = map.get(key);
-            if (value != null) {
-                for (String event : value) {
-                    String builder = key +
-                            LatexConstants.TABLE_COLUMN_END +
-                            event +
-                            LatexConstants.TABLE_LINE_END;
-                    fileWriter.writeLine(builder);
-                }
+            var value = map.get(key);
+            for (String event : value) {
+                String builder = key +
+                        LatexConstants.TABLE_COLUMN_END +
+                        event +
+                        LatexConstants.TABLE_LINE_END;
+                fileWriter.writeLine(builder);
             }
         }
     }

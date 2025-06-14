@@ -5,12 +5,15 @@
 
 package scot.carricksoftware.grantswriter.data;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Comparator;
 
+
+@Component
 public class TimeLineDateComparator implements Comparator<String> {
 
     @SuppressWarnings("ComparatorMethodParameterNotUsed")
-    @Override
     public int compare(String a, String b) {
         String[] aParts = a.split("/");
         String[] bParts = b.split("/");
@@ -27,6 +30,10 @@ public class TimeLineDateComparator implements Comparator<String> {
             return 1;
         }
 
-        return 0;
+        return -1;
     }
+
+
+
+
 }

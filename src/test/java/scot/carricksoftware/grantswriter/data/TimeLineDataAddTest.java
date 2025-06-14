@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.util.LinkedMultiValueMap;
 import scot.carricksoftware.grantswriter.domains.census.Census;
@@ -31,11 +32,16 @@ public class TimeLineDataAddTest {
     private TimeLineData timelineData;
     private List<CensusEntry> censusEntryList;
     private CensusEntry censusEntry;
+
+    @Mock
+    private TimeLineDateComparator  timeLineDateComparatorMock;
+
+
     Census census;
 
     @BeforeEach
     void setUp() {
-        timelineData = new TimeLineDataImpl();
+        timelineData = new TimeLineDataImpl(timeLineDateComparatorMock);
         Place place = GetRandomPlace();
 
         census = new Census();

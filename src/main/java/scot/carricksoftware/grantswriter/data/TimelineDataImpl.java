@@ -6,22 +6,23 @@
 package scot.carricksoftware.grantswriter.data;
 
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 @Component
 public class TimelineDataImpl implements TimelineData {
 
-    private LinkedMultiValueMap<String, String> timeline;
+    private TreeMap<String, List<String>> timeline;
 
     private SortedSet<String> refs;
 
     public TimelineDataImpl() {
-        this.timeline = new LinkedMultiValueMap<>();
+        this.timeline = new TreeMap<>();
         this.refs = new TreeSet<>();
     }
 
@@ -34,25 +35,32 @@ public class TimelineDataImpl implements TimelineData {
     @Override
     public void add(List<CensusEntry> censusEntryList) {
         for (CensusEntry censusEntry : censusEntryList) {
-            timeline.add(censusEntry.getCensus().getCensusDate().label,
-                    "Recorded as being at " +
-                            censusEntry.getCensus().getPlace().toString());
+            String key = censusEntry.getCensus().getCensusDate().label;
+            List<String> values = timeline.get(key);
+            if (values == null) {
+                values = new ArrayList<>();
+            }
+            values.add( "Recorded as being at " +
+                    censusEntry.getCensus().getPlace().toString());
+            timeline.put(key, values);
+
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
-                timeline.add(censusEntry.getCensus().getCensusDate().label,
-                        "Occupation recorded as " +
+                values = timeline.get(key);
+                values.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
+                timeline.put(key, values);
             }
             refs.add(censusEntry.getCensus().toString());
         }
     }
 
     @Override
-    public LinkedMultiValueMap<String, String> getTimeline() {
+    public TreeMap<String, List<String>> getTimeline() {
         return timeline;
     }
 
     @Override
-    public void setTimeline(LinkedMultiValueMap<String, String> timeline) {
+    public void setTimeline(TreeMap<String, List<String>> timeline) {
         this.timeline = timeline;
     }
 

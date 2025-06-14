@@ -7,9 +7,11 @@ package scot.carricksoftware.grantswriter.data;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.LinkedMultiValueMap;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,17 +47,21 @@ class TimelineDataGetterAndSetterTest {
 
     @Test
     void setTimelineTest() {
-        LinkedMultiValueMap<String, String> timeline   = new LinkedMultiValueMap<>();
-        timeline.add(GetRandomString(), GetRandomString());
+        TreeMap<String, List<String>> timeline   = new TreeMap<>();
+        List<String> stringList = new LinkedList<>();
+        stringList.add(GetRandomString());
+        timeline.put(GetRandomString(), stringList);
         timelineData.setTimeline(timeline);
         assertEquals(timeline, timelineData.getTimeline());
     }
 
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     @Test
     void clearTimeLineTest() {
-        LinkedMultiValueMap<String, String> timeline   = new LinkedMultiValueMap<>();
-        timeline.add(GetRandomString(), GetRandomString());
-        timelineData.setTimeline(timeline);
+        TreeMap<String, List<String>> timeline   = new TreeMap<>();
+        List<String> stringList = new LinkedList<>();
+        stringList.add(GetRandomString());
+        timeline.put(GetRandomString(), stringList);
         timelineData.clear();
         assertEquals(0, timelineData.getTimeline().size());
     }

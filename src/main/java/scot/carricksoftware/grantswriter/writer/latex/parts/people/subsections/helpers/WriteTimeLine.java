@@ -5,8 +5,9 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers;
 
-import org.springframework.util.LinkedMultiValueMap;
+import java.util.List;
+import java.util.TreeMap;
 
 public interface WriteTimeLine {
-    void write (LinkedMultiValueMap<String, String> map);
+    void write (TreeMap<String, List<String>> map);
 }

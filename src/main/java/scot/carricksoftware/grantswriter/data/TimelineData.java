@@ -5,11 +5,11 @@
 
 package scot.carricksoftware.grantswriter.data;
 
-import org.springframework.util.LinkedMultiValueMap;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeMap;
 
 public interface TimelineData {
 
@@ -20,10 +20,10 @@ public interface TimelineData {
     void add(List<CensusEntry> censusEntryList);
 
     @SuppressWarnings("unused")
-    LinkedMultiValueMap<String, String> getTimeline();
+    TreeMap<String, List<String>> getTimeline();
 
     @SuppressWarnings("unused")
-    void setTimeline(LinkedMultiValueMap<String, String> timeline);
+    void setTimeline(TreeMap<String, List<String>> timeline);
 
     @SuppressWarnings("unused")
     SortedSet<String> getRefs();

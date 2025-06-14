@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.SortedSet;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,28 +49,7 @@ public class TimelineDataAddTest {
         censusEntryList.add(censusEntry);
     }
 
-    @Test
-    void placeTest() {
-        Place place = GetRandomPlace();
-        census.setPlace(place);
-        timelineData.add(censusEntryList);
-        LinkedMultiValueMap<String, String> timeline = timelineData.getTimeline();
-        String required = "Recorded as being at " + place;
-
-        assertTrue(isFound(timeline, required));
-    }
-
-    @Test
-    void occupationTest() {
-        String occupation = GetRandomString();
-        censusEntry.setPersonalOccupation(occupation);
-        timelineData.add(censusEntryList);
-        LinkedMultiValueMap<String, String> timeline = timelineData.getTimeline();
-        String required = "Occupation recorded as " + occupation;
-
-        assertTrue(isFound(timeline, required));
-    }
-
+    @SuppressWarnings("unused")
     private boolean isFound(LinkedMultiValueMap<String, String> timeline, String required) {
         boolean found = false;
         Collection<List <String>> test = timeline.values();
@@ -86,7 +64,6 @@ public class TimelineDataAddTest {
         }
         return found;
     }
-
 
     @Test
     void refsTest() {

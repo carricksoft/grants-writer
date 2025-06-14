@@ -25,17 +25,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 @ExtendWith(MockitoExtension.class)
-public class TimelineDataAddTest {
+public class TimeLineDataAddTest {
 
     @SuppressWarnings({"unused"})
-    private TimelineData timelineData;
+    private TimeLineData timelineData;
     private List<CensusEntry> censusEntryList;
     private CensusEntry censusEntry;
     Census census;
 
     @BeforeEach
     void setUp() {
-        timelineData = new TimelineDataImpl();
+        timelineData = new TimeLineDataImpl();
         Place place = GetRandomPlace();
 
         census = new Census();

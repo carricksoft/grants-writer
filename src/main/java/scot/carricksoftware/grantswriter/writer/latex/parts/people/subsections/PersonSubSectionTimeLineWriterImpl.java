@@ -8,7 +8,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.data.TimelineData;
+import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
@@ -24,12 +24,12 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
 
     private final LatexSubSectionHeader latexSubSectionHeader;
     private final CensusEntryService censusEntryService;
-    private final TimelineData timelineData;
+    private final TimeLineData timelineData;
     private final WriteTimeLine writeTimeLine;
 
     public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader,
                                               CensusEntryService censusEntryService,
-                                              TimelineData timelineData,
+                                              TimeLineData timelineData,
                                               WriteTimeLine writeTimeLine) {
         this.latexSubSectionHeader = latexSubSectionHeader;
         this.censusEntryService = censusEntryService;

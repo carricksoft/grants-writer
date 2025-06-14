@@ -15,13 +15,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 @Component
-public class TimelineDataImpl implements TimelineData {
+public class TimeLineDataImpl implements TimeLineData {
 
     private TreeMap<String, List<String>> timeline;
 
     private SortedSet<String> refs;
 
-    public TimelineDataImpl() {
+    public TimeLineDataImpl() {
         this.timeline = new TreeMap<>();
         this.refs = new TreeSet<>();
     }

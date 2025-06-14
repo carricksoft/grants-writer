@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
-class TimelineDataGetterAndSetterTest {
+class TimeLineDataGetterAndSetterTest {
 
-    private TimelineData timelineData;
+    private TimeLineData timelineData;
 
     @BeforeEach
     void setUp() {
-        timelineData = new TimelineDataImpl();
+        timelineData = new TimeLineDataImpl();
     }
 
     @Test

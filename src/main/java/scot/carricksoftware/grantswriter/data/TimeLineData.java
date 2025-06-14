@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeMap;
 
-public interface TimelineData {
+public interface TimeLineData {
 
     @SuppressWarnings("unused")
     void clear();

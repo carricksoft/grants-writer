@@ -8,6 +8,9 @@ package scot.carricksoftware.grantswriter.data;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
+
+import java.time.LocalDate;
 
 @Component
 public class DMYImpl implements DMY {
@@ -81,6 +84,15 @@ public class DMYImpl implements DMY {
 
     @Override
     public int compareTo(@NotNull DMY o) {
-        return 0;
+        LocalDate thisDate = LocalDate.parse(this.getDay() + "/" + this.getMonth() + "/" + this.getYear(), ApplicationConstants.FORMATTER);
+        LocalDate oDate = LocalDate.parse(o.getDay() + "/" + o.getMonth() + "/" + o.getYear(), ApplicationConstants.FORMATTER);
+        if (thisDate.isAfter(oDate)) {
+            return 1;
+        } if (thisDate.isEqual(oDate)) {
+            return 0;
+        }
+        return -1;
+
+
     }
 }

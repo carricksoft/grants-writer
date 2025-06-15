@@ -27,12 +27,50 @@ public class DMYImpl implements DMY {
         DMY dmy = new DMYImpl();
         String[] split = string.split("/");
 
-        dmy.setDay(length2(split[0]));
+        checkDay(dmy, length2(split[0]));
+        checkMonth(dmy, length2(split[1]));
+        checkYear(dmy,length4(split[2]));
 
-        dmy.setMonth(length2(split[1]));
-
-        dmy.setYear(length4(split[2]));
         return dmy;
+    }
+
+    private void checkDay(DMY dmy, String s) {
+        try {
+            int num = Integer.parseInt(s);
+            if (num < 1 || num > 31) {
+                dmy.setDay(null);
+            } else {
+                dmy.setDay(s);
+            }
+        } catch (Exception e) {
+            dmy.setDay(null);
+        }
+    }
+
+    private void checkMonth(DMY dmy, String s) {
+        try {
+            int num = Integer.parseInt(s);
+            if (num < 1 || num > 12) {
+                dmy.setMonth(null);
+            } else {
+                dmy.setMonth(s);
+            }
+        } catch (Exception e) {
+            dmy.setDay(null);
+        }
+    }
+
+    private void checkYear(DMY dmy, String s) {
+        try {
+            int num = Integer.parseInt(s);
+            if (num < 1500 || num > 2030) {
+                dmy.setYear(null);
+            } else {
+                dmy.setYear(s);
+            }
+        } catch (Exception e) {
+            dmy.setDay(null);
+        }
     }
 
     @Override

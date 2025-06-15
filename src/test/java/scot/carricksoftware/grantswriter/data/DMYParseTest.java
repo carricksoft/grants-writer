@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class DMYParseTest {
 
@@ -44,9 +45,59 @@ class DMYParseTest {
         String input = "1/2/3";
         dmy = dmy.parse(input);
 
-        assertEquals("1 ", dmy.getDay());
-        assertEquals("2 ", dmy.getMonth());
-        assertEquals("3   ", dmy.getYear());
+        assertNull(dmy.getDay());
+        assertNull(dmy.getMonth());
+        assertNull(dmy.getYear());
+    }
+
+    @Test
+    void invalidNumericDayTest() {
+        String input = "33/1/1953";
+        dmy = dmy.parse(input);
+
+        assertNull(dmy.getDay());
+    }
+
+    @Test
+    void invalidDayTest() {
+        String input = "z/1/1953";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getDay());
+    }
+
+    @Test
+    void invalidNumericMonthTest() {
+        String input = "25/13/1953";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getMonth());
+    }
+
+    @Test
+    void invalidMonthTest() {
+        String input = "25/z/1953";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getMonth());
+    }
+
+    @Test
+    void invalidNumericHighYearTest() {
+        String input = "25/01/2050";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getYear());
+    }
+
+    @Test
+    void invalidNumericLowYearTest() {
+        String input = "25/01/25";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getYear());
+    }
+
+    @Test
+    void invalidYearTest() {
+        String input = "25/01/z";
+        dmy = dmy.parse(input);
+        assertNull(dmy.getYear());
     }
 
 }

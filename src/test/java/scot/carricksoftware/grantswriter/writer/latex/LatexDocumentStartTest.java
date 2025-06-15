@@ -43,7 +43,7 @@ class LatexDocumentStartTest {
         documentStart.write();
 
         //noinspection SpellCheckingInspection
-        inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt]{memoir}");
+        inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
         //noinspection SpellCheckingInspection
         inorder.verify(latexPackageDeclarationMock).write("longtable");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");

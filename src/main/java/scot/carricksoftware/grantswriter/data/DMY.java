@@ -9,8 +9,8 @@ public interface DMY {
 
     String toString();
 
-    @SuppressWarnings({"unused", "EmptyMethod"})
-    void parse(String string);
+    @SuppressWarnings("unused")
+    DMY parse(String string);
 
     @SuppressWarnings({"unused", "SameReturnValue"})
     String getDay();

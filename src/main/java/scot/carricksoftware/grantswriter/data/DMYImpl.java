@@ -5,8 +5,12 @@
 
 package scot.carricksoftware.grantswriter.data;
 
-public class DMYImpl implements DMY {
 
+import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DMYImpl implements DMY {
 
     @SuppressWarnings("unused")
     String day;
@@ -19,11 +23,11 @@ public class DMYImpl implements DMY {
     public DMY parse(String string) {
         DMY dmy = new DMYImpl();
         String[] split = string.split("/");
-        day = length2(split[0]);
+        dmy.setDay(split[0]);
 
-        month = length2(split[1]);
+        dmy.setMonth(split[1]);
 
-        year = length4(split[2]);
+        dmy.setYear(split[2]);
         return dmy;
     }
 
@@ -42,6 +46,7 @@ public class DMYImpl implements DMY {
         return year;
     }
 
+    @Override
     public String toString() {
         return day + "/" + month + "/" + year;
     }
@@ -49,12 +54,33 @@ public class DMYImpl implements DMY {
     private final String spaces = "    ";
 
     private String length2(String string) {
-        return (string + spaces).substring(0, 1);
+        return (string.trim() + spaces).substring(0, 1);
     }
 
     private String length4(String string) {
-        return (string + spaces).substring(0, 3);
+        return (string.trim() + spaces).substring(0, 3);
     }
 
 
+    @Override
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+
+    @Override
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+
+    @Override
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    @Override
+    public int compareTo(@NotNull DMY o) {
+        return 0;
+    }
 }

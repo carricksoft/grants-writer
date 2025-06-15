@@ -17,16 +17,19 @@ import java.util.TreeSet;
 @Component
 public class TimeLineDataImpl implements TimeLineData {
 
-    private TreeMap<String, List<String>> timeline;
+    private TreeMap<DMY, List<String>> timeline;
 
     private SortedSet<String> refs;
+
+    private final DMY dmy;
 
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final TimeLineDateComparator timeLineDateComparator;
 
-    public TimeLineDataImpl(TimeLineDateComparator timeLineDateComparator) {
+    public TimeLineDataImpl(DMY dmy, TimeLineDateComparator timeLineDateComparator) {
+        this.dmy = dmy;
         this.timeLineDateComparator = timeLineDateComparator;
-        this.timeline = new TreeMap<>(new TimeLineDateComparator());
+        this.timeline = new TreeMap<>();
         this.refs = new TreeSet<>();
     }
 
@@ -40,30 +43,31 @@ public class TimeLineDataImpl implements TimeLineData {
     public void add(List<CensusEntry> censusEntryList) {
         for (CensusEntry censusEntry : censusEntryList) {
             String key = censusEntry.getCensus().getCensusDate().label;
-            List<String> values = timeline.get(key);
+            DMY dmyKey = dmy.parse(key);
+            List<String> values = timeline.get(dmyKey);
             if (values == null) {
                 values = new ArrayList<>();
             }
             values.add( "Recorded as being at " +
                     censusEntry.getCensus().getPlace().toString());
-            timeline.put(key, values);
+            timeline.put(dmyKey, values);
 
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
                 values.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
-                timeline.put(key, values);
+                timeline.put(dmyKey, values);
             }
             refs.add(censusEntry.getCensus().toString());
         }
     }
 
     @Override
-    public TreeMap<String, List<String>> getTimeline() {
+    public TreeMap<DMY, List<String>> getTimeline() {
         return timeline;
     }
 
     @Override
-    public void setTimeline(TreeMap<String, List<String>> timeline) {
+    public void setTimeline(TreeMap<DMY, List<String>> timeline) {
         this.timeline = timeline;
     }
 

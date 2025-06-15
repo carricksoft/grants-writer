@@ -5,7 +5,8 @@
 
 package scot.carricksoftware.grantswriter.data;
 
-public interface DMY {
+
+public interface DMY extends Comparable<DMY> {
 
     String toString();
 
@@ -20,5 +21,11 @@ public interface DMY {
 
     @SuppressWarnings({"unused", "SameReturnValue"})
     String getYear();
+
+    void setDay(String day);
+
+    void setMonth(String  month);
+    void setYear(String year) ;
+
 
 }

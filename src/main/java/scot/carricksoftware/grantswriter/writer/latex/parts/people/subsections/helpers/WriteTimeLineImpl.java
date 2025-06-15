@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
+import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
@@ -35,7 +36,7 @@ public class WriteTimeLineImpl implements WriteTimeLine {
     }
 
     @Override
-    public void write(TreeMap<String, List<String>> map) {
+    public void write(TreeMap<DMY, List<String>> map) {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexLongTableStart.write("l l");
@@ -43,13 +44,13 @@ public class WriteTimeLineImpl implements WriteTimeLine {
         latexLongTabLeEnd.write();
     }
 
-    private void writeTheData(TreeMap<String, List<String>> map) {
+    private void writeTheData(TreeMap<DMY, List<String>> map) {
         logger.info("PersonSubSectionTimeLineWriterImp::writeTheData");
 
-        for (String key : map.keySet()) {
-            var value = map.get(key);
+        for (DMY dmy : map.keySet()) {
+            var value = map.get(dmy);
             for (String event : value) {
-                String builder = key +
+                String builder = dmy.toString() +
                         LatexConstants.TABLE_COLUMN_END +
                         event +
                         LatexConstants.TABLE_LINE_END;

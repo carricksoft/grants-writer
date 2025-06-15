@@ -5,8 +5,7 @@
 
 package scot.carricksoftware.grantswriter.data;
 
-public class DMYImpl implements DMY
-{
+public class DMYImpl implements DMY {
 
 
     @SuppressWarnings("unused")
@@ -17,38 +16,43 @@ public class DMYImpl implements DMY
     String year;
 
     @Override
-    public DMY  parse(String string) {
-        return new DMYImpl();
+    public DMY parse(String string) {
+        DMY dmy = new DMYImpl();
+        String[] split = string.split("/");
+        day = length2(split[0]);
+
+        month = length2(split[1]);
+
+        year = length4(split[2]);
+        return dmy;
     }
 
     @Override
     public String getDay() {
-        return "";
+        return day;
     }
 
     @Override
     public String getMonth() {
-        return "";
+        return month;
     }
 
     @Override
     public String getYear() {
-        return "";
+        return year;
     }
 
     public String toString() {
-        return null;
+        return day + "/" + month + "/" + year;
     }
 
     private final String spaces = "    ";
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
-    private String length2(String string){
+    private String length2(String string) {
         return (string + spaces).substring(0, 1);
     }
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
-    private String length4(String string){
+    private String length4(String string) {
         return (string + spaces).substring(0, 3);
     }
 

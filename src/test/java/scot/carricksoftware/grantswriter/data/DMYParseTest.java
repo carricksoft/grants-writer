@@ -8,9 +8,9 @@ package scot.carricksoftware.grantswriter.data;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class DMYImplTest {
+class DMYParseTest {
 
     private DMY dmy;
     @BeforeEach
@@ -19,8 +19,8 @@ class DMYImplTest {
         dmy = new DMYImpl();
     }
 
-    @Test
+   @Test
     void constructorTest() {
         assertNotNull(dmy);
-    }
+   }
 }

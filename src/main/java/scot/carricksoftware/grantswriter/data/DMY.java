@@ -9,7 +9,7 @@ public interface DMY {
 
     String toString();
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "UnusedReturnValue"})
     DMY parse(String string);
 
     @SuppressWarnings({"unused", "SameReturnValue"})

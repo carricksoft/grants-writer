@@ -26,11 +26,12 @@ public class DMYImpl implements DMY {
     public DMY parse(String string) {
         DMY dmy = new DMYImpl();
         String[] split = string.split("/");
-        dmy.setDay(split[0]);
 
-        dmy.setMonth(split[1]);
+        dmy.setDay(length2(split[0]));
 
-        dmy.setYear(split[2]);
+        dmy.setMonth(length2(split[1]));
+
+        dmy.setYear(length4(split[2]));
         return dmy;
     }
 
@@ -57,11 +58,11 @@ public class DMYImpl implements DMY {
     private final String spaces = "    ";
 
     private String length2(String string) {
-        return (string.trim() + spaces).substring(0, 1);
+        return (string.trim() + spaces).substring(0, 2);
     }
 
     private String length4(String string) {
-        return (string.trim() + spaces).substring(0, 3);
+        return (string.trim() + spaces).substring(0, 4);
     }
 
 

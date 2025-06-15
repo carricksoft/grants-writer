@@ -9,28 +9,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 class DMYSetterAndGetterTest {
 
     private DMY dmy;
-    @BeforeEach
 
+    @BeforeEach
     void setUp() {
         dmy = new DMYImpl();
     }
 
-   @Test
-    void constructorTest() {
-        assertNotNull(dmy);
-   }
-
-   @Test
+    @Test
     void getDayTest() {
         assertNull(dmy.getDay());
-   }
+    }
 
     @Test
     void setDayTest() {
@@ -61,6 +55,21 @@ class DMYSetterAndGetterTest {
         String year = GetRandomString();
         dmy.setMonth(year);
         assertEquals(year, dmy.getMonth());
+    }
+
+
+    @Test
+    public void toStringTest() {
+        String day = GetRandomString();
+        String month = GetRandomString();
+        String year = GetRandomString();
+        dmy.setDay(day);
+        dmy.setMonth(month);
+        dmy.setYear(year);
+
+        String required = day + "/" + month + "/" + year;
+        assertEquals(required, dmy.toString());
+
     }
 
 }

@@ -48,4 +48,5 @@ class LatexDocumentStartTest {
         inorder.verify(latexPackageDeclarationMock).write("longtable");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }
+
 }

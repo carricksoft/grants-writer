@@ -21,7 +21,7 @@ import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRa
 
 
 @ExtendWith(MockitoExtension.class)
-public class CensusPartOneTest {
+public class CensusTest {
 
     private Census census;
 
@@ -44,6 +44,18 @@ public class CensusPartOneTest {
         Long id = GetRandomLong();
         census.setId(id);
         assertEquals(id, census.getId());
+    }
+
+    @Test
+    public void getCensusDateTest() {
+        assertNull(census.getCensusDate());
+    }
+
+    @Test
+    public void setCensusDateTest() {
+        CensusDate censusDate = CensusDate.CENSUS_1861;
+        census.setCensusDate(censusDate);
+        assertEquals(censusDate, census.getCensusDate());
     }
 
     @Test

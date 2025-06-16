@@ -28,6 +28,13 @@ class DMYParseNumericTest {
     }
 
     @Test
+    void tooLowDayTest() {
+        String input = "00/01/1953";
+        dmy.parse(input);
+        assertNull(dmy.getDay());
+    }
+
+    @Test
     void tooHighDayTest() {
         String input = "32/01/1953";
         dmy.parse(input);

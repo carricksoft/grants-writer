@@ -49,7 +49,7 @@ public class DMYImpl implements DMY {
     private void checkMonth(String s) {
         try {
             int num = Integer.parseInt(s);
-            if (num < 1 || num > 12) {
+            if ( num > 12) {
                 setMonth(null);
             } else {
                 setMonth(s);

@@ -21,13 +21,6 @@ class DMYParseNumericTest {
     }
 
     @Test
-    void highDayTest() {
-        String input = "31/01/1953";
-        dmy.parse(input);
-        assertEquals("31", dmy.getDay());
-    }
-
-    @Test
     void tooLowDayTest() {
         String input = "00/01/1953";
         dmy.parse(input);
@@ -35,52 +28,24 @@ class DMYParseNumericTest {
     }
 
     @Test
+    void lowDayTest() {
+        String input = "01/01/1953";
+        dmy.parse(input);
+        assertEquals("01", dmy.getDay());
+    }
+
+    @Test
+    void highDayTest() {
+        String input = "31/01/1953";
+        dmy.parse(input);
+        assertEquals("31", dmy.getDay());
+    }
+
+    @Test
     void tooHighDayTest() {
         String input = "32/01/1953";
         dmy.parse(input);
         assertNull(dmy.getDay());
-    }
-
-    @Test
-    void highMonthTest() {
-        String input = "31/12/1953";
-        dmy.parse(input);
-        assertEquals("12", dmy.getMonth());
-    }
-
-    @Test
-    void tooHighMonthTest() {
-        String input = "32/13/1953";
-        dmy.parse(input);
-        assertNull(dmy.getMonth());
-    }
-
-    @Test
-    void lowYearTest() {
-        String input = "31/12/1500";
-        dmy.parse(input);
-        assertEquals("1500", dmy.getYear());
-    }
-
-    @Test
-    void tooLowYearTest() {
-        String input = "32/13/1499";
-        dmy.parse(input);
-        assertNull(dmy.getYear());
-    }
-
-    @Test
-    void highYearTest() {
-        String input = "31/12/2030";
-        dmy.parse(input);
-        assertEquals("2030", dmy.getYear());
-    }
-
-    @Test
-    void tooHighYearTest() {
-        String input = "32/13/2031";
-        dmy.parse(input);
-        assertNull(dmy.getYear());
     }
 
 

@@ -17,24 +17,48 @@ class TimeLineDateComparatorTest {
 
     String today;
 
-    String yesterday;
+    String nextYear;
 
-    String today2;
+    String nextMonth;
+
+    String nextDay;
+
+    String sameDay;
+
 
 
     @BeforeEach
     void setUp() {
         timeLineDateComparator = new TimeLineDateComparator();
         today = "25/01/1953";
-        today2 = "25/01/1953";
-        yesterday = "24/01/1953";
+        nextYear = "25/01/1954";
+        nextMonth = "25/02/1953";
+        nextDay = "26/01/1953";
+        sameDay = "25/01/1953";
+
     }
 
     @Test
-    void timeLineAddCensusEntryTest() {
-        assertEquals(1, timeLineDateComparator.compare(today, yesterday));
-        assertEquals(-1, timeLineDateComparator.compare(yesterday, today));
-        assertEquals(-1, timeLineDateComparator.compare(today, today2));
+    void timeLineNextYearTest() {
+        assertEquals(1, timeLineDateComparator.compare(nextYear, today));
+        assertEquals(-1, timeLineDateComparator.compare( today, nextYear));
+    }
+
+    @Test
+    void timeLineNextMonthTest() {
+        assertEquals(1, timeLineDateComparator.compare(nextMonth, today));
+        assertEquals(-1, timeLineDateComparator.compare(today, nextMonth));
+    }
+
+    @Test
+    void timeLineNextDayTest() {
+        assertEquals(1, timeLineDateComparator.compare(nextDay, today));
+        assertEquals(-1, timeLineDateComparator.compare(today, nextDay));
+    }
+
+    @Test
+    void timeLineSameDayTest() {
+        assertEquals(-1, timeLineDateComparator.compare(sameDay, today));
     }
 
 }

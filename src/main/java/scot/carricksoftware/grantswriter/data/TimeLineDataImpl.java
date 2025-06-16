@@ -43,20 +43,21 @@ public class TimeLineDataImpl implements TimeLineData {
     public void add(List<CensusEntry> censusEntryList) {
         for (CensusEntry censusEntry : censusEntryList) {
             String key = censusEntry.getCensus().getCensusDate().label;
-            dmy.parse(key);
+            DMY dmyKey = new DMYImpl();
+            dmyKey.parse(key);
 
-            List<String> values = timeLine.get(dmy);
-            if (values == null) {
-                values = new ArrayList<>();
+            List<String> existingValues = timeLine.get(dmyKey);
+            if (existingValues == null) {
+                existingValues = new ArrayList<>();
             }
-            values.add( "Recorded as being at " +
+            existingValues.add( "Recorded as being at " +
                     censusEntry.getCensus().getPlace().toString());
-            timeLine.put(dmy, values);
+            timeLine.put(dmyKey, existingValues);
 
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
-                values.add("Occupation recorded as " +
+                existingValues.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
-                timeLine.put(dmy, values);
+                timeLine.put(dmy, existingValues);
             }
             refs.add(censusEntry.getCensus().toString());
         }

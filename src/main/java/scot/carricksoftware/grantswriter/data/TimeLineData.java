@@ -20,10 +20,10 @@ public interface TimeLineData {
     void add(List<CensusEntry> censusEntryList);
 
     @SuppressWarnings("unused")
-    TreeMap<DMY, List<String>> getTimeline();
+    TreeMap<DMY, List<String>> getTimeLine();
 
     @SuppressWarnings("unused")
-    void setTimeline(TreeMap<DMY, List<String>> timeline);
+    void setTimeline(TreeMap<DMY, List<String>> timeLine);
 
     @SuppressWarnings("unused")
     SortedSet<String> getRefs();

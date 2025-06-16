@@ -46,7 +46,7 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
         timelineData.clear();
         timelineData.add(censusEntryList);
 
-        writeTimeLine.write(timelineData.getTimeline());
+        writeTimeLine.write(timelineData.getTimeLine());
     }
 
 

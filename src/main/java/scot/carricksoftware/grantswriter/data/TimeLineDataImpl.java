@@ -17,7 +17,7 @@ import java.util.TreeSet;
 @Component
 public class TimeLineDataImpl implements TimeLineData {
 
-    private TreeMap<DMY, List<String>> timeline;
+    private TreeMap<DMY, List<String>> timeLine;
 
     private SortedSet<String> refs;
 
@@ -29,13 +29,13 @@ public class TimeLineDataImpl implements TimeLineData {
     public TimeLineDataImpl(DMY dmy, TimeLineDateComparator timeLineDateComparator) {
         this.dmy = dmy;
         this.timeLineDateComparator = timeLineDateComparator;
-        this.timeline = new TreeMap<>();
+        this.timeLine = new TreeMap<>();
         this.refs = new TreeSet<>();
     }
 
     @Override
     public void clear() {
-        timeline.clear();
+        timeLine.clear();
         refs.clear();
     }
 
@@ -45,31 +45,31 @@ public class TimeLineDataImpl implements TimeLineData {
             String key = censusEntry.getCensus().getCensusDate().label;
             dmy.parse(key);
 
-            List<String> values = timeline.get(dmy);
+            List<String> values = timeLine.get(dmy);
             if (values == null) {
                 values = new ArrayList<>();
             }
             values.add( "Recorded as being at " +
                     censusEntry.getCensus().getPlace().toString());
-            timeline.put(dmy, values);
+            timeLine.put(dmy, values);
 
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
                 values.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
-                timeline.put(dmy, values);
+                timeLine.put(dmy, values);
             }
             refs.add(censusEntry.getCensus().toString());
         }
     }
 
     @Override
-    public TreeMap<DMY, List<String>> getTimeline() {
-        return timeline;
+    public TreeMap<DMY, List<String>> getTimeLine() {
+        return timeLine;
     }
 
     @Override
-    public void setTimeline(TreeMap<DMY, List<String>> timeline) {
-        this.timeline = timeline;
+    public void setTimeline(TreeMap<DMY, List<String>> timeLine) {
+        this.timeLine = timeLine;
     }
 
     @Override

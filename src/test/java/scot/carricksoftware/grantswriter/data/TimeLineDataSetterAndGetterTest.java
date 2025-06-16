@@ -11,7 +11,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
-class TimeLineDataTest {
+class TimeLineDataSetterAndGetterTest {
 
 
     private TimeLineData timeLineData;
@@ -42,7 +45,7 @@ class TimeLineDataTest {
     }
 
     @Test
-    void getRefSTest(){
+    void getRefsTest(){
         assertEquals(0, timeLineData.getRefs().size());
     }
 
@@ -52,6 +55,21 @@ class TimeLineDataTest {
         refs.add(GetRandomString());
         timeLineData.setRefs(refs);
         assertEquals(refs, timeLineData.getRefs());
+    }
+
+    @Test
+    void getTimeLineTest(){
+        assertEquals(0, timeLineData.getTimeLine().size());
+    }
+
+    @Test
+    void setTimeLineTest(){
+       TreeMap<DMY, List<String>> timeLine = new TreeMap<>();
+       List<String> list = new ArrayList<>();
+       list.add(GetRandomString());
+       timeLine.put(dmyMock, list);
+       timeLineData.setTimeline(timeLine);
+       assertEquals(timeLine, timeLineData.getTimeLine());
     }
 
 }

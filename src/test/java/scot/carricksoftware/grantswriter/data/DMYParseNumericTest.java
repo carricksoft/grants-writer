@@ -52,6 +52,14 @@ class DMYParseNumericTest {
         assertNull(dmy.getDay());
     }
 
+    @Test
+    void invalidDayTest() {
+        String input = "xx/01/1953";
+        dmy.setDay("99");
+        dmy.parse(input);
+        assertNull(dmy.getDay());
+    }
+
 
 
 }

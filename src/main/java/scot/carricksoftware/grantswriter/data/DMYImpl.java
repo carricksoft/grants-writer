@@ -68,7 +68,7 @@ public class DMYImpl implements DMY {
                 setYear(s);
             }
         } catch (Exception e) {
-            setDay(null);
+            setYear(null);
         }
     }
 

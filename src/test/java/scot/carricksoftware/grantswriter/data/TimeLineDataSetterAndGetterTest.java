@@ -72,4 +72,22 @@ class TimeLineDataSetterAndGetterTest {
        assertEquals(timeLine, timeLineData.getTimeLine());
     }
 
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    @Test
+    void ClearTest() {
+        SortedSet<String> refs = new TreeSet<>();
+        refs.add(GetRandomString());
+        TreeMap<DMY, List<String>> timeLine = new TreeMap<>();
+        List<String> list = new ArrayList<>();
+        list.add(GetRandomString());
+
+        timeLineData.setRefs(refs);
+        timeLineData.setTimeline(timeLine);
+        timeLineData.clear();
+
+        assertEquals(0, timeLineData.getRefs().size());
+        assertEquals(0, timeLineData.getTimeLine().size());
+
+    }
+
 }

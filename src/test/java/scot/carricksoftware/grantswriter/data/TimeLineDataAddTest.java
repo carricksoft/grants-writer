@@ -61,7 +61,9 @@ class TimeLineDataAddTest {
         timeLineData.add(censusEntryList);
         refs = timeLineData.getRefs();
 
-        assertEquals("Edinburgh", refs.getFirst());
+
+        String test  = refs.getFirst();
+        assertEquals("Edinburgh", test);
 
     }
 }

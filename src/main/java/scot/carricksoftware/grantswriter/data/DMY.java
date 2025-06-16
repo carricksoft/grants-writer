@@ -10,8 +10,7 @@ public interface DMY extends Comparable<DMY> {
 
     String toString();
 
-    @SuppressWarnings({"unused", "UnusedReturnValue"})
-    DMY parse(String string);
+    void parse(String string);
 
     @SuppressWarnings({"unused", "SameReturnValue"})
     String getDay();

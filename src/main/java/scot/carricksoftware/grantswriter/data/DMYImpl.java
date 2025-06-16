@@ -23,53 +23,52 @@ public class DMYImpl implements DMY {
     String year;
 
     @Override
-    public DMY parse(String string) {
-        DMY dmy = new DMYImpl();
+    public void parse(String string) {
+
         String[] split = string.split("/");
 
-        checkDay(dmy, length2(split[0]));
-        checkMonth(dmy, length2(split[1]));
-        checkYear(dmy,length4(split[2]));
+        checkDay(length2(split[0]));
+        checkMonth(length2(split[1]));
+        checkYear(length4(split[2]));
 
-        return dmy;
     }
 
-    private void checkDay(DMY dmy, String s) {
+    private void checkDay(String s) {
         try {
             int num = Integer.parseInt(s);
             if (num < 1 || num > 31) {
-                dmy.setDay(null);
+                setDay(null);
             } else {
-                dmy.setDay(s);
+                setDay(s);
             }
         } catch (Exception e) {
-            dmy.setDay(null);
+            setDay(null);
         }
     }
 
-    private void checkMonth(DMY dmy, String s) {
+    private void checkMonth(String s) {
         try {
             int num = Integer.parseInt(s);
             if (num < 1 || num > 12) {
-                dmy.setMonth(null);
+                setMonth(null);
             } else {
-                dmy.setMonth(s);
+                setMonth(s);
             }
         } catch (Exception e) {
-            dmy.setDay(null);
+            setMonth(null);
         }
     }
 
-    private void checkYear(DMY dmy, String s) {
+    private void checkYear(String s) {
         try {
             int num = Integer.parseInt(s);
             if (num < 1500 || num > 2030) {
-                dmy.setYear(null);
+                setYear(null);
             } else {
-                dmy.setYear(s);
+                setYear(s);
             }
         } catch (Exception e) {
-            dmy.setDay(null);
+            setDay(null);
         }
     }
 

@@ -18,25 +18,34 @@ class DMYCompareTest {
     void setUp() {
         dmy = new DMYImpl();
         String sunday = "25/01/1953";
-        dmy = dmy.parse(sunday);
+        dmy.parse(sunday);
     }
 
     @Test
     void equalityTest() {
+        DMY dmySunday2 = new DMYImpl();
         String sunday2 = "25/01/1953";
-        assertEquals(0, dmy.compareTo(dmy.parse(sunday2)));
+        dmySunday2.parse(sunday2);
+
+        assertEquals(0, dmy.compareTo(dmySunday2));
     }
 
     @Test
     void nextDayTest() {
         String monday = "26/01/1953";
-        assertEquals(-1, dmy.compareTo(dmy.parse(monday)));
+        DMY dmyMonday = new DMYImpl();
+        dmyMonday.parse(monday);
+
+        assertEquals(-1, dmy.compareTo(dmyMonday));
     }
 
     @Test
     void previousDayTest() {
         String saturday = "24/01/1953";
-        assertEquals(1, dmy.compareTo(dmy.parse(saturday)));
+
+        DMY dmySaturday = new DMYImpl();
+        dmySaturday.parse(saturday);
+        assertEquals(1, dmy.compareTo(dmySaturday));
     }
 
 

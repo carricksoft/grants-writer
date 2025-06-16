@@ -30,12 +30,12 @@ class PartsWriterTest {
     }
 
     @Test
-    void constructorTest(){
+    void constructorTest() {
         assertNotNull(partsWriter);
     }
 
     @Test
-    void writeTest(){
+    void writeTest() {
         partsWriter.write();
         verify(peoplePartWriterMock).write();
     }

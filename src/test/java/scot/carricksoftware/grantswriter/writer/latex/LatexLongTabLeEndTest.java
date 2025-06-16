@@ -14,7 +14,7 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(SpringExtension .class)
+@ExtendWith(SpringExtension.class)
 class LatexLongTabLeEndTest {
 
     private LatexLongTabLeEnd latexLongTabLeEnd;

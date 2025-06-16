@@ -39,7 +39,7 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
-        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock,fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock);
         documentStart.write();
 
         //noinspection SpellCheckingInspection

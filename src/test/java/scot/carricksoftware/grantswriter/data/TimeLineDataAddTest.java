@@ -92,8 +92,8 @@ class TimeLineDataAddTest {
         Set<DMY> keys = timeLine.keySet();
         for (DMY key : keys) {
             List<String> values = timeLine.get(key);
-            assert(values.contains(requiredRecorded));
-            assert(values.contains(requiredOccupation));
+            assert (values.contains(requiredRecorded));
+            assert (values.contains(requiredOccupation));
         }
     }
 }

@@ -46,6 +46,6 @@ class PersonSubSectionTimeLineWriterTest {
 
     @Test
     void writeTest() {
-       assertNotNull(writer);
+        assertNotNull(writer);
     }
 }

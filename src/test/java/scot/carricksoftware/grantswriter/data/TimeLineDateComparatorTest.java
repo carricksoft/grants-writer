@@ -26,7 +26,6 @@ class TimeLineDateComparatorTest {
     String sameDay;
 
 
-
     @BeforeEach
     void setUp() {
         timeLineDateComparator = new TimeLineDateComparator();
@@ -41,7 +40,7 @@ class TimeLineDateComparatorTest {
     @Test
     void timeLineNextYearTest() {
         assertEquals(1, timeLineDateComparator.compare(nextYear, today));
-        assertEquals(-1, timeLineDateComparator.compare( today, nextYear));
+        assertEquals(-1, timeLineDateComparator.compare(today, nextYear));
     }
 
     @Test

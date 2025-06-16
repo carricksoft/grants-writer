@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCensusRandomEnums.GetRandomCensusDate;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
+import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +33,6 @@ public class CensusTest {
 
     @Mock
     private Place placeMock;
-
 
     @Test
     public void getIdTest() {
@@ -66,6 +66,18 @@ public class CensusTest {
         census.setCensusDate(censusDate);
         census.setPlace(placeMock);
         assertEquals(placeString + ", " + censusDate.label, census.toString());
+    }
+
+    @Test
+    public void getPlaceTest() {
+        assertNull(census.getPlace());
+    }
+
+    @Test
+    public void setPlaceTest() {
+        Place place = GetRandomPlace();
+        census.setPlace(place);
+        assertEquals(place, census.getPlace());
     }
 
 }

@@ -18,10 +18,10 @@ import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.
 @ExtendWith(MockitoExtension.class)
 class LatexSectionHeaderTest {
 
-   private LatexSectionHeader header;
+    private LatexSectionHeader header;
 
-   @Mock
-   private FileWriter fileWriterMock;
+    @Mock
+    private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

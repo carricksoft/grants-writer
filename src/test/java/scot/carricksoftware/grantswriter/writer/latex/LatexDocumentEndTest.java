@@ -21,7 +21,7 @@ class LatexDocumentEndTest {
     private LatexDocumentEnd documentEnd;
 
     @Mock
-    private FileWriter fileWriterMock ;
+    private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

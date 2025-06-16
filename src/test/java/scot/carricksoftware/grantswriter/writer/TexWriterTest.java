@@ -43,7 +43,7 @@ class TexWriterTest {
 
     @Test
     void writeTest() throws Exception {
-        InOrder inorder = inOrder(fileWriterMock, docStartMock, docEndMock, partsWriterMock,fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, docStartMock, docEndMock, partsWriterMock, fileWriterMock);
         texWriter.write(GetRandomString());
 
         inorder.verify(fileWriterMock).init(anyString());

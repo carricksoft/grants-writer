@@ -45,12 +45,12 @@ class TimeLineDataSetterAndGetterTest {
     }
 
     @Test
-    void getRefsTest(){
+    void getRefsTest() {
         assertEquals(0, timeLineData.getRefs().size());
     }
 
     @Test
-    void setRefsTest(){
+    void setRefsTest() {
         SortedSet<String> refs = new TreeSet<>();
         refs.add(GetRandomString());
         timeLineData.setRefs(refs);
@@ -58,18 +58,18 @@ class TimeLineDataSetterAndGetterTest {
     }
 
     @Test
-    void getTimeLineTest(){
+    void getTimeLineTest() {
         assertEquals(0, timeLineData.getTimeLine().size());
     }
 
     @Test
-    void setTimeLineTest(){
-       TreeMap<DMY, List<String>> timeLine = new TreeMap<>();
-       List<String> list = new ArrayList<>();
-       list.add(GetRandomString());
-       timeLine.put(dmyMock, list);
-       timeLineData.setTimeline(timeLine);
-       assertEquals(timeLine, timeLineData.getTimeLine());
+    void setTimeLineTest() {
+        TreeMap<DMY, List<String>> timeLine = new TreeMap<>();
+        List<String> list = new ArrayList<>();
+        list.add(GetRandomString());
+        timeLine.put(dmyMock, list);
+        timeLineData.setTimeline(timeLine);
+        assertEquals(timeLine, timeLineData.getTimeLine());
     }
 
     @Test

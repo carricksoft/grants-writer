@@ -6,9 +6,7 @@
 package scot.carricksoftware.grantswriter;
 
 
-
 import java.util.Random;
-
 
 
 public class GenerateCertificateRandomValues {
@@ -23,8 +21,6 @@ public class GenerateCertificateRandomValues {
         int random = rand.nextInt(names.length);
         return names[random];
     }
-
-
 
 
 }

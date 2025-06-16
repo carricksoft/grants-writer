@@ -48,15 +48,15 @@ class FileWriterTest {
 
     @Test
     public void writeLineTest() throws Exception {
-       String tempFileName = getTemporaryFileName();
-       deleteTempFile(tempFileName);
-       String line = GetRandomString();
+        String tempFileName = getTemporaryFileName();
+        deleteTempFile(tempFileName);
+        String line = GetRandomString();
 
-       writer.init(tempFileName);
-       writer.writeLine(line);
-       writer.close();
+        writer.init(tempFileName);
+        writer.writeLine(line);
+        writer.close();
 
-       List<String> contents = getTempFileContents(tempFileName);
+        List<String> contents = getTempFileContents(tempFileName);
         assertEquals(line, contents.get(0));
     }
 

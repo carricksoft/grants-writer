@@ -23,6 +23,7 @@ class DMYParseNumericTest {
     @Test
     void tooLowDayTest() {
         String input = "00/01/1953";
+        dmy.setDay("99");
         dmy.parse(input);
         assertNull(dmy.getDay());
     }
@@ -30,6 +31,7 @@ class DMYParseNumericTest {
     @Test
     void lowDayTest() {
         String input = "01/01/1953";
+        dmy.setDay("99");
         dmy.parse(input);
         assertEquals("01", dmy.getDay());
     }
@@ -37,6 +39,7 @@ class DMYParseNumericTest {
     @Test
     void highDayTest() {
         String input = "31/01/1953";
+        dmy.setDay("99");
         dmy.parse(input);
         assertEquals("31", dmy.getDay());
     }
@@ -44,6 +47,7 @@ class DMYParseNumericTest {
     @Test
     void tooHighDayTest() {
         String input = "32/01/1953";
+        dmy.setDay("99");
         dmy.parse(input);
         assertNull(dmy.getDay());
     }

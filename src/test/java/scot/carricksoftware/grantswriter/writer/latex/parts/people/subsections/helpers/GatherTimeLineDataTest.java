@@ -10,17 +10,20 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class GatherTimeLineDataTest {
 
     private GatherTimeLineData gatherTimeLineData;
 
-
     @Mock
     private GatherCensusTimeLineData gatherCensusTimeLineDataMock;
+
+    @Mock
+    private Person personMock;
 
     @BeforeEach
     void setUp() {
@@ -28,9 +31,9 @@ class GatherTimeLineDataTest {
     }
 
     @Test
-    void constructorTest(){
-       assertNotNull(gatherTimeLineData);
+    void gatherTest(){
+       gatherTimeLineData.gather(personMock);
+       verify(gatherCensusTimeLineDataMock).gather(personMock);
     }
-
 
 }

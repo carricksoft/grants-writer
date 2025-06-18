@@ -13,6 +13,7 @@ import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
 import java.util.List;
@@ -26,15 +27,17 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     private final CensusEntryService censusEntryService;
     private final TimeLineData timelineData;
     private final WriteTimeLine writeTimeLine;
+    private final WriteReferences writeReferences;
 
     public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader,
                                               CensusEntryService censusEntryService,
                                               TimeLineData timelineData,
-                                              WriteTimeLine writeTimeLine) {
+                                              WriteTimeLine writeTimeLine, WriteReferences writeReferences) {
         this.latexSubSectionHeader = latexSubSectionHeader;
         this.censusEntryService = censusEntryService;
         this.timelineData = timelineData;
         this.writeTimeLine = writeTimeLine;
+        this.writeReferences = writeReferences;
     }
 
     @Override
@@ -47,6 +50,7 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
         timelineData.add(censusEntryList);
 
         writeTimeLine.write(timelineData.getTimeLine());
+        writeReferences.write(timelineData.getRefs());
     }
 
 

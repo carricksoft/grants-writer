@@ -7,6 +7,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
@@ -14,6 +15,7 @@ import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
 
 import java.util.SortedSet;
 
+@Component
 public class WriteReferencesImpl implements WriteReferences {
 
     private static final Logger logger = LogManager.getLogger(WriteReferencesImpl.class);

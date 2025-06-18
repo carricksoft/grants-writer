@@ -75,7 +75,7 @@ class WriteTimeLineTest {
         when(timeLineDataMock.getTimeLine()).thenReturn(map);
         writeTimeLine.write();
 
-        verify(fileWriterMock).writeLine(dmy + "&" + event + "\\\\" );
+        verify(fileWriterMock).writeLine(dmy + "&" + event + "\\\\");
     }
 
 

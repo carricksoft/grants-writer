@@ -19,6 +19,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class WriteReferencesTest {
@@ -47,5 +49,14 @@ class WriteReferencesTest {
         writeReferences.write(references);
         inorder.verify(latexLongTableStartMock).write("l");
         inorder.verify(latexLongTabLeEndMock).write();
+    }
+
+    @Test
+    void writeTheDataTest() {
+        String ref = GetRandomString();
+        String required = ref + "\\\\";
+        references.add(ref);
+        writeReferences.write(references);
+        verify(fileWriterMock).writeLine(required);
     }
 }

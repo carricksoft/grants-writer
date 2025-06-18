@@ -8,18 +8,24 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+import static org.mockito.Mockito.inOrder;
 
 @ExtendWith(MockitoExtension.class)
 class WriteReferencesTest {
 
     private WriteReferences writeReferences;
+
+    private final SortedSet<String> references = new TreeSet<>();
 
     @Mock
     private FileWriter fileWriterMock;
@@ -35,9 +41,11 @@ class WriteReferencesTest {
         writeReferences = new WriteReferencesImpl(fileWriterMock, latexLongTableStartMock, latexLongTabLeEndMock);
     }
 
-
     @Test
-    void constructorTest() {
-        assertNotNull(writeReferences);
+    void writeTest() {
+        InOrder inorder = inOrder(latexLongTableStartMock, latexLongTabLeEndMock);
+        writeReferences.write(references);
+        inorder.verify(latexLongTableStartMock).write("l");
+        inorder.verify(latexLongTabLeEndMock).write();
     }
 }

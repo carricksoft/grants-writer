@@ -13,11 +13,9 @@ import java.util.TreeMap;
 
 public interface TimeLineData {
 
-    @SuppressWarnings("unused")
-    void clear();
-    @SuppressWarnings({"EmptyMethod", "unused"})
-
     void add(List<CensusEntry> censusEntryList);
+
+    void clear();
 
     @SuppressWarnings("unused")
     TreeMap<DMY, List<String>> getTimeLine();

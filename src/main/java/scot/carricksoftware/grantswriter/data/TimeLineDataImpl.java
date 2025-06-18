@@ -30,11 +30,6 @@ public class TimeLineDataImpl implements TimeLineData {
         this.refs = new TreeSet<>();
     }
 
-    @Override
-    public void clear() {
-        timeLine.clear();
-        refs.clear();
-    }
 
     @Override
     public void add(List<CensusEntry> censusEntryList) {
@@ -56,8 +51,14 @@ public class TimeLineDataImpl implements TimeLineData {
                                 censusEntry.getPersonalOccupation());
                 timeLine.put(dmyKey, existingValues);
             }
-            refs.add(censusEntry.getCensus().toString());
+            refs.add("Census: " + censusEntry.getCensus().toString());
         }
+    }
+
+    @Override
+    public void clear() {
+        timeLine.clear();
+        refs.clear();
     }
 
     @Override

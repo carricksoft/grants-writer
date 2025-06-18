@@ -23,6 +23,7 @@ import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class TimeLineDataAddTest {
@@ -46,6 +47,7 @@ class TimeLineDataAddTest {
 
     @Test
     void timeLineAddRefsTest() {
+        String censusString = GetRandomString();
         List<CensusEntry> censusEntryList = new ArrayList<>();
         CensusEntry censusEntry = new CensusEntry();
 
@@ -53,14 +55,14 @@ class TimeLineDataAddTest {
         censusEntryList.add(censusEntry);
         when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
         when(censusMock.getPlace()).thenReturn(placeMock);
-        when(censusMock.toString()).thenReturn("Edinburgh");
+        when(censusMock.toString()).thenReturn(censusString);
 
 
         SortedSet<String> refs;
         timeLineData.add(censusEntryList);
         refs = timeLineData.getRefs();
 
-        assertEquals("Edinburgh", refs.first());
+        assertEquals("Census: " + censusString, refs.first());
     }
 
     @Test

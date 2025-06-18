@@ -36,7 +36,6 @@ public class CensusEntryServiceImpl implements CensusEntryService {
         for (CensusEntry censusEntry : censusEntryIterable) {
             result.add(censusEntry);
         }
-        censusEntryIterable.forEach(result::add);
         return result;
     }
 

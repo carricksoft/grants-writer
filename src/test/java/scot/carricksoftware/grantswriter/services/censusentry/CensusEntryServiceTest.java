@@ -11,9 +11,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.repositories.censusentry.CensusEntryRepository;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
 class CensusEntryServiceTest {
@@ -29,8 +36,13 @@ class CensusEntryServiceTest {
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(censusEntryService);
+    void findAllByPersonTest() {
+        List<CensusEntry> censusEntryList = new ArrayList<>();
+        CensusEntry censusEntry = new CensusEntry();
+        censusEntryList.add(censusEntry);
+
+        when(censusEntryRepositoryMock.findAllByPerson(any())).thenReturn(censusEntryList);
+        assertEquals(censusEntryList, censusEntryService.findAllByPerson(GetRandomPerson()));
     }
 
 

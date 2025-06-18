@@ -31,15 +31,13 @@ public class CensusEntryServiceImpl implements CensusEntryService {
     @Override
     public List<CensusEntry> findAllByPerson(Person person) {
         logger.debug("PersonServiceImpl::findAllByPerson");
-       List<CensusEntry> result = new ArrayList<>();
+        List<CensusEntry> result = new ArrayList<>();
         Iterable<CensusEntry> censusEntryIterable = censusEntryRepository.findAllByPerson(person);
         for (CensusEntry censusEntry : censusEntryIterable) {
             result.add(censusEntry);
         }
         return result;
     }
-
-
 
 
 }

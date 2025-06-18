@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.sections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -17,7 +18,7 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.P
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.inOrder;
 
 @ExtendWith(MockitoExtension.class)
 class PersonSectionTest {
@@ -54,9 +55,17 @@ class PersonSectionTest {
 
     @Test
     void writeTest() {
+        InOrder inorder = inOrder(
+                personSectionHeaderMock,
+                clearExistingTimeLineDataMock,
+                gatherTimeLineDataMock,
+                personSubSectionTimeLineWriterMock,
+                personSubSectionReferencesWriterMock);
         personSection.write(personMock);
-        verify(personSectionHeaderMock).write(personMock);
-        verify(personSubSectionTimeLineWriterMock).write(personMock);
-        verify(personSubSectionReferencesWriterMock).write(personMock);
+        inorder.verify(personSectionHeaderMock).write(personMock);
+        inorder.verify(clearExistingTimeLineDataMock).clear();
+        inorder.verify(gatherTimeLineDataMock).gather(personMock);
+        inorder.verify(personSubSectionTimeLineWriterMock).write(personMock);
+        inorder.verify(personSubSectionReferencesWriterMock).write(personMock);
     }
 }

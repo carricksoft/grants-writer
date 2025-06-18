@@ -21,13 +21,10 @@ public class TimeLineDataImpl implements TimeLineData {
 
     private SortedSet<String> refs;
 
-    private final DMY dmy;
-
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final TimeLineDateComparator timeLineDateComparator;
 
-    public TimeLineDataImpl(DMY dmy, TimeLineDateComparator timeLineDateComparator) {
-        this.dmy = dmy;
+    public TimeLineDataImpl( TimeLineDateComparator timeLineDateComparator) {
         this.timeLineDateComparator = timeLineDateComparator;
         this.timeLine = new TreeMap<>();
         this.refs = new TreeSet<>();
@@ -57,7 +54,7 @@ public class TimeLineDataImpl implements TimeLineData {
             if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
                 existingValues.add("Occupation recorded as " +
                                 censusEntry.getPersonalOccupation());
-                timeLine.put(dmy, existingValues);
+                timeLine.put(dmyKey, existingValues);
             }
             refs.add(censusEntry.getCensus().toString());
         }

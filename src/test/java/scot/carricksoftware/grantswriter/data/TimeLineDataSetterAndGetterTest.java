@@ -36,7 +36,7 @@ class TimeLineDataSetterAndGetterTest {
 
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(dmyMock, timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(timeLineDateComparatorMock);
     }
 
     @Test

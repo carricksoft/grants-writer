@@ -31,9 +31,6 @@ class TimeLineDataAddTest {
     private TimeLineData timeLineData;
 
     @Mock
-    private DMY dmyMock;
-
-    @Mock
     private TimeLineDateComparator timeLineDateComparatorMock;
 
     @Mock
@@ -44,7 +41,7 @@ class TimeLineDataAddTest {
 
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(dmyMock, timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(timeLineDateComparatorMock);
     }
 
     @Test

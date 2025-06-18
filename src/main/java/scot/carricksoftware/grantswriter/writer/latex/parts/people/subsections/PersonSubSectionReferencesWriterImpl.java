@@ -21,7 +21,6 @@ public class PersonSubSectionReferencesWriterImpl implements PersonSubSectionRef
     @Override
     public void write(Person person) {
         latexSubSectionHeader.write("References");
-
     }
 
 }

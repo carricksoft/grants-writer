@@ -12,9 +12,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
 import static org.mockito.Mockito.verify;
@@ -33,23 +30,11 @@ class PersonSubSectionTimeLineWriterTest {
     @Mock
     private Person personMock;
 
-    @Mock
-    private WriteReferences writeReferencesMock;
-
-    @Mock
-    private ClearExistingTimeLineData clearExistingTimeLineDataMock;
-
-    @Mock
-    private GatherTimeLineData gatherTimeLineDataMock;
-
     @BeforeEach
     void setUp() {
         writer = new PersonSubSectionTimeLineWriterImpl(
                 latexSubSectionHeaderMock,
-                writeTimeLineMock,
-                writeReferencesMock,
-                clearExistingTimeLineDataMock,
-                gatherTimeLineDataMock);
+                writeTimeLineMock);
     }
 
     @Test

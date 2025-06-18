@@ -14,6 +14,8 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.headers.PersonSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
 
 import static org.mockito.Mockito.verify;
 
@@ -34,9 +36,20 @@ class PersonSectionTest {
     @Mock
     private Person personMock;
 
+    @Mock
+    private GatherTimeLineData gatherTimeLineDataMock;
+
+    @Mock
+    ClearExistingTimeLineData clearExistingTimeLineDataMock;
+
     @BeforeEach
     void setUp() {
-        personSection = new PersonSectionImpl(personSectionHeaderMock, personSubSectionTimeLineWriterMock, personSubSectionReferencesWriterMock);
+        personSection = new PersonSectionImpl(
+                personSectionHeaderMock,
+                personSubSectionTimeLineWriterMock,
+                personSubSectionReferencesWriterMock,
+                clearExistingTimeLineDataMock,
+                gatherTimeLineDataMock);
     }
 
     @Test

@@ -16,19 +16,18 @@ import java.util.List;
 @Component
 public class GatherCensusTimeLineDataImpl implements GatherCensusTimeLineData {
 
-    private final Person person;
     private final CensusEntryService censusEntryService;
     private final TimeLineData timelineData;
 
-    public GatherCensusTimeLineDataImpl(Person person,
-                                        CensusEntryService censusEntryService, TimeLineData timelineData) {
-        this.person = person;
+    public GatherCensusTimeLineDataImpl(
+            CensusEntryService censusEntryService,
+            TimeLineData timelineData) {
         this.censusEntryService = censusEntryService;
         this.timelineData = timelineData;
     }
 
     @Override
-    public void gather() {
+    public void gather(Person person) {
         List<CensusEntry> censusEntryList = censusEntryService.findAllByPerson(person);
         timelineData.add(censusEntryList);
     }

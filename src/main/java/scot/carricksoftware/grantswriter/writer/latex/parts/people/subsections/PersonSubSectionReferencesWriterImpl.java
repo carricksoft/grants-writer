@@ -8,19 +8,25 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 
 @Component
 public class PersonSubSectionReferencesWriterImpl implements PersonSubSectionReferencesWriter {
 
     private final LatexSubSectionHeader latexSubSectionHeader;
+    private final WriteReferences writeReferences;
 
-    public PersonSubSectionReferencesWriterImpl(LatexSubSectionHeader latexSubSectionHeader) {
+    public PersonSubSectionReferencesWriterImpl(
+            LatexSubSectionHeader latexSubSectionHeader,
+            WriteReferences writeReferences) {
         this.latexSubSectionHeader = latexSubSectionHeader;
+        this.writeReferences = writeReferences;
     }
 
     @Override
     public void write(Person person) {
         latexSubSectionHeader.write("References");
+        writeReferences.write();
     }
 
 }

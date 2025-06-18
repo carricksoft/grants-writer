@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 
 
 import static org.mockito.Mockito.verify;
@@ -27,11 +28,14 @@ class PersonSubSectionReferencesWriterTest {
     private LatexSubSectionHeader latexSubSectionHeaderMock;
 
     @Mock
+    private WriteReferences writeReferencesMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        personSubSectionReferencesWriter = new PersonSubSectionReferencesWriterImpl(latexSubSectionHeaderMock);
+        personSubSectionReferencesWriter = new PersonSubSectionReferencesWriterImpl(latexSubSectionHeaderMock, writeReferencesMock);
     }
 
     @Test

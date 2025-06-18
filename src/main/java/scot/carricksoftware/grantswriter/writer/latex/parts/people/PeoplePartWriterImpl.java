@@ -21,7 +21,7 @@ public class PeoplePartWriterImpl implements PeoplePartWriter {
     private static final Logger logger = LogManager.getLogger(PeoplePartWriterImpl.class);
 
     private final PersonService personService;
-    private final PeoplePartHeader peopleHeader;
+    private final PeoplePartHeader peoplePartHeader;
     private final PersonSection personSection;
 
 
@@ -29,7 +29,7 @@ public class PeoplePartWriterImpl implements PeoplePartWriter {
                                 PeoplePartHeader peopleHeader,
                                 PersonSection personSection) {
         this.personService = personService;
-        this.peopleHeader = peopleHeader;
+        this.peoplePartHeader = peopleHeader;
         this.personSection = personSection;
     }
 
@@ -37,7 +37,7 @@ public class PeoplePartWriterImpl implements PeoplePartWriter {
     public void write() {
         logger.info("PeoplePartsImpl.write()");
 
-        peopleHeader.write();
+        peoplePartHeader.write();
         List<Person> people = personService.findAll();
         for (Person person : people) {
             personSection.write(person);

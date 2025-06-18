@@ -14,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriterImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 
 import static org.mockito.Mockito.verify;
 
@@ -28,9 +29,12 @@ class PersonSubSectionReferencesWriterTest {
     @Mock
     private Person personMock;
 
+    @Mock
+    private WriteReferences writeReferencesMock;
+
     @BeforeEach
     void setUp() {
-        writer = new PersonSubSectionReferencesWriterImpl(latexSubSectionHeaderMock);
+        writer = new PersonSubSectionReferencesWriterImpl(latexSubSectionHeaderMock, writeReferencesMock);
     }
 
     @Test

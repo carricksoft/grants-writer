@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
@@ -26,26 +27,30 @@ public class WriteTimeLineImpl implements WriteTimeLine {
     private final FileWriter fileWriter;
     private final LatexLongTableStart latexLongTableStart;
     private final LatexLongTabLeEnd latexLongTabLeEnd;
+    private final TimeLineData timeLineData;
 
     public WriteTimeLineImpl(FileWriter fileWriter,
                              LatexLongTableStart latexLongTableStart,
-                             LatexLongTabLeEnd latexLongTabLeEnd) {
+                             LatexLongTabLeEnd latexLongTabLeEnd, TimeLineData timeLineData) {
         this.fileWriter = fileWriter;
         this.latexLongTableStart = latexLongTableStart;
         this.latexLongTabLeEnd = latexLongTabLeEnd;
+        this.timeLineData = timeLineData;
     }
 
     @Override
-    public void write(TreeMap<DMY, List<String>> map) {
+    public void write() {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexLongTableStart.write("l l");
-        writeTheData(map);
+        writeTheData();
         latexLongTabLeEnd.write();
     }
 
-    private void writeTheData(TreeMap<DMY, List<String>> map) {
+    private void writeTheData() {
         logger.info("PersonSubSectionTimeLineWriterImp::writeTheData");
+
+        TreeMap<DMY, List<String>> map = timeLineData.getTimeLine();
         for (DMY dmy : map.keySet()) {
             var value = map.get(dmy);
             if (value != null && !value.isEmpty()) {

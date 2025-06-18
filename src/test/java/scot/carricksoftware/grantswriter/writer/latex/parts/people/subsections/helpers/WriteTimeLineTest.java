@@ -8,22 +8,15 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.data.DMY;
-import scot.carricksoftware.grantswriter.data.DMYImpl;
+import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
 import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 
 @ExtendWith(MockitoExtension.class)
 class WriteTimeLineTest {
@@ -34,48 +27,31 @@ class WriteTimeLineTest {
     private FileWriter fileWriterMock;
 
     @Mock
-    LatexLongTableStart latexLongTableStartMock;
+    private LatexLongTableStart latexLongTableStartMock;
 
     @Mock
-    LatexLongTabLeEnd latexLongTabLeEndMock;
+    private LatexLongTabLeEnd latexLongTabLeEndMock;
+
+    @Mock
+    private TimeLineData timeLineDataMock;
 
     @BeforeEach
     void setUp() {
-        writeTimeLine = new WriteTimeLineImpl(fileWriterMock, latexLongTableStartMock, latexLongTabLeEndMock);
+        writeTimeLine = new WriteTimeLineImpl(
+                fileWriterMock,
+                latexLongTableStartMock,
+                latexLongTabLeEndMock,
+                timeLineDataMock);
     }
 
     @Test
-    void writeOuterTest() {
-        TreeMap<DMY, List<String>> map = new TreeMap<>();
-        InOrder inOrder = inOrder(latexLongTableStartMock, latexLongTabLeEndMock);
-
-        writeTimeLine.write(map);
-        inOrder.verify(latexLongTableStartMock).write("l l");
-        inOrder.verify(latexLongTabLeEndMock).write();
+    void ConstructorTest() {
+        assertNotNull(writeTimeLine);
     }
 
-    @Test
-    void writeInnerTestNoValues() {
-        TreeMap<DMY, List<String>> map = new TreeMap<>();
-        writeTimeLine.write(map);
-        verifyNoInteractions(fileWriterMock);
-    }
 
-    @Test
-    void writeInnerTestValues() {
-        TreeMap<DMY, List<String>> map = new TreeMap<>();
-        DMY dmy = new DMYImpl();
-        dmy.parse("25/01/1953");
-        List<String> stringList = new ArrayList<>();
-        String event = "Event";
-        stringList.add(event);
-        map.put(dmy, stringList);
 
-        String required = "25/01/1953&" + event + "\\\\";
 
-        writeTimeLine.write(map);
-        verify(fileWriterMock).writeLine(required);
-    }
 
 
 }

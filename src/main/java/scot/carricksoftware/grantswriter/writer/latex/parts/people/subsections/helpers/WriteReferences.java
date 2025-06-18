@@ -6,9 +6,7 @@
 package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers;
 
 
-import java.util.SortedSet;
-
 public interface WriteReferences {
 
-    void write(SortedSet<String> references);
+    void write();
 }

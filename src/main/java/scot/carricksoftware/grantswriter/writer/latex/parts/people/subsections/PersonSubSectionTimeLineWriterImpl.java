@@ -8,15 +8,12 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.data.TimeLineData;
-import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.services.censusentry.CensusEntryService;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
-
-import java.util.List;
 
 @Component
 public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeLineWriter {
@@ -24,20 +21,22 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     private static final Logger logger = LogManager.getLogger(PersonSubSectionTimeLineWriterImpl.class);
 
     private final LatexSubSectionHeader latexSubSectionHeader;
-    private final CensusEntryService censusEntryService;
-    private final TimeLineData timelineData;
     private final WriteTimeLine writeTimeLine;
     private final WriteReferences writeReferences;
+    private final ClearExistingTimeLineData clearExistingTimeLineData;
+    private final GatherTimeLineData gatherTimeLineData;
 
     public PersonSubSectionTimeLineWriterImpl(LatexSubSectionHeader latexSubSectionHeader,
-                                              CensusEntryService censusEntryService,
-                                              TimeLineData timelineData,
-                                              WriteTimeLine writeTimeLine, WriteReferences writeReferences) {
+                                              WriteTimeLine writeTimeLine,
+                                              WriteReferences writeReferences,
+                                              ClearExistingTimeLineData clearExistingTimeLineData,
+                                              GatherTimeLineData gatherTimeLineData) {
+
         this.latexSubSectionHeader = latexSubSectionHeader;
-        this.censusEntryService = censusEntryService;
-        this.timelineData = timelineData;
         this.writeTimeLine = writeTimeLine;
         this.writeReferences = writeReferences;
+        this.clearExistingTimeLineData = clearExistingTimeLineData;
+        this.gatherTimeLineData = gatherTimeLineData;
     }
 
     @Override
@@ -45,12 +44,11 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
         latexSubSectionHeader.write("Timeline");
-        List<CensusEntry> censusEntryList = censusEntryService.findAllByPerson(person);
-        timelineData.clear();
-        timelineData.add(censusEntryList);
+        clearExistingTimeLineData.clear();
+        gatherTimeLineData.gather();
 
-        writeTimeLine.write(timelineData.getTimeLine());
-        writeReferences.write(timelineData.getRefs());
+        writeTimeLine.write();
+        writeReferences.write();
     }
 
 

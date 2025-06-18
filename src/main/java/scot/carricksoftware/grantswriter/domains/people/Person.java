@@ -7,9 +7,11 @@ package scot.carricksoftware.grantswriter.domains.people;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.BaseEntity;
 
 @Entity
+@Component
 public class Person extends BaseEntity {
 
     @Column(name = "`last_name`")

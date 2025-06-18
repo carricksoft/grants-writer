@@ -5,6 +5,6 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers;
 
-public interface WriteTimeLine {
-    void write ();
+public interface GatherTimeLineData {
+    void gather();
 }

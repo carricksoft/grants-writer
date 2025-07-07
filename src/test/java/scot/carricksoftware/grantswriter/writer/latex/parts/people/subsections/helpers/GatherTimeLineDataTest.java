@@ -31,9 +31,9 @@ class GatherTimeLineDataTest {
     }
 
     @Test
-    void gatherTest(){
-       gatherTimeLineData.gather(personMock);
-       verify(gatherCensusTimeLineDataMock).gather(personMock);
+    void gatherTest() {
+        gatherTimeLineData.gather(personMock);
+        verify(gatherCensusTimeLineDataMock).gather(personMock);
     }
 
 }

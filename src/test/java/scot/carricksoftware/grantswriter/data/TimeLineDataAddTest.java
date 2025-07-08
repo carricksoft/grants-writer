@@ -59,7 +59,7 @@ class TimeLineDataAddTest {
 
 
         SortedSet<String> refs;
-        timeLineData.add(censusEntryList);
+        timeLineData.addCensusEntry(censusEntryList);
         refs = timeLineData.getRefs();
 
         assertEquals("Census: " + censusString, refs.first());
@@ -80,7 +80,7 @@ class TimeLineDataAddTest {
         when(censusMock.getPlace()).thenReturn(placeMock);
 
 
-        timeLineData.add(censusEntryList);
+        timeLineData.addCensusEntry(censusEntryList);
 
         TreeMap<DMY, List<String>> timeLine = timeLineData.getTimeLine();
 

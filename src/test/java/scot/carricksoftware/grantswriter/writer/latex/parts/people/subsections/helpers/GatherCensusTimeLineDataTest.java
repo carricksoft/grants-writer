@@ -46,6 +46,6 @@ class GatherCensusTimeLineDataTest {
         when(censusEntryServiceMock.findAllByPerson(personMock)).thenReturn(censusEntryList);
         gatherCensusTimeLineData.gather(personMock);
 
-        verify(timeLineDataMock).add(censusEntryList);
+        verify(timeLineDataMock).addCensusEntry(censusEntryList);
     }
 }

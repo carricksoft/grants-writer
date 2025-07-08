@@ -29,6 +29,6 @@ public class GatherCensusTimeLineDataImpl implements GatherCensusTimeLineData {
     @Override
     public void gather(Person person) {
         List<CensusEntry> censusEntryList = censusEntryService.findAllByPerson(person);
-        timelineData.add(censusEntryList);
+        timelineData.addCensusEntry(censusEntryList);
     }
 }

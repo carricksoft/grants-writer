@@ -13,7 +13,7 @@ import java.util.TreeMap;
 
 public interface TimeLineData {
 
-    void add(List<CensusEntry> censusEntryList);
+    void addCensusEntry(List<CensusEntry> censusEntryList);
 
     void clear();
 

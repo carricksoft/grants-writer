@@ -32,7 +32,7 @@ public class TimeLineDataImpl implements TimeLineData {
 
 
     @Override
-    public void add(List<CensusEntry> censusEntryList) {
+    public void addCensusEntry(List<CensusEntry> censusEntryList) {
         for (CensusEntry censusEntry : censusEntryList) {
             String key = censusEntry.getCensus().getCensusDate().label;
             DMY dmyKey = new DMYImpl();

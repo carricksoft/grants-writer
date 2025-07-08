@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.data.helpers.AddCensusEntry;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeMap;
@@ -34,30 +33,9 @@ public class TimeLineDataImpl implements TimeLineData {
         this.refs = new TreeSet<>();
     }
 
-
     @Override
     public void addCensusEntry(List<CensusEntry> censusEntryList) {
         addCensusEntry.add(timeLine, refs, censusEntryList);
-        for (CensusEntry censusEntry : censusEntryList) {
-            String key = censusEntry.getCensus().getCensusDate().label;
-            DMY dmyKey = new DMYImpl();
-            dmyKey.parse(key);
-
-            List<String> existingValues = timeLine.get(dmyKey);
-            if (existingValues == null) {
-                existingValues = new ArrayList<>();
-            }
-            existingValues.add( "Recorded as being at " +
-                    censusEntry.getCensus().getPlace().toString());
-            timeLine.put(dmyKey, existingValues);
-
-            if (censusEntry.getPersonalOccupation() != null && !censusEntry.getPersonalOccupation().isEmpty()) {
-                existingValues.add("Occupation recorded as " +
-                                censusEntry.getPersonalOccupation());
-                timeLine.put(dmyKey, existingValues);
-            }
-            refs.add("Census: " + censusEntry.getCensus().toString());
-        }
     }
 
     @Override

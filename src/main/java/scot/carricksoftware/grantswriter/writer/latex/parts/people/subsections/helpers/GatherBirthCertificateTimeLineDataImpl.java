@@ -14,7 +14,7 @@ import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.
 public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertificateTimeLineData {
 
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
-    private final BirthCertificateService  birthCertificateService;
+    private final BirthCertificateService birthCertificateService;
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final TimeLineData timelineData;
 
@@ -23,24 +23,30 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
         this.timelineData = timelineData;
     }
 
-
     @Override
-    public void gatherNewBorn(Person person) {
+    public void gather(Person person) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public void gatherFather(Person person) {
+    @SuppressWarnings("unused")
+    private void gatherNewBorn(@SuppressWarnings("unused") Person person) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public void gatherMother(Person person) {
+    @SuppressWarnings("unused")
+    private void gatherFather(@SuppressWarnings("unused") Person person) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public void gatherInformant(Person person) {
+    @SuppressWarnings("unused")
+    private void gatherMother(@SuppressWarnings("unused") Person person) {
         throw new UnsupportedOperationException();
     }
+
+    @SuppressWarnings("unused")
+    private void gatherInformant(@SuppressWarnings("unused") Person person) {
+        throw new UnsupportedOperationException();
+    }
+
+
 }

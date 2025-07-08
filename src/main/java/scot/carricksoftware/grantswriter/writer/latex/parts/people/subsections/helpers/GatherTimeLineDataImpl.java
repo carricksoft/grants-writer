@@ -12,14 +12,17 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 public class GatherTimeLineDataImpl implements GatherTimeLineData {
 
    private final GatherCensusTimeLineData gatherCensusTimeLineData;
+    private final GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
 
     public GatherTimeLineDataImpl(
-            GatherCensusTimeLineData gatherCensusTimeLineData) {
+            GatherCensusTimeLineData gatherCensusTimeLineData, GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData) {
         this.gatherCensusTimeLineData = gatherCensusTimeLineData;
+        this.gatherBirthCertificateTimeLineData = gatherBirthCertificateTimeLineData;
     }
 
     @Override
     public void gather(Person person) {
         gatherCensusTimeLineData.gather(person);
+        gatherBirthCertificateTimeLineData.gather(person);
     }
 }

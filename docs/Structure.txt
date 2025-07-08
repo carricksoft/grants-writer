@@ -1,6 +1,10 @@
 TexController -> TexWriter -> PartsWriter -> PeoplePartWriter -> (PeoplePartHeader+PersonSectionWriter) ->
     (PersonPart SubSectionHeading + PersonSubSectionTimeLineWriter + PersonSubSectionReferencesWriter)
 
+TexController::start -> TexWriter::write -> (docStart::write, partsWriter::write, docEnd::write)
+partsWriter::write -> partsWriter::write -> peoplePartWriter::write  -> (for each person)::personSection::write
+personSection::write -> (personSectionHeader::write, clearExistingTimeLineData::clear, gatherTimeLineData::gather,
+           personSubSectionTimeLineWriter::write, personSubSectionReferencesWriter::write
 
 
-
+gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather)

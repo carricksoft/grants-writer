@@ -23,17 +23,26 @@ class GatherTimeLineDataTest {
     private GatherCensusTimeLineData gatherCensusTimeLineDataMock;
 
     @Mock
+    private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineDataMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        gatherTimeLineData = new GatherTimeLineDataImpl(gatherCensusTimeLineDataMock);
+        gatherTimeLineData = new GatherTimeLineDataImpl(gatherCensusTimeLineDataMock, gatherBirthCertificateTimeLineDataMock);
     }
 
     @Test
-    void gatherTest() {
+    void gatherCensusEntryDataTest() {
         gatherTimeLineData.gather(personMock);
         verify(gatherCensusTimeLineDataMock).gather(personMock);
+    }
+
+    @Test
+    void gatherBirthCertificateDataTest() {
+        gatherTimeLineData.gather(personMock);
+        verify(gatherBirthCertificateTimeLineDataMock).gather(personMock);
     }
 
 }

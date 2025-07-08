@@ -19,7 +19,6 @@ import java.util.TreeMap;
 
 @Component
 public class AddCensusEntryImpl implements AddCensusEntry {
-
     private static final Logger logger = LogManager.getLogger(AddCensusEntryImpl.class);
 
     @Override

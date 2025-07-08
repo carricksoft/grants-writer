@@ -5,6 +5,8 @@
 
 package scot.carricksoftware.grantswriter.data;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.data.helpers.AddCensusEntry;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
@@ -16,6 +18,8 @@ import java.util.TreeSet;
 
 @Component
 public class TimeLineDataImpl implements TimeLineData {
+
+    private static final Logger logger = LogManager.getLogger(TimeLineDataImpl.class);
 
     private TreeMap<DMY, List<String>> timeLine;
 
@@ -35,11 +39,13 @@ public class TimeLineDataImpl implements TimeLineData {
 
     @Override
     public void addCensusEntry(List<CensusEntry> censusEntryList) {
+        logger.info("TimeLineDataImpl::addCensusEntry");
         addCensusEntry.add(timeLine, refs, censusEntryList);
     }
 
     @Override
     public void clear() {
+        logger.info("TimeLineDataImpl::clear");
         timeLine.clear();
         refs.clear();
     }

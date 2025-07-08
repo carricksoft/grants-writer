@@ -9,10 +9,11 @@ import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeMap;
 
 public interface AddCensusEntry {
 
     @SuppressWarnings({"EmptyMethod", "unused"})
-    void add(TreeMap<DMY, List<String>> timeline, List<CensusEntry> censusEntryList);
+    void add(TreeMap<DMY, List<String>> timeline, SortedSet<String> refs, List<CensusEntry> censusEntryList);
 }

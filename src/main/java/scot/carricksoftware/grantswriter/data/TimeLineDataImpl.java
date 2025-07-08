@@ -6,6 +6,7 @@
 package scot.carricksoftware.grantswriter.data;
 
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.data.helpers.AddCensusEntry;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.ArrayList;
@@ -21,10 +22,13 @@ public class TimeLineDataImpl implements TimeLineData {
 
     private SortedSet<String> refs;
 
+    private final AddCensusEntry addCensusEntry;
+
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final TimeLineDateComparator timeLineDateComparator;
 
-    public TimeLineDataImpl( TimeLineDateComparator timeLineDateComparator) {
+    public TimeLineDataImpl(AddCensusEntry addCensusEntry, TimeLineDateComparator timeLineDateComparator) {
+        this.addCensusEntry = addCensusEntry;
         this.timeLineDateComparator = timeLineDateComparator;
         this.timeLine = new TreeMap<>();
         this.refs = new TreeSet<>();
@@ -33,6 +37,7 @@ public class TimeLineDataImpl implements TimeLineData {
 
     @Override
     public void addCensusEntry(List<CensusEntry> censusEntryList) {
+        addCensusEntry.add(timeLine, refs, censusEntryList);
         for (CensusEntry censusEntry : censusEntryList) {
             String key = censusEntry.getCensus().getCensusDate().label;
             DMY dmyKey = new DMYImpl();

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.data.helpers.AddCensusEntry;
 import scot.carricksoftware.grantswriter.domains.census.Census;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 import scot.carricksoftware.grantswriter.domains.places.Place;
@@ -40,9 +41,12 @@ class TimeLineDataAddTest {
     @Mock
     private Census censusMock;
 
+    @Mock
+    AddCensusEntry addCensusEntryMock;
+
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(addCensusEntryMock, timeLineDateComparatorMock);
     }
 
     @Test

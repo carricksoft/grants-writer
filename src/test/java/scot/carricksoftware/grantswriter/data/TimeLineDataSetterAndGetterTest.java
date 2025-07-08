@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.data.helpers.AddCensusEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +34,13 @@ class TimeLineDataSetterAndGetterTest {
     @Mock
     private TimeLineDateComparator timeLineDateComparatorMock;
 
+    @Mock
+    AddCensusEntry addCensusEntryMock;
+
 
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(addCensusEntryMock, timeLineDateComparatorMock);
     }
 
     @Test

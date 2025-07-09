@@ -15,14 +15,9 @@ import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
-import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class TimeLineDataSetterAddCensusEntryTest {
@@ -30,8 +25,6 @@ class TimeLineDataSetterAddCensusEntryTest {
 
     private TimeLineData timeLineData;
 
-    @Mock
-    private DMY dmyMock;
 
     @Mock
     private TimeLineDateComparator timeLineDateComparatorMock;

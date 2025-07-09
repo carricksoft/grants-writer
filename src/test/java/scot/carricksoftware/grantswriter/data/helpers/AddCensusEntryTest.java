@@ -39,6 +39,9 @@ class AddCensusEntryTest {
 
     private SortedSet<String> refs;
 
+    private Place place;
+
+
     @Mock
     private Census censusMock;
 
@@ -53,16 +56,19 @@ class AddCensusEntryTest {
         refs = new TreeSet<>();
         censusEntryList = new ArrayList<>();
         timeLine = new TreeMap<>();
+        place = GetRandomPlace();
+
+        when(censusEntryMock.getCensus()).thenReturn(censusMock);
+        when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
+        when(censusMock.getPlace()).thenReturn(place);
+        censusEntryList.add(censusEntryMock);
     }
 
     @Test
     void refsTest() {
         String toString = GetRandomString();
-        when(censusEntryMock.getCensus()).thenReturn(censusMock);
-        when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
-        when(censusMock.getPlace()).thenReturn(GetRandomPlace());
         when(censusMock.toString()).thenReturn(toString);
-        censusEntryList.add(censusEntryMock);
+
         addCensusEntry.add(timeLine, refs, censusEntryList);
 
         assertEquals("Census: " + toString, refs.first());
@@ -70,12 +76,6 @@ class AddCensusEntryTest {
 
     @Test
     void timeLineTest() {
-        Place place = GetRandomPlace();
-        when(censusEntryMock.getCensus()).thenReturn(censusMock);
-        when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
-        when(censusMock.getPlace()).thenReturn(place);
-        censusEntryList.add(censusEntryMock);
-
         addCensusEntry.add(timeLine, refs, censusEntryList);
 
         assertEquals("Recorded as being at " + place, timeLine.firstEntry().getValue().get(0));

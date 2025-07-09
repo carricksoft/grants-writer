@@ -11,35 +11,59 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.domains.census.Census;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
+import scot.carricksoftware.grantswriter.enums.census.CensusDate;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 
 @ExtendWith(MockitoExtension.class)
 class AddCensusEntryTest {
 
-    private AddCensusEntry entry;
+    private AddCensusEntry addCensusEntry;
 
-    @SuppressWarnings("unused")
-    @Mock
-    private TreeMap<DMY, List<String>> timelineMock;
+    private TreeMap<DMY, List<String>> timeline;
 
-    @SuppressWarnings("unused")
+    private List<CensusEntry> censusEntryList;
+
+    private SortedSet<String> refs;
+
     @Mock
-    private List<CensusEntry> censusEntryListMock;
+    private Census censusMock;
+
+    @Mock
+    private CensusEntry censusEntryMock;
+
 
 
     @BeforeEach
     void setUp() {
-        entry = new AddCensusEntryImpl();
+        addCensusEntry = new AddCensusEntryImpl();
+        refs = new TreeSet<>();
+        censusEntryList = new ArrayList<>();
+        timeline = new TreeMap<>();
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(entry);
+    void refsTest() {
+        String toString = GetRandomString();
+        when(censusEntryMock.getCensus()).thenReturn(censusMock);
+        when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
+        when(censusMock.getPlace()).thenReturn(GetRandomPlace());
+        when(censusMock.toString()).thenReturn(toString);
+        censusEntryList.add(censusEntryMock);
+        addCensusEntry.add(timeline, refs, censusEntryList);
+
+        assertEquals("Census: " + toString, refs.first());
     }
 }

@@ -20,8 +20,7 @@ import java.util.TreeMap;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-class TimeLineDataSetterAddCensusEntryTest {
-
+class TimeLineDataAddCensusEntryTest {
 
     private TimeLineData timeLineData;
 

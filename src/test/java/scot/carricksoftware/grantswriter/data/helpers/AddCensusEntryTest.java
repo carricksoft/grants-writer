@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.domains.census.Census;
 import scot.carricksoftware.grantswriter.domains.census.CensusEntry;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.enums.census.CensusDate;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ class AddCensusEntryTest {
 
     private AddCensusEntry addCensusEntry;
 
-    private TreeMap<DMY, List<String>> timeline;
+    private TreeMap<DMY, List<String>> timeLine;
 
     private List<CensusEntry> censusEntryList;
 
@@ -51,7 +52,7 @@ class AddCensusEntryTest {
         addCensusEntry = new AddCensusEntryImpl();
         refs = new TreeSet<>();
         censusEntryList = new ArrayList<>();
-        timeline = new TreeMap<>();
+        timeLine = new TreeMap<>();
     }
 
     @Test
@@ -62,8 +63,21 @@ class AddCensusEntryTest {
         when(censusMock.getPlace()).thenReturn(GetRandomPlace());
         when(censusMock.toString()).thenReturn(toString);
         censusEntryList.add(censusEntryMock);
-        addCensusEntry.add(timeline, refs, censusEntryList);
+        addCensusEntry.add(timeLine, refs, censusEntryList);
 
         assertEquals("Census: " + toString, refs.first());
+    }
+
+    @Test
+    void timeLineTest() {
+        Place place = GetRandomPlace();
+        when(censusEntryMock.getCensus()).thenReturn(censusMock);
+        when(censusMock.getCensusDate()).thenReturn(CensusDate.CENSUS_1861);
+        when(censusMock.getPlace()).thenReturn(place);
+        censusEntryList.add(censusEntryMock);
+
+        addCensusEntry.add(timeLine, refs, censusEntryList);
+
+        assertEquals("Recorded as being at " + place, timeLine.firstEntry().getValue().get(0));
     }
 }

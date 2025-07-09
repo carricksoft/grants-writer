@@ -57,7 +57,6 @@ class CensusEntryPartOneTest {
         assertEquals(census, entry.getCensus());
     }
 
-
     @Test
     void getPersonTest() {
         assertNull(entry.getPerson());
@@ -69,6 +68,19 @@ class CensusEntryPartOneTest {
         entry.setPerson(person);
         assertEquals(person, entry.getPerson());
     }
+
+    @Test
+    void getPersonOccupationTest() {
+        assertNull(entry.getPersonalOccupation());
+    }
+
+    @Test
+    void setPersonalOccupationTest() {
+        String occupation = GetRandomString();
+        entry.setPersonalOccupation(occupation);
+        assertEquals(occupation, entry.getPersonalOccupation());
+    }
+
 
 
 }

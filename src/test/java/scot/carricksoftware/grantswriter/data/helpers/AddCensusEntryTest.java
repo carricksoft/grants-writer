@@ -80,4 +80,13 @@ class AddCensusEntryTest {
 
         assertEquals("Recorded as being at " + place, timeLine.firstEntry().getValue().get(0));
     }
+
+    @Test
+    void OccupationTest() {
+        String occupation = GetRandomString();
+        when(censusEntryMock.getPersonalOccupation()).thenReturn(occupation);
+        addCensusEntry.add(timeLine, refs, censusEntryList);
+
+        assertEquals("Occupation recorded as " + occupation, timeLine.firstEntry().getValue().get(1));
+    }
 }

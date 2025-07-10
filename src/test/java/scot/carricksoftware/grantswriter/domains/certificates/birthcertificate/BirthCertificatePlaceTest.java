@@ -61,7 +61,7 @@ class BirthCertificatePlaceTest {
     void setWhereRegisteredTest() {
         String whereRegistered = GetRandomString();
         birthCertificate.setWhereRegistered(whereRegistered);
-        assertEquals(whereRegistered, birthCertificate.getWhenRegistered());
+        assertEquals(whereRegistered, birthCertificate.getWhereRegistered());
     }
 
 }

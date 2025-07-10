@@ -46,4 +46,16 @@ class BirthCertificateDateTest {
         assertEquals(whenBorn, birthCertificate.getWhenBorn());
     }
 
+    @Test
+    void getWhenRegisteredTest() {
+        assertNull(birthCertificate.getWhenRegistered());
+    }
+
+    @Test
+    void setWhenWhenRegisteredTest() {
+        String whenRegistered = GetRandomString();
+        birthCertificate.setWhenRegistered(whenRegistered);
+        assertEquals(whenRegistered, birthCertificate.getWhenRegistered());
+    }
+
 }

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 class BirthCertificatePeopleTest {
@@ -67,6 +68,18 @@ class BirthCertificatePeopleTest {
         Person person = GetRandomPerson();
         birthCertificate.setInformant(person);
         assertEquals(person, birthCertificate.getInformant());
+    }
+
+    @Test
+    void getUntrackedInformantTest() {
+        assertNull(birthCertificate.getUntrackedInformant());
+    }
+
+    @Test
+    void setWhenUntrackedInformantTest() {
+        String untrackedInformant = GetRandomString();
+        birthCertificate.setUntrackedInformant(untrackedInformant);
+        assertEquals(untrackedInformant, birthCertificate.getUntrackedInformant());
     }
 
 }

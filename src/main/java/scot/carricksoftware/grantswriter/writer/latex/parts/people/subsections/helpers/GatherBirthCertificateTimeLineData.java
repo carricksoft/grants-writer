@@ -9,5 +9,4 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface GatherBirthCertificateTimeLineData {
    void gather(@SuppressWarnings("unused") Person person);
-
 }

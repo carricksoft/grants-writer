@@ -60,6 +60,9 @@ public class BirthCertificate extends BaseEntity {
     @Column(name = "`where_registered`")
     private String whereRegistered;
 
+    @SuppressWarnings("JpaDataSourceORMInspection")
+    @Column(name = "`untracked_informant`")
+    private String untrackedInformant;
 
     public Person getNewBorn() {
         return newBorn;
@@ -112,5 +115,9 @@ public class BirthCertificate extends BaseEntity {
 
     public String getWhereRegistered() {
         return whereRegistered;
+    }
+
+    public String getUntrackedInformant() {
+        return untrackedInformant;
     }
 }

@@ -41,11 +41,8 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
 
     private void addWhenBorn(TreeMap<DMY, List<String>> timeLine, SortedSet<String> refs, BirthCertificate birthCertificate) {
         logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::AddWhenBorn");
-        String key = birthCertificate.getWhenBorn();
-        DMY dmyKey = new DMYImpl();
-        dmyKey.parse(key);
 
-        List<String> existingValues = timeLine.get(dmyKey);
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenBorn()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
@@ -55,18 +52,15 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
         } else {
             existingValues.add("Born at " + birthCertificate.getUntrackedWhereBorn());
         }
-        timeLine.put(dmyKey, existingValues);
+        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
 
         refs.add("Birth Certificate for : " + birthCertificate.getNewBorn());
     }
 
     private void addWhenRegistered(TreeMap<DMY, List<String>> timeLine, SortedSet<String> refs, BirthCertificate birthCertificate) {
         logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::AddWhenRegistered");
-        String key = birthCertificate.getWhenRegistered();
-        DMY dmyKey = new DMYImpl();
-        dmyKey.parse(key);
 
-        List<String> existingValues = timeLine.get(dmyKey);
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenRegistered()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
@@ -74,19 +68,16 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
         if (birthCertificate.getInformant() != null) {
             existingValues.add("Birth Registered by " + birthCertificate.getInformant().toString() + " at " + birthCertificate.getWhereRegistered());
         } else {
-            existingValues.add("Birth Registered by " + birthCertificate.getInformant().toString() + " at " + birthCertificate.getWhereRegistered());
+            existingValues.add("Birth Registered by " + birthCertificate.getUntrackedInformant() + " at " + birthCertificate.getWhereRegistered());
         }
-        timeLine.put(dmyKey, existingValues);
+        timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
 
     }
 
     private void addMotherAndFather(TreeMap<DMY, List<String>> timeLine, SortedSet<String> refs, BirthCertificate birthCertificate) {
         logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::AddMotherAndFather");
-        String key = birthCertificate.getWhenRegistered();
-        DMY dmyKey = new DMYImpl();
-        dmyKey.parse(key);
 
-        List<String> existingValues = timeLine.get(dmyKey);
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenRegistered()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
@@ -94,6 +85,12 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
         existingValues.add("Mother Registered as " + birthCertificate.getMother().toString());
         existingValues.add("Father Registered as " + birthCertificate.getFather().toString());
 
-       timeLine.put(dmyKey, existingValues);
+       timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
+    }
+
+    private DMY getDMY(String dateKey) {
+        DMY dmyKey = new DMYImpl();
+        dmyKey.parse(dateKey);
+        return dmyKey;
     }
 }

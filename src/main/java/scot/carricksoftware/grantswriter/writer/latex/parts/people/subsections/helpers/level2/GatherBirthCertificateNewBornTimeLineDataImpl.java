@@ -56,7 +56,7 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
         } else {
             existingValues.add("Born at " + birthCertificate.getUntrackedWhereBorn());
         }
-        timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
+        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
     }
 
     private void addWhenRegistered(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {

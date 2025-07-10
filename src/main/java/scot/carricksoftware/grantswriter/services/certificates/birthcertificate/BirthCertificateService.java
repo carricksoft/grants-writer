@@ -6,6 +6,12 @@
 package scot.carricksoftware.grantswriter.services.certificates.birthcertificate;
 
 
+import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
+import scot.carricksoftware.grantswriter.domains.people.Person;
+
+import java.util.List;
+
 public interface BirthCertificateService {
 
+    List<BirthCertificate> findAllByNewBorn(Person person);
 }

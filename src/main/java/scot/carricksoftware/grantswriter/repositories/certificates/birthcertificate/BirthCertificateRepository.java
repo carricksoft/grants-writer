@@ -7,10 +7,12 @@ package scot.carricksoftware.grantswriter.repositories.certificates.birthcertifi
 
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @SuppressWarnings("unused")
 @Repository
 public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCertificate, Long> {
-    
+
+    Iterable<BirthCertificate> findAllByNewBorn(Person person);
 }

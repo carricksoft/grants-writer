@@ -41,14 +41,11 @@ class AddCensusEntryTest {
 
     private Place place;
 
-
     @Mock
     private Census censusMock;
 
     @Mock
     private CensusEntry censusEntryMock;
-
-
 
     @BeforeEach
     void setUp() {

@@ -8,3 +8,6 @@ personSection::write -> (personSectionHeader::write, clearExistingTimeLineData::
 
 
 gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather)
+
+
+GatherBirthCertificateTimeLineData::gather -> (GatherBirthCertificateNewBornTimeLineData::gather,  )

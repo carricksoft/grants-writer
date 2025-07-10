@@ -100,7 +100,6 @@ public class BirthCertificate extends BaseEntity {
         return whenBorn;
     }
 
-
     public Place getWhereBorn() {
         return whereBorn;
     }
@@ -119,5 +118,35 @@ public class BirthCertificate extends BaseEntity {
 
     public String getUntrackedInformant() {
         return untrackedInformant;
+    }
+
+    @SuppressWarnings("unused")
+    public void setWhenBorn(String whenBorn) {
+        this.whenBorn = whenBorn;
+    }
+
+    @SuppressWarnings("unused")
+    public void setWhereBorn(Place whereBorn) {
+        this.whereBorn = whereBorn;
+    }
+
+    @SuppressWarnings("unused")
+    public void setUntrackedWhereBorn(String untrackedWhereBorn) {
+        this.untrackedWhereBorn = untrackedWhereBorn;
+    }
+
+    @SuppressWarnings("unused")
+    public void setWhenRegistered(String whenRegistered) {
+        this.whenRegistered = whenRegistered;
+    }
+
+    @SuppressWarnings("unused")
+    public void setWhereRegistered(String whereRegistered) {
+        this.whereRegistered = whereRegistered;
+    }
+
+    @SuppressWarnings("unused")
+    public void setUntrackedInformant(String untrackedInformant) {
+        this.untrackedInformant = untrackedInformant;
     }
 }

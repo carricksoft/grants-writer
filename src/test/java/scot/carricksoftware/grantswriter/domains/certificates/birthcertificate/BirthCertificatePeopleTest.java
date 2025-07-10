@@ -10,28 +10,15 @@ import org.junit.jupiter.api.Test;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
-class BirthCertificateTest {
+class BirthCertificatePeopleTest {
 
     BirthCertificate birthCertificate;
 
     @BeforeEach
     void setUp() {
         birthCertificate = new BirthCertificate();
-    }
-
-    @Test
-    void getIDTest() {
-        assertNull(birthCertificate.getId());
-    }
-
-    @Test
-    void setIDTest() {
-        Long id = GetRandomLong();
-        birthCertificate.setId(id);
-        assertEquals(id, birthCertificate.getId());
     }
 
     @Test

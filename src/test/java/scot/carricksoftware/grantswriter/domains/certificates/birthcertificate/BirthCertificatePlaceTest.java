@@ -52,4 +52,16 @@ class BirthCertificatePlaceTest {
         assertEquals(whereBorn, birthCertificate.getUntrackedWhereBorn());
     }
 
+    @Test
+    void getWhereRegisteredTest() {
+        assertNull(birthCertificate.getWhereRegistered());
+    }
+
+    @Test
+    void setWhereRegisteredTest() {
+        String whereRegistered = GetRandomString();
+        birthCertificate.setWhereRegistered(whereRegistered);
+        assertEquals(whereRegistered, birthCertificate.getWhenRegistered());
+    }
+
 }

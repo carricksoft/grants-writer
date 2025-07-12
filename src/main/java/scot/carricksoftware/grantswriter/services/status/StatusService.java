@@ -6,10 +6,10 @@
 package scot.carricksoftware.grantswriter.services.status;
 
 
-import java.util.SortedMap;
+import java.util.LinkedHashMap;
 
 
 public interface StatusService {
 
-     SortedMap<String, String> getStatus();
+     LinkedHashMap<String, String> getStatus();
 }

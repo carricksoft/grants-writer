@@ -19,7 +19,7 @@ import scot.carricksoftware.grantswriter.services.status.StatusService;
 @Controller
 public class StatusControllerImpl implements StatusController {
 
-    private static final Logger logger = LogManager.getLogger(FilesControllerImpl.class);
+    private static final Logger logger = LogManager.getLogger(StatusControllerImpl.class);
 
     private final StatusService statusService;
 
@@ -27,7 +27,7 @@ public class StatusControllerImpl implements StatusController {
         this.statusService = statusService;
     }
 
-    @GetMapping(MappingConstants.FILES)
+    @GetMapping(MappingConstants.STATUS)
     @Override
     public String getStatus(Model model) {
         logger.info("StatusControllerImp::getStatus");

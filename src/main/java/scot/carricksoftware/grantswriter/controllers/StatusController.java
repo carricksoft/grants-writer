@@ -12,6 +12,7 @@ import scot.carricksoftware.grantswriter.constants.MappingConstants;
 
 public interface StatusController {
 
-    @GetMapping(MappingConstants.FILES)
+    @SuppressWarnings("SameReturnValue")
+    @GetMapping(MappingConstants.STATUS)
     String getStatus(Model model);
 }

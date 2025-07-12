@@ -21,6 +21,6 @@ public class ViewConstants {
     public static final String TEX = "tex";
     public static final String HOME = "index";
 
-    public static final String STATUS = "status";
+    public static final String STATUS = "statusList";
 
 }

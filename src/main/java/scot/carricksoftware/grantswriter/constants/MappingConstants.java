@@ -22,5 +22,8 @@ public class MappingConstants {
 
     public static final String PRINT = "/print";
 
+    public static final String STATUS = "/status";
+
+
 
 }

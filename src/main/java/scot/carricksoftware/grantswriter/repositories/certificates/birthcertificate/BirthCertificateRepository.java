@@ -15,4 +15,6 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCertificate, Long> {
 
     Iterable<BirthCertificate> findAllByNewBorn(Person person);
+
+    Iterable<BirthCertificate> findAllByFather(Person person);
 }

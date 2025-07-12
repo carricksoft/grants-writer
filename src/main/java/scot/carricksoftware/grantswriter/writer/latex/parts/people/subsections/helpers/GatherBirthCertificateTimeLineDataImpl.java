@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.List;
@@ -18,18 +19,21 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     private final BirthCertificateService birthCertificateService;
 
-
     private final GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData;
 
+    private final GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
+
     public GatherBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData) {
+                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData, GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData) {
         this.birthCertificateService = birthCertificateService;
         this.gatherBirthCertificateNewBornTimeLineData = gatherBirthCertificateNewBornTimeLineData;
+        this.gatherBirthCertificateFatherTimeLineData = gatherBirthCertificateFatherTimeLineData;
     }
 
     @Override
     public void gather(Person person) {
         gatherNewBorn(person);
+        gatherFather(person);
     }
 
     @SuppressWarnings("unused")
@@ -42,7 +46,8 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     @SuppressWarnings("unused")
     private void gatherFather(@SuppressWarnings("unused") Person person) {
-        throw new UnsupportedOperationException();
+        List<BirthCertificate> birthCertificates = birthCertificateService.findAllByFather(person);
+        gatherBirthCertificateFatherTimeLineData.gather(birthCertificates);
     }
 
     @SuppressWarnings("unused")

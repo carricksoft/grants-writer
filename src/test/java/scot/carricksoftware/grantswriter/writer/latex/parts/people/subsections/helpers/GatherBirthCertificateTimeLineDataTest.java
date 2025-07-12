@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.ArrayList;
@@ -26,7 +27,6 @@ import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRa
 @ExtendWith(MockitoExtension.class)
 class GatherBirthCertificateTimeLineDataTest {
 
-
     private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
 
     @Mock
@@ -35,10 +35,15 @@ class GatherBirthCertificateTimeLineDataTest {
     @Mock
     private GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineDataMock;
 
+    @Mock
+    private GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineDataMock;
 
     @BeforeEach
     void setUp() {
-        gatherBirthCertificateTimeLineData = new GatherBirthCertificateTimeLineDataImpl(birthCertificateServiceMock, gatherBirthCertificateNewBornTimeLineDataMock);
+        gatherBirthCertificateTimeLineData = new GatherBirthCertificateTimeLineDataImpl(
+                birthCertificateServiceMock,
+                gatherBirthCertificateNewBornTimeLineDataMock,
+                gatherBirthCertificateFatherTimeLineDataMock);
     }
 
     @Test

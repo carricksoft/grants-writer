@@ -28,9 +28,20 @@ public class BirthCertificateServiceImpl implements BirthCertificateService {
 
     @Override
     public List<BirthCertificate> findAllByNewBorn(Person person) {
-        logger.debug("PersonServiceImpl::findAllByPerson");
+        logger.debug("PersonServiceImpl::findAllByNewBorn");
         List<BirthCertificate> result = new ArrayList<>();
         Iterable<BirthCertificate> birthCertificatesIterable = birthCertificateRepository.findAllByNewBorn(person);
+        for (BirthCertificate birthCertificate : birthCertificatesIterable) {
+            result.add(birthCertificate);
+        }
+        return result;
+    }
+
+    @Override
+    public List<BirthCertificate> findAllByFather(Person person) {
+        logger.debug("PersonServiceImpl::findAllByFather");
+        List<BirthCertificate> result = new ArrayList<>();
+        Iterable<BirthCertificate> birthCertificatesIterable = birthCertificateRepository.findAllByFather(person);
         for (BirthCertificate birthCertificate : birthCertificatesIterable) {
             result.add(birthCertificate);
         }

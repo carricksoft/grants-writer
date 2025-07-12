@@ -14,4 +14,6 @@ import java.util.List;
 public interface BirthCertificateService {
 
     List<BirthCertificate> findAllByNewBorn(Person person);
+
+    List<BirthCertificate> findAllByFather(Person person);
 }

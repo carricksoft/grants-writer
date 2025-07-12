@@ -16,4 +16,6 @@ public interface ReadOnlyRepository<T, ID> extends Repository<T, ID> {
 
     List<T> findAll(Sort sort);
 
+    Integer count();
+
 }

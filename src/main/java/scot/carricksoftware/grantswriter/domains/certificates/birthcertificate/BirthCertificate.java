@@ -29,6 +29,10 @@ public class BirthCertificate extends BaseEntity {
     private Person father;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
+    @Column(name = "`father_rank`")
+    private String fatherRank;
+
+    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`mother_id`")
     private Person mother;
@@ -148,5 +152,14 @@ public class BirthCertificate extends BaseEntity {
     @SuppressWarnings("unused")
     public void setUntrackedInformant(String untrackedInformant) {
         this.untrackedInformant = untrackedInformant;
+    }
+
+    public String getFatherRank() {
+        return fatherRank;
+    }
+
+    @SuppressWarnings("unused")
+    public void setFatherRank(String fatherRank) {
+        this.fatherRank = fatherRank;
     }
 }

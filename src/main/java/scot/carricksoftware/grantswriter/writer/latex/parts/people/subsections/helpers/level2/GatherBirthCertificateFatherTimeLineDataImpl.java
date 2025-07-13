@@ -33,8 +33,22 @@ public class GatherBirthCertificateFatherTimeLineDataImpl implements GatherBirth
         logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::Gather");
         for (BirthCertificate birthCertificate : birthCertificates) {
             addFather(timelineData.getTimeLine(), birthCertificate);
+            addFatherOccupation(timelineData.getTimeLine(), birthCertificate);
             addRefs(birthCertificate);
         }
+    }
+
+    private void addFatherOccupation(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {
+        logger.info("GatherBirthCertificateFatherTimeLineDataImpl::AddFatherOccupation");
+
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenBorn()));
+        if (existingValues == null) {
+            existingValues = new ArrayList<>();
+        }
+
+        existingValues.add("Occupation registered as " + birthCertificate.getFatherRank());
+        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
+
     }
 
     private void addRefs(BirthCertificate birthCertificate) {

@@ -45,4 +45,16 @@ class BirthCertificateServiceTest {
         List<BirthCertificate> result = birthCertificateService.findAllByNewBorn(person);
         assertEquals(birthCertificateList, result);
     }
+
+    @Test
+    void findAllByFatherTest() {
+        List<BirthCertificate> birthCertificateList = new ArrayList<>();
+        BirthCertificate birthCertificate = new BirthCertificate();
+        birthCertificateList.add(birthCertificate);
+        Person person = GetRandomPerson();
+        when(birthCertificateRepositoryMock.findAllByFather(person)).thenReturn(birthCertificateList);
+
+        List<BirthCertificate> result = birthCertificateService.findAllByFather(person);
+        assertEquals(birthCertificateList, result);
+    }
 }

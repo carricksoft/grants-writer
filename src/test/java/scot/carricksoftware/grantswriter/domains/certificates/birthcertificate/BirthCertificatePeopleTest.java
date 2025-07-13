@@ -82,4 +82,16 @@ class BirthCertificatePeopleTest {
         assertEquals(untrackedInformant, birthCertificate.getUntrackedInformant());
     }
 
+    @Test
+    void getFatherRankTest() {
+        assertNull(birthCertificate.getFatherRank());
+    }
+
+    @Test
+    void setFatherRankTest() {
+        String fatherRank = GetRandomString();
+        birthCertificate.setFatherRank(fatherRank);
+        assertEquals(fatherRank, birthCertificate.getFatherRank());
+    }
+
 }

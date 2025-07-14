@@ -67,4 +67,13 @@ class GatherBirthCertificateTimeLineDataTest {
         gatherBirthCertificateTimeLineData.gather(person);
         verifyNoInteractions(gatherBirthCertificateNewBornTimeLineDataMock);
     }
+
+    @Test
+    void gatherBirthCertificateFatherIsCalledTest() {
+        List<BirthCertificate> birthCertificates = new ArrayList<>();
+        Person person = GetRandomPerson();
+        when(birthCertificateServiceMock.findAllByNewBorn(person)).thenReturn(birthCertificates);
+        gatherBirthCertificateTimeLineData.gather(person);
+        verify(gatherBirthCertificateFatherTimeLineDataMock).gather(birthCertificates);
+    }
 }

@@ -26,20 +26,24 @@ class BirthCertificateServiceTest {
 
     private BirthCertificateService birthCertificateService;
 
+    private List<BirthCertificate> birthCertificateList;
+
+    private Person person;
+
     @Mock
     BirthCertificateRepository birthCertificateRepositoryMock;
 
     @BeforeEach
     void setUp() {
         birthCertificateService = new BirthCertificateServiceImpl(birthCertificateRepositoryMock);
+        birthCertificateList = new ArrayList<>();
+        BirthCertificate birthCertificate = new BirthCertificate();
+        birthCertificateList.add(birthCertificate);
+        person = GetRandomPerson();
     }
 
     @Test
     void findAllByNewBornTest() {
-        List<BirthCertificate> birthCertificateList = new ArrayList<>();
-        BirthCertificate birthCertificate = new BirthCertificate();
-        birthCertificateList.add(birthCertificate);
-        Person person = GetRandomPerson();
         when(birthCertificateRepositoryMock.findAllByNewBorn(person)).thenReturn(birthCertificateList);
 
         List<BirthCertificate> result = birthCertificateService.findAllByNewBorn(person);
@@ -48,13 +52,17 @@ class BirthCertificateServiceTest {
 
     @Test
     void findAllByFatherTest() {
-        List<BirthCertificate> birthCertificateList = new ArrayList<>();
-        BirthCertificate birthCertificate = new BirthCertificate();
-        birthCertificateList.add(birthCertificate);
-        Person person = GetRandomPerson();
         when(birthCertificateRepositoryMock.findAllByFather(person)).thenReturn(birthCertificateList);
 
         List<BirthCertificate> result = birthCertificateService.findAllByFather(person);
+        assertEquals(birthCertificateList, result);
+    }
+
+    @Test
+    void findAllByMotherTest() {
+        when(birthCertificateRepositoryMock.findAllByMother(person)).thenReturn(birthCertificateList);
+
+        List<BirthCertificate> result = birthCertificateService.findAllByMother(person);
         assertEquals(birthCertificateList, result);
     }
 }

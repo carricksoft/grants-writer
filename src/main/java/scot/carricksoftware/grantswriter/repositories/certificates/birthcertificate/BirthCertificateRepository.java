@@ -17,4 +17,6 @@ public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCert
     Iterable<BirthCertificate> findAllByNewBorn(Person person);
 
     Iterable<BirthCertificate> findAllByFather(Person person);
+
+    Iterable<BirthCertificate> findAllByMother(Person person);
 }

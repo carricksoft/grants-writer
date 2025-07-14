@@ -47,4 +47,15 @@ public class BirthCertificateServiceImpl implements BirthCertificateService {
         }
         return result;
     }
+
+    @Override
+    public List<BirthCertificate> findAllByMother(Person person) {
+        logger.debug("PersonServiceImpl::findAllByMother");
+        List<BirthCertificate> result = new ArrayList<>();
+        Iterable<BirthCertificate> birthCertificatesIterable = birthCertificateRepository.findAllByMother(person);
+        for (BirthCertificate birthCertificate : birthCertificatesIterable) {
+            result.add(birthCertificate);
+        }
+        return result;
+    }
 }

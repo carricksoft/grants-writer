@@ -10,6 +10,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.B
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateMotherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.List;
@@ -23,17 +24,21 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     private final GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
 
+    private final GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData;
+
     public GatherBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData, GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData) {
+                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData, GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData, GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData) {
         this.birthCertificateService = birthCertificateService;
         this.gatherBirthCertificateNewBornTimeLineData = gatherBirthCertificateNewBornTimeLineData;
         this.gatherBirthCertificateFatherTimeLineData = gatherBirthCertificateFatherTimeLineData;
+        this.gatherBirthCertificateMotherTimeLineData = gatherBirthCertificateMotherTimeLineData;
     }
 
     @Override
     public void gather(Person person) {
         gatherNewBorn(person);
         gatherFather(person);
+        gatherMother(person);
     }
 
     @SuppressWarnings("unused")
@@ -52,7 +57,8 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     @SuppressWarnings("unused")
     private void gatherMother(@SuppressWarnings("unused") Person person) {
-        throw new UnsupportedOperationException();
+        List<BirthCertificate> birthCertificates = birthCertificateService.findAllByMother(person);
+        gatherBirthCertificateMotherTimeLineData.gather(birthCertificates);
     }
 
     @SuppressWarnings("unused")

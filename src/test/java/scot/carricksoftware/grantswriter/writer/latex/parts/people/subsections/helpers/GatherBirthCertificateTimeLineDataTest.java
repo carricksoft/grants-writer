@@ -14,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.B
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateMotherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.ArrayList;
@@ -38,12 +39,16 @@ class GatherBirthCertificateTimeLineDataTest {
     @Mock
     private GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineDataMock;
 
+    @Mock
+    private GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineDataMock;
+
     @BeforeEach
     void setUp() {
         gatherBirthCertificateTimeLineData = new GatherBirthCertificateTimeLineDataImpl(
                 birthCertificateServiceMock,
                 gatherBirthCertificateNewBornTimeLineDataMock,
-                gatherBirthCertificateFatherTimeLineDataMock);
+                gatherBirthCertificateFatherTimeLineDataMock,
+                gatherBirthCertificateMotherTimeLineDataMock);
     }
 
     @Test

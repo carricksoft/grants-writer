@@ -63,7 +63,7 @@ public class GatherBirthCertificateFatherTimeLineDataImpl implements GatherBirth
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add("Registered as the father of  " + birthCertificate.getNewBorn());
+        existingValues.add("Registered as the father of " + birthCertificate.getNewBorn());
         timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
     }
 

@@ -44,7 +44,10 @@ class GatherBirthCertificateTimeLineDataTest {
     private GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineDataMock;
 
     @Mock
-    private GatherBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineData;
+    private GatherBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineDataMock;
+
+    List<BirthCertificate> birthCertificates;
+    Person person;
 
     @BeforeEach
     void setUp() {
@@ -53,15 +56,16 @@ class GatherBirthCertificateTimeLineDataTest {
                 gatherBirthCertificateNewBornTimeLineDataMock,
                 gatherBirthCertificateFatherTimeLineDataMock,
                 gatherBirthCertificateMotherTimeLineDataMock,
-                gatherBirthCertificateInformantTimeLineData);
+                gatherBirthCertificateInformantTimeLineDataMock);
+        birthCertificates = new ArrayList<>();
+
+        person = GetRandomPerson();
     }
 
     @Test
     void notNullTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
         BirthCertificate birthCertificate = new BirthCertificate();
         birthCertificates.add(birthCertificate);
-        Person person = GetRandomPerson();
         when(birthCertificateServiceMock.findAllByNewBorn(person)).thenReturn(birthCertificates);
 
         gatherBirthCertificateTimeLineData.gather(person);
@@ -70,18 +74,13 @@ class GatherBirthCertificateTimeLineDataTest {
 
     @Test
     void nullTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
-        Person person = GetRandomPerson();
         when(birthCertificateServiceMock.findAllByNewBorn(person)).thenReturn(birthCertificates);
-
         gatherBirthCertificateTimeLineData.gather(person);
         verifyNoInteractions(gatherBirthCertificateNewBornTimeLineDataMock);
     }
 
     @Test
     void gatherBirthCertificateFatherIsCalledTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
-        Person person = GetRandomPerson();
         when(birthCertificateServiceMock.findAllByFather(person)).thenReturn(birthCertificates);
         gatherBirthCertificateTimeLineData.gather(person);
         verify(gatherBirthCertificateFatherTimeLineDataMock).gather(birthCertificates);
@@ -89,10 +88,15 @@ class GatherBirthCertificateTimeLineDataTest {
 
     @Test
     void gatherBirthCertificateMotherIsCalledTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
-        Person person = GetRandomPerson();
         when(birthCertificateServiceMock.findAllByMother(person)).thenReturn(birthCertificates);
         gatherBirthCertificateTimeLineData.gather(person);
         verify(gatherBirthCertificateMotherTimeLineDataMock).gather(birthCertificates);
+    }
+
+    @Test
+    void gatherBirthCertificateInformantIsCalledTest() {
+        when(birthCertificateServiceMock.findAllByInformant(person)).thenReturn(birthCertificates);
+        gatherBirthCertificateTimeLineData.gather(person);
+        verify(gatherBirthCertificateInformantTimeLineDataMock).gather(birthCertificates);
     }
 }

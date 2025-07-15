@@ -47,7 +47,7 @@ public class GatherBirthCertificateFatherTimeLineDataImpl implements GatherBirth
         }
 
         existingValues.add("Occupation registered as " + birthCertificate.getFatherRank());
-        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
+        timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
 
     }
 
@@ -58,13 +58,13 @@ public class GatherBirthCertificateFatherTimeLineDataImpl implements GatherBirth
     private void addFather(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {
         logger.info("GatherBirthCertificateFatherTimeLineDataImpl::AddFather");
 
-        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenBorn()));
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenRegistered()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
         existingValues.add("Registered as the father of " + birthCertificate.getNewBorn());
-        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
+        timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
     }
 
     private DMY getDMY(String dateKey) {

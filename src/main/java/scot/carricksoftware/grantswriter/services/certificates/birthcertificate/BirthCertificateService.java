@@ -18,4 +18,6 @@ public interface BirthCertificateService {
     List<BirthCertificate> findAllByFather(Person person);
 
     List<BirthCertificate> findAllByMother(Person person);
+
+    List<BirthCertificate> findAllByInformant(Person person);
 }

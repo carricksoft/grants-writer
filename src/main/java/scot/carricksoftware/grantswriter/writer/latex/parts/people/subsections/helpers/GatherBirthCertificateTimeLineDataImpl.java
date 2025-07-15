@@ -10,6 +10,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.B
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateInformantTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateMotherTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
 
@@ -26,12 +27,18 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     private final GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData;
 
+    private final GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData;
+
     public GatherBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData, GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData, GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData) {
+                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData,
+                                                  GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData,
+                                                  GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData,
+                                                  GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData) {
         this.birthCertificateService = birthCertificateService;
         this.gatherBirthCertificateNewBornTimeLineData = gatherBirthCertificateNewBornTimeLineData;
         this.gatherBirthCertificateFatherTimeLineData = gatherBirthCertificateFatherTimeLineData;
         this.gatherBirthCertificateMotherTimeLineData = gatherBirthCertificateMotherTimeLineData;
+        this.gatherBirthCertificateInformantTimeLineData = gatherBirthCertificateInformantTimeLineData;
     }
 
     @Override
@@ -39,6 +46,7 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
         gatherNewBorn(person);
         gatherFather(person);
         gatherMother(person);
+        gatherInformant(person);
     }
 
     @SuppressWarnings("unused")
@@ -63,7 +71,8 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     @SuppressWarnings("unused")
     private void gatherInformant(@SuppressWarnings("unused") Person person) {
-        throw new UnsupportedOperationException();
+        List<BirthCertificate> birthCertificates = birthCertificateService.findAllByInformant(person);
+        gatherBirthCertificateInformantTimeLineData.gather(birthCertificates);
     }
 
 

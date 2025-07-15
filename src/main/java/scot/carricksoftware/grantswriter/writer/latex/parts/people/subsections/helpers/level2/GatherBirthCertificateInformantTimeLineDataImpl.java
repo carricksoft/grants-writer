@@ -45,7 +45,7 @@ public class GatherBirthCertificateInformantTimeLineDataImpl implements GatherBi
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add("Registered the birth of  " + birthCertificate.getNewBorn() + " at " + birthCertificate.getWhereRegistered());
+        existingValues.add("Registered the birth of " + birthCertificate.getNewBorn() + " at " + birthCertificate.getWhereRegistered());
         timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
 
     }

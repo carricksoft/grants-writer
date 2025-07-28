@@ -3,13 +3,13 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate;
 
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 
 import java.util.List;
 
-public interface GatherBirthCertificateMotherTimeLineData {
+public interface GatherBirthCertificateFatherTimeLineData {
    void gather(List<BirthCertificate> birthCertificates);
 
 }

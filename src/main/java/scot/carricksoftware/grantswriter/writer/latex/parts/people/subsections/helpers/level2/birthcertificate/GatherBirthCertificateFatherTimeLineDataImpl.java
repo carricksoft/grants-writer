@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

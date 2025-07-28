@@ -13,10 +13,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateInformantTimeLineDataImpl;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateMotherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateMotherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;

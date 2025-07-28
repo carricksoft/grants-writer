@@ -14,6 +14,8 @@ import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineDataImpl;
 
 import java.util.ArrayList;
 import java.util.List;

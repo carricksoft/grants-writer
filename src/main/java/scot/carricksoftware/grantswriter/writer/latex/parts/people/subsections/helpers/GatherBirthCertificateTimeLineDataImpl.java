@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateFatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateInformantTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateMotherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.GatherBirthCertificateNewBornTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateMotherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineData;
 
 import java.util.List;
 

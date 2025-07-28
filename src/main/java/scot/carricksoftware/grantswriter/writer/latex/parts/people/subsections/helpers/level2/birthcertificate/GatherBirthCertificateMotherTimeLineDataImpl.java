@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,35 +18,35 @@ import java.util.List;
 import java.util.TreeMap;
 
 @Component
-public class GatherBirthCertificateInformantTimeLineDataImpl implements GatherBirthCertificateInformantTimeLineData {
+public class GatherBirthCertificateMotherTimeLineDataImpl implements GatherBirthCertificateMotherTimeLineData {
 
     private final TimeLineData timelineData;
 
-    private static final Logger logger = LogManager.getLogger(GatherBirthCertificateInformantTimeLineDataImpl.class);
+    private static final Logger logger = LogManager.getLogger(GatherBirthCertificateMotherTimeLineDataImpl.class);
 
-    public GatherBirthCertificateInformantTimeLineDataImpl(TimeLineData timelineData) {
+    public GatherBirthCertificateMotherTimeLineDataImpl(TimeLineData timelineData) {
         this.timelineData = timelineData;
     }
 
     @Override
     public void gather(List<BirthCertificate> birthCertificates) {
-        logger.info("GatherBirthCertificateInformantTimeLineDataImpl::Gather");
+        logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::Gather");
         for (BirthCertificate birthCertificate : birthCertificates) {
-            addInformant(timelineData.getTimeLine(), birthCertificate);
+            addMother(timelineData.getTimeLine(), birthCertificate);
             addRefs(birthCertificate);
         }
     }
 
-    private void addInformant(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {
-        logger.info("GatherBirthCertificateInformantTimeLineDataImpl::AddMother");
+    private void addMother(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {
+        logger.info("GatherBirthCertificateMotherTimeLineDataImpl::AddMother");
 
-        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenRegistered()));
+        List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenBorn()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add("Registered the birth of " + birthCertificate.getNewBorn() + " at " + birthCertificate.getWhereRegistered());
-        timeLine.put(getDMY(birthCertificate.getWhenRegistered()), existingValues);
+        existingValues.add("Registered as the mother of " + birthCertificate.getNewBorn());
+        timeLine.put(getDMY(birthCertificate.getWhenBorn()), existingValues);
 
     }
 

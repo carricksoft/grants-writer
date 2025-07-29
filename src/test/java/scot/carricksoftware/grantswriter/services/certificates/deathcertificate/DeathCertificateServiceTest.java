@@ -49,4 +49,20 @@ class DeathCertificateServiceTest {
         List<DeathCertificate> result = deathCertificateService.findAllByInformant(person);
         assertEquals(deathCertificateList, result);
     }
+
+    @Test
+    void findAllByDeceasedTest() {
+        when(deathCertificateRepositoryMock.findAllByDeceased(person)).thenReturn(deathCertificateList);
+
+        List<DeathCertificate> result = deathCertificateService.findAllByDeceased(person);
+        assertEquals(deathCertificateList, result);
+    }
+
+    @Test
+    void findAllBySpouseTest() {
+        when(deathCertificateRepositoryMock.findAllBySpouse(person)).thenReturn(deathCertificateList);
+
+        List<DeathCertificate> result = deathCertificateService.findAllBySpouse(person);
+        assertEquals(deathCertificateList, result);
+    }
 }

@@ -13,16 +13,19 @@ public class GatherTimeLineDataImpl implements GatherTimeLineData {
 
    private final GatherCensusTimeLineData gatherCensusTimeLineData;
     private final GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
+    private final GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData;
 
     public GatherTimeLineDataImpl(
-            GatherCensusTimeLineData gatherCensusTimeLineData, GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData) {
+            GatherCensusTimeLineData gatherCensusTimeLineData, GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData, GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData) {
         this.gatherCensusTimeLineData = gatherCensusTimeLineData;
         this.gatherBirthCertificateTimeLineData = gatherBirthCertificateTimeLineData;
+        this.gatherDeathCertificateTimeLineData = gatherDeathCertificateTimeLineData;
     }
 
     @Override
     public void gather(Person person) {
         gatherCensusTimeLineData.gather(person);
         gatherBirthCertificateTimeLineData.gather(person);
+        gatherDeathCertificateTimeLineData.gather(person);
     }
 }

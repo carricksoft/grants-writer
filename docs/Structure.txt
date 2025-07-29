@@ -7,7 +7,9 @@ personSection::write -> (personSectionHeader::write, clearExistingTimeLineData::
            personSubSectionTimeLineWriter::write, personSubSectionReferencesWriter::write
 
 
-gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather)
+gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather, GatherDeathCertificateTimeLineDate::gather)
 
 
 GatherBirthCertificateTimeLineData::gather -> (GatherBirthCertificateNewBornTimeLineData::gather,  )
+
+GatherDeathCertificateTimeLineData::gather -> (GatherDeathCertificateDeceasedTimeLineData::gather,  )

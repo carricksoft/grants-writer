@@ -62,7 +62,6 @@ public class BaseCertificate extends BaseEntity {
         return certificateSource;
     }
 
-
     @SuppressWarnings("unused")
     public String getCertificateDate() {
         return certificateDate;

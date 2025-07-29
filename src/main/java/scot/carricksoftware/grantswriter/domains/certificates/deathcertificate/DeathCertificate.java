@@ -13,19 +13,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import org.springframework.format.annotation.DateTimeFormat;
-import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
+import scot.carricksoftware.grantswriter.domains.certificates.BaseCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.enums.general.Sex;
 
 @Entity
-public class DeathCertificate extends BaseEntity {
+public class DeathCertificate extends BaseCertificate {
 
-    /*
-     * Copyright (c) Andrew Grant of Carrick Software 24/03/2025, 10:07. All rights reserved.
-     *
-     */
 
 
     @SuppressWarnings("JpaDataSourceORMInspection")

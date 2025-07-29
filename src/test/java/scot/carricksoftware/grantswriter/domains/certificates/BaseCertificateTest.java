@@ -8,8 +8,8 @@ package scot.carricksoftware.grantswriter.domains.certificates;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 class BaseCertificateTest {
 
@@ -21,14 +21,24 @@ class BaseCertificateTest {
     }
 
     @Test
-    void getCertificateNumberTest() {
-        assertNull(baseCertificate.getCertificateNumber());
+    void getCertificateSourceTest(){
+        assertNull(baseCertificate.getCertificateSource());
     }
 
     @Test
-    void setCertificateNumberTest() {
-        String certificateNumber = GetRandomString();
-        baseCertificate.setCertificateNumber(certificateNumber);
-        assertEquals(certificateNumber, baseCertificate.getCertificateNumber());
+    void getCertificateDateTest(){
+        assertNull(baseCertificate.getCertificateDate());
     }
+
+    @Test
+    void getCertificateTypeTest(){
+        assertNull(baseCertificate.getCertificateType());
+    }
+
+    @Test
+    void getRegistrationAuthorityTest(){
+        assertNull(baseCertificate.getRegistrationAuthority());
+    }
+
+
 }

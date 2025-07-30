@@ -50,4 +50,10 @@ class GatherTimeLineDataTest {
         verify(gatherBirthCertificateTimeLineDataMock).gather(personMock);
     }
 
+    @Test
+    void gatherDeathCertificateDataTest() {
+        gatherTimeLineData.gather(personMock);
+        verify(gatherDeathCertificateTimeLineDataMock).gather(personMock);
+    }
+
 }

@@ -26,11 +26,16 @@ class GatherTimeLineDataTest {
     private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineDataMock;
 
     @Mock
+    private GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineDataMock;
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
     void setUp() {
-        gatherTimeLineData = new GatherTimeLineDataImpl(gatherCensusTimeLineDataMock, gatherBirthCertificateTimeLineDataMock);
+        gatherTimeLineData = new GatherTimeLineDataImpl(gatherCensusTimeLineDataMock,
+                gatherBirthCertificateTimeLineDataMock,
+                gatherDeathCertificateTimeLineDataMock);
     }
 
     @Test

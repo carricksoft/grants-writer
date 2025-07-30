@@ -11,7 +11,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 @Component
 public class GatherTimeLineDataImpl implements GatherTimeLineData {
 
-   private final GatherCensusTimeLineData gatherCensusTimeLineData;
+    private final GatherCensusTimeLineData gatherCensusTimeLineData;
     private final GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
     private final GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData;
 

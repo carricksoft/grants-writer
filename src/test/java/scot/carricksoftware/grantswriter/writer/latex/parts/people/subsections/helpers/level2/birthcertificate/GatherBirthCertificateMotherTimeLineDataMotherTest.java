@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +14,6 @@ import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineDataImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +24,9 @@ import static org.testng.Assert.assertTrue;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class GatherBirthCertificateNewBornTimeLineDataFatherTest {
+class GatherBirthCertificateMotherTimeLineDataMotherTest {
 
-    GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData;
+    GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData;
 
     @Mock
     private TimeLineData timelineDataMock;
@@ -42,7 +40,7 @@ class GatherBirthCertificateNewBornTimeLineDataFatherTest {
 
     @BeforeEach
     void setUp() {
-        gatherBirthCertificateNewBornTimeLineData = new GatherBirthCertificateNewBornTimeLineDataImpl(this.timelineDataMock);
+        gatherBirthCertificateMotherTimeLineData = new GatherBirthCertificateMotherTimeLineDataImpl(this.timelineDataMock);
         birthCertificates = new ArrayList<>();
 
         birthCertificate = new BirthCertificate();
@@ -58,16 +56,17 @@ class GatherBirthCertificateNewBornTimeLineDataFatherTest {
     }
 
     @Test
-    void fatherTest() {
-        Person father = GetRandomPerson();
-        birthCertificate.setFather(father);
+    void MotherTest() {
+        Person newBorn = GetRandomPerson();
+        birthCertificate.setNewBorn(newBorn);
         birthCertificates.add(birthCertificate);
 
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
 
-        gatherBirthCertificateNewBornTimeLineData.gather(birthCertificates);
-        String expected = "Father Registered as " + father;
+        gatherBirthCertificateMotherTimeLineData.gather(birthCertificates);
+        String expected = "Registered as the mother of " + newBorn;
         assertTrue(timeLine.firstEntry().getValue().contains(expected));
     }
+
 
 }

@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +13,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineDataImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +25,9 @@ import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class GatherBirthCertificateFatherTimeLineDataRefsTest {
+class GatherBirthCertificateNewBornTimeLineDataRefsTest {
 
-    GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
+    GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData;
 
     @Mock
     private TimeLineData timelineDataMock;
@@ -42,7 +40,7 @@ class GatherBirthCertificateFatherTimeLineDataRefsTest {
 
     @BeforeEach
     void setUp() {
-        gatherBirthCertificateFatherTimeLineData = new GatherBirthCertificateFatherTimeLineDataImpl(this.timelineDataMock);
+        gatherBirthCertificateNewBornTimeLineData = new GatherBirthCertificateNewBornTimeLineDataImpl(this.timelineDataMock);
         birthCertificates = new ArrayList<>();
     }
 
@@ -60,7 +58,7 @@ class GatherBirthCertificateFatherTimeLineDataRefsTest {
         String toString = GetRandomString();
         when(personMock.toString()).thenReturn(toString);
 
-        gatherBirthCertificateFatherTimeLineData.gather(birthCertificates);
+        gatherBirthCertificateNewBornTimeLineData.gather(birthCertificates);
         assertEquals("Birth Certificate for : " + toString, refs.first());
 
     }

@@ -10,29 +10,66 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PersonToStringTest {
+class PersonToStringTest {
 
-    private Person person;
+    Person person;
+
+    final String firstName = "First";
+    final String lastName = "Last";
+    final String recordedBirth = "1920";
+    final String certifiedBirth = "1930";
+    final String certifiedDeath = "1940";
+
 
     @BeforeEach
     void setUp() {
         person = new Person();
-        String firstName = "first";
-        String lastName = "last";
         person.setFirstName(firstName);
         person.setLastName(lastName);
-        person.setRecordedYearOfBirth("1953");
     }
 
     @Test
-    void noCertifiedYearOfBirthTest() {
-        person.setCertifiedYearOfBirth(null);
-        assertEquals("last, first, (1953) -", person.toString());
+    public void NoDatesTest() {
+        String requiredResult = "Last, First, -";
+
+        assertEquals(requiredResult, person.toString());
     }
 
     @Test
-    void certifiedYearOfBirthTest() {
-        person.setCertifiedYearOfBirth("1955");
-        assertEquals("last, first, 1955 -", person.toString());
+    public void certifiedBirthOnlyTest() {
+        String requiredResult = "Last, First, " + certifiedBirth + " -";
+        person.setCertifiedYearOfBirth(certifiedBirth);
+
+        assertEquals(requiredResult, person.toString());
     }
+
+
+    @Test
+    public void recordedBirthOnlyTest() {
+        String requiredResult = "Last, First, (" + recordedBirth + ") -";
+        person.setRecordedYearOfBirth(recordedBirth);
+
+        assertEquals(requiredResult, person.toString());
+    }
+
+    @Test
+    public void bothTest() {
+        String requiredResult = "Last, First, " + certifiedBirth + " -";
+        person.setCertifiedYearOfBirth(certifiedBirth);
+        person.setRecordedYearOfBirth(recordedBirth);
+
+        assertEquals(requiredResult, person.toString());
+    }
+
+    @Test
+    public void witheDeathTest() {
+        String requiredResult = "Last, First, " + certifiedBirth + " - " + certifiedDeath;
+        person.setCertifiedYearOfBirth(certifiedBirth);
+        person.setRecordedYearOfBirth(recordedBirth);
+        person.setCertifiedYearOfDeath(certifiedDeath);
+
+        assertEquals(requiredResult, person.toString());
+    }
+
 }
+

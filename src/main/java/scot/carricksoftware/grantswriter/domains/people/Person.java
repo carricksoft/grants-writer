@@ -26,6 +26,10 @@ public class Person extends BaseEntity {
     @Column(name = "`recorded_year_of_birth`")
     private String recordedYearOfBirth;
 
+    @SuppressWarnings("JpaDataSourceORMInspection")
+    @Column(name = "`certified_year_of_death`")
+    String certifiedYearOfDeath;
+
     public String getLastName() {
         return lastName;
     }
@@ -65,18 +69,34 @@ public class Person extends BaseEntity {
         builder.append(", ");
         builder.append(this.firstName);
         builder.append(", ");
-        if (certifiedYearOfBirth != null) {
+        if (certifiedYearOfBirth != null && !certifiedYearOfBirth.isEmpty()) {
             builder.append(certifiedYearOfBirth);
             builder.append(" ");
         } else {
-            builder.append("(");
-            builder.append(recordedYearOfBirth);
-            builder.append(")");
-            builder.append(" ");
+            if (recordedYearOfBirth != null && !recordedYearOfBirth.isEmpty()) {
+                builder.append("(");
+                builder.append(recordedYearOfBirth);
+                builder.append(")");
+                builder.append(" ");
+            }
         }
         builder.append("-");
+        if (certifiedYearOfDeath != null && !certifiedYearOfDeath.isEmpty()) {
+            builder.append(" ");
+            builder.append(certifiedYearOfDeath);
+        }
 
         return builder.toString();
+    }
+
+    @SuppressWarnings("unused")
+    public String getCertifiedYearOfDeath() {
+        return certifiedYearOfDeath;
+    }
+
+    @SuppressWarnings("unused")
+    public void setCertifiedYearOfDeath(String certifiedYearOfDeath) {
+        this.certifiedYearOfDeath = certifiedYearOfDeath;
     }
 }
 

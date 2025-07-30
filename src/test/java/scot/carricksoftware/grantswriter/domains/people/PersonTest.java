@@ -57,7 +57,7 @@ public class PersonTest {
     }
 
     @Test
-    void getCertifiedYearOfBirthTest() {
+    void getCertifiedYearOfDeathTest() {
         assertNull(person.getCertifiedYearOfBirth());
     }
 
@@ -66,5 +66,17 @@ public class PersonTest {
         String certifiedYearOfBirth = GetRandomString();
         person.setCertifiedYearOfBirth(certifiedYearOfBirth);
         assertEquals(certifiedYearOfBirth, person.getCertifiedYearOfBirth());
+    }
+
+    @Test
+    void getCertifiedYearOfBirthTest() {
+        assertNull(person.getCertifiedYearOfBirth());
+    }
+
+    @Test
+    void setCertifiedYearOfDeathTest() {
+        String certifiedYearOfDeath = GetRandomString();
+        person.setCertifiedYearOfDeath(certifiedYearOfDeath);
+        assertEquals(certifiedYearOfDeath, person.getCertifiedYearOfDeath());
     }
 }

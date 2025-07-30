@@ -34,7 +34,7 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
         logger.info("GatherDeathCertificateDeceasedTimeLineDataImpl::Gather");
         for (DeathCertificate deathCertificate : deathCertificates) {
             addWhenDied(timelineData.getTimeLine(), deathCertificate);
-  //          addWhenRegistered(timelineData.getTimeLine(), deathCertificate);
+            addWhenRegistered(timelineData.getTimeLine(), deathCertificate);
             addRefs(deathCertificate);
         }
     }
@@ -65,18 +65,28 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
     private void addWhenRegistered(TreeMap<DMY, List<String>> timeLine, DeathCertificate deathCertificate) {
         logger.info("GatherDeathCertificateDeceasedTimeLineDataImpl::AddWhenRegistered");
 
-        if (deathCertificate.getWhereRegistered() != null  && !deathCertificate.getWhereRegistered().isEmpty()) {
+        if (deathCertificate.getWhenRegistered() != null  && !deathCertificate.getWhenRegistered().isEmpty()) {
 
             List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhenRegistered()));
             if (existingValues == null) {
                 existingValues = new ArrayList<>();
             }
 
-            if (deathCertificate.getInformant() != null) {
-                existingValues.add("Death Registered by " + deathCertificate.getInformant().toString() + " at " + deathCertificate.getWhereRegistered());
+            String informant;
+            String whereRegistered;
+
+            if (deathCertificate.getWhereRegistered() != null  && !deathCertificate.getWhereRegistered().isEmpty()) {
+                whereRegistered = deathCertificate.getWhereRegistered();
             } else {
-                existingValues.add("Death Registered by " + deathCertificate.getUntrackedInformant() + " at " + deathCertificate.getWhereRegistered());
+                whereRegistered = deathCertificate.getRegistrationAuthority().toString();
             }
+
+            if (deathCertificate.getInformant() != null) {
+                informant= deathCertificate.getInformant().toString();
+            } else {
+                informant = deathCertificate.getUntrackedInformant();
+            }
+            existingValues.add("Death Registered by " + informant + " at " + whereRegistered);
             timeLine.put(getDMY(deathCertificate.getWhenRegistered()), existingValues);
         }
     }

@@ -47,13 +47,15 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNotRegisteredTest {
 
     private Person informant;
 
+    DeathCertificate deathCertificate;
+
 
     @BeforeEach
     void setUp() {
         gatherDeathCertificateDeceasedTimeLineData = new GatherDeathCertificateDeceasedTimeLineDataImpl(this.timelineDataMock);
         deathCertificates = new ArrayList<>();
 
-        DeathCertificate deathCertificate = new DeathCertificate();
+        deathCertificate = new DeathCertificate();
         timeLine = new TreeMap<>();
         place = GetRandomPlace();
         registrationAuthority = new Organisation();
@@ -61,7 +63,6 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNotRegisteredTest {
         deceased = GetRandomPerson();
         informant = GetRandomPerson();
         setUpCertificate(deathCertificate);
-        deathCertificates.add(deathCertificate);
 
     }
 
@@ -75,7 +76,19 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNotRegisteredTest {
     }
 
     @Test
-    void registeredByTest() {
+    void registeredByNullTest() {
+        deathCertificate.setWhenRegistered(null);
+        deathCertificates.add(deathCertificate);
+        when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
+        gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
+        String expected = "Death registered by " + informant + " at " + registrationAuthority;
+        assertTrue(timelineContains(expected));
+    }
+
+    @Test
+    void registeredByEmptyTest() {
+        deathCertificate.setWhenRegistered("");
+        deathCertificates.add(deathCertificate);
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
         gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
         String expected = "Death registered by " + informant + " at " + registrationAuthority;

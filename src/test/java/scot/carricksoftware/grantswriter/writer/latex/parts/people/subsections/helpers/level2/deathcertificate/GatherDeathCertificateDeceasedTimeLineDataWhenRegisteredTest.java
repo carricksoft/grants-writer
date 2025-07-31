@@ -19,6 +19,7 @@ import scot.carricksoftware.grantswriter.domains.places.Place;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 import static org.mockito.Mockito.when;
@@ -28,7 +29,7 @@ import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRa
 import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 @ExtendWith(MockitoExtension.class)
-class GatherDeathCertificateDeceasedTimeLineDataWhereDiedTest {
+class GatherDeathCertificateDeceasedTimeLineDataWhenRegisteredTest {
 
     GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData;
 
@@ -45,6 +46,10 @@ class GatherDeathCertificateDeceasedTimeLineDataWhereDiedTest {
 
     private Organisation registrationAuthority;
 
+    private Person informant;
+
+    private String whereRegistered;
+
     @BeforeEach
     void setUp() {
         gatherDeathCertificateDeceasedTimeLineData = new GatherDeathCertificateDeceasedTimeLineDataImpl(this.timelineDataMock);
@@ -56,26 +61,39 @@ class GatherDeathCertificateDeceasedTimeLineDataWhereDiedTest {
         registrationAuthority = new Organisation();
         registrationAuthority.setName(place.getName());
         deceased = GetRandomPerson();
+        informant = GetRandomPerson();
+        whereRegistered = GetRandomString();
         setUpCertificate(deathCertificate);
         deathCertificates.add(deathCertificate);
+
     }
 
     private void setUpCertificate(DeathCertificate deathCertificate) {
         deathCertificate.setWhenDied("25/01/1953 01:01");
         deathCertificate.setWhenRegistered("25/01/1953 01:01");
+        deathCertificate.setWhereRegistered(whereRegistered);
         deathCertificate.setWhereDied(place);
-        deathCertificate.setWhereRegistered(GetRandomString());
         deathCertificate.setDeceased(deceased);
         deathCertificate.setRegistrationAuthority(registrationAuthority);
+        deathCertificate.setInformant(informant);
     }
 
     @Test
-    void whereDiedTest() {
+    void registeredByTest() {
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
-
         gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
-        String expected = "Died at " + place.toString();
-        assertTrue(timeLine.firstEntry().getValue().contains(expected));
+        String expected = "Death registered by " + informant + " at " + whereRegistered;
+        assertTrue(timelineContains(expected));
+    }
+
+    private boolean timelineContains(String expected) {
+        for (Map.Entry<DMY, List<String>> dmyListEntry : timeLine.entrySet()) {
+            List<String> list = dmyListEntry.getValue();
+            if (list.contains(expected)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

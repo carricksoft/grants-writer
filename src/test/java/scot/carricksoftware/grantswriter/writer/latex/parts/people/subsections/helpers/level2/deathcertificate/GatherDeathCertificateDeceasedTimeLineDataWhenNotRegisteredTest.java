@@ -77,7 +77,7 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNotRegisteredTest {
 
     @Test
     void registeredByNullTest() {
-        deathCertificate.setWhenRegistered(null);
+        deathCertificate.setWhereRegistered(null);
         deathCertificates.add(deathCertificate);
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
         gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
@@ -87,7 +87,7 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNotRegisteredTest {
 
     @Test
     void registeredByEmptyTest() {
-        deathCertificate.setWhenRegistered("");
+        deathCertificate.setWhereRegistered("");
         deathCertificates.add(deathCertificate);
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
         gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);

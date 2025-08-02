@@ -61,4 +61,5 @@ class GatherDeathCertificateInformantTimeLineDataRefsTest {
         gatherDeathCertificateInformantTimeLineData.gather(deathCertificates);
         assertEquals("Death Certificate for : " + toString, refs.first());
     }
+
 }

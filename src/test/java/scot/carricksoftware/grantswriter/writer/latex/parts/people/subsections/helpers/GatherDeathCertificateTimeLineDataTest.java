@@ -72,9 +72,12 @@ class GatherDeathCertificateTimeLineDataTest {
 
     @Test
     void informantTest() {
+        DeathCertificate deathCertificate = new DeathCertificate();
+        deathCertificates.add(deathCertificate);
         when(deathCertificateServiceMock.findAllByInformant(person)).thenReturn(deathCertificates);
         gatherDeathCertificateTimeLineData.gather(person);
         verify(gatherDeathCertificateInformantTimeLineDataMock).gather(deathCertificates);
+
     }
 
 }

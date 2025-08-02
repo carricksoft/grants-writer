@@ -14,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.D
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.deathcertificate.DeathCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateDeceasedTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateInformantTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,10 @@ class GatherDeathCertificateTimeLineDataTest {
     private DeathCertificateService deathCertificateServiceMock;
 
     @Mock
-    private GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateNewBornTimeLineDataMock;
+    private GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineDataMock;
+
+    @Mock
+    private GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineDataMock;
 
 
     List<DeathCertificate> deathCertificates;
@@ -42,7 +46,8 @@ class GatherDeathCertificateTimeLineDataTest {
     void setUp() {
         gatherDeathCertificateTimeLineData = new GatherDeathCertificateTimeLineDataImpl(
                 deathCertificateServiceMock,
-                gatherDeathCertificateNewBornTimeLineDataMock);
+                gatherDeathCertificateDeceasedTimeLineDataMock,
+                gatherDeathCertificateInformantTimeLineDataMock);
         deathCertificates = new ArrayList<>();
 
         person = GetRandomPerson();
@@ -55,14 +60,14 @@ class GatherDeathCertificateTimeLineDataTest {
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
 
         gatherDeathCertificateTimeLineData.gather(person);
-        verify(gatherDeathCertificateNewBornTimeLineDataMock).gather(deathCertificates);
+        verify(gatherDeathCertificateDeceasedTimeLineDataMock).gather(deathCertificates);
     }
 
     @Test
     void nullDeceasedTest() {
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
         gatherDeathCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherDeathCertificateNewBornTimeLineDataMock);
+        verifyNoInteractions(gatherDeathCertificateDeceasedTimeLineDataMock);
     }
 
 }

@@ -36,7 +36,7 @@ class GatherBirthCertificateNewBornTimeLineDataWhenRegisteredTest {
 
     private List<BirthCertificate> birthCertificates;
 
-    private TreeMap<DMY, List<String>> timeLine ;
+    private TreeMap<DMY, List<String>> timeLine;
 
     private BirthCertificate birthCertificate;
 
@@ -90,7 +90,7 @@ class GatherBirthCertificateNewBornTimeLineDataWhenRegisteredTest {
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
 
         gatherBirthCertificateNewBornTimeLineData.gather(birthCertificates);
-        String expected = "Birth Registered by " + untrackedInformant + " at "+ whereRegistered;
+        String expected = "Birth Registered by " + untrackedInformant + " at " + whereRegistered;
         assertTrue(timeLine.firstEntry().getValue().contains(expected));
     }
 }

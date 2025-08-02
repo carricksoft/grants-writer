@@ -24,43 +24,43 @@ class BaseCertificateTest {
     }
 
     @Test
-    void getCertificateSourceTest(){
+    void getCertificateSourceTest() {
         assertNull(baseCertificate.getCertificateSource());
     }
 
     @Test
-    void setCertificateSourceTest(){
+    void setCertificateSourceTest() {
         Organisation organisation = new Organisation();
         baseCertificate.setCertificateSource(organisation);
-        assertEquals(organisation,baseCertificate.getCertificateSource());
+        assertEquals(organisation, baseCertificate.getCertificateSource());
     }
 
     @Test
-    void getCertificateDateTest(){
+    void getCertificateDateTest() {
         assertNull(baseCertificate.getCertificateDate());
     }
 
     @Test
-    void getCertificateTypeTest(){
+    void getCertificateTypeTest() {
         assertNull(baseCertificate.getCertificateType());
     }
 
     @Test
-    void setCertificateTypeTest(){
+    void setCertificateTypeTest() {
         baseCertificate.setCertificateType(CertificateType.COPY);
         assertEquals(CertificateType.COPY, baseCertificate.getCertificateType());
     }
 
     @Test
-    void getRegistrationAuthorityTest(){
+    void getRegistrationAuthorityTest() {
         assertNull(baseCertificate.getRegistrationAuthority());
     }
 
     @Test
-    void setRegistrationAuthorityTest(){
+    void setRegistrationAuthorityTest() {
         Organisation organisation = new Organisation();
         baseCertificate.setRegistrationAuthority(organisation);
-        assertEquals(organisation,baseCertificate.getRegistrationAuthority());
+        assertEquals(organisation, baseCertificate.getRegistrationAuthority());
     }
 
 

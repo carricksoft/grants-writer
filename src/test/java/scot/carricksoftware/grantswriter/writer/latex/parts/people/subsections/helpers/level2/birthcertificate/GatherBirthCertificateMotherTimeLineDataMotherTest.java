@@ -33,7 +33,7 @@ class GatherBirthCertificateMotherTimeLineDataMotherTest {
 
     private List<BirthCertificate> birthCertificates;
 
-    private TreeMap<DMY, List<String>> timeLine ;
+    private TreeMap<DMY, List<String>> timeLine;
 
     private BirthCertificate birthCertificate;
 

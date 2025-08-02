@@ -37,7 +37,7 @@ class StatusControllerTest {
     @Test
     void getStatusAddAttributeTest() {
         controller.getStatus(modelMock);
-        verify(modelMock).addAttribute(AttributeConstants.STATUS_FILE,statusServiceMock.getStatus());
+        verify(modelMock).addAttribute(AttributeConstants.STATUS_FILE, statusServiceMock.getStatus());
     }
 
     @Test

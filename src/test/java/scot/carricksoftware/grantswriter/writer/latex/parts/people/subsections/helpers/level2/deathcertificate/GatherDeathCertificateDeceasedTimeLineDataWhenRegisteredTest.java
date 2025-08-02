@@ -38,7 +38,7 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenRegisteredTest {
 
     private List<DeathCertificate> deathCertificates;
 
-    private TreeMap<DMY, List<String>> timeLine ;
+    private TreeMap<DMY, List<String>> timeLine;
 
     private Place place;
 

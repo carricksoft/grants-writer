@@ -37,7 +37,7 @@ class BaseCertificateStringTest {
 
 
     @Test
-    void getCertificateDateTest(){
+    void getCertificateDateTest() {
         assertNull(baseCertificate.getCertificateDate());
     }
 
@@ -48,7 +48,7 @@ class BaseCertificateStringTest {
     }
 
     @Test
-    void getVolumeTest(){
+    void getVolumeTest() {
         assertNull(baseCertificate.getVolume());
     }
 
@@ -59,7 +59,7 @@ class BaseCertificateStringTest {
     }
 
     @Test
-    void getNumberTest(){
+    void getNumberTest() {
         assertNull(baseCertificate.getNumber());
     }
 

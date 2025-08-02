@@ -70,4 +70,11 @@ class GatherDeathCertificateTimeLineDataTest {
         verifyNoInteractions(gatherDeathCertificateDeceasedTimeLineDataMock);
     }
 
+    @Test
+    void informantTest() {
+        when(deathCertificateServiceMock.findAllByInformant(person)).thenReturn(deathCertificates);
+        gatherDeathCertificateTimeLineData.gather(person);
+        verify(gatherDeathCertificateInformantTimeLineDataMock).gather(deathCertificates);
+    }
+
 }

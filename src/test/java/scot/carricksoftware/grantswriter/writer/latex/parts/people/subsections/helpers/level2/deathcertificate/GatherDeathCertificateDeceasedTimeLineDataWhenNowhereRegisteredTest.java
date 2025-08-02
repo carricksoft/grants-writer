@@ -40,7 +40,7 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNowhereRegisteredTest {
     private List<DeathCertificate> deathCertificates;
 
     @Mock
-    private TreeMap<DMY, List<String>> timeLineMock ;
+    private TreeMap<DMY, List<String>> timeLineMock;
 
     private Person deceased;
 

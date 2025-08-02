@@ -39,7 +39,7 @@ class StatusServiceTest {
 
     @Test
     void ReturnTestTest() {
-        assertEquals(8,statusService.getStatus().size() );
+        assertEquals(8, statusService.getStatus().size());
     }
 
     @Test

@@ -44,30 +44,6 @@ public class MarriageCertificate extends BaseCertificate {
     private String untrackedWhereMarried;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`groom_age`")
-    private String groomAge;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`bride_age`")
-    private String brideAge;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`groom_condition`")
-    private String groomCondition;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`bride_condition`")
-    private String brideCondition;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`groom_rank`")
-    private String groomRank;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`bride_rank`")
-    private String brideRank;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`groom_residence_id`")
     private Place groomUsualResidence;
@@ -85,31 +61,6 @@ public class MarriageCertificate extends BaseCertificate {
     @Column(name = "`bride_untracked_residence`")
     private String brideUntrackedResidence;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "`groom_father`")
-    private Person groomFather;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne
-    @JoinColumn(name = "`bride_father`")
-    private Person brideFather;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`groom_untracked_father`")
-    private String groomUntrackedFather;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`bride_untracked_father`")
-    private String brideUntrackedFather;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`groom_father_rank`")
-    private String groomFatherRank;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`bride_father_rank`")
-    private String brideFatherRank;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
@@ -128,18 +79,6 @@ public class MarriageCertificate extends BaseCertificate {
     @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_second_witness`")
     private String untrackedSecondWitness;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`year_married`")
-    private String yearMarried;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`month_married`")
-    private String monthMarried;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`day_married`")
-    private String dayMarried;
 
     public Person getBride() {
         return bride;
@@ -184,74 +123,7 @@ public class MarriageCertificate extends BaseCertificate {
         this.untrackedWhereMarried = untrackedWhereMarried;
     }
 
-    @SuppressWarnings("unused")
-    public String getGroomAge() {
-        return groomAge;
-    }
 
-    @SuppressWarnings("unused")
-    public void setGroomAge(String groomAge) {
-        this.groomAge = groomAge;
-    }
-
-    @SuppressWarnings("unused")
-    public String getBrideAge() {
-        return brideAge;
-    }
-
-    public void setBrideAge(String brideAge) {
-        this.brideAge = brideAge;
-    }
-
-    @SuppressWarnings("unused")
-    public String getGroomCondition() {
-        return groomCondition;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomCondition(String groomCondition) {
-        this.groomCondition = groomCondition;
-    }
-
-    @SuppressWarnings("unused")
-    public String getBrideCondition() {
-        return brideCondition;
-    }
-
-    @SuppressWarnings("unused")
-    public void setBrideCondition(String brideCondition) {
-        this.brideCondition = brideCondition;
-    }
-
-    @SuppressWarnings("unused")
-    public String getGroomRank() {
-        return groomRank;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomRank(String groomRank) {
-        this.groomRank = groomRank;
-    }
-
-    @SuppressWarnings("unused")
-    public String getBrideRank() {
-        return brideRank;
-    }
-
-    @SuppressWarnings("unused")
-    public void setBrideRank(String brideRank) {
-        this.brideRank = brideRank;
-    }
-
-    @SuppressWarnings("unused")
-    public Place getGroomUsualResidence() {
-        return groomUsualResidence;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomUsualResidence(Place groomUsualResidence) {
-        this.groomUsualResidence = groomUsualResidence;
-    }
 
     @SuppressWarnings("unused")
     public Place getBrideUsualResidence() {
@@ -283,55 +155,6 @@ public class MarriageCertificate extends BaseCertificate {
         this.brideUntrackedResidence = brideUntrackedResidence;
     }
 
-    @SuppressWarnings("unused")
-    public Person getGroomFather() {
-        return groomFather;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomFather(Person groomFather) {
-        this.groomFather = groomFather;
-    }
-
-    @SuppressWarnings("unused")
-    public Person getBrideFather() {
-        return brideFather;
-    }
-
-    @SuppressWarnings("unused")
-    public void setBrideFather(Person brideFather) {
-        this.brideFather = brideFather;
-    }
-
-    @SuppressWarnings("unused")
-    public String getGroomUntrackedFather() {
-        return groomUntrackedFather;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomUntrackedFather(String groomUntrackedFather) {
-        this.groomUntrackedFather = groomUntrackedFather;
-    }
-
-    @SuppressWarnings("unused")
-    public String getBrideUntrackedFather() {
-        return brideUntrackedFather;
-    }
-
-    @SuppressWarnings("unused")
-    public void setBrideUntrackedFather(String brideUntrackedFather) {
-        this.brideUntrackedFather = brideUntrackedFather;
-    }
-
-    @SuppressWarnings("unused")
-    public String getBrideFatherRank() {
-        return brideFatherRank;
-    }
-
-    @SuppressWarnings("unused")
-    public void setBrideFatherRank(String brideFatherRank) {
-        this.brideFatherRank = brideFatherRank;
-    }
 
     @SuppressWarnings("unused")
     public Person getFirstWitness() {
@@ -351,58 +174,6 @@ public class MarriageCertificate extends BaseCertificate {
     @SuppressWarnings("unused")
     public void setSecondWitness(Person secondWitness) {
         this.secondWitness = secondWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public String getUntrackedFirstWitness() {
-        return untrackedFirstWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public void setUntrackedFirstWitness(String untrackedFirstWitness) {
-        this.untrackedFirstWitness = untrackedFirstWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public String getUntrackedSecondWitness() {
-        return untrackedSecondWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public void setUntrackedSecondWitness(String untrackedSecondWitness) {
-        this.untrackedSecondWitness = untrackedSecondWitness;
-    }
-
-    public String getGroomFatherRank() {
-        return groomFatherRank;
-    }
-
-    public void setGroomFatherRank(String groomFatherRank) {
-        this.groomFatherRank = groomFatherRank;
-    }
-
-    public String getYearMarried() {
-        return yearMarried;
-    }
-
-    public void setYearMarried(String yearMarried) {
-        this.yearMarried = yearMarried;
-    }
-
-    public String getMonthMarried() {
-        return monthMarried;
-    }
-
-    public void setMonthMarried(String monthMarried) {
-        this.monthMarried = monthMarried;
-    }
-
-    public String getDayMarried() {
-        return dayMarried;
-    }
-
-    public void setDayMarried(String dayMarried) {
-        this.dayMarried = dayMarried;
     }
 
 

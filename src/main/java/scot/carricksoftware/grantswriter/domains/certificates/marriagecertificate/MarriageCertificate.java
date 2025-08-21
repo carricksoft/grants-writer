@@ -43,7 +43,7 @@ public class MarriageCertificate extends BaseCertificate {
     @Column(name = "`untracked_where_married`")
     private String untrackedWhereMarried;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
+    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
     @ManyToOne
     @JoinColumn(name = "`groom_residence_id`")
     private Place groomUsualResidence;
@@ -72,11 +72,11 @@ public class MarriageCertificate extends BaseCertificate {
     @JoinColumn(name = "`second_witness`")
     private Person secondWitness;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
+    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
     @Column(name = "`untracked_first_witness`")
     private String untrackedFirstWitness;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
+    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
     @Column(name = "`untracked_second_witness`")
     private String untrackedSecondWitness;
 
@@ -180,4 +180,6 @@ public class MarriageCertificate extends BaseCertificate {
     public void setWhenMarried(String whenMarried) {
         this.whenMarried = whenMarried;
     }
+
+
 }

@@ -14,12 +14,14 @@ public class GatherTimeLineDataImpl implements GatherTimeLineData {
     private final GatherCensusTimeLineData gatherCensusTimeLineData;
     private final GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
     private final GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData;
+    private final GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineData;
 
     public GatherTimeLineDataImpl(
-            GatherCensusTimeLineData gatherCensusTimeLineData, GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData, GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData) {
+            GatherCensusTimeLineData gatherCensusTimeLineData, GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData, GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData, GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineData) {
         this.gatherCensusTimeLineData = gatherCensusTimeLineData;
         this.gatherBirthCertificateTimeLineData = gatherBirthCertificateTimeLineData;
         this.gatherDeathCertificateTimeLineData = gatherDeathCertificateTimeLineData;
+        this.gatherMarriageCertificateTimeLineData = gatherMarriageCertificateTimeLineData;
     }
 
     @Override
@@ -27,5 +29,6 @@ public class GatherTimeLineDataImpl implements GatherTimeLineData {
         gatherCensusTimeLineData.gather(person);
         gatherBirthCertificateTimeLineData.gather(person);
         gatherDeathCertificateTimeLineData.gather(person);
+        gatherMarriageCertificateTimeLineData.gather(person);
     }
 }

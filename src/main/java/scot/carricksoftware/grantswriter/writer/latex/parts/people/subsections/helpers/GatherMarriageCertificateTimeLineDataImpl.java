@@ -36,7 +36,7 @@ public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriage
     }
 
     private void gatherBride(Person person) {
-        logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherDeceased");
+        logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherBride");
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByBride(person);
         if (!marriageCertificates.isEmpty()) {
             gatherMarriageCertificateBrideTimeLineData.gather(marriageCertificates);

@@ -80,5 +80,15 @@ class GatherMarriageCertificateTimeLineDataTest {
         verify(gatherMarriageCertificateBrideTimeLineDataMock).gather(marriageCertificates);
     }
 
+    @Test
+    void gatherMarriageCertificateGroomIsCalledTest() {
+        MarriageCertificate marriageCertificate = new MarriageCertificate();
+        marriageCertificate.setGroom(GetRandomPerson());
+        marriageCertificates.add(marriageCertificate);
+        when(marriageCertificateServiceMock.findAllByGroom(person)).thenReturn(marriageCertificates);
+        gatherMarriageCertificateTimeLineData.gather(person);
+        verify(gatherMarriageCertificateGroomTimeLineDataMock).gather(marriageCertificates);
+    }
+
 
 }

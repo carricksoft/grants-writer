@@ -33,6 +33,7 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
         logger.info("GatherMarriageCertificateGroomTimeLineDataImpl::Gather");
         for (MarriageCertificate marriageCertificate : marriageCertificates) {
             addWhenMarried(timelineData.getTimeLine(), marriageCertificate);
+            addGroomRank(timelineData.getTimeLine(), marriageCertificate);
             addRefs(marriageCertificate);
         }
     }
@@ -56,6 +57,19 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
             existingValues.add("Married " + marriageCertificate.getBride().toString() + " at " + marriageCertificate.getUntrackedWhereMarried());
         }
         timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+    }
+
+    private void addGroomRank(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
+        logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::AddGroomRank");
+
+        if (marriageCertificate.getGroomRank() != null  && !marriageCertificate.getGroomRank().isEmpty()) {
+            List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+            if (existingValues == null) {
+                existingValues = new ArrayList<>();
+            }
+            existingValues.add("Rank registered as " + marriageCertificate.getGroomRank());
+            timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        }
     }
 
 

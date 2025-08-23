@@ -7,7 +7,6 @@ package scot.carricksoftware.grantswriter.domains.certificates.marriagecertifica
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -34,6 +33,28 @@ class MarriageCertificateStringTest {
     void setUntrackedWhenMarriedTest() {
         marriageCertificate.setWhenMarried(string);
         assertEquals(string, marriageCertificate.getWhenMarried());
+    }
+
+    @Test
+    void getBrideRankTest() {
+        assertNull(marriageCertificate.getBrideRank());
+    }
+
+    @Test
+    void setBrideRankTest() {
+        marriageCertificate.setBrideRank(string);
+        assertEquals(string, marriageCertificate.getBrideRank());
+    }
+
+    @Test
+    void getGroomRankTest() {
+        assertNull(marriageCertificate.getGroomRank());
+    }
+
+    @Test
+    void setGroomRankTest() {
+        marriageCertificate.setGroomRank(string);
+        assertEquals(string, marriageCertificate.getGroomRank());
     }
 
 }

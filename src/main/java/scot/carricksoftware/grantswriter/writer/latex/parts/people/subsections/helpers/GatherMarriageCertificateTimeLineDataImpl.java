@@ -13,6 +13,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateBrideTimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateGroomTimeLineData;
 
 import java.util.List;
 
@@ -23,9 +24,11 @@ public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriage
 
     private final MarriageCertificateService marriageCertificateService;
     private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData;
-    private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateGroomTimeLineData;
+    private final GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData;
 
-    public GatherMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService, GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData, GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateGroomTimeLineData) {
+    public GatherMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
+                                                     GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData,
+                                                     GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData) {
         this.marriageCertificateService = marriageCertificateService;
         this.gatherMarriageCertificateBrideTimeLineData = gatherMarriageCertificateBrideTimeLineData;
         this.gatherMarriageCertificateGroomTimeLineData = gatherMarriageCertificateGroomTimeLineData;

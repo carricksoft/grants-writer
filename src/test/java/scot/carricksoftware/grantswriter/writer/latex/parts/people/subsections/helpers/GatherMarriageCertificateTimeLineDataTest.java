@@ -14,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificat
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateBrideTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateGroomTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,9 @@ class GatherMarriageCertificateTimeLineDataTest {
     @Mock
     private GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineDataMock;
 
+    @Mock
+    private GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineDataMock;
+
     List<MarriageCertificate> marriageCertificates;
     Person person;
 
@@ -41,7 +45,8 @@ class GatherMarriageCertificateTimeLineDataTest {
     void setUp() {
         gatherMarriageCertificateTimeLineData = new GatherMarriageCertificateTimeLineDataImpl(
                 marriageCertificateServiceMock,
-                gatherMarriageCertificateBrideTimeLineDataMock);
+                gatherMarriageCertificateBrideTimeLineDataMock,
+                gatherMarriageCertificateGroomTimeLineDataMock);
         marriageCertificates = new ArrayList<>();
 
         person = GetRandomPerson();

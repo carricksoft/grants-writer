@@ -31,7 +31,7 @@ public class GatherMarriageCertificateBrideTimeLineDataImpl implements GatherMar
 
     @Override
     public void gather(List<MarriageCertificate> marriageCertificates) {
-        logger.info("GatherMarriageCertificateDeceasedTimeLineDataImpl::Gather");
+        logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::Gather");
         for (MarriageCertificate marriageCertificate : marriageCertificates) {
             addWhenMarried(timelineData.getTimeLine(), marriageCertificate);
             addRefs(marriageCertificate);
@@ -44,7 +44,7 @@ public class GatherMarriageCertificateBrideTimeLineDataImpl implements GatherMar
     }
 
     private void addWhenMarried(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
-        logger.info("GatherMarriageCertificateDeceasedTimeLineDataImpl::AddWhenMarried");
+        logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::AddWhenMarried");
 
         List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
         if (existingValues == null) {

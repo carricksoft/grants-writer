@@ -23,16 +23,19 @@ public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriage
 
     private final MarriageCertificateService marriageCertificateService;
     private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData;
+    private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateGroomTimeLineData;
 
-    public GatherMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService, GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData) {
+    public GatherMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService, GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData, GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateGroomTimeLineData) {
         this.marriageCertificateService = marriageCertificateService;
         this.gatherMarriageCertificateBrideTimeLineData = gatherMarriageCertificateBrideTimeLineData;
+        this.gatherMarriageCertificateGroomTimeLineData = gatherMarriageCertificateGroomTimeLineData;
     }
 
     @Override
     public void gather(Person person) {
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gather");
         gatherBride(person);
+        gatherGroom(person);
     }
 
     private void gatherBride(Person person) {
@@ -40,6 +43,14 @@ public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriage
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByBride(person);
         if (!marriageCertificates.isEmpty()) {
             gatherMarriageCertificateBrideTimeLineData.gather(marriageCertificates);
+        }
+    }
+
+    private void gatherGroom(Person person) {
+        logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherGroom");
+        List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByGroom(person);
+        if (!marriageCertificates.isEmpty()) {
+            gatherMarriageCertificateGroomTimeLineData.gather(marriageCertificates);
         }
     }
 

@@ -14,7 +14,9 @@ import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificat
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateBrideTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateFirstWitnessTimeLineDataImpl;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateGroomTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateSecondWitnessTimeLineDataImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,12 @@ class GatherMarriageCertificateTimeLineDataTest {
     @Mock
     private GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineDataMock;
 
+    @Mock
+    private GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineData;
+
+    @Mock
+    private GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineData;
+
     List<MarriageCertificate> marriageCertificates;
     Person person;
 
@@ -46,7 +54,9 @@ class GatherMarriageCertificateTimeLineDataTest {
         gatherMarriageCertificateTimeLineData = new GatherMarriageCertificateTimeLineDataImpl(
                 marriageCertificateServiceMock,
                 gatherMarriageCertificateBrideTimeLineDataMock,
-                gatherMarriageCertificateGroomTimeLineDataMock);
+                gatherMarriageCertificateGroomTimeLineDataMock,
+                gatherMarriageCertificateFirstWitnessTimeLineData,
+                gatherMarriageCertificateSecondWitnessTimeLineData);
         marriageCertificates = new ArrayList<>();
 
         person = GetRandomPerson();

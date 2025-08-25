@@ -64,14 +64,16 @@ public class GatherMarriageCertificateBrideTimeLineDataImpl implements GatherMar
     private void addBrideRank(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::AddBrideRank");
 
-        if (marriageCertificate.getBrideRank() != null  && !marriageCertificate.getBrideRank().isEmpty()) {
-            List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
-            if (existingValues == null) {
-                existingValues = new ArrayList<>();
-            }
-            existingValues.add("Rank registered as " + marriageCertificate.getBrideRank());
-            timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+        if (existingValues == null) {
+            existingValues = new ArrayList<>();
         }
+
+        if (marriageCertificate.getBrideRank() != null) {
+            existingValues.add("Rank registered as " + marriageCertificate.getBrideRank());
+        }
+        timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+
     }
 
 

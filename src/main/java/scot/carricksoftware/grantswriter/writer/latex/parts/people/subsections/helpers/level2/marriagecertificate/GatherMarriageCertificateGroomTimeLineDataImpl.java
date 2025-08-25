@@ -62,14 +62,16 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
     private void addGroomRank(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::AddGroomRank");
 
-        if (marriageCertificate.getGroomRank() != null  && !marriageCertificate.getGroomRank().isEmpty()) {
-            List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
-            if (existingValues == null) {
-                existingValues = new ArrayList<>();
-            }
-            existingValues.add("Rank registered as " + marriageCertificate.getGroomRank());
-            timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+        if (existingValues == null) {
+            existingValues = new ArrayList<>();
         }
+
+        if (marriageCertificate.getGroomRank() != null) {
+            existingValues.add("Rank registered as " + marriageCertificate.getGroomRank());
+        }
+        timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+
     }
 
 

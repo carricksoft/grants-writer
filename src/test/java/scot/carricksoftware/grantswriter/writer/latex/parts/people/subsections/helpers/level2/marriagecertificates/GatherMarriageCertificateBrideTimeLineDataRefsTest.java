@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
+import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -21,8 +24,10 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,6 +38,8 @@ class GatherMarriageCertificateBrideTimeLineDataRefsTest {
     @Mock
     private TimeLineData timelineDataMock;
 
+    @Mock
+    private StringToDMYConverter stringToDMYConverterMock;
 
     private List<MarriageCertificate> marriageCertificates;
 
@@ -41,25 +48,30 @@ class GatherMarriageCertificateBrideTimeLineDataRefsTest {
 
     @BeforeEach
     void setUp() {
-        gatherMarriageCertificateBrideTimeLineData = new GatherMarriageCertificateBrideTimeLineDataImpl(this.timelineDataMock);
+        gatherMarriageCertificateBrideTimeLineData = new GatherMarriageCertificateBrideTimeLineDataImpl(
+                timelineDataMock,
+                stringToDMYConverterMock);
         marriageCertificates = new ArrayList<>();
         bride = GetRandomPerson();
         groom = GetRandomPerson();
+        DMY dmy = new DMYImpl();
+        dmy.parse("25/01/1953");
+        when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
     }
 
     @Test
     void refsAreAddedTest() {
         SortedSet<String> refs = new TreeSet<>();
-        refs.add("MarriageCertificate");
+        refs.add(GetRandomString());
         when(timelineDataMock.getRefs()).thenReturn(refs);
         MarriageCertificate marriageCertificate = new MarriageCertificate();
         marriageCertificate.setBride(bride);
         marriageCertificate.setGroom(groom);
+        marriageCertificate.setBrideRank("RandomQ");
         marriageCertificate.setWhenMarried("25/01/1953");
         marriageCertificates.add(marriageCertificate);
 
-
         gatherMarriageCertificateBrideTimeLineData.gather(marriageCertificates);
-        assertEquals("Marriage Certificate for : " + bride.toString() + " and " + groom.toString(), refs.first());
+        assertTrue(refs.contains("Marriage Certificate for : " + bride.toString() + " and " + groom.toString()));
     }
 }

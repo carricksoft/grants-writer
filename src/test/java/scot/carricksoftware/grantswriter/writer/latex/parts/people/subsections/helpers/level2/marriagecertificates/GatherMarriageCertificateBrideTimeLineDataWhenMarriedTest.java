@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertTrue;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
@@ -35,6 +38,9 @@ class GatherMarriageCertificateBrideTimeLineDataWhenMarriedTest {
 
     @Mock
     private TimeLineData timelineDataMock;
+
+    @Mock
+    private StringToDMYConverter stringToDMYConverterMock;
 
     private List<MarriageCertificate> marriageCertificates;
 
@@ -53,7 +59,12 @@ class GatherMarriageCertificateBrideTimeLineDataWhenMarriedTest {
 
     @BeforeEach
     void setUp() {
-        gatherMarriageCertificateBrideTimeLineData = new GatherMarriageCertificateBrideTimeLineDataImpl(this.timelineDataMock);
+        gatherMarriageCertificateBrideTimeLineData = new GatherMarriageCertificateBrideTimeLineDataImpl(
+                this.timelineDataMock,
+                stringToDMYConverterMock);
+        DMY dmy = new DMYImpl();
+        dmy.parse("25/01/1953");
+        when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
         marriageCertificates = new ArrayList<>();
 
         marriageCertificate = new MarriageCertificate();
@@ -71,7 +82,6 @@ class GatherMarriageCertificateBrideTimeLineDataWhenMarriedTest {
         marriageCertificate.setBride(bride);
         marriageCertificate.setGroom(groom);
         marriageCertificate.setWhereMarried(whereMarried);
-
     }
 
     private void setUpTrackedCertificate() {
@@ -106,7 +116,4 @@ class GatherMarriageCertificateBrideTimeLineDataWhenMarriedTest {
         String expected = "Married " + groom.toString() + " at " + untrackedPlace;
         assertTrue(timeLine.firstEntry().getValue().contains(expected));
     }
-
-
-
 }

@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
-import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -28,6 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomDMYValues.GetRandomDMY;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
@@ -54,8 +54,7 @@ class GatherMarriageCertificateBrideTimeLineDataRefsTest {
         marriageCertificates = new ArrayList<>();
         bride = GetRandomPerson();
         groom = GetRandomPerson();
-        DMY dmy = new DMYImpl();
-        dmy.parse("25/01/1953");
+        DMY dmy = GetRandomDMY();
         when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
     }
 

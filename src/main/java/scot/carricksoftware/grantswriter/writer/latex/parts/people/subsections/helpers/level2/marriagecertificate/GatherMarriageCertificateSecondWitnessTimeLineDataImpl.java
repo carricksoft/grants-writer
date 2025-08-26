@@ -8,8 +8,8 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
-import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 
@@ -24,8 +24,11 @@ public class GatherMarriageCertificateSecondWitnessTimeLineDataImpl implements G
 
     private static final Logger logger = LogManager.getLogger(GatherMarriageCertificateSecondWitnessTimeLineDataImpl.class);
 
-    public GatherMarriageCertificateSecondWitnessTimeLineDataImpl(TimeLineData timelineData) {
+    private final StringToDMYConverter stringToDMYConverter;
+
+    public GatherMarriageCertificateSecondWitnessTimeLineDataImpl(TimeLineData timelineData, StringToDMYConverter stringToDMYConverter) {
         this.timelineData = timelineData;
+        this.stringToDMYConverter = stringToDMYConverter;
     }
 
     @Override
@@ -45,20 +48,15 @@ public class GatherMarriageCertificateSecondWitnessTimeLineDataImpl implements G
     private void addWitnessed(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateFirstWitnessTimeLineDataImpl::AddWitnessed");
 
-        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+        List<String> existingValues = timeLine.get(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
         existingValues.add("Witnessed the marriage of " + marriageCertificate.getGroom().toString() + " and " + marriageCertificate.getBride().toString());
 
-        timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        timeLine.put(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()), existingValues);
 
     }
 
-    private DMY getDMY(String dateKey) {
-        DMY dmyKey = new DMYImpl();
-        dmyKey.parse(dateKey);
-        return dmyKey;
-    }
 }

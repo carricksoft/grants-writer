@@ -11,7 +11,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -23,6 +25,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertTrue;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
@@ -35,6 +38,9 @@ class GatherMarriageCertificateGroomTimeLineDataAddRankTest {
 
     @Mock
     private TimeLineData timelineDataMock;
+
+    @Mock
+    private StringToDMYConverter stringToDMYConverterMock;
 
     private List<MarriageCertificate> marriageCertificates;
 
@@ -51,7 +57,9 @@ class GatherMarriageCertificateGroomTimeLineDataAddRankTest {
 
     @BeforeEach
     void setUp() {
-        gatherMarriageCertificateGroomTimeLineData = new GatherMarriageCertificateGroomTimeLineDataImpl(this.timelineDataMock);
+        gatherMarriageCertificateGroomTimeLineData = new GatherMarriageCertificateGroomTimeLineDataImpl(
+                timelineDataMock,
+                stringToDMYConverterMock);
         marriageCertificates = new ArrayList<>();
 
         marriageCertificate = new MarriageCertificate();
@@ -59,7 +67,9 @@ class GatherMarriageCertificateGroomTimeLineDataAddRankTest {
         bride = GetRandomPerson();
         groom = GetRandomPerson();
         rank = GetRandomString();
-
+        DMY dmy = new DMYImpl();
+        dmy.parse("25/01/1953");
+        when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
     }
 
     private void setUpCertificate(String groomRank) {

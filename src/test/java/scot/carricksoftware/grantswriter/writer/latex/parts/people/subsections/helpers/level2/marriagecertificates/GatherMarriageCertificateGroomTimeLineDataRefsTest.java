@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
+import scot.carricksoftware.grantswriter.data.DMY;
+import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -23,6 +26,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
@@ -34,6 +38,8 @@ class GatherMarriageCertificateGroomTimeLineDataRefsTest {
     @Mock
     private TimeLineData timelineDataMock;
 
+    @Mock
+    private StringToDMYConverter stringToDMYConverterMock;
 
     private List<MarriageCertificate> marriageCertificates;
 
@@ -42,10 +48,15 @@ class GatherMarriageCertificateGroomTimeLineDataRefsTest {
 
     @BeforeEach
     void setUp() {
-        gatherMarriageCertificateGroomTimeLineData = new GatherMarriageCertificateGroomTimeLineDataImpl(this.timelineDataMock);
+        gatherMarriageCertificateGroomTimeLineData = new GatherMarriageCertificateGroomTimeLineDataImpl(
+                timelineDataMock,
+                stringToDMYConverterMock);
         marriageCertificates = new ArrayList<>();
         groom = GetRandomPerson();
         bride = GetRandomPerson();
+        DMY dmy = new DMYImpl();
+        dmy.parse("25/01/1953");
+        when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
     }
 
     @Test

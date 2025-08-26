@@ -8,8 +8,8 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
-import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 
@@ -24,8 +24,11 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
 
     private static final Logger logger = LogManager.getLogger(GatherMarriageCertificateGroomTimeLineDataImpl.class);
 
-    public GatherMarriageCertificateGroomTimeLineDataImpl(TimeLineData timelineData) {
+    private final StringToDMYConverter stringToDMYConverter;
+
+    public GatherMarriageCertificateGroomTimeLineDataImpl(TimeLineData timelineData, StringToDMYConverter stringToDMYConverter) {
         this.timelineData = timelineData;
+        this.stringToDMYConverter = stringToDMYConverter;
     }
 
     @Override
@@ -47,7 +50,7 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
     private void addWhenMarried(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateGroomTimeLineDataImpl::AddWhenMarried");
 
-        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+        List<String> existingValues = timeLine.get(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
@@ -57,13 +60,13 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
         } else {
             existingValues.add("Married " + marriageCertificate.getBride().toString() + " at " + marriageCertificate.getUntrackedWhereMarried());
         }
-        timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        timeLine.put(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()), existingValues);
     }
 
     private void addGroomRank(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateBrideTimeLineDataImpl::AddGroomRank");
 
-        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
+        List<String> existingValues = timeLine.get(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
@@ -71,14 +74,8 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
         if (marriageCertificate.getGroomRank() != null) {
             existingValues.add("Rank registered as " + marriageCertificate.getGroomRank());
         }
-        timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
+        timeLine.put(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()), existingValues);
 
     }
 
-
-    private DMY getDMY(String dateKey) {
-        DMY dmyKey = new DMYImpl();
-        dmyKey.parse(dateKey);
-        return dmyKey;
-    }
 }

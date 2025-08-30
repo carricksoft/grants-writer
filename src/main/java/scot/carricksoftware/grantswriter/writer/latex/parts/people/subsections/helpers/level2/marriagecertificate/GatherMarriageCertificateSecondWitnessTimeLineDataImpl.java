@@ -8,12 +8,10 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -24,11 +22,11 @@ public class GatherMarriageCertificateSecondWitnessTimeLineDataImpl implements G
 
     private static final Logger logger = LogManager.getLogger(GatherMarriageCertificateSecondWitnessTimeLineDataImpl.class);
 
-    private final StringToDMYConverter stringToDMYConverter;
+    private final AddWitnessDetails addWitnessDetails;
 
-    public GatherMarriageCertificateSecondWitnessTimeLineDataImpl(TimeLineData timelineData, StringToDMYConverter stringToDMYConverter) {
+    public GatherMarriageCertificateSecondWitnessTimeLineDataImpl(TimeLineData timelineData, AddWitnessDetails addWitnessDetails) {
         this.timelineData = timelineData;
-        this.stringToDMYConverter = stringToDMYConverter;
+        this.addWitnessDetails = addWitnessDetails;
     }
 
     @Override
@@ -47,16 +45,7 @@ public class GatherMarriageCertificateSecondWitnessTimeLineDataImpl implements G
 
     private void addWitnessed(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherMarriageCertificateFirstWitnessTimeLineDataImpl::AddWitnessed");
-
-        List<String> existingValues = timeLine.get(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()));
-        if (existingValues == null) {
-            existingValues = new ArrayList<>();
-        }
-
-        existingValues.add("Witnessed the marriage of " + marriageCertificate.getGroom().toString() + " and " + marriageCertificate.getBride().toString());
-
-        timeLine.put(stringToDMYConverter.convert(marriageCertificate.getWhenMarried()), existingValues);
-
+        addWitnessDetails.addWitnessDetails(timeLine, marriageCertificate);
     }
 
 }

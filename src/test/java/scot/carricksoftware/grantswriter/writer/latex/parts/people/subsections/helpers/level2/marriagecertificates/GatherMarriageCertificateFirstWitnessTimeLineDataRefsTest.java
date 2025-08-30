@@ -10,11 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
-import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.AddWitnessDetails;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateFirstWitnessTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateFirstWitnessTimeLineDataImpl;
 
@@ -24,10 +23,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
-import static scot.carricksoftware.grantswriter.GenerateRandomDMYValues.GetRandomDMY;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
@@ -39,7 +36,7 @@ class GatherMarriageCertificateFirstWitnessTimeLineDataRefsTest {
     private TimeLineData timelineDataMock;
 
     @Mock
-    private StringToDMYConverter stringToDMYConverterMock;
+    private AddWitnessDetails addWitnessDetailsMock;
 
     private List<MarriageCertificate> marriageCertificates;
 
@@ -50,12 +47,10 @@ class GatherMarriageCertificateFirstWitnessTimeLineDataRefsTest {
     void setUp() {
         gatherMarriageCertificateFirstWitnessTimeLineData = new GatherMarriageCertificateFirstWitnessTimeLineDataImpl(
                 timelineDataMock,
-                stringToDMYConverterMock);
+                addWitnessDetailsMock);
         marriageCertificates = new ArrayList<>();
         bride = GetRandomPerson();
         groom = GetRandomPerson();
-        DMY dmy = GetRandomDMY();
-        when(stringToDMYConverterMock.convert(anyString())).thenReturn(dmy);
     }
 
     @Test

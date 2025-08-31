@@ -14,6 +14,6 @@ public interface FilesController {
     @SuppressWarnings("SameReturnValue")
     String getFiles(Model model);
 
-    @SuppressWarnings({"SameReturnValue", "unused"})
+    @SuppressWarnings("SameReturnValue")
     String gotFiles(Model model);
 }

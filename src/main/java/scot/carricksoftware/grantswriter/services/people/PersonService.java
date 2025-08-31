@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface PersonService {
 
-    @SuppressWarnings("unused")
     List<Person> findAll();
 
 }

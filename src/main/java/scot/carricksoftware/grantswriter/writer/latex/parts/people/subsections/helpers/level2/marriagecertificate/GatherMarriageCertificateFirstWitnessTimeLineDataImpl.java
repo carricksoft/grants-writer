@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.helpers.AddWitnessDetails;
 
 import java.util.List;
 import java.util.TreeMap;

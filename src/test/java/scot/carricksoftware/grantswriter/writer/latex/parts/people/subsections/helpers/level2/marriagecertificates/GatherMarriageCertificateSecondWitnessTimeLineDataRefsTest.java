@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.AddWitnessDetails;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.helpers.AddWitnessDetails;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateSecondWitnessTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateSecondWitnessTimeLineDataImpl;
 
@@ -23,6 +23,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
@@ -67,5 +69,15 @@ class GatherMarriageCertificateSecondWitnessTimeLineDataRefsTest {
 
         gatherMarriageCertificateSecondWitnessTimeLineData.gather(marriageCertificates);
         assertTrue(refs.contains("Marriage Certificate for : " + bride.toString() + " and " + groom.toString()));
+    }
+
+    @Test
+    void witnessDetailsAreAddedTest() {
+
+        MarriageCertificate marriageCertificate = new MarriageCertificate();
+        marriageCertificates.add(marriageCertificate);
+
+        gatherMarriageCertificateSecondWitnessTimeLineData.gather(marriageCertificates);
+        verify(addWitnessDetailsMock).addWitnessDetails(any(), any());
     }
 }

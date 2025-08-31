@@ -3,7 +3,7 @@
  *
  */
 
-package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate;
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.helpers;
 
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;

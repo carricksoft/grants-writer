@@ -51,7 +51,6 @@ public class BaseCertificate extends BaseEntity {
         return certificateNumber;
     }
 
-    @SuppressWarnings("unused")
     public void setCertificateNumber(String certificateNumber) {
         this.certificateNumber = certificateNumber;
     }
@@ -99,7 +98,7 @@ public class BaseCertificate extends BaseEntity {
     public String getNumber() {
         return number;
     }
-    
+
     public void setNumber(String number) {
         this.number = number;
     }

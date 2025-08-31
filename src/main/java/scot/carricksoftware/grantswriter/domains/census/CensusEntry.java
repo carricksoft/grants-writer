@@ -39,7 +39,6 @@ public class CensusEntry extends BaseEntity {
         this.name = name;
     }
 
-    @SuppressWarnings("unused")
     public void setPerson(Person person) {
         this.person = person;
     }
@@ -55,8 +54,7 @@ public class CensusEntry extends BaseEntity {
     public String getPersonalOccupation() {
         return personalOccupation;
     }
-
-    @SuppressWarnings("unused")
+    
     public void setPersonalOccupation(String personalOccupation) {
         this.personalOccupation = personalOccupation;
     }

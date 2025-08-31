@@ -12,18 +12,16 @@ public interface DMY extends Comparable<DMY> {
 
     void parse(String string);
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
     String getDay();
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
     String getMonth();
 
-    @SuppressWarnings({"unused", "SameReturnValue"})
     String getYear();
 
     void setDay(String day);
 
     void setMonth(String  month);
+
     void setYear(String year) ;
 
 

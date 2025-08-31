@@ -26,15 +26,12 @@ class TimeLineDataAddCensusEntryTest {
 
 
     @Mock
-    private TimeLineDateComparator timeLineDateComparatorMock;
-
-    @Mock
     AddCensusEntry addCensusEntryMock;
 
 
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(addCensusEntryMock, timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(addCensusEntryMock);
     }
 
     @Test

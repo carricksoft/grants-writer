@@ -31,8 +31,6 @@ class TimeLineDataSetterAndGetterTest {
     @Mock
     private DMY dmyMock;
 
-    @Mock
-    private TimeLineDateComparator timeLineDateComparatorMock;
 
     @Mock
     AddCensusEntry addCensusEntryMock;
@@ -40,7 +38,7 @@ class TimeLineDataSetterAndGetterTest {
 
     @BeforeEach
     void setUp() {
-        timeLineData = new TimeLineDataImpl(addCensusEntryMock, timeLineDateComparatorMock);
+        timeLineData = new TimeLineDataImpl(addCensusEntryMock);
     }
 
     @Test

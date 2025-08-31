@@ -17,15 +17,11 @@ public interface TimeLineData {
 
     void clear();
 
-    @SuppressWarnings("unused")
     TreeMap<DMY, List<String>> getTimeLine();
 
-    @SuppressWarnings("unused")
     void setTimeline(TreeMap<DMY, List<String>> timeLine);
 
-    @SuppressWarnings("unused")
     SortedSet<String> getRefs();
 
-    @SuppressWarnings("unused")
     void setRefs(SortedSet<String> refs);
 }

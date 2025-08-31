@@ -27,12 +27,8 @@ public class TimeLineDataImpl implements TimeLineData {
 
     private final AddCensusEntry addCensusEntry;
 
-    @SuppressWarnings({"FieldCanBeLocal", "unused"})
-    private final TimeLineDateComparator timeLineDateComparator;
-
-    public TimeLineDataImpl(AddCensusEntry addCensusEntry, TimeLineDateComparator timeLineDateComparator) {
+    public TimeLineDataImpl(AddCensusEntry addCensusEntry) {
         this.addCensusEntry = addCensusEntry;
-        this.timeLineDateComparator = timeLineDateComparator;
         this.timeLine = new TreeMap<>();
         this.refs = new TreeSet<>();
     }

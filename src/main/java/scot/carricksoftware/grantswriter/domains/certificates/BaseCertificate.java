@@ -47,7 +47,6 @@ public class BaseCertificate extends BaseEntity {
     @Column(name = "`number`")
     private String number;
 
-    @SuppressWarnings("unused")
     public String getCertificateNumber() {
         return certificateNumber;
     }
@@ -57,62 +56,50 @@ public class BaseCertificate extends BaseEntity {
         this.certificateNumber = certificateNumber;
     }
 
-    @SuppressWarnings("unused")
     public Organisation getCertificateSource() {
         return certificateSource;
     }
 
-    @SuppressWarnings("unused")
     public String getCertificateDate() {
         return certificateDate;
     }
 
-    @SuppressWarnings("unused")
     public void setCertificateDate(String certificateDate) {
         this.certificateDate = certificateDate;
     }
 
-    @SuppressWarnings("unused")
     public void setCertificateSource(Organisation organisation) {
         this.certificateSource = organisation;
     }
 
-    @SuppressWarnings("unused")
     public CertificateType getCertificateType() {
         return certificateType;
     }
 
-    @SuppressWarnings("unused")
     public void setCertificateType(CertificateType certificateType) {
         this.certificateType = certificateType;
     }
 
-    @SuppressWarnings("unused")
     public Organisation getRegistrationAuthority() {
         return registrationAuthority;
     }
 
-    @SuppressWarnings("unused")
     public void setRegistrationAuthority(Organisation registrationAuthority) {
         this.registrationAuthority = registrationAuthority;
     }
 
-    @SuppressWarnings("unused")
     public String getVolume() {
         return volume;
     }
 
-    @SuppressWarnings("unused")
     public void setVolume(String volume) {
         this.volume = volume;
     }
 
-    @SuppressWarnings("unused")
     public String getNumber() {
         return number;
     }
-
-    @SuppressWarnings("unused")
+    
     public void setNumber(String number) {
         this.number = number;
     }

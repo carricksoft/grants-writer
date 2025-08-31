@@ -15,11 +15,9 @@ import java.time.LocalDate;
 @Component
 public class DMYImpl implements DMY {
 
-    @SuppressWarnings("unused")
     String day;
-    @SuppressWarnings("unused")
+
     String month;
-    @SuppressWarnings("unused")
     String year;
 
     @Override

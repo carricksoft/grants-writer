@@ -15,7 +15,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 @Entity
 public class CensusEntry extends BaseEntity {
 
-    @SuppressWarnings({"unused", "JpaDataSourceORMInspection"})
+    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`name`")
     private String name;
 
@@ -54,7 +54,7 @@ public class CensusEntry extends BaseEntity {
     public String getPersonalOccupation() {
         return personalOccupation;
     }
-    
+
     public void setPersonalOccupation(String personalOccupation) {
         this.personalOccupation = personalOccupation;
     }

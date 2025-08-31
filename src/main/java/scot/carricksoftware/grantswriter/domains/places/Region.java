@@ -19,7 +19,7 @@ public class Region extends BaseEntity {
     @JoinColumn(name = "`country_id`")
     private Country country;
 
-    @SuppressWarnings("unused")
+
     public String getName() {
         return name;
     }

@@ -104,86 +104,65 @@ public class MarriageCertificate extends BaseCertificate {
         this.groom = groom;
     }
 
-    @SuppressWarnings("unused")
     public String getWhenMarried() {
         return whenMarried;
     }
 
-
-
-    @SuppressWarnings("unused")
     public Place getWhereMarried() {
         return whereMarried;
     }
 
-    @SuppressWarnings("unused")
     public void setWhereMarried(Place whereMarried) {
         this.whereMarried = whereMarried;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedWhereMarried() {
         return untrackedWhereMarried;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedWhereMarried(String untrackedWhereMarried) {
         this.untrackedWhereMarried = untrackedWhereMarried;
     }
 
-
-
-    @SuppressWarnings("unused")
     public Place getBrideUsualResidence() {
         return brideUsualResidence;
     }
 
-    @SuppressWarnings("unused")
     public void setBrideUsualResidence(Place brideUsualResidence) {
         this.brideUsualResidence = brideUsualResidence;
     }
 
-    @SuppressWarnings("unused")
     public String getGroomUntrackedResidence() {
         return groomUntrackedResidence;
     }
 
-    @SuppressWarnings("unused")
     public void setGroomUntrackedResidence(String groomUntrackedResidence) {
         this.groomUntrackedResidence = groomUntrackedResidence;
     }
 
-    @SuppressWarnings("unused")
     public String getBrideUntrackedResidence() {
         return brideUntrackedResidence;
     }
 
-    @SuppressWarnings("unused")
     public void setBrideUntrackedResidence(String brideUntrackedResidence) {
         this.brideUntrackedResidence = brideUntrackedResidence;
     }
 
-
-    @SuppressWarnings("unused")
     public Person getFirstWitness() {
         return firstWitness;
     }
 
-    @SuppressWarnings("unused")
     public void setFirstWitness(Person firstWitness) {
         this.firstWitness = firstWitness;
     }
 
-    @SuppressWarnings("unused")
     public Person getSecondWitness() {
         return secondWitness;
     }
 
-    @SuppressWarnings("unused")
     public void setSecondWitness(Person secondWitness) {
         this.secondWitness = secondWitness;
     }
-
 
     public void setWhenMarried(String whenMarried) {
         this.whenMarried = whenMarried;
@@ -203,5 +182,35 @@ public class MarriageCertificate extends BaseCertificate {
 
     public void setBrideRank(String brideRank) {
         this.brideRank = brideRank;
+    }
+
+    @SuppressWarnings("unused")
+    public Place getGroomUsualResidence() {
+        return groomUsualResidence;
+    }
+
+    @SuppressWarnings("unused")
+    public void setGroomUsualResidence(Place groomUsualResidence) {
+        this.groomUsualResidence = groomUsualResidence;
+    }
+
+    @SuppressWarnings("unused")
+    public String getUntrackedFirstWitness() {
+        return untrackedFirstWitness;
+    }
+
+    @SuppressWarnings("unused")
+    public void setUntrackedFirstWitness(String untrackedFirstWitness) {
+        this.untrackedFirstWitness = untrackedFirstWitness;
+    }
+
+    @SuppressWarnings("unused")
+    public String getUntrackedSecondWitness() {
+        return untrackedSecondWitness;
+    }
+
+    @SuppressWarnings("unused")
+    public void setUntrackedSecondWitness(String untrackedSecondWitness) {
+        this.untrackedSecondWitness = untrackedSecondWitness;
     }
 }

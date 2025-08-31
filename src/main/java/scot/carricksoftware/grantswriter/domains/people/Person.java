@@ -88,12 +88,10 @@ public class Person extends BaseEntity {
         return builder.toString();
     }
 
-    @SuppressWarnings("unused")
     public String getCertifiedYearOfDeath() {
         return certifiedYearOfDeath;
     }
 
-    @SuppressWarnings("unused")
     public void setCertifiedYearOfDeath(String certifiedYearOfDeath) {
         this.certifiedYearOfDeath = certifiedYearOfDeath;
     }

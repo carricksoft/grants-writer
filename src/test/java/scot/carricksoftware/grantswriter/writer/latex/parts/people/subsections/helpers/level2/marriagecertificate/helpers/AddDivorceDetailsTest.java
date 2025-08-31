@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-public class AddWitnessDetailsTest {
+public class AddDivorceDetailsTest {
 
     private AddWitnessDetails addWitnessDetails;
 

@@ -19,7 +19,6 @@ public class Place extends BaseEntity {
     @JoinColumn(name = "`region_id`")
     private Region region;
 
-    @SuppressWarnings("unused")
     public String getName() {
         return name;
     }
@@ -28,7 +27,6 @@ public class Place extends BaseEntity {
         this.name = name;
     }
 
-    @SuppressWarnings("unused")
     public Region getRegion() {
         return region;
     }
@@ -37,7 +35,6 @@ public class Place extends BaseEntity {
         this.region = region;
     }
 
-    @Override
     public String toString() {
         return name +
                 ", " + region.getName() +

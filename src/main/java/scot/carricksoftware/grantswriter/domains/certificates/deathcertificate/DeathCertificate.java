@@ -156,302 +156,243 @@ public class DeathCertificate extends BaseCertificate {
     @Column(name = "`service_rank`")
     private String serviceRank;
 
-    @SuppressWarnings("unused")
     public Person getDeceased() {
         return deceased;
     }
 
-    @SuppressWarnings("unused")
     public void setDeceased(Person deceased) {
         this.deceased = deceased;
     }
 
-    @SuppressWarnings("unused")
     public Sex getSex() {
         return sex;
     }
 
-    @SuppressWarnings("unused")
     public void setSex(Sex sex) {
         this.sex = sex;
     }
 
-    @SuppressWarnings("unused")
     public String getOccupation() {
         return occupation;
     }
 
-    @SuppressWarnings("unused")
     public void setOccupation(String occupation) {
         this.occupation = occupation;
     }
 
-    @SuppressWarnings("unused")
     public String getWhenBorn() {
         return whenBorn;
     }
 
-    @SuppressWarnings("unused")
     public void setWhenBorn(String whenBorn) {
         this.whenBorn = whenBorn;
     }
 
-    @SuppressWarnings("unused")
     public String getAge() {
         return age;
     }
 
-    @SuppressWarnings("unused")
     public void setAge(String age) {
         this.age = age;
     }
 
-    @SuppressWarnings("unused")
     public String getMaritalStatus() {
         return maritalStatus;
     }
 
-    @SuppressWarnings("unused")
     public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
     }
 
-    @SuppressWarnings("unused")
     public String getWhenDied() {
         return whenDied;
     }
 
-    @SuppressWarnings("unused")
     public void setWhenDied(String whenDied) {
         this.whenDied = whenDied;
     }
 
-    @SuppressWarnings("unused")
     public Place getWhereDied() {
         return whereDied;
     }
 
-    @SuppressWarnings("unused")
     public void setWhereDied(Place whereDied) {
         this.whereDied = whereDied;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedWhereDied() {
         return untrackedWhereDied;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedWhereDied(String untrackedWhereDied) {
         this.untrackedWhereDied = untrackedWhereDied;
     }
 
-    @SuppressWarnings("unused")
     public Place getUsualResidence() {
         return usualResidence;
     }
 
-    @SuppressWarnings("unused")
     public void setUsualResidence(Place usualResidence) {
         this.usualResidence = usualResidence;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedUsualResidence() {
         return untrackedUsualResidence;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedUsualResidence(String untrackedUsualResidence) {
         this.untrackedUsualResidence = untrackedUsualResidence;
     }
 
-    @SuppressWarnings("unused")
     public String getCauseOfDeath() {
         return causeOfDeath;
     }
 
-    @SuppressWarnings("unused")
     public void setCauseOfDeath(String causeOfDeath) {
         this.causeOfDeath = causeOfDeath;
     }
 
-    @SuppressWarnings("unused")
     public Person getSpouse() {
         return spouse;
     }
 
-    @SuppressWarnings("unused")
     public void setSpouse(Person spouse) {
         this.spouse = spouse;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedSpouse() {
         return untrackedSpouse;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedSpouse(String untrackedSpouse) {
         this.untrackedSpouse = untrackedSpouse;
     }
 
-    @SuppressWarnings("unused")
     public String getSpouseOccupation() {
         return spouseOccupation;
     }
 
-    @SuppressWarnings("unused")
     public void setSpouseOccupation(String spouseOccupation) {
         this.spouseOccupation = spouseOccupation;
     }
 
-    @SuppressWarnings("unused")
     public Person getFather() {
         return father;
     }
 
-    @SuppressWarnings("unused")
     public void setFather(Person father) {
         this.father = father;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedFather() {
         return untrackedFather;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedFather(String untrackedFather) {
         this.untrackedFather = untrackedFather;
     }
 
-    @SuppressWarnings("unused")
     public String getFatherOccupation() {
         return fatherOccupation;
     }
 
-    @SuppressWarnings("unused")
     public void setFatherOccupation(String fatherOccupation) {
         this.fatherOccupation = fatherOccupation;
     }
 
-    @SuppressWarnings("unused")
     public Person getMother() {
         return mother;
     }
 
-    @SuppressWarnings("unused")
     public void setMother(Person mother) {
         this.mother = mother;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedMother() {
         return untrackedMother;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedMother(String untrackedMother) {
         this.untrackedMother = untrackedMother;
     }
 
-    @SuppressWarnings("unused")
     public String getMotherOccupation() {
         return motherOccupation;
     }
 
-    @SuppressWarnings("unused")
     public void setMotherOccupation(String motherOccupation) {
         this.motherOccupation = motherOccupation;
     }
 
-    @SuppressWarnings("unused")
     public Person getInformant() {
         return informant;
     }
 
-    @SuppressWarnings("unused")
     public void setInformant(Person informant) {
         this.informant = informant;
     }
 
-    @SuppressWarnings("unused")
     public String getInformantAddress() {
         return informantAddress;
     }
 
-    @SuppressWarnings("unused")
     public void setInformantAddress(String informantAddress) {
         this.informantAddress = informantAddress;
     }
 
-    @SuppressWarnings("unused")
     public String getUntrackedInformant() {
         return untrackedInformant;
     }
 
-    @SuppressWarnings("unused")
     public void setUntrackedInformant(String untrackedInformant) {
         this.untrackedInformant = untrackedInformant;
     }
 
-    @SuppressWarnings("unused")
     public String getInformantQualification() {
         return informantQualification;
     }
 
-    @SuppressWarnings("unused")
+
     public void setInformantQualification(String informantQualification) {
         this.informantQualification = informantQualification;
     }
 
-    @SuppressWarnings("unused")
     public String getWhenRegistered() {
         return whenRegistered;
     }
 
-    @SuppressWarnings("unused")
     public void setWhenRegistered(String whenRegistered) {
         this.whenRegistered = whenRegistered;
     }
 
-    @SuppressWarnings("unused")
     public String getWhereRegistered() {
         return whereRegistered;
     }
 
-    @SuppressWarnings("unused")
     public void setWhereRegistered(String whereRegistered) {
         this.whereRegistered = whereRegistered;
     }
 
-    @SuppressWarnings("unused")
     public String getRegiment() {
         return regiment;
     }
 
-    @SuppressWarnings("unused")
     public void setRegiment(String regiment) {
         this.regiment = regiment;
     }
 
-    @SuppressWarnings("unused")
     public String getServiceNumber() {
         return serviceNumber;
     }
 
-    @SuppressWarnings("unused")
     public void setServiceNumber(String serviceNumber) {
         this.serviceNumber = serviceNumber;
     }
 
-    @SuppressWarnings("unused")
     public String getServiceRank() {
         return serviceRank;
     }
 
-    @SuppressWarnings("unused")
     public void setServiceRank(String serviceRank) {
         this.serviceRank = serviceRank;
     }

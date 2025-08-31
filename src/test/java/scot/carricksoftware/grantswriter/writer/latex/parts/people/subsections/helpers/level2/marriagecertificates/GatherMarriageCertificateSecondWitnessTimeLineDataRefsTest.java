@@ -73,7 +73,6 @@ class GatherMarriageCertificateSecondWitnessTimeLineDataRefsTest {
 
     @Test
     void witnessDetailsAreAddedTest() {
-
         MarriageCertificate marriageCertificate = new MarriageCertificate();
         marriageCertificates.add(marriageCertificate);
 

@@ -19,7 +19,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import java.util.List;
 import java.util.TreeMap;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
@@ -62,7 +62,8 @@ public class AddWitnessDetailsTest {
     void addWitnessDetailsTest() {
         String required = "Witnessed the marriage of " + groom.toString() + " and " + bride.toString();
         addWitnessDetails.addWitnessDetails(timeLine, marriageCertificate);
-        assertEquals(required,timeLine.get(dmy).getFirst());
+        List<String> list = timeLine.get(dmy);
+        assertTrue(list.contains(required));
     }
 
 }

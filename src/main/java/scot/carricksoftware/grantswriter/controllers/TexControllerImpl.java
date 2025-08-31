@@ -48,7 +48,7 @@ public class TexControllerImpl implements TexController {
 
     @PostMapping(MappingConstants.TEX)
     @Override
-    public String start(Model model) throws Exception {
+    public String start() throws Exception {
         logger.debug("FilesControllerImpl::start");
         texWriter.write(writerFiles.getLatexFileName());
 

@@ -42,12 +42,12 @@ class TexControllerTest {
 
     @Test
     public void startReturnsTheCorrectView() throws Exception {
-        assertEquals("index", controller.start(modelMock));
+        assertEquals("index", controller.start());
     }
 
     @Test
     public void startReturnsCallsTexWriterWriteTest() throws Exception {
-        controller.start(modelMock);
+        controller.start();
         verify(texWriterMock).write(writerFilesMock.getLatexFileName());
     }
 

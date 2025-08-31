@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import scot.carricksoftware.grantswriter.constants.MappingConstants;
 
-@SuppressWarnings("unused")
-
 public interface IndexController {
 
     @SuppressWarnings("SameReturnValue")

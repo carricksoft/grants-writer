@@ -6,12 +6,15 @@
 package scot.carricksoftware.grantswriter.controllers;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import scot.carricksoftware.grantswriter.constants.MappingConstants;
 
 public interface TexController {
 
-    @SuppressWarnings({"SameReturnValue", "unused"})
+    @SuppressWarnings("SameReturnValue")
     String screen(Model model);
 
-    @SuppressWarnings({"SameReturnValue", "unused"})
-    String start(Model model) throws Exception;
+    @SuppressWarnings("SameReturnValue")
+    @PostMapping(MappingConstants.TEX)
+    String start() throws Exception;
 }

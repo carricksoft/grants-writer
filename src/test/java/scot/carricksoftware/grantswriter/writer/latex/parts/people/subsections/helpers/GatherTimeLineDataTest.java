@@ -32,6 +32,10 @@ class GatherTimeLineDataTest {
     private GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineDataMock;
 
     @Mock
+    private GatherDivorceCertificateTimeLineData gatherDivorceCertificateTimeLineDataMock;
+
+
+    @Mock
     private Person personMock;
 
     @BeforeEach
@@ -39,7 +43,8 @@ class GatherTimeLineDataTest {
         gatherTimeLineData = new GatherTimeLineDataImpl(gatherCensusTimeLineDataMock,
                 gatherBirthCertificateTimeLineDataMock,
                 gatherDeathCertificateTimeLineDataMock,
-                gatherMarriageCertificateTimeLineDataMock);
+                gatherMarriageCertificateTimeLineDataMock,
+                gatherDivorceCertificateTimeLineDataMock);
     }
 
     @Test

@@ -10,7 +10,6 @@ import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
-@SuppressWarnings("unused")
 @Repository
 public interface DivorceCertificateRepository extends ReadOnlyRepository<DivorceCertificate, Long> {
 

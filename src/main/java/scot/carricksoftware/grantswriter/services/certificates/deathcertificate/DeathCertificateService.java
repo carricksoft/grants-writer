@@ -13,12 +13,9 @@ import java.util.List;
 
 public interface DeathCertificateService {
 
-    @SuppressWarnings("unused")
     List<DeathCertificate> findAllByDeceased(Person person);
 
-    @SuppressWarnings("unused")
     List<DeathCertificate> findAllByInformant(Person person);
 
-    @SuppressWarnings("unused")
     List<DeathCertificate> findAllBySpouse(Person person);
 }

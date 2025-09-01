@@ -13,10 +13,8 @@ import java.util.List;
 
 public interface DivorceCertificateService {
 
-    @SuppressWarnings("unused")
     List<DivorceCertificate> findAllByFirstParty(Person person);
 
-    @SuppressWarnings("unused")
     List<DivorceCertificate> findAllBySecondParty(Person person);
 
 }

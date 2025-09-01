@@ -7,6 +7,5 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 public interface LatexSubSectionHeader {
 
-    @SuppressWarnings({"EmptyMethod", "unused"})
     void write(String title);
 }

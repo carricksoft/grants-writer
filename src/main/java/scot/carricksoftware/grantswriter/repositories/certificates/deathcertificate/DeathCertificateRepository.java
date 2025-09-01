@@ -10,7 +10,6 @@ import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.D
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
-@SuppressWarnings("unused")
 @Repository
 public interface DeathCertificateRepository extends ReadOnlyRepository<DeathCertificate, Long> {
 

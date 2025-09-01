@@ -13,7 +13,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteReferences;
 
@@ -31,8 +30,6 @@ class PersonSubSectionReferencesWriterTest {
     @Mock
     private WriteReferences writeReferencesMock;
 
-    @Mock
-    private Person personMock;
 
     @BeforeEach
     void setUp() {
@@ -43,7 +40,7 @@ class PersonSubSectionReferencesWriterTest {
     void writeTest() {
         InOrder inOrder = inOrder(latexSubSectionHeaderMock, writeReferencesMock);
 
-        personSubSectionReferencesWriter.write(personMock);
+        personSubSectionReferencesWriter.write();
         inOrder.verify(latexSubSectionHeaderMock).write("References");
         inOrder.verify(writeReferencesMock).write();
     }

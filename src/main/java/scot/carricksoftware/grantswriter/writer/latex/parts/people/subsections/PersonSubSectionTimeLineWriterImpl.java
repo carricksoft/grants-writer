@@ -8,7 +8,6 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
@@ -28,9 +27,8 @@ public class PersonSubSectionTimeLineWriterImpl implements PersonSubSectionTimeL
     }
 
     @Override
-    public void write(Person person) {
+    public void write() {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
-
         latexSubSectionHeader.write("Timeline");
         writeTimeLine.write();
     }

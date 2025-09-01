@@ -39,7 +39,6 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
         }
     }
 
-    @SuppressWarnings("unused")
     private void addRefs(DeathCertificate deathCertificate) {
         timelineData.getRefs().add("Death Certificate for : " + deathCertificate.getDeceased().toString());
     }
@@ -61,7 +60,6 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
 
     }
 
-    @SuppressWarnings("unused")
     private void addWhereRegistered(TreeMap<DMY, List<String>> timeLine, DeathCertificate deathCertificate) {
         logger.info("GatherDeathCertificateDeceasedTimeLineDataImpl::AddWhenRegistered");
 
@@ -86,7 +84,6 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
             } else {
                 informant = deathCertificate.getUntrackedInformant();
             }
-            var debug = deathCertificate.getWhereRegistered();
             existingValues.add("Death registered by " + informant + " at " + whereRegistered);
             timeLine.put(getDMY(deathCertificate.getWhenRegistered()), existingValues);
         }

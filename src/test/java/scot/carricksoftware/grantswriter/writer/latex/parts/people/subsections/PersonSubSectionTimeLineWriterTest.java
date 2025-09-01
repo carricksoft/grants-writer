@@ -11,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.LatexSubSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.WriteTimeLine;
 
@@ -28,9 +27,6 @@ class PersonSubSectionTimeLineWriterTest {
     @Mock
     private WriteTimeLine writeTimeLineMock;
 
-    @Mock
-    private Person personMock;
-
     @BeforeEach
     void setUp() {
         writer = new PersonSubSectionTimeLineWriterImpl(
@@ -42,7 +38,7 @@ class PersonSubSectionTimeLineWriterTest {
     void writeHeaderTest() {
         InOrder inOrder = inOrder(latexSubSectionHeaderMock, writeTimeLineMock);
 
-        writer.write(personMock);
+        writer.write();
         inOrder.verify(latexSubSectionHeaderMock).write("Timeline");
         inOrder.verify(writeTimeLineMock).write();
     }

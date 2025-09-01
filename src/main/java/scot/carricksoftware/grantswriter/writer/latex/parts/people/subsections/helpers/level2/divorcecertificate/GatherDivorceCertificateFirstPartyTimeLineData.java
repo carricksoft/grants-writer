@@ -10,6 +10,6 @@ import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate
 import java.util.List;
 
 public interface GatherDivorceCertificateFirstPartyTimeLineData {
-   @SuppressWarnings("unused")
+
    void gather(List<DivorceCertificate> divorceCertificates);
 }

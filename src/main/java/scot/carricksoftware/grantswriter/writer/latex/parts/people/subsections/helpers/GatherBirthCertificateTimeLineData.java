@@ -8,5 +8,6 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface GatherBirthCertificateTimeLineData {
-   void gather(@SuppressWarnings("unused") Person person);
+
+   void gather(Person person);
 }

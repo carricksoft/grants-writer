@@ -42,12 +42,8 @@ public class GatherMarriageCertificateBrideTimeLineDataImpl implements GatherMar
         }
     }
 
-    @SuppressWarnings("unused")
     private void addRefs(MarriageCertificate marriageCertificate) {
-        var vz = timelineData.getRefs();
         timelineData.getRefs().add("Marriage Certificate for : " + marriageCertificate.getBride() + " and " + marriageCertificate.getGroom());
-        var vx = timelineData.getRefs();
-        int deb = -1;
     }
 
     private void addWhenMarried(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {

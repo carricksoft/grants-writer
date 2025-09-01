@@ -39,7 +39,7 @@ public class PersonSectionImpl implements PersonSection {
         personSectionHeader.write(person);
         clearExistingTimeLineData.clear();
         gatherTimeLineData.gather(person);
-        personSubSectionTimeLineWriter.write(person);
-        personSubSectionReferencesWriter.write(person);
+        personSubSectionTimeLineWriter.write();
+        personSubSectionReferencesWriter.write();
     }
 }

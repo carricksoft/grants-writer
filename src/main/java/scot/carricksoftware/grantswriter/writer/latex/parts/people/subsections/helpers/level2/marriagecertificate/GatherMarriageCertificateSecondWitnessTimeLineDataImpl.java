@@ -39,7 +39,6 @@ public class GatherMarriageCertificateSecondWitnessTimeLineDataImpl implements G
         }
     }
 
-    @SuppressWarnings("unused")
     private void addRefs(MarriageCertificate marriageCertificate) {
         timelineData.getRefs().add("Marriage Certificate for : " + marriageCertificate.getBride() + " and " + marriageCertificate.getGroom());
     }

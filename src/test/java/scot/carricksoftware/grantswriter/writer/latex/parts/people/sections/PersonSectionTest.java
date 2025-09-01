@@ -65,7 +65,7 @@ class PersonSectionTest {
         inorder.verify(personSectionHeaderMock).write(personMock);
         inorder.verify(clearExistingTimeLineDataMock).clear();
         inorder.verify(gatherTimeLineDataMock).gather(personMock);
-        inorder.verify(personSubSectionTimeLineWriterMock).write(personMock);
-        inorder.verify(personSubSectionReferencesWriterMock).write(personMock);
+        inorder.verify(personSubSectionTimeLineWriterMock).write();
+        inorder.verify(personSubSectionReferencesWriterMock).write();
     }
 }

@@ -49,7 +49,6 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
         gatherInformant(person);
     }
 
-    @SuppressWarnings("unused")
     private void gatherNewBorn(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByNewBorn(person);
         if (!birthCertificates.isEmpty()) {
@@ -58,19 +57,19 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
     }
 
     @SuppressWarnings("unused")
-    private void gatherFather(@SuppressWarnings("unused") Person person) {
+    private void gatherFather(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByFather(person);
         gatherBirthCertificateFatherTimeLineData.gather(birthCertificates);
     }
 
     @SuppressWarnings("unused")
-    private void gatherMother(@SuppressWarnings("unused") Person person) {
+    private void gatherMother(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByMother(person);
         gatherBirthCertificateMotherTimeLineData.gather(birthCertificates);
     }
 
     @SuppressWarnings("unused")
-    private void gatherInformant(@SuppressWarnings("unused") Person person) {
+    private void gatherInformant(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByInformant(person);
         gatherBirthCertificateInformantTimeLineData.gather(birthCertificates);
     }

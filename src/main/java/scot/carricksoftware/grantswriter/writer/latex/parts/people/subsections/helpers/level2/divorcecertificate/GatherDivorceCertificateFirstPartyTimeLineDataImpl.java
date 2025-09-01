@@ -43,7 +43,6 @@ public class GatherDivorceCertificateFirstPartyTimeLineDataImpl implements Gathe
         }
     }
 
-    @SuppressWarnings("unused")
     private void addRefs(DivorceCertificate divorceCertificate) {
         timelineData.getRefs().add("Divorce Certificate for : " + divorceCertificate.getFirstParty() + " and " + divorceCertificate.getSecondParty());
     }

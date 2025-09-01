@@ -41,9 +41,7 @@ public class GatherMarriageCertificateGroomTimeLineDataImpl implements GatherMar
         }
     }
 
-    @SuppressWarnings("unused")
     private void addRefs(MarriageCertificate marriageCertificate) {
-        var z = timelineData.getRefs();
         timelineData.getRefs().add("Marriage Certificate for : " + marriageCertificate.getBride() + " and " + marriageCertificate.getGroom());
     }
 

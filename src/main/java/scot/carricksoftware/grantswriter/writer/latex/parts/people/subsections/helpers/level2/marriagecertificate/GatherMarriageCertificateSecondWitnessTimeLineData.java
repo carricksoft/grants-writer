@@ -10,6 +10,6 @@ import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificat
 import java.util.List;
 
 public interface GatherMarriageCertificateSecondWitnessTimeLineData {
-   @SuppressWarnings("unused")
+
    void gather(List<MarriageCertificate> marriageCertificates);
 }

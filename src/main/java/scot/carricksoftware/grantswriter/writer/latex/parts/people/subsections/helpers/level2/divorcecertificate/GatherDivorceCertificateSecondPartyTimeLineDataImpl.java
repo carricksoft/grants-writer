@@ -8,10 +8,12 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.converters.StringToDMYConverter;
 import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate.DivorceCertificate;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -20,11 +22,14 @@ public class GatherDivorceCertificateSecondPartyTimeLineDataImpl implements Gath
 
     private final TimeLineData timelineData;
 
+    private final StringToDMYConverter stringToDMYConverter;
+
     private static final Logger logger = LogManager.getLogger(GatherDivorceCertificateSecondPartyTimeLineDataImpl.class);
 
 
-    public GatherDivorceCertificateSecondPartyTimeLineDataImpl(TimeLineData timelineData) {
+    public GatherDivorceCertificateSecondPartyTimeLineDataImpl(TimeLineData timelineData, StringToDMYConverter stringToDMYConverter) {
         this.timelineData = timelineData;
+        this.stringToDMYConverter = stringToDMYConverter;
     }
 
     @Override
@@ -43,6 +48,13 @@ public class GatherDivorceCertificateSecondPartyTimeLineDataImpl implements Gath
 
     private void addDivorced(TreeMap<DMY, List<String>> timeLine, DivorceCertificate divorceCertificate) {
         logger.info("GatherDivorceCertificateFirstPartyTimeLineDataImpl::AddDivorced");
+        List<String> existingValues = timeLine.get(stringToDMYConverter.convert(divorceCertificate.getRegisteredDate()));
+        if (existingValues == null) {
+            existingValues = new ArrayList<>();
+        }
 
+        existingValues.add("Divorced " + divorceCertificate.getFirstParty());
+
+        timeLine.put(stringToDMYConverter.convert(divorceCertificate.getRegisteredDate()), existingValues);
     }
 }

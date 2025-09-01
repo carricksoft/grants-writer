@@ -43,10 +43,6 @@ public class MarriageCertificate extends BaseCertificate {
     @Column(name = "`untracked_where_married`")
     private String untrackedWhereMarried;
 
-    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
-    @ManyToOne
-    @JoinColumn(name = "`groom_residence_id`")
-    private Place groomUsualResidence;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
@@ -72,13 +68,7 @@ public class MarriageCertificate extends BaseCertificate {
     @JoinColumn(name = "`second_witness`")
     private Person secondWitness;
 
-    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
-    @Column(name = "`untracked_first_witness`")
-    private String untrackedFirstWitness;
 
-    @SuppressWarnings({"JpaDataSourceORMInspection", "unused"})
-    @Column(name = "`untracked_second_witness`")
-    private String untrackedSecondWitness;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`groom_rank`")
@@ -184,33 +174,4 @@ public class MarriageCertificate extends BaseCertificate {
         this.brideRank = brideRank;
     }
 
-    @SuppressWarnings("unused")
-    public Place getGroomUsualResidence() {
-        return groomUsualResidence;
-    }
-
-    @SuppressWarnings("unused")
-    public void setGroomUsualResidence(Place groomUsualResidence) {
-        this.groomUsualResidence = groomUsualResidence;
-    }
-
-    @SuppressWarnings("unused")
-    public String getUntrackedFirstWitness() {
-        return untrackedFirstWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public void setUntrackedFirstWitness(String untrackedFirstWitness) {
-        this.untrackedFirstWitness = untrackedFirstWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public String getUntrackedSecondWitness() {
-        return untrackedSecondWitness;
-    }
-
-    @SuppressWarnings("unused")
-    public void setUntrackedSecondWitness(String untrackedSecondWitness) {
-        this.untrackedSecondWitness = untrackedSecondWitness;
-    }
 }

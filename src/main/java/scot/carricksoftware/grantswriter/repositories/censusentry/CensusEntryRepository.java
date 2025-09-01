@@ -12,7 +12,6 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 import java.util.List;
 
-@SuppressWarnings("unused")
 @Repository
 public interface CensusEntryRepository extends ReadOnlyRepository<CensusEntry, Long> {
     List<CensusEntry> findAllByPerson(Person person);

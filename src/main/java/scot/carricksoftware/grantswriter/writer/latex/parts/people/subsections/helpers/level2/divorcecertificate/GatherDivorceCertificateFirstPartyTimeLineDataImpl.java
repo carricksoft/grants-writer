@@ -27,7 +27,6 @@ public class GatherDivorceCertificateFirstPartyTimeLineDataImpl implements Gathe
 
     private static final Logger logger = LogManager.getLogger(GatherDivorceCertificateFirstPartyTimeLineDataImpl.class);
 
-
     public GatherDivorceCertificateFirstPartyTimeLineDataImpl(TimeLineData timelineData, StringToDMYConverter stringToDMYConverter) {
         this.timelineData = timelineData;
         this.stringToDMYConverter = stringToDMYConverter;

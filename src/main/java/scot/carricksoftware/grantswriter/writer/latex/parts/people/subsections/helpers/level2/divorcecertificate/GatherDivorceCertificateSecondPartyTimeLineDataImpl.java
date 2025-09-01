@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate.DivorceCertificate;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.helpers.AddDivorceDetails;
 
 import java.util.List;
 import java.util.TreeMap;
@@ -23,11 +22,9 @@ public class GatherDivorceCertificateSecondPartyTimeLineDataImpl implements Gath
 
     private static final Logger logger = LogManager.getLogger(GatherDivorceCertificateSecondPartyTimeLineDataImpl.class);
 
-    private final AddDivorceDetails addDivorceDetails;
 
-    public GatherDivorceCertificateSecondPartyTimeLineDataImpl(TimeLineData timelineData, AddDivorceDetails addDivorceDetails) {
+    public GatherDivorceCertificateSecondPartyTimeLineDataImpl(TimeLineData timelineData) {
         this.timelineData = timelineData;
-        this.addDivorceDetails = addDivorceDetails;
     }
 
     @Override
@@ -45,8 +42,7 @@ public class GatherDivorceCertificateSecondPartyTimeLineDataImpl implements Gath
     }
 
     private void addDivorced(TreeMap<DMY, List<String>> timeLine, DivorceCertificate divorceCertificate) {
-        logger.info("GatherDivorceCertificateFirstPartyTimeLineDataImpl::AddDivorce");
-        addDivorceDetails.addDivorceDetails(timeLine, divorceCertificate);
+        logger.info("GatherDivorceCertificateFirstPartyTimeLineDataImpl::AddDivorced");
 
     }
 }

@@ -71,4 +71,10 @@ class GatherTimeLineDataTest {
         verify(gatherMarriageCertificateTimeLineDataMock).gather(personMock);
     }
 
+    @Test
+    void gatherDivorceCertificateDataTest() {
+        gatherTimeLineData.gather(personMock);
+        verify(gatherDivorceCertificateTimeLineDataMock).gather(personMock);
+    }
+
 }

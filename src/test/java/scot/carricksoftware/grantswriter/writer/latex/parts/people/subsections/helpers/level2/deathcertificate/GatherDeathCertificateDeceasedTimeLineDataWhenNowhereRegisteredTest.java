@@ -48,19 +48,19 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNowhereRegisteredTest {
 
     private Person informant;
 
+    private DeathCertificate deathCertificate;
 
     @BeforeEach
     void setUp() {
         gatherDeathCertificateDeceasedTimeLineData = new GatherDeathCertificateDeceasedTimeLineDataImpl(this.timelineDataMock);
         deathCertificates = new ArrayList<>();
-        DeathCertificate deathCertificate = new DeathCertificate();
+        deathCertificate = new DeathCertificate();
         String registrationAuthorityName = GetRandomString();
         registrationAuthority = new Organisation();
         registrationAuthority.setName(registrationAuthorityName);
         deceased = GetRandomPerson();
         informant = GetRandomPerson();
-        setUpCertificate(deathCertificate);
-        deathCertificates.add(deathCertificate);
+
 
     }
 
@@ -74,6 +74,29 @@ class GatherDeathCertificateDeceasedTimeLineDataWhenNowhereRegisteredTest {
 
     @Test
     void registeredAtNullTest() {
+        setUpCertificate(deathCertificate);
+        deathCertificates.add(deathCertificate);
+        ArgumentCaptor<DMY> dmyCaptor = ArgumentCaptor.forClass(DMY.class);
+        //noinspection unchecked
+        ArgumentCaptor<List<String>> listCaptor = ArgumentCaptor.forClass(List.class);
+        when(timelineDataMock.getTimeLine()).thenReturn(timeLineMock);
+        gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
+        verify(timeLineMock, atLeast(1)).put(dmyCaptor.capture(), listCaptor.capture());
+        String expected = "Death registered by " + informant + " at " + registrationAuthority;
+        for (int i = 0; i < listCaptor.getAllValues().size(); i++) {
+            if (expected.equals(listCaptor.getAllValues().get(i).get(0))) {
+                assertTrue(true);
+                return;
+            }
+        }
+        fail();
+    }
+
+    @Test
+    void registeredAtEmptyTest() {
+        setUpCertificate(deathCertificate);
+        deathCertificate.setWhereRegistered("");
+        deathCertificates.add(deathCertificate);
         ArgumentCaptor<DMY> dmyCaptor = ArgumentCaptor.forClass(DMY.class);
         //noinspection unchecked
         ArgumentCaptor<List<String>> listCaptor = ArgumentCaptor.forClass(List.class);

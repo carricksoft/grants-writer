@@ -64,7 +64,6 @@ public class GatherDeathCertificateDeceasedTimeLineDataImpl implements GatherDea
         logger.info("GatherDeathCertificateDeceasedTimeLineDataImpl::AddWhenRegistered");
 
         if (deathCertificate.getWhenRegistered() != null  && !deathCertificate.getWhenRegistered().isEmpty()) {
-
             List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhenRegistered()));
             if (existingValues == null) {
                 existingValues = new ArrayList<>();

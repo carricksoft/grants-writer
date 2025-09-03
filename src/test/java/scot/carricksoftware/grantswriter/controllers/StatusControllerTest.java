@@ -28,7 +28,6 @@ class StatusControllerTest {
     @Mock
     private Model modelMock;
 
-
     @BeforeEach
     void setUp() {
         controller = new StatusControllerImpl(statusServiceMock);

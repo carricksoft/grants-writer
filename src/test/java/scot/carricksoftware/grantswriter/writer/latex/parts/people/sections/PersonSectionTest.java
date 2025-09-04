@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.headers.PersonSectionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSectionContentsWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
@@ -41,6 +42,9 @@ class PersonSectionTest {
     private GatherTimeLineData gatherTimeLineDataMock;
 
     @Mock
+    private PersonSectionContentsWriter personSectionContentsWriterMock;
+
+    @Mock
     ClearExistingTimeLineData clearExistingTimeLineDataMock;
 
     @BeforeEach
@@ -50,7 +54,8 @@ class PersonSectionTest {
                 personSubSectionTimeLineWriterMock,
                 personSubSectionReferencesWriterMock,
                 clearExistingTimeLineDataMock,
-                gatherTimeLineDataMock);
+                gatherTimeLineDataMock,
+                personSectionContentsWriterMock);
     }
 
     @Test

@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.sections;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.headers.PersonSectionHeader;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSectionContentsWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
@@ -21,22 +22,26 @@ public class PersonSectionImpl implements PersonSection {
     private final PersonSubSectionReferencesWriter personSubSectionReferencesWriter;
     private final ClearExistingTimeLineData clearExistingTimeLineData;
     private final GatherTimeLineData gatherTimeLineData;
+    private final PersonSectionContentsWriter personSectionContentsWriter;
 
     public PersonSectionImpl(PersonSectionHeader personSectionHeader,
                              PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter,
                              PersonSubSectionReferencesWriter personSubSectionReferencesWriter,
                              ClearExistingTimeLineData clearExistingTimeLineData,
-                             GatherTimeLineData gatherTimeLineData) {
+                             GatherTimeLineData gatherTimeLineData,
+                             PersonSectionContentsWriter personSectionContentsWriter) {
         this.personSectionHeader = personSectionHeader;
         this.personSubSectionTimeLineWriter = personSubSectionTimeLineWriter;
         this.personSubSectionReferencesWriter = personSubSectionReferencesWriter;
         this.clearExistingTimeLineData = clearExistingTimeLineData;
         this.gatherTimeLineData = gatherTimeLineData;
+        this.personSectionContentsWriter = personSectionContentsWriter;
     }
 
     @Override
     public void write(Person person) {
         personSectionHeader.write(person);
+        personSectionContentsWriter.write(person);
         clearExistingTimeLineData.clear();
         gatherTimeLineData.gather(person);
         personSubSectionTimeLineWriter.write();

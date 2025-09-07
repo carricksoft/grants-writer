@@ -1,0 +1,69 @@
+/*
+ * Copyright (c) 2025.  Andrew Grant Carrick Software. All rights reserved
+ *
+ */
+
+package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.text.PersonText;
+import scot.carricksoftware.grantswriter.services.text.PersonTextService;
+import scot.carricksoftware.grantswriter.writer.FileWriter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+
+@ExtendWith(MockitoExtension.class)
+class PersonSectionContentsWriterOnyContentsTest {
+
+    private PersonSectionContentsWriter writer;
+
+    @Mock
+    private PersonTextService personTextServiceMock;
+
+    @Mock
+    private FileWriter fileWriterMock;
+
+    private List<PersonText> contents;
+
+    private PersonText personText;
+
+    private Person person;
+
+    @BeforeEach
+    void setUp() {
+        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock);
+        person = new Person();
+        personText = new PersonText();
+    }
+
+    @Test
+    void withAnEmptyArrayFileWriterIsNotCalled() {
+        contents = new ArrayList<>();
+        when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
+        writer.write(person);
+        verifyNoInteractions(fileWriterMock);
+    }
+
+    @Test
+    void withANonEmptyArrayFileWriterIsCalled() {
+        contents = new ArrayList<>();
+        String content = GetRandomString();
+        personText.setContent(content);
+        contents.add(personText);
+        when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
+        writer.write(person);
+        verify(fileWriterMock).writeLine(content);
+    }
+}

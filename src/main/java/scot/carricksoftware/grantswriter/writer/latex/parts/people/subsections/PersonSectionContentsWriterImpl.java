@@ -42,7 +42,7 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
     }
 
     private void writeContent(PersonText personText) {
-        logger.info("PersonSectionContentsWriterImpl.write()");
+        logger.info("PersonSectionContentsWriterImpl.writeContent()");
         fileWriter.writeLine(personText.getContent());
     }
 }

@@ -7,22 +7,27 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
+import scot.carricksoftware.grantswriter.data.helpers.LatexDivision;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
+
+import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SECTION;
 
 @Component
 public class LatexSectionHeaderImpl implements LatexSectionHeader {
 
-
     private final FileWriter fileWriter;
 
-    public LatexSectionHeaderImpl(FileWriter fileWriter) {
+    private final LatexDivision latexDivision;
+
+    public LatexSectionHeaderImpl(FileWriter fileWriter, LatexDivision latexDivision) {
         this.fileWriter = fileWriter;
+        this.latexDivision = latexDivision;
     }
 
 
     @Override
     public void write(String title) {
-        String sb = LatexConstants.SECTION_TERM +
+        String sb =  latexDivision.header(LATEX_SECTION) +
                 title +
                 LatexConstants.TERM_END;
         fileWriter.writeLine(sb);

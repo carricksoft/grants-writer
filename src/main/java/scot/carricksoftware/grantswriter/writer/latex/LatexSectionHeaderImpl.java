@@ -24,7 +24,6 @@ public class LatexSectionHeaderImpl implements LatexSectionHeader {
         this.latexDivision = latexDivision;
     }
 
-
     @Override
     public void write(String title) {
         String sb =  latexDivision.header(LATEX_SECTION) +

@@ -23,5 +23,4 @@ public class LatexLevels {
     public static final Integer LATEX_PARAGRAPH  = 4;
     public static final Integer LATEX_SUBPARAGRAPH = 5;
 
-
 }

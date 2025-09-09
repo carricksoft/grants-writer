@@ -19,5 +19,11 @@ public class GenerateRandomNumberValues {
         return rand.nextLong();
     }
 
+    public static Integer GetRandomInteger() {
+        return rand.nextInt();
+    }
+
+
+
 
 }

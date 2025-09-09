@@ -5,11 +5,13 @@
 
 package scot.carricksoftware.grantswriter.data.helpers;
 
-import org.springframework.stereotype.Component;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_BOOK;
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_CHAPTER;
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_PARAGRAPH;
@@ -19,12 +21,15 @@ import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUBP
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUBSECTION;
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUB_SUBSECTION;
 
-@Component
-public class LatexDivisionImpl implements  LatexDivision {
+class LatexDivisionTest {
 
-    private final Map<Integer, String> headers;
+    private LatexDivision latexDivision;
 
-    public LatexDivisionImpl() {
+    private Map<Integer, String> headers;
+
+    @BeforeEach
+    void setUp() {
+        latexDivision = new LatexDivisionImpl();
         headers = new HashMap<>();
         headers.put(LATEX_BOOK, "\\book{");
         headers.put(LATEX_PART, "\\part{");
@@ -37,12 +42,20 @@ public class LatexDivisionImpl implements  LatexDivision {
         headers.put(LATEX_SUBPARAGRAPH, "\\subparagraph{");
     }
 
-    @Override
-    public String header(Integer level) {
-        String result = headers.get(level);
-        if (result == null) {
-            throw new RuntimeException("No header found for level " + level);
+    @Test
+    void validTest() {
+        for (int i = LATEX_BOOK; i <= LATEX_SUBPARAGRAPH; i++) {
+            assertEquals(headers.get(i), latexDivision.header(i));
         }
-        return result;
+    }
+
+    @Test
+    void lowLevelThrowsAnExceptionTest() {
+        assertThrows(RuntimeException.class, () -> latexDivision.header(LATEX_BOOK - 1));
+    }
+
+    @Test
+    void highLevelThrowsAnExceptionTest() {
+        assertThrows(RuntimeException.class, () -> latexDivision.header(LATEX_SUBPARAGRAPH + 1));
     }
 }

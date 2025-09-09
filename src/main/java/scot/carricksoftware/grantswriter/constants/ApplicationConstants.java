@@ -20,6 +20,6 @@ public class ApplicationConstants {
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public static final String DATE_FORMAT = "dd/MM/yyyy";
     public static final String DATE_TIME_FORMAT = "dd/MM/yyyy hh:mm";
-    public final static String EMPTY_STRING = "";
+    public static final String EMPTY_STRING = "";
 
 }

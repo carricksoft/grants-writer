@@ -21,6 +21,6 @@ public class LatexSectionHeaderImpl implements LatexSectionHeader {
 
     @Override
     public void write(String title) {
-        latexDivisionHeader.write(LatexLevels.LATEX_PART, title);
+        latexDivisionHeader.write(LatexLevels.LATEX_SECTION, title);
     }
 }

@@ -31,6 +31,6 @@ class LatexSectionHeaderTest {
     void writeTest() {
         String title = GetRandomString();
         header.write(title);
-        verify(latexDivisionHeaderMock).write(-1, title);
+        verify(latexDivisionHeaderMock).write(1, title);
     }
 }

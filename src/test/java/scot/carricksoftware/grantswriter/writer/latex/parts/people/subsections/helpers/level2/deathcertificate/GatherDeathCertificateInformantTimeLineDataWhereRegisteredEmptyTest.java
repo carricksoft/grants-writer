@@ -24,12 +24,11 @@ import java.util.TreeMap;
 
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertTrue;
-import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 @ExtendWith(MockitoExtension.class)
-class GatherDeathCertificateInformantTimeLineDataWhereRegisteredTest {
+class GatherDeathCertificateInformantTimeLineDataWhereRegisteredEmptyTest {
 
     GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData;
 
@@ -50,24 +49,21 @@ class GatherDeathCertificateInformantTimeLineDataWhereRegisteredTest {
 
     private String whereRegistered;
 
-    private DeathCertificate deathCertificate;
-
     @BeforeEach
     void setUp() {
         gatherDeathCertificateInformantTimeLineData = new GatherDeathCertificateInformantTimeLineDataImpl(this.timelineDataMock);
         deathCertificates = new ArrayList<>();
 
-        deathCertificate = new DeathCertificate();
+        DeathCertificate deathCertificate = new DeathCertificate();
         timeLine = new TreeMap<>();
         place = GetRandomPlace();
         registrationAuthority = new Organisation();
         registrationAuthority.setName(place.getName());
         deceased = GetRandomPerson();
         informant = GetRandomPerson();
-        whereRegistered = GetRandomString();
+        whereRegistered = "";
         setUpCertificate(deathCertificate);
         deathCertificates.add(deathCertificate);
-
     }
 
     private void setUpCertificate(DeathCertificate deathCertificate) {
@@ -78,19 +74,11 @@ class GatherDeathCertificateInformantTimeLineDataWhereRegisteredTest {
         deathCertificate.setDeceased(deceased);
         deathCertificate.setRegistrationAuthority(registrationAuthority);
         deathCertificate.setInformant(informant);
-    }
-
-    @Test
-    void registeredByTest() {
         deathCertificate.setWhereRegistered(whereRegistered);
-        when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
-        gatherDeathCertificateInformantTimeLineData.gather(deathCertificates);
-        String expected = "Registered the death of " + deceased + " at " + whereRegistered;
-        assertTrue(timelineContains(expected));
     }
 
     @Test
-    void registeredNoWhereTest() {
+    void whereRegisteredEmptyTest() {
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
         gatherDeathCertificateInformantTimeLineData.gather(deathCertificates);
         String expected = "Registered the death of " + deceased + " at " + registrationAuthority;

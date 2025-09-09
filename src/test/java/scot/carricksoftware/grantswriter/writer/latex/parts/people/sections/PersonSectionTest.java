@@ -62,12 +62,14 @@ class PersonSectionTest {
     void writeTest() {
         InOrder inorder = inOrder(
                 personSectionHeaderMock,
+                personSectionContentsWriterMock,
                 clearExistingTimeLineDataMock,
                 gatherTimeLineDataMock,
                 personSubSectionTimeLineWriterMock,
                 personSubSectionReferencesWriterMock);
         personSection.write(personMock);
         inorder.verify(personSectionHeaderMock).write(personMock);
+        inorder.verify(personSectionContentsWriterMock).write(personMock);
         inorder.verify(clearExistingTimeLineDataMock).clear();
         inorder.verify(gatherTimeLineDataMock).gather(personMock);
         inorder.verify(personSubSectionTimeLineWriterMock).write();

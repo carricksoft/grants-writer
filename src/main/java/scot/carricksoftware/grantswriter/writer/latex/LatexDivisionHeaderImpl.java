@@ -7,10 +7,12 @@ package scot.carricksoftware.grantswriter.writer.latex;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.data.helpers.LatexDivision;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
+@Component
 public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
 
     private static final Logger logger = LogManager.getLogger(LatexDivisionHeaderImpl.class);

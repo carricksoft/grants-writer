@@ -25,4 +25,5 @@ public class LatexPackageDeclarationImpl implements LatexPackageDeclaration {
                 LatexConstants.TERM_END;
         fileWriter.writeLine(sb);
     }
+
 }

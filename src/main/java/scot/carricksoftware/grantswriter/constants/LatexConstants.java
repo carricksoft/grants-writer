@@ -22,6 +22,8 @@ public class LatexConstants {
     public static final String LONG_TABLE_END = "\\end{longtable}";
     @SuppressWarnings("SpellCheckingInspection")
     public static final String LONG_TABLE_START = "\\begin{longtable}{";
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final String SECTION_NUMBERING = "\\setsecnumdepth{subsubsection}";
 
     @SuppressWarnings("SpellCheckingInspection")
     public static final String USE_PACKAGE_TERM = "\\usepackage{";

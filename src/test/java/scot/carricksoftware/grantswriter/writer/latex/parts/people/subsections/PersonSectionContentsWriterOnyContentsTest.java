@@ -14,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
+import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,9 @@ class PersonSectionContentsWriterOnyContentsTest {
     @Mock
     private FileWriter fileWriterMock;
 
+    @Mock
+    private LatexDivisionHeader latexDivisionHeader;
+
     private List<PersonText> contents;
 
     private PersonText personText;
@@ -43,7 +47,7 @@ class PersonSectionContentsWriterOnyContentsTest {
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock);
+        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock, latexDivisionHeader);
         person = new Person();
         personText = new PersonText();
     }

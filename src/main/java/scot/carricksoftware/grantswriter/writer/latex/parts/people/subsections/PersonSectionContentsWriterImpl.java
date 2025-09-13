@@ -8,13 +8,13 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.constants.LatexLevels;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Component
@@ -40,14 +40,16 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         logger.info("PersonSectionContentsWriterImpl.write()");
         List<PersonText> contents = personTextService.findAllByPerson(person);
         if (!contents.isEmpty()) {
+            contents.sort(Comparator.comparing(PersonText::getOrder));
             for (PersonText personText : contents) {
                 if (personText.getHeading() != null) {
-                    latexDivisionHeader.write(LatexLevels.LATEX_SECTION, personText.getHeading());
+                    latexDivisionHeader.write(personText.getLevel().intValue(), personText.getHeading());
                 }
                 writeContent (personText);
             }
         }
     }
+
 
     private void writeContent(PersonText personText) {
         logger.info("PersonSectionContentsWriterImpl.writeContent()");

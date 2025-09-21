@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import scot.carricksoftware.grantswriter.writer.latex.parts.appendix.AppendixPartWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriter;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -23,10 +24,13 @@ class PartsWriterTest {
     @Mock
     PeoplePartWriter peoplePartWriterMock;
 
+    @Mock
+    AppendixPartWriter appendixPartWriterMock;
+
 
     @BeforeEach
     void setUp() {
-        partsWriter = new PartsWriterImpl(peoplePartWriterMock);
+        partsWriter = new PartsWriterImpl(peoplePartWriterMock, appendixPartWriterMock);
     }
 
     @Test

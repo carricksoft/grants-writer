@@ -25,6 +25,7 @@ public class PeoplePartWriterImpl implements PeoplePartWriter {
     private final PersonSection personSection;
 
 
+
     public PeoplePartWriterImpl(PersonService personService,
                                 PeoplePartHeader peopleHeader,
                                 PersonSection personSection) {
@@ -35,7 +36,7 @@ public class PeoplePartWriterImpl implements PeoplePartWriter {
 
     @Override
     public void write() {
-        logger.info("PeoplePartsImpl.write()");
+        logger.debug("PeoplePartsImpl::write()");
 
         peoplePartHeader.write();
         List<Person> people = personService.findAll();

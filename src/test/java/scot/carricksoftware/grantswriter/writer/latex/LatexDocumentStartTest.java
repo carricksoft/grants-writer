@@ -39,13 +39,15 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
-        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock, fileWriterMock);
         documentStart.write();
 
         //noinspection SpellCheckingInspection
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
         //noinspection SpellCheckingInspection
         inorder.verify(latexPackageDeclarationMock).write("longtable");
+        //noinspection SpellCheckingInspection
+        inorder.verify(fileWriterMock).writeLine("\\setsecnumdepth{subsubsection}");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }
 

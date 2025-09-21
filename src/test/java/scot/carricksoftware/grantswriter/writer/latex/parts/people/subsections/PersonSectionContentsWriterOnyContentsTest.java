@@ -20,10 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 
 @ExtendWith(MockitoExtension.class)
 class PersonSectionContentsWriterOnyContentsTest {
@@ -37,7 +39,7 @@ class PersonSectionContentsWriterOnyContentsTest {
     private FileWriter fileWriterMock;
 
     @Mock
-    private LatexDivisionHeader latexDivisionHeader;
+    private LatexDivisionHeader latexDivisionHeaderMock;
 
     private List<PersonText> contents;
 
@@ -47,7 +49,7 @@ class PersonSectionContentsWriterOnyContentsTest {
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock, latexDivisionHeader);
+        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock, latexDivisionHeaderMock);
         person = new Person();
         personText = new PersonText();
     }
@@ -69,5 +71,16 @@ class PersonSectionContentsWriterOnyContentsTest {
         when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
         writer.write(person);
         verify(fileWriterMock).writeLine(content);
+    }
+
+    @Test
+    void latexDivisionHeaderIsCalled() {
+        contents = new ArrayList<>();
+        personText.setHeading(GetRandomString());
+        personText.setLevel(GetRandomLong());
+        contents.add(personText);
+        when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
+        writer.write(person);
+        verify(latexDivisionHeaderMock).write(any(), any());
     }
 }

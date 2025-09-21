@@ -16,7 +16,6 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWri
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 class PartsWriterTest {

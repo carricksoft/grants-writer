@@ -23,11 +23,11 @@ public class PersonText extends BaseEntity {
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`level`")
-    private Long level;
+    private String level;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`order`")
-    private Long order;
+    private String order;
 
     @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`heading`")
@@ -46,19 +46,19 @@ public class PersonText extends BaseEntity {
         this.person = person;
     }
 
-    public Long getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Long level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
-    public Long getOrder() {
+    public String getOrder() {
         return order;
     }
 
-    public void setOrder(Long order) {
+    public void setOrder(String order) {
         this.order = order;
     }
 

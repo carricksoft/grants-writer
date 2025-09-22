@@ -12,7 +12,6 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 class PersonTextTest {
@@ -43,7 +42,7 @@ class PersonTextTest {
 
     @Test
     void setLevelTest() {
-        Long level = GetRandomLong();
+        String level = GetRandomString();
         personText.setLevel(level);
         assertEquals(level, personText.getLevel());
     }
@@ -55,7 +54,7 @@ class PersonTextTest {
 
     @Test
     void setOrderTest() {
-        Long order = GetRandomLong();
+        String order = GetRandomString();
         personText.setOrder(order);
         assertEquals(order, personText.getOrder());
     }

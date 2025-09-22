@@ -13,8 +13,8 @@ import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.PersonListSortByOrder;
 
-import java.util.Comparator;
 import java.util.List;
 
 @Component
@@ -28,10 +28,13 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private final LatexDivisionHeader latexDivisionHeader;
 
-    public PersonSectionContentsWriterImpl(PersonTextService personTextService, FileWriter fileWriter, LatexDivisionHeader latexDivisionHeader) {
+    private final PersonListSortByOrder personListSortByOrder;
+
+    public PersonSectionContentsWriterImpl(PersonTextService personTextService, FileWriter fileWriter, LatexDivisionHeader latexDivisionHeader, PersonListSortByOrder personListSortByOrder) {
         this.personTextService = personTextService;
         this.fileWriter = fileWriter;
         this.latexDivisionHeader = latexDivisionHeader;
+        this.personListSortByOrder = personListSortByOrder;
     }
 
 
@@ -40,10 +43,10 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         logger.info("PersonSectionContentsWriterImpl.write()");
         List<PersonText> contents = personTextService.findAllByPerson(person);
         if (!contents.isEmpty()) {
-            contents.sort(Comparator.comparing(PersonText::getOrder));
+            personListSortByOrder.sort(contents);
             for (PersonText personText : contents) {
                 if (personText.getHeading() != null) {
-                    latexDivisionHeader.write(personText.getLevel().intValue(), personText.getHeading());
+                    latexDivisionHeader.write(Integer.parseInt(personText.getLevel()), personText.getHeading());
                 }
                 writeContent (personText);
             }

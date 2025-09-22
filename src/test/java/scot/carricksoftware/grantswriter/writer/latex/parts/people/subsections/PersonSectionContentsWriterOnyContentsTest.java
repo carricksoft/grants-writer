@@ -15,17 +15,18 @@ import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.PersonListSortByOrder;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomInteger;
+
 
 @ExtendWith(MockitoExtension.class)
 class PersonSectionContentsWriterOnyContentsTest {
@@ -41,6 +42,9 @@ class PersonSectionContentsWriterOnyContentsTest {
     @Mock
     private LatexDivisionHeader latexDivisionHeaderMock;
 
+    @Mock
+    private PersonListSortByOrder personListSortByOrderMock;
+
     private List<PersonText> contents;
 
     private PersonText personText;
@@ -49,7 +53,10 @@ class PersonSectionContentsWriterOnyContentsTest {
 
     @BeforeEach
     void setUp() {
-        writer = new PersonSectionContentsWriterImpl(personTextServiceMock, fileWriterMock, latexDivisionHeaderMock);
+        writer = new PersonSectionContentsWriterImpl(personTextServiceMock,
+                fileWriterMock,
+                latexDivisionHeaderMock,
+                personListSortByOrderMock);
         person = new Person();
         personText = new PersonText();
     }
@@ -77,10 +84,10 @@ class PersonSectionContentsWriterOnyContentsTest {
     void latexDivisionHeaderIsCalled() {
         contents = new ArrayList<>();
         personText.setHeading(GetRandomString());
-        personText.setLevel(GetRandomLong());
+        personText.setLevel(GetRandomInteger().toString());
         contents.add(personText);
         when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
         writer.write(person);
-        verify(latexDivisionHeaderMock).write(any(), any());
+        verify(latexDivisionHeaderMock).write((Integer) any(), any());
     }
 }

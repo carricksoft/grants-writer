@@ -32,4 +32,10 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
         fileWriter.writeLine(latexDivision.header(level)
                 + title + LatexConstants.TERM_END);
     }
+
+    @Override
+    public void write(String levelString, String title) {
+        Integer level = Integer.valueOf(levelString);
+        write(level, title);
+    }
 }

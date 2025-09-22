@@ -90,4 +90,13 @@ class PersonSectionContentsWriterOnyContentsTest {
         writer.write(person);
         verify(latexDivisionHeaderMock).write((Integer) any(), any());
     }
+
+    @Test
+    void sortIsCalled() {
+        contents = new ArrayList<>();
+        contents.add(personText);
+        when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
+        writer.write(person);
+        verify(personListSortByOrderMock).sort(contents);
+    }
 }

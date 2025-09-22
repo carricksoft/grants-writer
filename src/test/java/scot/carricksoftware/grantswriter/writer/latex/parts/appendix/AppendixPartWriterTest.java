@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.writer.latex.LatexPartHeader;
+import scot.carricksoftware.grantswriter.writer.latex.parts.appendix.headers.AppendixPartHeader;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class AppendixPartWriterTest {
@@ -20,15 +20,16 @@ class AppendixPartWriterTest {
     private AppendixPartWriter writer;
 
     @Mock
-    private LatexPartHeader latexPartHeaderMock;
+    private AppendixPartHeader appendixPartHeaderMock;
 
     @BeforeEach
     void setUp() {
-        writer = new AppendixPartWriterImpl(latexPartHeaderMock);
+        writer = new AppendixPartWriterImpl(appendixPartHeaderMock);
     }
 
     @Test
-    void constructorTest(){
-        assertNotNull(writer);
+    void partHeaderIsCalled(){
+        writer.write();
+        verify(appendixPartHeaderMock).write();
     }
 }

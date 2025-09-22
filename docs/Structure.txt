@@ -13,3 +13,6 @@ gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCert
 GatherBirthCertificateTimeLineData::gather -> (GatherBirthCertificateNewBornTimeLineData::gather,  )
 
 GatherDeathCertificateTimeLineData::gather -> (GatherDeathCertificateDeceasedTimeLineData::gather,  )
+
+TexController -> TexWriter -> PartsWriter -> AppendixPartWriter -> (AppendixPartHeader) ->
+    *(Appendix ContentsHeader, AppendixContentsWriter)

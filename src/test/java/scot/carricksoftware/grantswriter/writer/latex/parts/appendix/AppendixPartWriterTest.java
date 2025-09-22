@@ -8,7 +8,9 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.appendix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.writer.latex.LatexPartHeader;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,9 +19,12 @@ class AppendixPartWriterTest {
 
     private AppendixPartWriter writer;
 
+    @Mock
+    private LatexPartHeader latexPartHeaderMock;
+
     @BeforeEach
     void setUp() {
-        writer = new AppendixPartWriterImpl();
+        writer = new AppendixPartWriterImpl(latexPartHeaderMock);
     }
 
     @Test

@@ -46,4 +46,17 @@ class LatexDivisionHeaderTest {
         verify(fileWriterMock).writeLine(requiredString);
     }
 
+    @Test
+    void writeStringTest() {
+        Integer level = GetRandomInteger();
+        String levelString = level.toString();
+        String title = GetRandomString();
+        String heading = GetRandomString();
+        when(latexDivisionMock.header(level)).thenReturn(heading);
+        String requiredString = heading + title + "}";
+        header.write(levelString, title);
+
+        verify(fileWriterMock).writeLine(requiredString);
+    }
+
 }

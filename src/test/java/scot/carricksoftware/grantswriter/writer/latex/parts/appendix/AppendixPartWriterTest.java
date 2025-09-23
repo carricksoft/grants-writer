@@ -23,6 +23,7 @@ import java.util.List;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomInteger;
 
 @ExtendWith(MockitoExtension.class)
 class AppendixPartWriterTest {
@@ -52,14 +53,29 @@ class AppendixPartWriterTest {
 
     @Test
     void theContentsAreWrittenTest(){
-        AppendixText appendixtext = new AppendixText();
+        AppendixText appendixText = new AppendixText();
         String contents = GetRandomString();
-        appendixtext.setContent(contents);
+        appendixText.setContent(contents);
         List<AppendixText> appendixTextList = new ArrayList<>();
-        appendixTextList.add(appendixtext);
+        appendixTextList.add(appendixText);
         when(appendixTextServiceMock.findAll()).thenReturn(appendixTextList);
 
         writer.write();
         verify(fileWriterMock).writeLine(contents);
+    }
+
+    @Test
+    void theHeadingIsWrittenTest(){
+        AppendixText appendixText = new AppendixText();
+        String heading = GetRandomString();
+        appendixText.setHeading(heading);
+        Integer level = GetRandomInteger();
+        appendixText.setLevel(level.toString());
+        List<AppendixText> appendixTextList = new ArrayList<>();
+        appendixTextList.add(appendixText);
+        when(appendixTextServiceMock.findAll()).thenReturn(appendixTextList);
+
+        writer.write();
+        verify(latexDivisionHeaderMock).write(level, heading);
     }
 }

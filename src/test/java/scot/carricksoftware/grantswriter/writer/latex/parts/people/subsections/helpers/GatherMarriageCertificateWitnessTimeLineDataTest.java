@@ -30,20 +30,11 @@ class GatherMarriageCertificateWitnessTimeLineDataTest {
 
     private GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineData;
 
-    @Mock
-    private MarriageCertificateService marriageCertificateServiceMock;
-
-    @Mock
-    private GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineDataMock;
-
-    @Mock
-    private GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineDataMock;
-
-    @Mock
-    private GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataMock;
-
-    @Mock
-    private GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataMock;
+    @Mock private MarriageCertificateService marriageCertificateServiceMock;
+    @Mock private GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineDataMock;
+    @Mock private GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineDataMock;
+    @Mock private GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataMock;
+    @Mock private GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataMock;
 
     List<MarriageCertificate> marriageCertificates;
     Person person;

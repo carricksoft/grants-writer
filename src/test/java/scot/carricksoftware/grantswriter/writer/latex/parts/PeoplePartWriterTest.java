@@ -31,14 +31,9 @@ class PeoplePartWriterTest {
 
     private PeoplePartWriter peoplePartWriter;
 
-    @Mock
-    private PersonService personServiceMock;
-
-    @Mock
-    private PersonSection personSectionMock;
-
-    @Mock
-    private PeoplePartHeader peopleHeaderMock;
+    @Mock private PersonService personServiceMock;
+    @Mock private PersonSection personSectionMock;
+    @Mock private PeoplePartHeader peopleHeaderMock;
 
     @SuppressWarnings("EmptyMethod")
     @BeforeEach

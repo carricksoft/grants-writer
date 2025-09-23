@@ -30,8 +30,7 @@ class GatherBirthCertificateFatherTimeLineDataFatherTest {
 
     GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
 
-    @Mock
-    private TimeLineData timelineDataMock;
+    @Mock private TimeLineData timelineDataMock;
 
     private List<BirthCertificate> birthCertificates;
 

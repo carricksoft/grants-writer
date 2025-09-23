@@ -30,15 +30,13 @@ class GatherBirthCertificateNewBornTimeLineDataWhereBornTest {
 
     GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData;
 
-    @Mock
-    private TimeLineData timelineDataMock;
+    @Mock private TimeLineData timelineDataMock;
 
     private List<BirthCertificate> birthCertificates;
 
     private TreeMap<DMY, List<String>> timeLine;
 
     private BirthCertificate birthCertificate;
-
 
     @BeforeEach
     void setUp() {

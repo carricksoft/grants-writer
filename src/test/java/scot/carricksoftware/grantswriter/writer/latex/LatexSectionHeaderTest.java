@@ -19,8 +19,7 @@ class LatexSectionHeaderTest {
 
     private LatexSectionHeader header;
 
-    @Mock
-    private LatexDivisionHeader latexDivisionHeaderMock;
+    @Mock private LatexDivisionHeader latexDivisionHeaderMock;
 
     @BeforeEach
     void setUp() {

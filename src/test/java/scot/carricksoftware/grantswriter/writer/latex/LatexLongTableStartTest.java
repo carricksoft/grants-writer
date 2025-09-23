@@ -20,8 +20,7 @@ class LatexLongTableStartTest {
 
     private LatexLongTableStart latexLongTableStart;
 
-    @Mock
-    private FileWriter fileWriterMock;
+    @Mock private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

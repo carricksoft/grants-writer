@@ -23,11 +23,8 @@ class LatexDivisionHeaderTest {
 
     private LatexDivisionHeader header;
 
-    @Mock
-    private FileWriter fileWriterMock;
-
-    @Mock
-    private LatexDivision latexDivisionMock;
+    @Mock private FileWriter fileWriterMock;
+    @Mock private LatexDivision latexDivisionMock;
 
     @BeforeEach
     void setUp() {

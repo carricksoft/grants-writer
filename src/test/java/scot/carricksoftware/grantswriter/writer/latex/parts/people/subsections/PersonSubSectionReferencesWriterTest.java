@@ -24,12 +24,8 @@ class PersonSubSectionReferencesWriterTest {
 
     private PersonSubSectionReferencesWriter personSubSectionReferencesWriter;
 
-    @Mock
-    private LatexSubSectionHeader latexSubSectionHeaderMock;
-
-    @Mock
-    private WriteReferences writeReferencesMock;
-
+    @Mock private LatexSubSectionHeader latexSubSectionHeaderMock;
+    @Mock private WriteReferences writeReferencesMock;
 
     @BeforeEach
     void setUp() {

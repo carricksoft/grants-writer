@@ -31,20 +31,11 @@ class GatherBirthCertificateTimeLineDataTest {
 
     private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineData;
 
-    @Mock
-    private BirthCertificateService birthCertificateServiceMock;
-
-    @Mock
-    private GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineDataMock;
-
-    @Mock
-    private GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineDataMock;
-
-    @Mock
-    private GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineDataMock;
-
-    @Mock
-    private GatherBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineDataMock;
+    @Mock private BirthCertificateService birthCertificateServiceMock;
+    @Mock private GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineDataMock;
+    @Mock private GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineDataMock;
+    @Mock private GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineDataMock;
+    @Mock private GatherBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineDataMock;
 
     List<BirthCertificate> birthCertificates;
     Person person;

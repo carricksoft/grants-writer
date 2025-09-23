@@ -33,17 +33,10 @@ class WriteTimeLineTest {
 
     private WriteTimeLine writeTimeLine;
 
-    @Mock
-    private FileWriter fileWriterMock;
-
-    @Mock
-    private LatexLongTableStart latexLongTableStartMock;
-
-    @Mock
-    private LatexLongTabLeEnd latexLongTabLeEndMock;
-
-    @Mock
-    private TimeLineData timeLineDataMock;
+    @Mock private FileWriter fileWriterMock;
+    @Mock private LatexLongTableStart latexLongTableStartMock;
+    @Mock private LatexLongTabLeEnd latexLongTabLeEndMock;
+    @Mock private TimeLineData timeLineDataMock;
 
     @BeforeEach
     void setUp() {

@@ -29,15 +29,9 @@ class GatherDeathCertificateTimeLineDataTest {
 
     private GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData;
 
-    @Mock
-    private DeathCertificateService deathCertificateServiceMock;
-
-    @Mock
-    private GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineDataMock;
-
-    @Mock
-    private GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineDataMock;
-
+    @Mock private DeathCertificateService deathCertificateServiceMock;
+    @Mock private GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineDataMock;
+    @Mock private GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineDataMock;
 
     List<DeathCertificate> deathCertificates;
     Person person;

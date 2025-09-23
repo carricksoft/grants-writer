@@ -21,11 +21,8 @@ class LatexDocumentStartTest {
 
     private LatexDocumentStart documentStart;
 
-    @Mock
-    private FileWriter fileWriterMock;
-
-    @Mock
-    private LatexPackageDeclaration latexPackageDeclarationMock;
+    @Mock private FileWriter fileWriterMock;
+    @Mock private LatexPackageDeclaration latexPackageDeclarationMock;
 
     @BeforeEach
     void setUp() {

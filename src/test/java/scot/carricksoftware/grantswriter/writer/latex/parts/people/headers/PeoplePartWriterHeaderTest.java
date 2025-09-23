@@ -20,8 +20,7 @@ class PeoplePartWriterHeaderTest {
 
     private PeoplePartHeader header;
 
-    @Mock
-    private LatexPartHeader latexPartHeaderMock;
+    @Mock private LatexPartHeader latexPartHeaderMock;
 
     @BeforeEach
     void setUp() {

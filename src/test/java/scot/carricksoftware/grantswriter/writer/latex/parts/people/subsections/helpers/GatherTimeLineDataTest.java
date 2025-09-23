@@ -19,24 +19,12 @@ class GatherTimeLineDataTest {
 
     private GatherTimeLineData gatherTimeLineData;
 
-    @Mock
-    private GatherCensusTimeLineData gatherCensusTimeLineDataMock;
-
-    @Mock
-    private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineDataMock;
-
-    @Mock
-    private GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineDataMock;
-
-    @Mock
-    private GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineDataMock;
-
-    @Mock
-    private GatherDivorceCertificateTimeLineData gatherDivorceCertificateTimeLineDataMock;
-
-
-    @Mock
-    private Person personMock;
+    @Mock private GatherCensusTimeLineData gatherCensusTimeLineDataMock;
+    @Mock private GatherBirthCertificateTimeLineData gatherBirthCertificateTimeLineDataMock;
+    @Mock private GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineDataMock;
+    @Mock private GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineDataMock;
+    @Mock private GatherDivorceCertificateTimeLineData gatherDivorceCertificateTimeLineDataMock;
+    @Mock private Person personMock;
 
     @BeforeEach
     void setUp() {

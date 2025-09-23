@@ -22,12 +22,8 @@ class PartsWriterTest {
 
     private PartsWriter partsWriter;
 
-    @Mock
-    PeoplePartWriter peoplePartWriterMock;
-
-    @Mock
-    AppendixPartWriter appendixPartWriterMock;
-
+    @Mock PeoplePartWriter peoplePartWriterMock;
+    @Mock AppendixPartWriter appendixPartWriterMock;
 
     @BeforeEach
     void setUp() {

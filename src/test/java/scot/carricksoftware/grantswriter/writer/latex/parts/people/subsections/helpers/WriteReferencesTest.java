@@ -29,18 +29,10 @@ class WriteReferencesTest {
 
     private WriteReferences writeReferences;
 
-
-    @Mock
-    private FileWriter fileWriterMock;
-
-    @Mock
-    private LatexLongTableStart latexLongTableStartMock;
-
-    @Mock
-    private LatexLongTabLeEnd latexLongTabLeEndMock;
-
-    @Mock
-    TimeLineData timeLineDataMock;
+    @Mock private FileWriter fileWriterMock;
+    @Mock private LatexLongTableStart latexLongTableStartMock;
+    @Mock private LatexLongTabLeEnd latexLongTabLeEndMock;
+    @Mock private TimeLineData timeLineDataMock;
 
     @BeforeEach
     void setUp() {

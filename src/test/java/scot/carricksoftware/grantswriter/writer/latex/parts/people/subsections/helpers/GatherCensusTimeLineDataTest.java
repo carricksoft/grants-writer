@@ -26,14 +26,9 @@ class GatherCensusTimeLineDataTest {
 
     private GatherCensusTimeLineData gatherCensusTimeLineData;
 
-    @Mock
-    CensusEntryService censusEntryServiceMock;
-
-    @Mock
-    TimeLineData timeLineDataMock;
-
-    @Mock
-    Person personMock;
+    @Mock CensusEntryService censusEntryServiceMock;
+    @Mock TimeLineData timeLineDataMock;
+    @Mock Person personMock;
 
     @BeforeEach
     void setUp() {

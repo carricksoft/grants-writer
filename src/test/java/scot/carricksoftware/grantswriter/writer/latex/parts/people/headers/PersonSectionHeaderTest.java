@@ -21,11 +21,8 @@ class PersonSectionHeaderTest {
 
     PersonSectionHeader personSectionHeader;
 
-    @Mock
-    LatexSectionHeader latexSectionHeaderMock;
-
-    @Mock
-    Person personMock;
+    @Mock LatexSectionHeader latexSectionHeaderMock;
+    @Mock Person personMock;
 
     @BeforeEach
     void setUp() {

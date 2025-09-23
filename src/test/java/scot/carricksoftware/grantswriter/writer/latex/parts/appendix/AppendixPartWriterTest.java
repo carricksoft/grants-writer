@@ -30,11 +30,16 @@ class AppendixPartWriterTest {
 
     private AppendixPartWriter writer;
 
-    @Mock private AppendixPartHeader appendixPartHeaderMock;
-    @Mock private AppendixTextService appendixTextServiceMock;
-    @Mock private FileWriter fileWriterMock;
-    @Mock private LatexDivisionHeader latexDivisionHeaderMock;
-    @Mock private AppendixListSortByOrder appendixListSortByOrderMock;
+    @Mock
+    private AppendixPartHeader appendixPartHeaderMock;
+    @Mock
+    private AppendixTextService appendixTextServiceMock;
+    @Mock
+    private FileWriter fileWriterMock;
+    @Mock
+    private LatexDivisionHeader latexDivisionHeaderMock;
+    @Mock
+    private AppendixListSortByOrder appendixListSortByOrderMock;
 
     @BeforeEach
     void setUp() {
@@ -46,13 +51,13 @@ class AppendixPartWriterTest {
     }
 
     @Test
-    void partHeaderIsCalledTest(){
+    void partHeaderIsCalledTest() {
         writer.write();
         verify(appendixPartHeaderMock).write();
     }
 
     @Test
-    void theContentsAreWrittenTest(){
+    void theContentsAreWrittenTest() {
         AppendixText appendixText = new AppendixText();
         String contents = GetRandomString();
         appendixText.setContent(contents);
@@ -65,7 +70,7 @@ class AppendixPartWriterTest {
     }
 
     @Test
-    void theHeadingIsWrittenTest(){
+    void theHeadingIsWrittenTest() {
         AppendixText appendixText = new AppendixText();
         String heading = GetRandomString();
         appendixText.setHeading(heading);
@@ -77,5 +82,17 @@ class AppendixPartWriterTest {
 
         writer.write();
         verify(latexDivisionHeaderMock).write(level, heading);
+    }
+
+    @Test
+    void theTextIsSortedTest() {
+        AppendixText appendixText = new AppendixText();
+        List<AppendixText> appendixTextList = new ArrayList<>();
+        appendixTextList.add(appendixText);
+        when(appendixTextServiceMock.findAll()).thenReturn(appendixTextList);
+
+        writer.write();
+        verify(appendixListSortByOrderMock).sort(appendixTextList);
+
     }
 }

@@ -27,14 +27,12 @@ class PersonServiceTest {
 
     private PersonService service;
 
-    @Mock
-    private PersonRepository personRepositoryMock;
+    @Mock private PersonRepository personRepositoryMock;
 
     @BeforeEach
     void setUp() {
         service = new PersonServiceImpl(personRepositoryMock);
     }
-
 
     @Test
     public void findAllTest() {
@@ -43,6 +41,4 @@ class PersonServiceTest {
         when(personRepositoryMock.findAll(any(Sort.class))).thenReturn(people);
         assertEquals(people, service.findAll());
     }
-
-
 }

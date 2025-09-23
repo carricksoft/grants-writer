@@ -37,7 +37,6 @@ class AppendixTextTest {
         assertEquals(id, appendixText.getId());
     }
 
-
     @Test
     void getLevelTest() {
         assertNull(appendixText.getLevel());

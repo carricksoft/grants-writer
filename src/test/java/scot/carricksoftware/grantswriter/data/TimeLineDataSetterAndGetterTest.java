@@ -19,31 +19,20 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class TimeLineDataSetterAndGetterTest {
 
-
     private TimeLineData timeLineData;
 
-    @Mock
-    private DMY dmyMock;
-
-
-    @Mock
-    AddCensusEntry addCensusEntryMock;
+    @Mock private DMY dmyMock;
+    @Mock AddCensusEntry addCensusEntryMock;
 
 
     @BeforeEach
     void setUp() {
         timeLineData = new TimeLineDataImpl(addCensusEntryMock);
-    }
-
-    @Test
-    void constructorTest() {
-        assertNotNull(timeLineData);
     }
 
     @Test

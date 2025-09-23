@@ -48,6 +48,4 @@ public class RegionTest {
         region.setCountry(country);
         assertEquals(country, region.getCountry());
     }
-
-
 }

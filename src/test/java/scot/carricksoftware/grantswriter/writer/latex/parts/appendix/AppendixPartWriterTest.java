@@ -30,16 +30,11 @@ class AppendixPartWriterTest {
 
     private AppendixPartWriter writer;
 
-    @Mock
-    private AppendixPartHeader appendixPartHeaderMock;
-    @Mock
-    private AppendixTextService appendixTextServiceMock;
-    @Mock
-    private FileWriter fileWriterMock;
-    @Mock
-    private LatexDivisionHeader latexDivisionHeaderMock;
-    @Mock
-    private AppendixListSortByOrder appendixListSortByOrderMock;
+    @Mock private AppendixPartHeader appendixPartHeaderMock;
+    @Mock private AppendixTextService appendixTextServiceMock;
+    @Mock private FileWriter fileWriterMock;
+    @Mock private LatexDivisionHeader latexDivisionHeaderMock;
+    @Mock private AppendixListSortByOrder appendixListSortByOrderMock;
 
     @BeforeEach
     void setUp() {
@@ -93,6 +88,5 @@ class AppendixPartWriterTest {
 
         writer.write();
         verify(appendixListSortByOrderMock).sort(appendixTextList);
-
     }
 }

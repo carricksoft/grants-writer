@@ -24,7 +24,6 @@ class DeathCertificatePlaceTest {
         deathCertificate = new DeathCertificate();
     }
 
-
     @Test
     void getWhereRegisteredTest() {
         assertNull(deathCertificate.getWhereRegistered());

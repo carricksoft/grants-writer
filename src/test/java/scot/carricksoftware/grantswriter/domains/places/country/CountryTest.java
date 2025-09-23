@@ -39,6 +39,4 @@ class CountryTest {
         country.setName(name);
         assertEquals(name, country.getName());
     }
-
-
 }

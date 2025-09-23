@@ -24,10 +24,8 @@ class TimeLineDataAddCensusEntryTest {
 
     private TimeLineData timeLineData;
 
-
     @Mock
     AddCensusEntry addCensusEntryMock;
-
 
     @BeforeEach
     void setUp() {

@@ -15,16 +15,11 @@ class TimeLineDateComparatorTest {
 
     private TimeLineDateComparator timeLineDateComparator;
 
-    String today;
-
-    String nextYear;
-
-    String nextMonth;
-
-    String nextDay;
-
-    String sameDay;
-
+    private String today;
+    private String nextYear;
+    private String nextMonth;
+    private String nextDay;
+    private String sameDay;
 
     @BeforeEach
     void setUp() {

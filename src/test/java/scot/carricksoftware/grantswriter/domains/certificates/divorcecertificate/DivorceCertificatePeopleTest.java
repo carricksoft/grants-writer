@@ -47,8 +47,4 @@ class DivorceCertificatePeopleTest {
         certificate.setSecondParty(person);
         assertEquals(person, certificate.getSecondParty());
     }
-
-
-
-
 }

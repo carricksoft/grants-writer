@@ -93,6 +93,4 @@ class DeathCertificateUntrackedTest {
         deathCertificate.setUntrackedUsualResidence(untrackedUsualResidence);
         assertEquals(untrackedUsualResidence, deathCertificate.getUntrackedUsualResidence());
     }
-
-
 }

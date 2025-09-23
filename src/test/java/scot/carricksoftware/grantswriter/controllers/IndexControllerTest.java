@@ -19,8 +19,7 @@ class IndexControllerTest {
 
     private IndexController controller;
 
-    @Mock
-    private Model modelMock;
+    @Mock private Model modelMock;
 
     @BeforeEach
     void setUp() {

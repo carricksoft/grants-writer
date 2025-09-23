@@ -26,9 +26,7 @@ class AppendixTextServiceTest {
 
     private AppendixTextService appendixTextService;
 
-    @Mock
-    private AppendixTextRepository appendixTextRepositoryMock;
-
+    @Mock private AppendixTextRepository appendixTextRepositoryMock;
 
     @BeforeEach
     void setUp() {

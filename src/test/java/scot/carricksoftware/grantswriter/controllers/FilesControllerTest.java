@@ -24,11 +24,8 @@ class FilesControllerTest {
 
     private FilesController controller;
 
-    @Mock
-    private WriterFiles writerFilesMock;
-
-    @Mock
-    private Model modelMock;
+    @Mock private WriterFiles writerFilesMock;
+    @Mock private Model modelMock;
 
     @BeforeEach
     void setUp() {

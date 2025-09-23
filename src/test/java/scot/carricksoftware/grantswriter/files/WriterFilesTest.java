@@ -23,7 +23,6 @@ class WriterFilesTest {
         writerFiles = new WriterFilesImpl();
     }
 
-
     @Test
     public void getLatexFileNameTest() {
         assertNull(writerFiles.getLatexFileName());
@@ -67,6 +66,4 @@ class WriterFilesTest {
         assertTrue(writerFiles.getLatexFileName().contains("grants.tex"));
         assertTrue(writerFiles.getPdfFileName().contains("grants.pdf"));
     }
-
-
 }

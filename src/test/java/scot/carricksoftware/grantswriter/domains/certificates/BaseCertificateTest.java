@@ -62,6 +62,4 @@ class BaseCertificateTest {
         baseCertificate.setRegistrationAuthority(organisation);
         assertEquals(organisation, baseCertificate.getRegistrationAuthority());
     }
-
-
 }

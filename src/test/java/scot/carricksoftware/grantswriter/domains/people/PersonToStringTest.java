@@ -20,7 +20,6 @@ class PersonToStringTest {
     final String certifiedBirth = "1930";
     final String certifiedDeath = "1940";
 
-
     @BeforeEach
     void setUp() {
         person = new Person();

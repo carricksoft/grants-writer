@@ -34,7 +34,4 @@ class DivorceCertificateIDTest {
         certificate.setId(id);
         assertEquals(id, certificate.getId());
     }
-
-
-
 }

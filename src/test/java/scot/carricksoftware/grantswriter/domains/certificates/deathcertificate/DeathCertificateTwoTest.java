@@ -45,6 +45,4 @@ class DeathCertificateTwoTest {
         deathCertificate.setInformantQualification(informantQualification);
         assertEquals(informantQualification, deathCertificate.getInformantQualification());
     }
-
-
 }

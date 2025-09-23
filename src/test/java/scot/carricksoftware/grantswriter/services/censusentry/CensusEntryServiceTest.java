@@ -29,7 +29,6 @@ class CensusEntryServiceTest {
     @Mock
     private CensusEntryRepository censusEntryRepositoryMock;
 
-
     @BeforeEach
     void setUp() {
         censusEntryService = new CensusEntryServiceImpl(censusEntryRepositoryMock);
@@ -44,6 +43,4 @@ class CensusEntryServiceTest {
         when(censusEntryRepositoryMock.findAllByPerson(any())).thenReturn(censusEntryList);
         assertEquals(censusEntryList, censusEntryService.findAllByPerson(GetRandomPerson()));
     }
-
-
 }

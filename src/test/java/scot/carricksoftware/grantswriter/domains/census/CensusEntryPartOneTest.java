@@ -8,7 +8,6 @@ package scot.carricksoftware.grantswriter.domains.census;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
@@ -23,10 +22,6 @@ import static scot.carricksoftware.grantswriter.GenerateRandomCensusValues.GetRa
 class CensusEntryPartOneTest {
 
     private CensusEntry entry;
-
-    @SuppressWarnings("unused")
-    @Mock
-    private Census censusMock;
 
     @BeforeEach
     void setUp() {
@@ -80,6 +75,4 @@ class CensusEntryPartOneTest {
         entry.setPersonalOccupation(occupation);
         assertEquals(occupation, entry.getPersonalOccupation());
     }
-
-
 }

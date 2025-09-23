@@ -35,7 +35,6 @@ class BaseCertificateStringTest {
         assertEquals(testString, baseCertificate.getCertificateNumber());
     }
 
-
     @Test
     void getCertificateDateTest() {
         assertNull(baseCertificate.getCertificateDate());

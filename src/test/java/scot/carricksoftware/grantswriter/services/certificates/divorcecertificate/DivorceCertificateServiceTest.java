@@ -26,10 +26,9 @@ import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRa
 @ExtendWith(MockitoExtension.class)
 public class DivorceCertificateServiceTest {
 
-    DivorceCertificateService divorceCertificateService;
+    private DivorceCertificateService divorceCertificateService;
 
-    @Mock
-    DivorceCertificateRepository divorceCertificateRepositoryMock;
+    @Mock DivorceCertificateRepository divorceCertificateRepositoryMock;
 
     private Person person;
 

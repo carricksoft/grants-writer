@@ -30,8 +30,7 @@ class MarriageCertificateServiceTest {
 
     private Person person;
 
-    @Mock
-    MarriageCertificateRepository marriageCertificateRepositoryMock;
+    @Mock MarriageCertificateRepository marriageCertificateRepositoryMock;
 
     @BeforeEach
     void setUp() {

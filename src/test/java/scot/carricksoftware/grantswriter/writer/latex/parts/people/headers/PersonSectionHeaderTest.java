@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class PersonSectionHeaderTest {
 
-    PersonSectionHeader personSectionHeader;
+    private PersonSectionHeader personSectionHeader;
 
     @Mock LatexSectionHeader latexSectionHeaderMock;
     @Mock Person personMock;

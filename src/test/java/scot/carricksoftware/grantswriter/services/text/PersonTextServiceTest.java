@@ -27,8 +27,7 @@ class PersonTextServiceTest {
 
     private PersonTextService personTextService;
 
-    @Mock
-    private PersonTextRepository personTextRepositoryMock;
+    @Mock private PersonTextRepository personTextRepositoryMock;
 
     private Person person;
 

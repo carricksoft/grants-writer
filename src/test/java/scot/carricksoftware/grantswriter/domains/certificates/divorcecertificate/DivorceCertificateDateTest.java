@@ -58,10 +58,4 @@ class DivorceCertificateDateTest {
         certificate.setRegisteredDate(string);
         assertEquals(string, certificate.getRegisteredDate());
     }
-
-
-
-
-
-
 }

@@ -22,7 +22,6 @@ class DeathCertificateTimeTest {
         deathCertificate = new DeathCertificate();
     }
 
-
     @Test
     void getWhenBornTest() {
         assertNull(deathCertificate.getWhenBorn());
@@ -70,6 +69,4 @@ class DeathCertificateTimeTest {
         deathCertificate.setWhenRegistered(whenRegistered);
         assertEquals(whenRegistered, deathCertificate.getWhenRegistered());
     }
-
-
 }

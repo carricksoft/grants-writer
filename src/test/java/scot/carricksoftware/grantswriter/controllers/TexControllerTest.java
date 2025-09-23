@@ -26,14 +26,9 @@ class TexControllerTest {
 
     private TexController controller;
 
-    @Mock
-    private WriterFiles writerFilesMock;
-
-    @Mock
-    private TexWriter texWriterMock;
-
-    @Mock
-    private Model modelMock;
+    @Mock private WriterFiles writerFilesMock;
+    @Mock private TexWriter texWriterMock;
+    @Mock private Model modelMock;
 
     @BeforeEach
     void setUp() {

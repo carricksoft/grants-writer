@@ -23,7 +23,6 @@ class DeathCertificateTest {
         deathCertificate = new DeathCertificate();
     }
 
-
     @Test
     void getSexTest() {
         assertNull(deathCertificate.getSex());

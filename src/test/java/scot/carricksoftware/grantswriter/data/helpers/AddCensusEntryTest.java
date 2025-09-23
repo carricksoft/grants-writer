@@ -34,18 +34,12 @@ class AddCensusEntryTest {
     private AddCensusEntry addCensusEntry;
 
     private TreeMap<DMY, List<String>> timeLine;
-
     private List<CensusEntry> censusEntryList;
-
     private SortedSet<String> refs;
-
     private Place place;
 
-    @Mock
-    private Census censusMock;
-
-    @Mock
-    private CensusEntry censusEntryMock;
+    @Mock private Census censusMock;
+    @Mock private CensusEntry censusEntryMock;
 
     @BeforeEach
     void setUp() {

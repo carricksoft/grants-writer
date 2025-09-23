@@ -26,13 +26,12 @@ public class CensusTest {
 
     private Census census;
 
+    @Mock private Place placeMock;
+
     @BeforeEach
     public void setUp() {
         census = new Census();
     }
-
-    @Mock
-    private Place placeMock;
 
     @Test
     public void getIdTest() {

@@ -22,11 +22,8 @@ class StatusControllerTest {
 
     private StatusController controller;
 
-    @Mock
-    private StatusService statusServiceMock;
-
-    @Mock
-    private Model modelMock;
+    @Mock private StatusService statusServiceMock;
+    @Mock private Model modelMock;
 
     @BeforeEach
     void setUp() {

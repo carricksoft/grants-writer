@@ -7,6 +7,7 @@ package scot.carricksoftware.grantswriter.domains.people;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import scot.carricksoftware.grantswriter.domains.images.Image;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -79,4 +80,17 @@ public class PersonTest {
         person.setCertifiedYearOfDeath(certifiedYearOfDeath);
         assertEquals(certifiedYearOfDeath, person.getCertifiedYearOfDeath());
     }
+
+    @Test
+    void getImageTest() {
+        assertNull(person.getImage());
+    }
+
+    @Test
+    void setImageTest() {
+        Image image = new Image();
+        person.setImage(image);
+        assertEquals(image, person.getImage());
+    }
+
 }

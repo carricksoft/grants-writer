@@ -7,12 +7,20 @@ package scot.carricksoftware.grantswriter.domains.people;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.BaseEntity;
+import scot.carricksoftware.grantswriter.domains.images.Image;
+
 
 @Entity
 @Component
 public class Person extends BaseEntity {
+
+    @ManyToOne
+    @JoinColumn(name = "`image_id`")
+    private Image image;
 
     @Column(name = "`last_name`")
     private String lastName;
@@ -94,6 +102,14 @@ public class Person extends BaseEntity {
 
     public void setCertifiedYearOfDeath(String certifiedYearOfDeath) {
         this.certifiedYearOfDeath = certifiedYearOfDeath;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
 

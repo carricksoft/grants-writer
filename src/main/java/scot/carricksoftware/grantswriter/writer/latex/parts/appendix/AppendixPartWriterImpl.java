@@ -48,10 +48,12 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
         List<AppendixText> appendixTextList = appendixTextService.findAll();
         appendixListSortByOrder.sort(appendixTextList);
         for (AppendixText appendixText : appendixTextList) {
-                if (appendixText.getHeading() != null) {
+                if (appendixText.getHeading() != null && !appendixText.getHeading().isEmpty()) {
                     latexDivisionHeader.write(Integer.parseInt(appendixText.getLevel()), appendixText.getHeading());
                 }
-                writeContent (appendixText);
+                if (appendixText.getContent() != null) {
+                    writeContent(appendixText);
+                }
         }
     }
 

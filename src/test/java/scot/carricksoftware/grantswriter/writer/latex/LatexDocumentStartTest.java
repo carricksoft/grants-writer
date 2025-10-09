@@ -16,6 +16,7 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.inOrder;
 
+@SuppressWarnings("SpellCheckingInspection")
 @ExtendWith(SpringExtension.class)
 class LatexDocumentStartTest {
 
@@ -36,14 +37,12 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
-        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock, fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock, fileWriterMock, fileWriterMock);
         documentStart.write();
 
-        //noinspection SpellCheckingInspection
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
-        //noinspection SpellCheckingInspection
         inorder.verify(latexPackageDeclarationMock).write("longtable");
-        //noinspection SpellCheckingInspection
+        inorder.verify(latexPackageDeclarationMock).write("graphicx");
         inorder.verify(fileWriterMock).writeLine("\\setsecnumdepth{subsubsection}");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }

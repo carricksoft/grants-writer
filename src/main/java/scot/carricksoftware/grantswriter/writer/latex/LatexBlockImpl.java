@@ -29,6 +29,6 @@ public class LatexBlockImpl implements LatexBlock {
 
     @Override
     public void end(String blockName) {
-        fileWriter.writeLine( "}" + "\\end" + blockName + "}");
+        fileWriter.writeLine( "}" + "\\end" + "{"  + blockName + "}");
     }
 }

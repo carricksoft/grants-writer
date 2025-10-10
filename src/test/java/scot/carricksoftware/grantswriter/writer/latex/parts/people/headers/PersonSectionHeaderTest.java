@@ -71,5 +71,17 @@ class PersonSectionHeaderTest {
         verify(latexBlockMock).end("center");
     }
 
+    @Test
+    void theFileWriterIsWrittenTest() {
+        String fileName =  GetRandomString();
+        when(imageMock.getFileName()).thenReturn(fileName);
+        when(personMock.getImage()).thenReturn(imageMock);
+
+        personSectionHeader.write(personMock);
+        //noinspection SpellCheckingInspection
+        verify(fileWriterMock).writeLine("\\includegraphics[width=0.25\\linewidth]{/tmp/" + fileName + "}");
+
+    }
+
 
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.converters.StringToFileConverter;
+import scot.carricksoftware.grantswriter.domains.images.Image;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexBlock;
@@ -18,6 +19,7 @@ import scot.carricksoftware.grantswriter.writer.latex.LatexSectionHeader;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class PersonSectionHeaderTest {
@@ -26,10 +28,11 @@ class PersonSectionHeaderTest {
 
     @Mock LatexSectionHeader latexSectionHeaderMock;
     @Mock Person personMock;
+    @Mock Image imageMock;
     @Mock FileWriter fileWriterMock;
     @Mock LatexBlock latexBlockMock;
-    @Mock
-    StringToFileConverter stringToFileConverterMock;
+    @Mock StringToFileConverter stringToFileConverterMock;
+
 
     @BeforeEach
     void setUp() {
@@ -38,13 +41,17 @@ class PersonSectionHeaderTest {
                 fileWriterMock,
                 latexBlockMock,
                 stringToFileConverterMock);
+        when(personMock.getImage()).thenReturn(imageMock);
     }
 
     @Test
-    void writeTest() {
-        String toString = personSectionHeader.toString();
-        when(personMock.toString()).thenReturn(toString);
+    void actualImageIsCreatedTest() {
+        String imageData = GetRandomString();
+        when(imageMock.getImageData()).thenReturn(imageData);
+        String fileName =  GetRandomString();
+        when(imageMock.getFileName()).thenReturn(fileName);
+
         personSectionHeader.write(personMock);
-        verify(latexSectionHeaderMock).write(toString);
+        verify(stringToFileConverterMock).convert(imageData, "/tmp/" + fileName);
     }
 }

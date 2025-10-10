@@ -13,6 +13,8 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class ApplicationConstants {
 
+
+
     private ApplicationConstants() {
         // to stop checkstyle complaining
     }
@@ -21,5 +23,6 @@ public class ApplicationConstants {
     public static final String DATE_FORMAT = "dd/MM/yyyy";
     public static final String DATE_TIME_FORMAT = "dd/MM/yyyy hh:mm";
     public static final String EMPTY_STRING = "";
+    public static final String TEMP_DIRECTORY = "/tmp/";
 
 }

@@ -64,5 +64,12 @@ class PersonSectionHeaderTest {
         verify(latexSectionHeaderMock).write(personString);
     }
 
+    @Test
+    void theImageBlockIsWrittenTest() {
+        personSectionHeader.write(personMock);
+        verify(latexBlockMock).begin("center","");
+        verify(latexBlockMock).end("center");
+    }
+
 
 }

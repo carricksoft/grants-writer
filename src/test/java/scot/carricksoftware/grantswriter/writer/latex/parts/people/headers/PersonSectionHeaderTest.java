@@ -54,4 +54,15 @@ class PersonSectionHeaderTest {
         personSectionHeader.write(personMock);
         verify(stringToFileConverterMock).convert(imageData, "/tmp/" + fileName);
     }
+
+    @Test
+    void theSectionHeaderIsWrittenTest() {
+        String personString = GetRandomString();
+        when(personMock.toString()).thenReturn(personString);
+
+        personSectionHeader.write(personMock);
+        verify(latexSectionHeaderMock).write(personString);
+    }
+
+
 }

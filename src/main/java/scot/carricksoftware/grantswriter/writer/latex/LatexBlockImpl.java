@@ -19,26 +19,16 @@ public class LatexBlockImpl implements LatexBlock {
 
     @Override
     public void begin(String blockName, String options) {
-        StringBuilder text = new StringBuilder();
-        text.append("\\begin{");
-        text.append(blockName);
-        text.append("}");
+        String text = ("\\begin") + "{" + blockName + "}";
         if (options != null && !options.isEmpty()) {
-            text.append("[");
-            text.append(options);
-            text.append("]");
+            text += "[" + options + "]";
         }
-        text.append("{");
-        fileWriter.writeLine(text.toString());
-
+        text += "{";
+        fileWriter.writeLine(text);
     }
 
     @Override
     public void end(String blockName) {
-        String text = "}" +
-                "\\end" +
-                blockName +
-                "}";
-        fileWriter.writeLine(text);
+        fileWriter.writeLine( "}" + "\\end" + blockName + "}");
     }
 }

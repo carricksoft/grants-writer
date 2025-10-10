@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.converters.StringToFileConverter;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexBlock;
@@ -27,10 +28,16 @@ class PersonSectionHeaderTest {
     @Mock Person personMock;
     @Mock FileWriter fileWriterMock;
     @Mock LatexBlock latexBlockMock;
+    @Mock
+    StringToFileConverter stringToFileConverterMock;
 
     @BeforeEach
     void setUp() {
-        personSectionHeader = new PersonSectionHeaderImpl(latexSectionHeaderMock,fileWriterMock, latexBlockMock);
+        personSectionHeader = new PersonSectionHeaderImpl(
+                latexSectionHeaderMock,
+                fileWriterMock,
+                latexBlockMock,
+                stringToFileConverterMock);
     }
 
     @Test

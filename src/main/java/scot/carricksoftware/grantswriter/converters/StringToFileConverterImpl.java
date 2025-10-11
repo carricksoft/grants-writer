@@ -18,6 +18,8 @@ import javax.xml.bind.DatatypeConverter;
 @Component
 public class StringToFileConverterImpl implements StringToFileConverter {
 
+    
+
     @Override
     public void convert(String string, String fileName) {
         byte[] data = DatatypeConverter.parseBase64Binary(string);

@@ -25,7 +25,7 @@ public class StringToFileConverterImpl implements StringToFileConverter {
         try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
             outputStream.write(data);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            // an exception is thrown
         }
     }
 }

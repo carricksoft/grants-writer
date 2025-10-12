@@ -18,8 +18,6 @@ import javax.xml.bind.DatatypeConverter;
 @Component
 public class StringToFileConverterImpl implements StringToFileConverter {
 
-    
-
     @Override
     public void convert(String string, String fileName) {
         byte[] data = DatatypeConverter.parseBase64Binary(string);
@@ -27,8 +25,7 @@ public class StringToFileConverterImpl implements StringToFileConverter {
         try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
             outputStream.write(data);
         } catch (IOException e) {
-            //noinspection CallToPrintStackTrace
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }

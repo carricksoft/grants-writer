@@ -32,6 +32,11 @@ class StringToFileConverterTest {
         assertTrue(fileExists(fileName));
     }
 
+    @Test
+    void anExceptionIsThrownTest() {
+        assertThrows(Exception.class, () -> converter.convert(GetRandomString(), null));
+    }
+
     @SuppressWarnings("AssertWithSideEffects")
     @AfterEach
     void tearDown() {

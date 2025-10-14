@@ -5,7 +5,8 @@
 
 package scot.carricksoftware.grantswriter.combined;
 
-import scot.carricksoftware.grantswriter.domains.images.Image;
+import scot.carricksoftware.grantswriter.domains.images.PersonImage;
+import scot.carricksoftware.grantswriter.domains.text.PersonText;
 
 import java.util.List;
 
@@ -13,22 +14,34 @@ public class CombinedContentListImpl implements CombinedContentList {
 
     private List<Combined> combinedList;
 
-    @SuppressWarnings("EmptyMethod")
     @Override
-    public void addPersonImage(Image image) {
-
+    public void addPersonImage(PersonImage image) {
+        Combined combined = new CombinedImpl();
+        combined.setOrder(image.getOrder());
+        combined.setContentId(image.getId());
+        combined.setContentType(CombinedContentType.IMAGE.label);
+        combinedList.add(combined);
     }
 
-    @SuppressWarnings("EmptyMethod")
     @Override
-    public void addPersonText(List<Image> images) {
-
+    public void addPersonText(PersonText text) {
+        Combined combined = new CombinedImpl();
+        combined.setOrder(text.getOrder());
+        combined.setContentId(text.getId());
+        combined.setContentType(CombinedContentType.TEXT.label);
+        combinedList.add(combined);
     }
 
     @Override
     public void sort() {
-
+        // override the compare() method
+        combinedList.sort((s1, s2) -> {
+            int o1 = Integer.parseInt(s1.getOrder());
+            int o2 = Integer.parseInt(s2.getOrder());
+            return Integer.compare(o1, o2);
+        });
     }
+
 
     @Override
     public List<Combined> getList() {
@@ -37,7 +50,7 @@ public class CombinedContentListImpl implements CombinedContentList {
 
     @Override
     public void clear() {
-
+        combinedList.clear();
     }
 
 

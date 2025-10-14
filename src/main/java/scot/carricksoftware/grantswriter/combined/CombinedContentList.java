@@ -5,22 +5,20 @@
 
 package scot.carricksoftware.grantswriter.combined;
 
-import scot.carricksoftware.grantswriter.domains.images.Image;
+import scot.carricksoftware.grantswriter.domains.images.PersonImage;
+import scot.carricksoftware.grantswriter.domains.text.PersonText;
 
 import java.util.List;
 
 public interface CombinedContentList {
-    @SuppressWarnings("EmptyMethod")
-    void addPersonImage(Image image);
 
-    @SuppressWarnings("EmptyMethod")
-    void addPersonText(List<Image> images);
+    void addPersonImage(PersonImage image);
 
-    @SuppressWarnings("EmptyMethod")
+    void addPersonText(PersonText text);
+
     void sort();
 
     List<Combined> getList();
 
-    @SuppressWarnings("EmptyMethod")
     void clear();
 }

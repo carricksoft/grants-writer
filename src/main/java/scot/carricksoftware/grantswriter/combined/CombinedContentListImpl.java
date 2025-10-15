@@ -8,11 +8,12 @@ package scot.carricksoftware.grantswriter.combined;
 import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CombinedContentListImpl implements CombinedContentList {
 
-    private List<Combined> combinedList;
+    private final List<Combined> combinedList = new ArrayList<>();
 
     @Override
     public void addPersonImage(PersonImage image) {

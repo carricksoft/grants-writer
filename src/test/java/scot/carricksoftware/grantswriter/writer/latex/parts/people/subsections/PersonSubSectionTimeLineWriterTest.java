@@ -21,8 +21,10 @@ class PersonSubSectionTimeLineWriterTest {
 
     private PersonSubSectionTimeLineWriter writer;
 
-    @Mock private LatexSubSectionHeader latexSubSectionHeaderMock;
-    @Mock private WriteTimeLine writeTimeLineMock;
+    @Mock
+    private LatexSubSectionHeader latexSubSectionHeaderMock;
+    @Mock
+    private WriteTimeLine writeTimeLineMock;
 
     @BeforeEach
     void setUp() {

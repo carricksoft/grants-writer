@@ -26,8 +26,10 @@ class TimeLineDataSetterAndGetterTest {
 
     private TimeLineData timeLineData;
 
-    @Mock private DMY dmyMock;
-    @Mock AddCensusEntry addCensusEntryMock;
+    @Mock
+    private DMY dmyMock;
+    @Mock
+    AddCensusEntry addCensusEntryMock;
 
 
     @BeforeEach

@@ -20,7 +20,8 @@ class LatexPackageDeclarationTest {
 
     private LatexPackageDeclaration latexPackageDeclaration;
 
-    @Mock private FileWriter fileWriterMock;
+    @Mock
+    private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

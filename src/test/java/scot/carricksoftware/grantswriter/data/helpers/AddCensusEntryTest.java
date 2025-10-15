@@ -38,8 +38,10 @@ class AddCensusEntryTest {
     private SortedSet<String> refs;
     private Place place;
 
-    @Mock private Census censusMock;
-    @Mock private CensusEntry censusEntryMock;
+    @Mock
+    private Census censusMock;
+    @Mock
+    private CensusEntry censusEntryMock;
 
     @BeforeEach
     void setUp() {

@@ -36,8 +36,8 @@ class AppendixListSortByOrderTest {
 
     @Test
     void sortTest() {
-        assertTrue( appendixTextList.lastIndexOf(highOrder) < appendixTextList.lastIndexOf(lowOrder));
+        assertTrue(appendixTextList.lastIndexOf(highOrder) < appendixTextList.lastIndexOf(lowOrder));
         sorter.sort(appendixTextList);
-        assertTrue( appendixTextList.lastIndexOf(lowOrder) < appendixTextList.lastIndexOf(highOrder));
+        assertTrue(appendixTextList.lastIndexOf(lowOrder) < appendixTextList.lastIndexOf(highOrder));
     }
 }

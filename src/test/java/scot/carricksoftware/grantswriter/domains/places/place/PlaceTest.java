@@ -27,8 +27,10 @@ public class PlaceTest {
 
     private Place place;
 
-    @Mock private Country countryMock;
-    @Mock private Region regionMock;
+    @Mock
+    private Country countryMock;
+    @Mock
+    private Region regionMock;
 
     @BeforeEach
     public void setUp() {

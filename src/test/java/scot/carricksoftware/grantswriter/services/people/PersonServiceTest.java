@@ -27,7 +27,8 @@ class PersonServiceTest {
 
     private PersonService service;
 
-    @Mock private PersonRepository personRepositoryMock;
+    @Mock
+    private PersonRepository personRepositoryMock;
 
     @BeforeEach
     void setUp() {

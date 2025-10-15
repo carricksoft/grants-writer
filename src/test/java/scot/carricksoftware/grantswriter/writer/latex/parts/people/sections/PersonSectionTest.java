@@ -26,13 +26,20 @@ class PersonSectionTest {
 
     private PersonSection personSection;
 
-    @Mock private PersonSectionHeader personSectionHeaderMock;
-    @Mock private PersonSubSectionTimeLineWriter personSubSectionTimeLineWriterMock;
-    @Mock private PersonSubSectionReferencesWriter personSubSectionReferencesWriterMock;
-    @Mock private Person personMock;
-    @Mock private GatherTimeLineData gatherTimeLineDataMock;
-    @Mock private PersonSectionContentsWriter personSectionContentsWriterMock;
-    @Mock ClearExistingTimeLineData clearExistingTimeLineDataMock;
+    @Mock
+    private PersonSectionHeader personSectionHeaderMock;
+    @Mock
+    private PersonSubSectionTimeLineWriter personSubSectionTimeLineWriterMock;
+    @Mock
+    private PersonSubSectionReferencesWriter personSubSectionReferencesWriterMock;
+    @Mock
+    private Person personMock;
+    @Mock
+    private GatherTimeLineData gatherTimeLineDataMock;
+    @Mock
+    private PersonSectionContentsWriter personSectionContentsWriterMock;
+    @Mock
+    ClearExistingTimeLineData clearExistingTimeLineDataMock;
 
     @BeforeEach
     void setUp() {

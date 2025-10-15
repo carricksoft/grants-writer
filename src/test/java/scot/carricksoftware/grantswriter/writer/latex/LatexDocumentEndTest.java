@@ -20,7 +20,8 @@ class LatexDocumentEndTest {
 
     private LatexDocumentEnd documentEnd;
 
-    @Mock private FileWriter fileWriterMock;
+    @Mock
+    private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

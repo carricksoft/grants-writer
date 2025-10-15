@@ -30,7 +30,8 @@ class DeathCertificateServiceTest {
 
     private Person person;
 
-    @Mock DeathCertificateRepository deathCertificateRepositoryMock;
+    @Mock
+    DeathCertificateRepository deathCertificateRepositoryMock;
 
     @BeforeEach
     void setUp() {

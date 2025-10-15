@@ -36,8 +36,8 @@ class PersonListSortByOrderTest {
 
     @Test
     void sortTest() {
-        assertTrue( personTextList.lastIndexOf(highOrder) < personTextList.lastIndexOf(lowOrder));
+        assertTrue(personTextList.lastIndexOf(highOrder) < personTextList.lastIndexOf(lowOrder));
         sorter.sort(personTextList);
-        assertTrue( personTextList.lastIndexOf(lowOrder) < personTextList.lastIndexOf(highOrder));
+        assertTrue(personTextList.lastIndexOf(lowOrder) < personTextList.lastIndexOf(highOrder));
     }
 }

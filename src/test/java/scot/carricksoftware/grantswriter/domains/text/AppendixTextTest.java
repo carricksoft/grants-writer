@@ -15,7 +15,7 @@ import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 
 class AppendixTextTest {
-    
+
     private AppendixText appendixText;
 
     @BeforeEach
@@ -84,5 +84,5 @@ class AppendixTextTest {
         appendixText.setContent(content);
         assertEquals(content, appendixText.getContent());
     }
-    
+
 }

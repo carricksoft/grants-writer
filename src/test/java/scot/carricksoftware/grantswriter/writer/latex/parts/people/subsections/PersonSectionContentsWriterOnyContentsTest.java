@@ -33,10 +33,14 @@ class PersonSectionContentsWriterOnyContentsTest {
 
     private PersonSectionContentsWriter writer;
 
-    @Mock private PersonTextService personTextServiceMock;
-    @Mock private FileWriter fileWriterMock;
-    @Mock private LatexDivisionHeader latexDivisionHeaderMock;
-    @Mock private PersonListSortByOrder personListSortByOrderMock;
+    @Mock
+    private PersonTextService personTextServiceMock;
+    @Mock
+    private FileWriter fileWriterMock;
+    @Mock
+    private LatexDivisionHeader latexDivisionHeaderMock;
+    @Mock
+    private PersonListSortByOrder personListSortByOrderMock;
 
     private List<PersonText> contents;
 

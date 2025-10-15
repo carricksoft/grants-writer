@@ -23,9 +23,12 @@ class StatusServiceTest {
 
     private StatusService statusService;
 
-    @Mock private PersonRepository personRepositoryMock;
-    @Mock private BirthCertificateRepository birthCertificateRepositoryMock;
-    @Mock private CensusEntryRepository censusEntryRepositoryMock;
+    @Mock
+    private PersonRepository personRepositoryMock;
+    @Mock
+    private BirthCertificateRepository birthCertificateRepositoryMock;
+    @Mock
+    private CensusEntryRepository censusEntryRepositoryMock;
 
     @BeforeEach
     void setUp() {

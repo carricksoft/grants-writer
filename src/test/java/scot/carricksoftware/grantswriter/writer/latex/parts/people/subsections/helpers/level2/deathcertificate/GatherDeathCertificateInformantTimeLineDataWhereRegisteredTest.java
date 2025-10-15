@@ -98,7 +98,6 @@ class GatherDeathCertificateInformantTimeLineDataWhereRegisteredTest {
     }
 
 
-
     private boolean timelineContains(String expected) {
         for (Map.Entry<DMY, List<String>> dmyListEntry : timeLine.entrySet()) {
             List<String> list = dmyListEntry.getValue();

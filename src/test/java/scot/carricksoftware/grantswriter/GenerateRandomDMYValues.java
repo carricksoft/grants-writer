@@ -21,19 +21,19 @@ public class GenerateRandomDMYValues {
 
         Random random = new Random();
         String day = last(2, getRandom(random, 1, 28));
-        String month = last(2,getRandom(random, 1, 12));
+        String month = last(2, getRandom(random, 1, 12));
         String year = last(4, getRandom(random, 1700, 1980));
 
-        result.parse(day + "/" + month +"/" + year);
+        result.parse(day + "/" + month + "/" + year);
         return result;
     }
 
-    public static int getRandom(Random random,int min, int max) {
+    public static int getRandom(Random random, int min, int max) {
         return random.nextInt(max - min) + min;
     }
 
     public static String last(int size, int num) {
-        String s  = "0000" + num;
+        String s = "0000" + num;
         int beginIndex = s.length() - size;
         return s.substring(beginIndex);
     }

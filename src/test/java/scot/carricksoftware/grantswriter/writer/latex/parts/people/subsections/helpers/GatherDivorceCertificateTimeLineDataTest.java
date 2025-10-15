@@ -29,9 +29,12 @@ class GatherDivorceCertificateTimeLineDataTest {
 
     private GatherDivorceCertificateTimeLineData gatherDivorceCertificateTimeLineData;
 
-    @Mock private DivorceCertificateService divorceCertificateServiceMock;
-    @Mock private GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineDataMock;
-    @Mock private GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineDataMock;
+    @Mock
+    private DivorceCertificateService divorceCertificateServiceMock;
+    @Mock
+    private GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineDataMock;
+    @Mock
+    private GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineDataMock;
 
     List<DivorceCertificate> divorceCertificates;
     Person person;

@@ -33,8 +33,8 @@ class CombinedTest {
 
     @Test
     void setContentTypeTest() {
-       combined.setContentType(string);
-       assertEquals(string, combined.getContentType());
+        combined.setContentType(string);
+        assertEquals(string, combined.getContentType());
     }
 
     @Test

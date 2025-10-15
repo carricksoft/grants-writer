@@ -43,7 +43,6 @@ public class CombinedContentListImpl implements CombinedContentList {
         });
     }
 
-
     @Override
     public List<Combined> getList() {
         return this.combinedList;
@@ -53,6 +52,5 @@ public class CombinedContentListImpl implements CombinedContentList {
     public void clear() {
         combinedList.clear();
     }
-
 
 }

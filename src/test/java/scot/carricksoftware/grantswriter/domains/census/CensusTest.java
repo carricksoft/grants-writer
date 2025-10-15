@@ -26,7 +26,8 @@ public class CensusTest {
 
     private Census census;
 
-    @Mock private Place placeMock;
+    @Mock
+    private Place placeMock;
 
     @BeforeEach
     public void setUp() {

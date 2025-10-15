@@ -28,7 +28,8 @@ public class DivorceCertificateServiceTest {
 
     private DivorceCertificateService divorceCertificateService;
 
-    @Mock DivorceCertificateRepository divorceCertificateRepositoryMock;
+    @Mock
+    DivorceCertificateRepository divorceCertificateRepositoryMock;
 
     private Person person;
 

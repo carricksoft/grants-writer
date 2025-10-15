@@ -29,8 +29,10 @@ class GatherBirthCertificateFatherTimeLineDataRefsTest {
 
     GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
 
-    @Mock private TimeLineData timelineDataMock;
-    @Mock private Person personMock;
+    @Mock
+    private TimeLineData timelineDataMock;
+    @Mock
+    private Person personMock;
 
     private List<BirthCertificate> birthCertificates;
 

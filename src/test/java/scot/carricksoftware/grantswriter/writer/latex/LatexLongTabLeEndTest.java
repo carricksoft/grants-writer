@@ -19,7 +19,8 @@ class LatexLongTabLeEndTest {
 
     private LatexLongTabLeEnd latexLongTabLeEnd;
 
-    @Mock private FileWriter fileWriterMock;
+    @Mock
+    private FileWriter fileWriterMock;
 
     @BeforeEach
     void setUp() {

@@ -26,12 +26,18 @@ class PersonSectionHeaderTest {
 
     private PersonSectionHeader personSectionHeader;
 
-    @Mock LatexSectionHeader latexSectionHeaderMock;
-    @Mock Person personMock;
-    @Mock Image imageMock;
-    @Mock FileWriter fileWriterMock;
-    @Mock LatexBlock latexBlockMock;
-    @Mock StringToFileConverter stringToFileConverterMock;
+    @Mock
+    LatexSectionHeader latexSectionHeaderMock;
+    @Mock
+    Person personMock;
+    @Mock
+    Image imageMock;
+    @Mock
+    FileWriter fileWriterMock;
+    @Mock
+    LatexBlock latexBlockMock;
+    @Mock
+    StringToFileConverter stringToFileConverterMock;
 
 
     @BeforeEach
@@ -48,7 +54,7 @@ class PersonSectionHeaderTest {
     void actualImageIsCreatedTest() {
         String imageData = GetRandomString();
         when(imageMock.getImageData()).thenReturn(imageData);
-        String fileName =  GetRandomString();
+        String fileName = GetRandomString();
         when(imageMock.getFileName()).thenReturn(fileName);
 
         personSectionHeader.write(personMock);
@@ -67,13 +73,13 @@ class PersonSectionHeaderTest {
     @Test
     void theImageBlockIsWrittenTest() {
         personSectionHeader.write(personMock);
-        verify(latexBlockMock).begin("center","");
+        verify(latexBlockMock).begin("center", "");
         verify(latexBlockMock).end("center");
     }
 
     @Test
     void theFileWriterIsWrittenTest() {
-        String fileName =  GetRandomString();
+        String fileName = GetRandomString();
         when(imageMock.getFileName()).thenReturn(fileName);
         when(personMock.getImage()).thenReturn(imageMock);
 

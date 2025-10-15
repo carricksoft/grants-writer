@@ -19,7 +19,8 @@ class AppendixPartHeaderTest {
 
     private AppendixPartHeader appendixPartHeader;
 
-    @Mock private LatexPartHeader latexPartHeaderMock;
+    @Mock
+    private LatexPartHeader latexPartHeaderMock;
 
     @BeforeEach
     void setUp() {

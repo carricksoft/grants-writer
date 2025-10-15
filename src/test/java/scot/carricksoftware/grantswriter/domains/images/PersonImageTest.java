@@ -7,11 +7,13 @@ package scot.carricksoftware.grantswriter.domains.images;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import scot.carricksoftware.grantswriter.domains.people.Person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
+import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 class PersonImageTest {
 
@@ -104,6 +106,18 @@ class PersonImageTest {
         String level = GetRandomString();
         image.setLevel(level);
         assertEquals(level, image.getLevel());
+    }
+
+    @Test
+    public void getPersonTest() {
+        assertNull(image.getPerson());
+    }
+
+    @Test
+    public void setPersonTest() {
+        Person person = GetRandomPerson();
+        image.setPerson(person);
+        assertEquals(person, image.getPerson());
     }
 
 }

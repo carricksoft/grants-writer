@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 
 class CombinedTest {
 
@@ -34,6 +35,29 @@ class CombinedTest {
     void setContentTypeTest() {
        combined.setContentType(string);
        assertEquals(string, combined.getContentType());
+    }
+
+    @Test
+    void getOrderTest() {
+        assertNull(combined.getContentType());
+    }
+
+    @Test
+    void setOrderTest() {
+        combined.setOrder(string);
+        assertEquals(string, combined.getOrder());
+    }
+
+    @Test
+    void getContentIdTest() {
+        assertNull(combined.getContentId());
+    }
+
+    @Test
+    void setContentIdTest() {
+        Long aLong = GetRandomLong();
+        combined.setContentId(aLong);
+        assertEquals(aLong, combined.getContentId());
     }
 
 

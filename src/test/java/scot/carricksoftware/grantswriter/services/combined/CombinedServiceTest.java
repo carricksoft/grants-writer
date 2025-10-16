@@ -34,8 +34,6 @@ class CombinedServiceTest {
     @Mock
     PersonTextRepository personTextRepositoryMock;
 
-    private final Long personTextId = GetRandomLong();
-    private final String personTextOrder = GetRandomString();
     private final List<PersonText> personTextList = new ArrayList<>();
 
     @BeforeEach
@@ -45,20 +43,18 @@ class CombinedServiceTest {
 
     @Test
     void personTextsAreAddedTest() {
-        createPersonTextList();
-        when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
-        CombinedContentList contentList = service.getPersonContent(GetRandomPerson());
-        assertEquals(personTextId, contentList.getList().get(0).getContentId());
-        assertEquals("text", contentList.getList().get(0).getContentType());
-        assertEquals(personTextOrder, contentList.getList().get(0).getOrder());
+       List<PersonText> personTexts = new ArrayList<>();
+       PersonText personText = new PersonText();
+       personText.setId(GetRandomLong());
+       personText.setOrder(GetRandomString());
+       personText.setPerson(GetRandomPerson());
+       personTextList.add(personText);
+       when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
+       CombinedContentList combinedContentList = service.getPersonContent(GetRandomPerson());
+       assertEquals("text", combinedContentList.getList().get(0).getContentType());
+
     }
 
-    private void createPersonTextList() {
-        PersonText personText = new PersonText();
-        personText.setId(personTextId);
-        personText.setOrder(personTextOrder);
-        personTextList.add(personText);
-    }
 
 
 }

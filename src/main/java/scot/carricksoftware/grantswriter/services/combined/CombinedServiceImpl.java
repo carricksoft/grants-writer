@@ -8,7 +8,6 @@ package scot.carricksoftware.grantswriter.services.combined;
 import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.combined.CombinedContentListImpl;
-import scot.carricksoftware.grantswriter.combined.CombinedContentType;
 import scot.carricksoftware.grantswriter.combined.CombinedImpl;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;

@@ -8,7 +8,6 @@ package scot.carricksoftware.grantswriter;
 
 import java.util.Random;
 
-
 public class GenerateCertificateRandomValues {
 
     private static final Random rand = new Random();
@@ -20,6 +19,10 @@ public class GenerateCertificateRandomValues {
     public static String GetRandomString() {
         int random = rand.nextInt(names.length);
         return names[random];
+    }
+
+    public static long GetRandomLong() {
+        return rand.nextLong();
     }
 
 

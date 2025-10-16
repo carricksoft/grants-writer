@@ -8,6 +8,8 @@ package scot.carricksoftware.grantswriter.services.combined;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import scot.carricksoftware.grantswriter.repositories.text.PersonTextRepository;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -15,9 +17,12 @@ class CombinedServiceTest {
 
     private CombinedService service;
 
+    @Mock
+    PersonTextRepository personTextRepositoryMock;
+
     @BeforeEach
     void setUp() {
-        service = new CombinedServiceImpl();
+        service = new CombinedServiceImpl(personTextRepositoryMock);
     }
 
     @Test

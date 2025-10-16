@@ -52,7 +52,8 @@ class CombinedServiceTest {
        when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
        CombinedContentList combinedContentList = service.getPersonContent(GetRandomPerson());
        assertEquals("text", combinedContentList.getList().get(0).getContentType());
-
+       assertEquals(personText.getOrder(), combinedContentList.getList().get(0).getOrder());
+       assertEquals(personText.getId(), combinedContentList.getList().get(0).getContentId());
     }
 
 

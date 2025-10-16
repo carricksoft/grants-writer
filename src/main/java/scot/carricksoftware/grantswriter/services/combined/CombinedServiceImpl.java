@@ -34,7 +34,8 @@ public class CombinedServiceImpl implements CombinedService {
         for (PersonText personText : personIterable) {
             Combined combined = new CombinedImpl();
             combined.setContentId(personText.getId());
-            combined.setContentType(CombinedContentType.TEXT.label);
+            combined.setContentType("image");
+            combined.setOrder(personText.getOrder());
             result.addPersonText(personText);
         }
     }

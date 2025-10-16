@@ -31,8 +31,7 @@ public class CombinedServiceImpl implements CombinedService {
 
     private void addText(Person person, CombinedContentList result) {
         Iterable<PersonText> personIterable = personTextRepository.findAllByPerson(person);
-        if (personIterable.iterator().hasNext()) {
-            PersonText personText = personIterable.iterator().next();
+        for (PersonText personText : personIterable) {
             Combined combined = new CombinedImpl();
             combined.setContentId(personText.getId());
             combined.setContentType(CombinedContentType.TEXT.label);

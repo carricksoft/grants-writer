@@ -51,7 +51,6 @@ class CombinedServiceTest {
     void personTextsAreAddedTest() {
         personTextList.add(personText);
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
-
         CombinedContentList combinedContentList = service.getPersonContent(person);
 
         Combined combined = combinedContentList.getList().getFirst();

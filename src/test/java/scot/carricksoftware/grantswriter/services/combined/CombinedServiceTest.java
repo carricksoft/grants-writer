@@ -15,6 +15,7 @@ import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
+import scot.carricksoftware.grantswriter.repositories.images.PersonImageRepository;
 import scot.carricksoftware.grantswriter.repositories.text.PersonTextRepository;
 
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ class CombinedServiceTest {
     @Mock
     PersonTextRepository personTextRepositoryMock;
 
+    @Mock
+    PersonImageRepository personImageRepositoryMock;
+
     private List<PersonText> personTextList;
     private final String order = GetRandomString();
     private final Long Id = GetRandomLong();
@@ -42,7 +46,7 @@ class CombinedServiceTest {
 
     @BeforeEach
     void setUp() {
-        service = new CombinedServiceImpl(personTextRepositoryMock);
+        service = new CombinedServiceImpl(personTextRepositoryMock, personImageRepositoryMock);
         personTextList = new ArrayList<>();
 
     }

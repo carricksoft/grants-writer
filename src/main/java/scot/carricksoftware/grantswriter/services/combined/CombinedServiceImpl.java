@@ -32,9 +32,13 @@ public class CombinedServiceImpl implements CombinedService {
         Iterable<PersonText> personIterable = personTextRepository.findAllByPerson(person);
         for (PersonText personText : personIterable) {
             Combined combined = new CombinedImpl();
-            combined.setContentId(personText.getId());
+            if (personText.getOrder() != null) {
+                combined.setOrder(personText.getOrder());
+            }
+            if (personText.getId() != null) {
+                combined.setContentId(personText.getId());
+            }
             combined.setContentType("image");
-            combined.setOrder(personText.getOrder());
             result.addPersonText(personText);
         }
     }

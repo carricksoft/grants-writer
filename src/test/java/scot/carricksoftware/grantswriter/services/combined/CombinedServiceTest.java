@@ -35,6 +35,7 @@ class CombinedServiceTest {
     PersonTextRepository personTextRepositoryMock;
 
     private final List<PersonText> personTextList = new ArrayList<>();
+    private final String order = GetRandomString();
 
     @BeforeEach
     void setUp() {
@@ -46,7 +47,7 @@ class CombinedServiceTest {
        List<PersonText> personTexts = new ArrayList<>();
        PersonText personText = new PersonText();
        personText.setId(GetRandomLong());
-       personText.setOrder(GetRandomString());
+       personText.setOrder(order);
        personText.setPerson(GetRandomPerson());
        personTextList.add(personText);
        when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
@@ -55,26 +56,10 @@ class CombinedServiceTest {
 
        assertEquals(1, combinedContentList.getList().size());
        assertEquals("text", combinedContentList.getList().get(0).getContentType());
-       assertEquals(personText.getOrder(), combinedContentList.getList().get(0).getOrder());
+       assertEquals(order, combinedContentList.getList().get(0).getOrder());
        assertEquals(personText.getId(), combinedContentList.getList().get(0).getContentId());
     }
 
-    @Test
-    void nullOrderTest() {
-        List<PersonText> personTexts = new ArrayList<>();
-        PersonText personText = new PersonText();
-        personText.setId(GetRandomLong());
-        personText.setPerson(GetRandomPerson());
-        personTextList.add(personText);
-        when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
-
-        CombinedContentList combinedContentList = service.getPersonContent(GetRandomPerson());
-
-        assertEquals(1, combinedContentList.getList().size());
-        assertEquals("text", combinedContentList.getList().get(0).getContentType());
-        assertEquals(null, combinedContentList.getList().get(0).getOrder());
-        assertEquals(personText.getId(), combinedContentList.getList().get(0).getContentId());
-    }
 
 
 

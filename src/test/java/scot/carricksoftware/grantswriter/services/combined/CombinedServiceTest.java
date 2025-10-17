@@ -53,7 +53,7 @@ class CombinedServiceTest {
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
         CombinedContentList combinedContentList = service.getPersonContent(person);
 
-        Combined combined = combinedContentList.getList().getFirst();
+        Combined combined = combinedContentList.getList().get(0);
         assertEquals("text", combined.getContentType());
     }
 

@@ -48,7 +48,7 @@ class CombinedServiceTest {
     }
 
     @Test
-    void personTextsAreAddedTest() {
+    void personTextsAreCorrectlyAddedTest() {
         personText.setOrder(order);
         personTextList.add(personText);
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);

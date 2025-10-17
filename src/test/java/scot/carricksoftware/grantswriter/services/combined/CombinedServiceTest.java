@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
@@ -20,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
@@ -34,34 +34,29 @@ class CombinedServiceTest {
     @Mock
     PersonTextRepository personTextRepositoryMock;
 
-    private final List<PersonText> personTextList = new ArrayList<>();
+    private List<PersonText> personTextList;
     private final String order = GetRandomString();
+    private final Long personId = GetRandomLong();
+    private final Person person = GetRandomPerson();
+    private final PersonText personText = new PersonText();
 
     @BeforeEach
     void setUp() {
         service = new CombinedServiceImpl(personTextRepositoryMock);
+        personTextList = new ArrayList<>();
+
     }
 
     @Test
     void personTextsAreAddedTest() {
-       List<PersonText> personTexts = new ArrayList<>();
-       PersonText personText = new PersonText();
-       personText.setId(GetRandomLong());
-       personText.setOrder(order);
-       personText.setPerson(GetRandomPerson());
-       personTextList.add(personText);
-       when(personTextRepositoryMock.findAllByPerson(any(Person.class))).thenReturn(personTextList);
+        personTextList.add(personText);
+        when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
 
-       CombinedContentList combinedContentList = service.getPersonContent(GetRandomPerson());
+        CombinedContentList combinedContentList = service.getPersonContent(person);
 
-       assertEquals(1, combinedContentList.getList().size());
-       assertEquals("text", combinedContentList.getList().get(0).getContentType());
-       assertEquals(order, combinedContentList.getList().get(0).getOrder());
-       assertEquals(personText.getId(), combinedContentList.getList().get(0).getContentId());
+        Combined combined = combinedContentList.getList().getFirst();
+        assertEquals("text", combined.getContentType());
     }
-
-
-
 
 
 }

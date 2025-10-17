@@ -5,10 +5,8 @@
 
 package scot.carricksoftware.grantswriter.services.combined;
 
-import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.combined.CombinedContentListImpl;
-import scot.carricksoftware.grantswriter.combined.CombinedImpl;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.repositories.text.PersonTextRepository;
@@ -24,21 +22,12 @@ public class CombinedServiceImpl implements CombinedService {
     @Override
     public CombinedContentList getPersonContent(Person person) {
         CombinedContentList result = new CombinedContentListImpl();
-        addText(person, result);
+        Iterable<PersonText> personIterable = personTextRepository.findAllByPerson(person);
+        for (PersonText personText : personIterable) {
+            result.addPersonText(personText);
+        }
         return result;
     }
 
-    private void addText(Person person, CombinedContentList result) {
-        Iterable<PersonText> personIterable = personTextRepository.findAllByPerson(person);
-        for (PersonText personText : personIterable) {
-            Combined combined = new CombinedImpl();
-            if (personText.getOrder() != null && personText.getOrder().isEmpty()) {
-                combined.setOrder(personText.getOrder());
-            }
-            combined.setContentId(personText.getId());
-            combined.setContentType("image");
-            result.addPersonText(personText);
-        }
-    }
 
 }

@@ -49,12 +49,14 @@ class CombinedServiceTest {
 
     @Test
     void personTextsAreAddedTest() {
+        personText.setOrder(order);
         personTextList.add(personText);
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
         CombinedContentList combinedContentList = service.getPersonContent(person);
 
         Combined combined = combinedContentList.getList().get(0);
         assertEquals("text", combined.getContentType());
+        assertEquals(order, combined.getOrder());
     }
 
 

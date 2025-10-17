@@ -36,7 +36,7 @@ class CombinedServiceTest {
 
     private List<PersonText> personTextList;
     private final String order = GetRandomString();
-    private final Long personId = GetRandomLong();
+    private final Long Id = GetRandomLong();
     private final Person person = GetRandomPerson();
     private final PersonText personText = new PersonText();
 
@@ -50,6 +50,7 @@ class CombinedServiceTest {
     @Test
     void personTextsAreCorrectlyAddedTest() {
         personText.setOrder(order);
+        personText.setId(Id);
         personTextList.add(personText);
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
         CombinedContentList combinedContentList = service.getPersonContent(person);
@@ -57,7 +58,7 @@ class CombinedServiceTest {
         Combined combined = combinedContentList.getList().get(0);
         assertEquals("text", combined.getContentType());
         assertEquals(order, combined.getOrder());
+        assertEquals(Id, combined.getContentId());
     }
-
 
 }

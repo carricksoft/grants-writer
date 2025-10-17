@@ -21,9 +21,5 @@ public class GenerateCertificateRandomValues {
         return names[random];
     }
 
-    public static long GetRandomLong() {
-        return rand.nextLong();
-    }
-
 
 }

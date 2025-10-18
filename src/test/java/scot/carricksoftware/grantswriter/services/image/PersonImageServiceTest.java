@@ -7,7 +7,9 @@ package scot.carricksoftware.grantswriter.services.image;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.repositories.images.PersonImageRepository;
@@ -18,6 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class PersonImageServiceTest {
 
     private PersonImageService personImageService;

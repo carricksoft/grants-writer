@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.domains.people.Person;
@@ -24,12 +23,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class CombinedServiceTest {
+class CombinedServiceSortTest {
 
     private CombinedService service;
 
@@ -41,7 +39,6 @@ class CombinedServiceTest {
 
     private List<PersonText> personTextList;
     private List<PersonImage> personImageList;
-    private final String order = GetRandomString();
     private final Long Id = GetRandomLong();
     private final Person person = GetRandomPerson();
     private final PersonText personText = new PersonText();
@@ -52,35 +49,25 @@ class CombinedServiceTest {
         service = new CombinedServiceImpl(personTextRepositoryMock, personImageRepositoryMock);
         personTextList = new ArrayList<>();
         personImageList = new ArrayList<>();
-
     }
 
     @Test
-    void personTextsAreCorrectlyAddedTest() {
-        personText.setOrder(order);
+    void sortingWorksTest() {
+        String highOrder = "99";
+        personText.setOrder(highOrder);
         personText.setId(Id);
         personTextList.add(personText);
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
-        CombinedContentList combinedContentList = service.getPersonContent(person);
 
-        Combined combined = combinedContentList.getList().get(0);
-        assertEquals("text", combined.getContentType());
-        assertEquals(order, combined.getOrder());
-        assertEquals(Id, combined.getContentId());
-    }
-
-    @Test
-    void personImagesAreCorrectlyAddedTest() {
-        personImage.setOrder(order);
+        String lowOrder = "1";
+        personImage.setOrder(lowOrder);
         personImage.setId(Id);
         personImageList.add(personImage);
         when(personImageRepositoryMock.findAllByPerson(person)).thenReturn(personImageList);
         CombinedContentList combinedContentList = service.getPersonContent(person);
 
-        Combined combined = combinedContentList.getList().get(0);
-        assertEquals("image", combined.getContentType());
-        assertEquals(order, combined.getOrder());
-        assertEquals(Id, combined.getContentId());
+        assertEquals(lowOrder, combinedContentList.getList().get(0).getOrder());
+        assertEquals(highOrder, combinedContentList.getList().get(1).getOrder());
     }
 
 

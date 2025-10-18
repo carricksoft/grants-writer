@@ -78,8 +78,6 @@ class CombinedContentListTest {
         combinedContentList.sort();
         assertEquals(low, combinedContentList.getList().get(0).getOrder());
         assertEquals(high, combinedContentList.getList().get(1).getOrder());
-
-
     }
 
 

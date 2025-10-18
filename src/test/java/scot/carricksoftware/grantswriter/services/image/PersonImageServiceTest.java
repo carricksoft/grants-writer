@@ -19,6 +19,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 
 @ExtendWith(MockitoExtension.class)
 class PersonImageServiceTest {
@@ -40,6 +41,14 @@ class PersonImageServiceTest {
         personImageList.add(new PersonImage());
         when(personImageRepositoryMock.findAllByPerson(person)).thenReturn(personImageList);
         assertEquals(personImageList, personImageService.findAllByPerson(person));
+    }
+
+    @Test
+    void findByIdTest() {
+        Long id = GetRandomLong();
+        PersonImage personImage = new PersonImage();
+        when(personImageRepositoryMock.findById(id)).thenReturn(personImage);
+        assertEquals(personImage, personImageService.findById(id));
     }
 
 }

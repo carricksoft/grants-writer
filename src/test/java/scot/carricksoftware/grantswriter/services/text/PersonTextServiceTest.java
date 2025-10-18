@@ -20,6 +20,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
@@ -39,11 +40,19 @@ class PersonTextServiceTest {
     }
 
     @Test
-    void testFindAllByPersonTest() {
+    void findAllByPersonTest() {
         List<PersonText> personTextList = new ArrayList<>();
         personTextList.add(new PersonText());
         when(personTextRepositoryMock.findAllByPerson(person)).thenReturn(personTextList);
         assertEquals(personTextList, personTextService.findAllByPerson(person));
+    }
+
+    @Test
+    void findByIdTest() {
+        Long id = GetRandomLong();
+        PersonText personText = new PersonText();
+        when(personTextRepositoryMock.findById(id)).thenReturn(personText);
+        assertEquals(personText, personTextService.findById(id));
     }
 
 }

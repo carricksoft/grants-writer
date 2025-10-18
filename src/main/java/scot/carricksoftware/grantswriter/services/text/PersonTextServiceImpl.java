@@ -37,4 +37,9 @@ public class PersonTextServiceImpl implements PersonTextService {
         }
         return result;
     }
+
+    @Override
+    public PersonText findById(Long id) {
+        return personTextRepository.findById(id);
+    }
 }

@@ -13,4 +13,6 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 public interface PersonImageRepository extends ReadOnlyRepository<PersonImage, Long> {
     Iterable<PersonImage> findAllByPerson(Person person);
+    PersonImage findById(Long id);
+
 }

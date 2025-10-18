@@ -14,5 +14,6 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 public interface PersonTextRepository extends ReadOnlyRepository<PersonText, Long> {
 
     Iterable<PersonText> findAllByPerson(Person person);
+    PersonText findById(Long id);
 
 }

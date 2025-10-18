@@ -13,4 +13,5 @@ import java.util.List;
 
 public interface PersonTextService {
     List<PersonText> findAllByPerson(Person person);
+    PersonText findById(Long id);
 }

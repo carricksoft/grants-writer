@@ -37,7 +37,6 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         this.personListSortByOrder = personListSortByOrder;
     }
 
-
     @Override
     public void write(Person person) {
         logger.info("PersonSectionContentsWriterImpl.write()");
@@ -45,7 +44,7 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         if (!contents.isEmpty()) {
             personListSortByOrder.sort(contents);
             for (PersonText personText : contents) {
-                writePersonText(personText);
+                writePersonText(personText.getId());
             }
         }
     }
@@ -62,8 +61,9 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         }
     }
 
-    private void writePersonText(PersonText personText) {
+    private void writePersonText(Long id) {
         logger.info("PersonSectionContentsWriterImpl.writePersonText()");
+        PersonText personText = personTextService.findById(id);
         writeTextHeading(personText);
         writeTextContent (personText);
     }

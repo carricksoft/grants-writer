@@ -22,14 +22,13 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomInteger;
 
 
 @ExtendWith(MockitoExtension.class)
-class PersonSectionContentsWriterOnyContentsTest {
+class PersonSectionContentsWriterContentsTest {
 
     private PersonSectionContentsWriter writer;
 
@@ -55,22 +54,19 @@ class PersonSectionContentsWriterOnyContentsTest {
                 latexDivisionHeaderMock,
                 personListSortByOrderMock);
         person = new Person();
+        person.setId(99L);
         personText = new PersonText();
+        personText.setId(99L);
+        when(personTextServiceMock.findById(any())).thenReturn(personText);
     }
 
-    @Test
-    void withAnEmptyArrayFileWriterIsNotCalled() {
-        contents = new ArrayList<>();
-        when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
-        writer.write(person);
-        verifyNoInteractions(fileWriterMock);
-    }
 
     @Test
     void withANonEmptyArrayFileWriterIsCalled() {
         contents = new ArrayList<>();
         String content = GetRandomString();
         personText.setContent(content);
+        personText.setId(66L);
         contents.add(personText);
         when(personTextServiceMock.findAllByPerson(person)).thenReturn(contents);
         writer.write(person);

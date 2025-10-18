@@ -63,8 +63,8 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private void writePersonText(Long id) {
         logger.info("PersonSectionContentsWriterImpl.writePersonText()");
-        PersonText personText = personTextService.findById(id);
-        writeTextHeading(personText);
-        writeTextContent (personText);
+        PersonText newPersonText = personTextService.findById(id);
+        writeTextHeading(newPersonText);
+        writeTextContent(newPersonText);
     }
 }

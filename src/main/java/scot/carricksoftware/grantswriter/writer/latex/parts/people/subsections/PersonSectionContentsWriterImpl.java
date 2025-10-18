@@ -45,17 +45,26 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         if (!contents.isEmpty()) {
             personListSortByOrder.sort(contents);
             for (PersonText personText : contents) {
-                if (personText.getHeading() != null) {
-                    latexDivisionHeader.write(Integer.parseInt(personText.getLevel()), personText.getHeading());
-                }
-                writeContent (personText);
+                writePersonText(personText);
             }
         }
     }
 
-
-    private void writeContent(PersonText personText) {
-        logger.info("PersonSectionContentsWriterImpl.writeContent()");
+    private void writeTextContent(PersonText personText) {
+        logger.info("PersonSectionContentsWriterImpl.writeTextContent()");
         fileWriter.writeLine(personText.getContent());
+    }
+
+    private void writeTextHeading(PersonText personText){
+        logger.info("PersonSectionContentsWriterImpl.writeTextHeading()");
+        if (personText.getHeading() != null) {
+            latexDivisionHeader.write(Integer.parseInt(personText.getLevel()), personText.getHeading());
+        }
+    }
+
+    private void writePersonText(PersonText personText) {
+        logger.info("PersonSectionContentsWriterImpl.writePersonText()");
+        writeTextHeading(personText);
+        writeTextContent (personText);
     }
 }

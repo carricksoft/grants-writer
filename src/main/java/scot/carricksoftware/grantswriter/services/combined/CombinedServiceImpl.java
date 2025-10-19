@@ -5,6 +5,7 @@
 
 package scot.carricksoftware.grantswriter.services.combined;
 
+import org.springframework.stereotype.Service;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.combined.CombinedContentListImpl;
 import scot.carricksoftware.grantswriter.domains.images.PersonImage;
@@ -13,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.repositories.images.PersonImageRepository;
 import scot.carricksoftware.grantswriter.repositories.text.PersonTextRepository;
 
+@Service
 public class CombinedServiceImpl implements CombinedService {
 
     private final PersonTextRepository personTextRepository;

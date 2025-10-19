@@ -8,12 +8,14 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.combined.Combined;
+import scot.carricksoftware.grantswriter.combined.CombinedContentType;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
+import scot.carricksoftware.grantswriter.services.combined.CombinedService;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.PersonListSortByOrder;
 
 import java.util.List;
 
@@ -24,29 +26,32 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private final PersonTextService personTextService;
 
+    private final CombinedService combinedService;
+
     private final FileWriter fileWriter;
 
     private final LatexDivisionHeader latexDivisionHeader;
 
-    private final PersonListSortByOrder personListSortByOrder;
-
-    public PersonSectionContentsWriterImpl(PersonTextService personTextService, FileWriter fileWriter, LatexDivisionHeader latexDivisionHeader, PersonListSortByOrder personListSortByOrder) {
+    public PersonSectionContentsWriterImpl(
+            PersonTextService personTextService,
+            CombinedService combinedService,
+            FileWriter fileWriter,
+            LatexDivisionHeader latexDivisionHeader) {
         this.personTextService = personTextService;
+        this.combinedService = combinedService;
         this.fileWriter = fileWriter;
         this.latexDivisionHeader = latexDivisionHeader;
-        this.personListSortByOrder = personListSortByOrder;
     }
 
     @Override
     public void write(Person person) {
         logger.info("PersonSectionContentsWriterImpl.write()");
-        List<PersonText> contents = personTextService.findAllByPerson(person);
-        if (!contents.isEmpty()) {
-            personListSortByOrder.sort(contents);
-            for (PersonText personText : contents) {
-                writePersonText(personText.getId());
+        List<Combined> combinedList = combinedService.getPersonContent(person).getList();
+        for (Combined combined : combinedList) {
+            if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
+                writePersonText(combined.getContentId());
             }
-        }
+       }
     }
 
     private void writeTextContent(PersonText personText) {

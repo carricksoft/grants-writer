@@ -13,19 +13,15 @@ import scot.carricksoftware.grantswriter.BaseEntity;
 @Entity
 public class AppendixText extends BaseEntity {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`level`")
     private String level;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`order`")
     private String order;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`heading`")
     private String heading;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`content`")
     @Lob
     private String content;

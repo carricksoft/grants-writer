@@ -18,53 +18,42 @@ import scot.carricksoftware.grantswriter.domains.places.Place;
 @Entity
 public class BirthCertificate extends BaseCertificate {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`new_born_id`")
     private Person newBorn;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`father_id`")
     private Person father;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`father_rank`")
     private String fatherRank;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`mother_id`")
     private Person mother;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`informant_id`")
     private Person informant;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_born`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_TIME_FORMAT)
     private String whenBorn;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`where_born_id`")
     private Place whereBorn;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_where_born`")
     private String untrackedWhereBorn;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_registered`")
     private String whenRegistered;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`where_registered`")
     private String whereRegistered;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_informant`")
     private String untrackedInformant;
 

@@ -24,135 +24,105 @@ public class DeathCertificate extends BaseCertificate {
 
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`person_id`")
     private Person deceased;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Enumerated(EnumType.STRING)
     @Column(name = "`sex`")
     private Sex sex;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`occupation`")
     private String occupation;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_born`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_TIME_FORMAT)
     private String whenBorn;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`age`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_TIME_FORMAT)
     private String age;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`marital_status`")
     private String maritalStatus;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_died`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_TIME_FORMAT)
     private String whenDied;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`where_died_id`")
     private Place whereDied;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_where_died`")
     private String untrackedWhereDied;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`usual_residence_id`")
     private Place usualResidence;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_usual_residence`")
     private String untrackedUsualResidence;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`cause_of_death`")
     @Lob
     private String causeOfDeath;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`spouse_id`")
     private Person spouse;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_spouse`")
     private String untrackedSpouse;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`spouse_occupation`")
     private String spouseOccupation;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`father_id`")
     private Person father;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @JoinColumn(name = "`untracked_father`")
     private String untrackedFather;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @JoinColumn(name = "`father_occupation`")
     private String fatherOccupation;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`mother_id`")
     private Person mother;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @JoinColumn(name = "`untracked_mother`")
     private String untrackedMother;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @JoinColumn(name = "`mother_occupation`")
     private String motherOccupation;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne()
     @JoinColumn(name = "`informant_id`")
     private Person informant;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @JoinColumn(name = "`informant_address`")
     private String informantAddress;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_informant`")
     private String untrackedInformant;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`informant_qualification`")
     private String informantQualification;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_registered`")
     private String whenRegistered;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`where_registered`")
     private String whereRegistered;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`regiment`")
     private String regiment;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`service_number`")
     private String serviceNumber;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`service_rank`")
     private String serviceRank;
 

@@ -15,22 +15,18 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 @Entity
 public class CensusEntry extends BaseEntity {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`name`")
     private String name;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`census_id`")
     private Census census;
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`person_id`")
     private Person person;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`personal_occupation`")
     private String personalOccupation;
 

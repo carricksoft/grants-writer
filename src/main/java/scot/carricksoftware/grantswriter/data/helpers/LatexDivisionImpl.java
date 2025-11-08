@@ -31,7 +31,6 @@ public class LatexDivisionImpl implements  LatexDivision {
         headers.put(LATEX_CHAPTER, "\\chapter{");
         headers.put(LATEX_SECTION, "\\section{");
         headers.put(LATEX_SUBSECTION, "\\subsection{");
-        //noinspection SpellCheckingInspection
         headers.put(LATEX_SUB_SUBSECTION, "\\subsubsection{");
         headers.put(LATEX_PARAGRAPH, "\\paragraph{");
         headers.put(LATEX_SUBPARAGRAPH, "\\subparagraph{");

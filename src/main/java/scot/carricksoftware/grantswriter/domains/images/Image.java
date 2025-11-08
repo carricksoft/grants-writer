@@ -19,7 +19,6 @@ public class Image extends BaseEntity {
     @Column(name= "`file_name`")
     private String fileName;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Lob
     @Column(name = "`imageData`")
     private String imageData;

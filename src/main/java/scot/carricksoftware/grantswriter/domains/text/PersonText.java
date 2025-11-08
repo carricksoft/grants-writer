@@ -5,38 +5,17 @@
 
 package scot.carricksoftware.grantswriter.domains.text;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 @Entity
-public class PersonText extends BaseEntity {
+public class PersonText extends BaseText {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`person_id`")
     private Person person;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`level`")
-    private String level;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`order`")
-    private String order;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`heading`")
-    private String heading;
-
-    @SuppressWarnings("JpaDataSourceORMInspection")
-    @Column(name = "`content`")
-    @Lob
-    private String content;
 
     public Person getPerson() {
         return person;
@@ -46,35 +25,5 @@ public class PersonText extends BaseEntity {
         this.person = person;
     }
 
-    public String getLevel() {
-        return level;
-    }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public String getHeading() {
-        return heading;
-    }
-
-    public void setHeading(String heading) {
-        this.heading = heading;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }

@@ -38,14 +38,14 @@ public class CombinedPersonServiceImpl implements CombinedPersonService {
     private void addPersonText(Person person, CombinedContentList result) {
         Iterable<PersonText> personIterable = personTextRepository.findAllByPerson(person);
         for (PersonText personText : personIterable) {
-            result.addPersonText(personText);
+            result.addBaseText(personText);
         }
     }
 
     private void addPersonImage(Person person, CombinedContentList result) {
         Iterable<PersonImage> personImageIterable = personImageRepository.findAllByPerson(person);
         for (PersonImage personImage : personImageIterable) {
-            result.addPersonImage(personImage);
+            result.addBaseImage(personImage);
         }
     }
 

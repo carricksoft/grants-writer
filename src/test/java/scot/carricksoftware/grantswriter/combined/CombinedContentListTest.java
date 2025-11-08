@@ -29,7 +29,7 @@ class CombinedContentListTest {
         image.setOrder(GetRandomString());
         image.setId(GetRandomLong());
 
-        combinedContentList.addPersonImage(image);
+        combinedContentList.addBaseImage(image);
 
         assertEquals(image.getOrder(), combinedContentList.getList().get(0).getOrder());
         assertEquals("image", combinedContentList.getList().get(0).getContentType());
@@ -42,7 +42,7 @@ class CombinedContentListTest {
         text.setOrder(GetRandomString());
         text.setId(GetRandomLong());
 
-        combinedContentList.addPersonText(text);
+        combinedContentList.addBaseText(text);
 
         assertEquals(text.getOrder(), combinedContentList.getList().get(0).getOrder());
         assertEquals("text", combinedContentList.getList().get(0).getContentType());
@@ -55,7 +55,7 @@ class CombinedContentListTest {
         text.setOrder(GetRandomString());
         text.setId(GetRandomLong());
 
-        combinedContentList.addPersonText(text);
+        combinedContentList.addBaseText(text);
 
         assertEquals(1, combinedContentList.getList().size());
         combinedContentList.clear();
@@ -73,8 +73,8 @@ class CombinedContentListTest {
         text2.setOrder(low);
         text2.setId(GetRandomLong());
 
-        combinedContentList.addPersonText(text1);
-        combinedContentList.addPersonText(text2);
+        combinedContentList.addBaseText(text1);
+        combinedContentList.addBaseText(text2);
         combinedContentList.sort();
         assertEquals(low, combinedContentList.getList().get(0).getOrder());
         assertEquals(high, combinedContentList.getList().get(1).getOrder());

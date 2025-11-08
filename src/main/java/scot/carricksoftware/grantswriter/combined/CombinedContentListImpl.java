@@ -5,8 +5,8 @@
 
 package scot.carricksoftware.grantswriter.combined;
 
-import scot.carricksoftware.grantswriter.domains.images.PersonImage;
-import scot.carricksoftware.grantswriter.domains.text.PersonText;
+import scot.carricksoftware.grantswriter.domains.images.BaseImage;
+import scot.carricksoftware.grantswriter.domains.text.BaseText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class CombinedContentListImpl implements CombinedContentList {
     private final List<Combined> combinedList = new ArrayList<>();
 
     @Override
-    public void addPersonImage(PersonImage image) {
+    public void addBaseImage(BaseImage image) {
         Combined combined = new CombinedImpl();
         combined.setOrder(image.getOrder());
         combined.setContentId(image.getId());
@@ -25,7 +25,7 @@ public class CombinedContentListImpl implements CombinedContentList {
     }
 
     @Override
-    public void addPersonText(PersonText text) {
+    public void addBaseText(BaseText text) {
         Combined combined = new CombinedImpl();
         combined.setOrder(text.getOrder());
         combined.setContentId(text.getId());

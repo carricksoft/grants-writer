@@ -18,27 +18,22 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 @Entity
 public class DivorceCertificate extends BaseEntity {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`first_party_id`")
     private Person firstParty;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`second_party_id`")
     private Person secondParty;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name= "`registered_date`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_FORMAT)
     private String registeredDate;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name= "`first_party_date`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_FORMAT)
     private String firstPartyDate;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name= "`second_party_date`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_FORMAT)
     private String secondPartyDate;

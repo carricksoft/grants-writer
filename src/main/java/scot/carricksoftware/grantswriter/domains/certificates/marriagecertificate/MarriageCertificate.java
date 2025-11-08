@@ -19,62 +19,50 @@ import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
 @Entity
 public class MarriageCertificate extends BaseCertificate {
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`bride_id`")
     private Person bride;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`groom_id`")
     private Person groom;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`when_married`")
     @DateTimeFormat(pattern = ApplicationConstants.DATE_TIME_FORMAT)
     private String whenMarried;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`where_married_id`")
     private Place whereMarried;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`untracked_where_married`")
     private String untrackedWhereMarried;
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`bride_residence_id`")
     private Place brideUsualResidence;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`groom_untracked_residence`")
     private String groomUntrackedResidence;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`bride_untracked_residence`")
     private String brideUntrackedResidence;
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`first_witness`")
     private Person firstWitness;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToOne
     @JoinColumn(name = "`second_witness`")
     private Person secondWitness;
 
 
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`groom_rank`")
     private String groomRank;
 
-    @SuppressWarnings("JpaDataSourceORMInspection")
     @Column(name = "`bride_rank`")
     private String brideRank;
 

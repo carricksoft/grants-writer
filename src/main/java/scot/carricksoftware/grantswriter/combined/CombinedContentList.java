@@ -5,16 +5,16 @@
 
 package scot.carricksoftware.grantswriter.combined;
 
-import scot.carricksoftware.grantswriter.domains.images.PersonImage;
-import scot.carricksoftware.grantswriter.domains.text.PersonText;
+import scot.carricksoftware.grantswriter.domains.images.BaseImage;
+import scot.carricksoftware.grantswriter.domains.text.BaseText;
 
 import java.util.List;
 
 public interface CombinedContentList {
 
-    void addPersonImage(PersonImage image);
+    void addBaseImage(BaseImage image);
 
-    void addPersonText(PersonText text);
+    void addBaseText(BaseText text);
 
     void sort();
 

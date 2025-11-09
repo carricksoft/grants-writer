@@ -25,10 +25,12 @@ class CombinedServiceTest {
 
     @Mock
     private CombinedPersonService combinedPersonServiceMock;
+    @Mock
+    private CombinedAppendixService combinedAppendixServiceMock;
 
     @BeforeEach
     void setUp() {
-        combinedService = new CombinedServiceImpl(combinedPersonServiceMock);
+        combinedService = new CombinedServiceImpl(combinedPersonServiceMock,  combinedAppendixServiceMock);
     }
 
     @Test

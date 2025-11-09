@@ -13,14 +13,22 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 public class CombinedServiceImpl implements CombinedService {
 
     private final CombinedPersonService combinedPersonService;
+    private final CombinedAppendixService combinedAppendixService;
 
-    public CombinedServiceImpl(CombinedPersonService combinedPersonService) {
+    public CombinedServiceImpl(CombinedPersonService combinedPersonService, CombinedAppendixService combinedAppendixService) {
         this.combinedPersonService = combinedPersonService;
+        this.combinedAppendixService = combinedAppendixService;
     }
 
     @Override
     public CombinedContentList getPersonContent(Person person) {
         return combinedPersonService.getPersonContent(person);
     }
+
+    @Override
+    public CombinedContentList getAppendixContent() {
+        return combinedAppendixService.getAppendixContent();
+    }
+
 
 }

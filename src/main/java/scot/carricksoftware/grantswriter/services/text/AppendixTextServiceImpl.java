@@ -34,4 +34,9 @@ public class AppendixTextServiceImpl implements AppendixTextService {
         return result;
     }
 
+    @Override
+    public AppendixText findById(Long id) {
+        return appendixTextRepository.findById(id);
+    }
+
 }

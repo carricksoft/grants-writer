@@ -13,8 +13,7 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 @SuppressWarnings("unused")
 @Repository
 public interface AppendixTextRepository extends ReadOnlyRepository<AppendixText, Long> {
-
-
     @SuppressWarnings("unused")
     Iterable<AppendixText> findAll();
+    AppendixText findById(Long id);
 }

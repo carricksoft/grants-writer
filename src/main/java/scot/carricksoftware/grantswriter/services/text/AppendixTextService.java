@@ -16,4 +16,6 @@ public interface AppendixTextService {
 
     @SuppressWarnings("unused")
     List<AppendixText> findAll();
+
+    AppendixText findById(Long id);
 }

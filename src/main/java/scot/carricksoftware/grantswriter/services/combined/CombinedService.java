@@ -10,4 +10,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 
 public interface CombinedService {
     CombinedContentList getPersonContent(Person person);
+
+    CombinedContentList getAppendixContent();
+
 }

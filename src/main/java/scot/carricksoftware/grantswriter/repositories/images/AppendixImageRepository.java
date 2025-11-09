@@ -7,11 +7,11 @@ package scot.carricksoftware.grantswriter.repositories.images;
 
 
 import scot.carricksoftware.grantswriter.domains.images.AppendixImage;
-import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 
-public interface AppendixImageRepository extends ReadOnlyRepository<PersonImage, Long> {
+public interface AppendixImageRepository extends ReadOnlyRepository<AppendixImage, Long> {
     Iterable<AppendixImage> findAll();
 
+    AppendixImage findById(Long id);
 }

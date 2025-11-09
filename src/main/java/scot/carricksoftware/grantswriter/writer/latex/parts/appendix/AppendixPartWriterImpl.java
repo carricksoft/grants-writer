@@ -43,11 +43,12 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
         logger.debug("AppendixPartsImpl::write()");
         appendixPartHeader.write();
 
-        List<Combined> combinedList = combinedService.getAppendixContent().getList();
+
+       List<Combined> combinedList = combinedService.getAppendixContent().getList();
         for (Combined combined : combinedList) {
-            if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
+           if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
                 writeAppendixText(combined.getContentId());
-            }
+           }
         }
     }
 

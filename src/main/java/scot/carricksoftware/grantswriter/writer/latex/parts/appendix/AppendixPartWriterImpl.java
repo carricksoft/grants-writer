@@ -11,7 +11,9 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentType;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
+import scot.carricksoftware.grantswriter.services.image.AppendixImageService;
 import scot.carricksoftware.grantswriter.services.text.AppendixTextService;
+import scot.carricksoftware.grantswriter.writer.latex.WriteBaseImage;
 import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 import scot.carricksoftware.grantswriter.writer.latex.parts.appendix.headers.AppendixPartHeader;
 
@@ -25,16 +27,22 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
     private final AppendixPartHeader appendixPartHeader;
     private final CombinedService combinedService;
     private final WriteBaseText writeBaseText;
+    private final WriteBaseImage writeBaseImage;
     private final AppendixTextService appendixTextService;
+    private final AppendixImageService appendixImageService;
 
     public AppendixPartWriterImpl(AppendixPartHeader appendixPartHeader,
                                   CombinedService combinedService,
                                   WriteBaseText writeBaseText,
-                                  AppendixTextService appendixTextService) {
+                                  WriteBaseImage writeBaseImage,
+                                  AppendixTextService appendixTextService,
+                                  AppendixImageService appendixImageService) {
         this.appendixPartHeader = appendixPartHeader;
         this.combinedService = combinedService;
         this.writeBaseText = writeBaseText;
+        this.writeBaseImage = writeBaseImage;
         this.appendixTextService = appendixTextService;
+        this.appendixImageService = appendixImageService;
     }
 
 
@@ -46,6 +54,10 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
         for (Combined combined : combinedList) {
             if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
                 writeBaseText.write(appendixTextService.findById(combined.getContentId()));
+            } else {
+                if (combined.getContentType().equals(CombinedContentType.IMAGE.label)) {
+                    writeBaseImage.write(appendixImageService.findById(combined.getContentId()));
+                }
             }
         }
     }

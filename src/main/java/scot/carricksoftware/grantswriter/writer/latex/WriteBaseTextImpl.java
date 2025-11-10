@@ -5,10 +5,11 @@
 
 package scot.carricksoftware.grantswriter.writer.latex;
 
+import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.text.BaseText;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-@SuppressWarnings("ClassCanBeRecord")
+@Component
 public class WriteBaseTextImpl implements WriteBaseText {
 
     private final LatexDivisionHeader latexDivisionHeader;

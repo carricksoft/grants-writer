@@ -16,6 +16,7 @@ import scot.carricksoftware.grantswriter.services.combined.CombinedService;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
+import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 
 import java.util.List;
 
@@ -32,17 +33,18 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private final LatexDivisionHeader latexDivisionHeader;
 
-
+    private final WriteBaseText writeBaseText;
 
     public PersonSectionContentsWriterImpl(
             PersonTextService personTextService,
             CombinedService combinedService,
             FileWriter fileWriter,
-            LatexDivisionHeader latexDivisionHeader) {
+            LatexDivisionHeader latexDivisionHeader, WriteBaseText writeBaseText) {
         this.personTextService = personTextService;
         this.combinedService = combinedService;
         this.fileWriter = fileWriter;
         this.latexDivisionHeader = latexDivisionHeader;
+        this.writeBaseText = writeBaseText;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         List<Combined> combinedList = combinedService.getPersonContent(person).getList();
         for (Combined combined : combinedList) {
             if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
-                writePersonText(combined.getContentId());
+                writeBaseText.write(personTextService.findById(combined.getContentId()));
             }
        }
     }
@@ -71,7 +73,6 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
     private void writePersonText(Long id) {
         logger.info("PersonSectionContentsWriterImpl.writePersonText()");
         PersonText newPersonText = personTextService.findById(id);
-        writeTextHeading(newPersonText);
-        writeTextContent(newPersonText);
+        writeBaseText.write(newPersonText);
     }
 }

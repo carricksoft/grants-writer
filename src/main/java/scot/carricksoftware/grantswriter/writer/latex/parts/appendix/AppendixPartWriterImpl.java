@@ -10,10 +10,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentType;
-import scot.carricksoftware.grantswriter.domains.text.AppendixText;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
 import scot.carricksoftware.grantswriter.services.text.AppendixTextService;
-import scot.carricksoftware.grantswriter.writer.FileWriter;
+import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 import scot.carricksoftware.grantswriter.writer.latex.parts.appendix.headers.AppendixPartHeader;
 
 import java.util.List;
@@ -24,37 +23,31 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
     private static final Logger logger = LogManager.getLogger(AppendixPartWriterImpl.class);
 
     private final AppendixPartHeader appendixPartHeader;
-    private final AppendixTextService appendixTextService;
-    private final FileWriter fileWriter;
     private final CombinedService combinedService;
+    private final WriteBaseText writeBaseText;
+    private final AppendixTextService appendixTextService;
 
     public AppendixPartWriterImpl(AppendixPartHeader appendixPartHeader,
-                                  AppendixTextService appendixTextService,
                                   CombinedService combinedService,
-                                  FileWriter fileWriter) {
+                                  WriteBaseText writeBaseText,
+                                  AppendixTextService appendixTextService) {
         this.appendixPartHeader = appendixPartHeader;
-        this.appendixTextService = appendixTextService;
         this.combinedService = combinedService;
-        this.fileWriter = fileWriter;
+        this.writeBaseText = writeBaseText;
+        this.appendixTextService = appendixTextService;
     }
 
-    @Override
+
     public void write() {
         logger.debug("AppendixPartsImpl::write()");
         appendixPartHeader.write();
 
-
-       List<Combined> combinedList = combinedService.getAppendixContent().getList();
+        List<Combined> combinedList = combinedService.getAppendixContent().getList();
         for (Combined combined : combinedList) {
-           if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
-                writeAppendixText(combined.getContentId());
-           }
+            if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
+                writeBaseText.write(appendixTextService.findById(combined.getContentId()));
+            }
         }
     }
 
-    private void writeAppendixText(Long id) {
-        logger.debug("AppendixPartWriterImpl::writeContent()");
-        AppendixText appendixText = appendixTextService.findById(id);
-        fileWriter.writeLine(appendixText.getContent());
-    }
 }

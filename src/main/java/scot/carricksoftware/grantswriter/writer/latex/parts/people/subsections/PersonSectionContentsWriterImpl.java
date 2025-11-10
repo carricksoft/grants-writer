@@ -11,11 +11,8 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentType;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
-import scot.carricksoftware.grantswriter.writer.FileWriter;
-import scot.carricksoftware.grantswriter.writer.latex.LatexDivisionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 
 import java.util.List;
@@ -29,21 +26,14 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private final CombinedService combinedService;
 
-    private final FileWriter fileWriter;
-
-    private final LatexDivisionHeader latexDivisionHeader;
-
     private final WriteBaseText writeBaseText;
 
     public PersonSectionContentsWriterImpl(
             PersonTextService personTextService,
             CombinedService combinedService,
-            FileWriter fileWriter,
-            LatexDivisionHeader latexDivisionHeader, WriteBaseText writeBaseText) {
+            WriteBaseText writeBaseText) {
         this.personTextService = personTextService;
         this.combinedService = combinedService;
-        this.fileWriter = fileWriter;
-        this.latexDivisionHeader = latexDivisionHeader;
         this.writeBaseText = writeBaseText;
     }
 
@@ -58,21 +48,4 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
        }
     }
 
-    private void writeTextContent(PersonText personText) {
-        logger.info("PersonSectionContentsWriterImpl.writeTextContent()");
-        fileWriter.writeLine(personText.getContent());
-    }
-
-    private void writeTextHeading(PersonText personText){
-        logger.info("PersonSectionContentsWriterImpl.writeTextHeading()");
-        if (personText.getHeading() != null) {
-            latexDivisionHeader.write(Integer.parseInt(personText.getLevel()), personText.getHeading());
-        }
-    }
-
-    private void writePersonText(Long id) {
-        logger.info("PersonSectionContentsWriterImpl.writePersonText()");
-        PersonText newPersonText = personTextService.findById(id);
-        writeBaseText.write(newPersonText);
-    }
 }

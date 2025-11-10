@@ -30,7 +30,7 @@ class CombinedServiceTest {
 
     @BeforeEach
     void setUp() {
-        combinedService = new CombinedServiceImpl(combinedPersonServiceMock,  combinedAppendixServiceMock);
+        combinedService = new CombinedServiceImpl(combinedPersonServiceMock, combinedAppendixServiceMock);
     }
 
     @Test
@@ -39,7 +39,7 @@ class CombinedServiceTest {
         CombinedContentList result = new CombinedContentListImpl();
         when(combinedPersonServiceMock.getPersonContent(person)).thenReturn(result);
 
-        assertEquals(result,combinedService.getPersonContent(person));
+        assertEquals(result, combinedService.getPersonContent(person));
     }
 
 

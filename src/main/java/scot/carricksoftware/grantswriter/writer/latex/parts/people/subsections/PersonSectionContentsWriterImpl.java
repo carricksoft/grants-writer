@@ -32,6 +32,8 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
 
     private final LatexDivisionHeader latexDivisionHeader;
 
+
+
     public PersonSectionContentsWriterImpl(
             PersonTextService personTextService,
             CombinedService combinedService,

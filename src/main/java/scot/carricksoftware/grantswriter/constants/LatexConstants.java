@@ -22,7 +22,7 @@ public class LatexConstants {
     public static final String LONG_TABLE_END = "\\end{longtable}";
     public static final String LONG_TABLE_START = "\\begin{longtable}{";
     public static final String SECTION_NUMBERING = "\\setsecnumdepth{subsubsection}";
-    public static final String USE_PACKAGE_TERM = "\\usepackage{";
+    public static final String USE_PACKAGE_TERM = "\\usepackage";
     public static final String TERM_START = "{";
     public static final String TERM_END = "}";
     public static final String TABLE_COLUMN_END = "&";

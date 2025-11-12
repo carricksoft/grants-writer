@@ -20,12 +20,24 @@ public class LatexPackageDeclarationImpl implements LatexPackageDeclaration {
 
     @Override
     public void write(String packageName, String options) {
+        String sb;
         if (options == null || options.isEmpty()) {
-            String sb = LatexConstants.USE_PACKAGE_TERM +
+            sb = LatexConstants.USE_PACKAGE_TERM +
+                    "{" +
                     packageName +
                     LatexConstants.TERM_END;
-            fileWriter.writeLine(sb);
+
+        } else {
+            sb = LatexConstants.USE_PACKAGE_TERM +
+                    "[" +
+                    options +
+                    "]" +
+                    "{" +
+                    packageName +
+                    LatexConstants.TERM_END;
         }
+
+        fileWriter.writeLine(sb);
     }
 
 }

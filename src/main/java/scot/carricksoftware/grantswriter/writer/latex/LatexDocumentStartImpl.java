@@ -33,7 +33,7 @@ public class LatexDocumentStartImpl implements LatexDocumentStart {
         //noinspection SpellCheckingInspection
         latexPackageDeclaration.write("longtable","");
         //noinspection SpellCheckingInspection
-        latexPackageDeclaration.write("graphicx", "");
+        latexPackageDeclaration.write("adjustbox", "export");
         fileWriter.writeLine(LatexConstants.SECTION_NUMBERING);
         fileWriter.writeLine(LatexConstants.DOCUMENT_START);
     }

@@ -22,7 +22,9 @@ public class WriteBaseImageImpl implements WriteBaseImage {
     private final LatexBlock latexBlock;
     private final StringToFileConverter stringToFileConverter;
 
-    public WriteBaseImageImpl(FileWriter fileWriter, LatexDivisionHeader latexDivisionHeader, LatexBlock latexBlock, StringToFileConverter stringToFileConverter) {
+    public WriteBaseImageImpl(FileWriter fileWriter,
+                              LatexBlock latexBlock,
+                              StringToFileConverter stringToFileConverter) {
         this.fileWriter = fileWriter;
         this.latexBlock = latexBlock;
         this.stringToFileConverter = stringToFileConverter;
@@ -32,6 +34,7 @@ public class WriteBaseImageImpl implements WriteBaseImage {
     public void write(BaseImage baseImage) {
         createActualImage(baseImage.getImage());
         latexBlock.begin("center", "");
+        //noinspection SpellCheckingInspection
         fileWriter.writeLine("\\includegraphics[max width=0.25\\linewidth, max height=0.25\\linewidth,]" +
                 LatexConstants.TERM_START +
                 ApplicationConstants.TEMP_DIRECTORY  +

@@ -6,5 +6,5 @@
 package scot.carricksoftware.grantswriter.writer.latex;
 
 public interface LatexPackageDeclaration {
-    void write(String packageName);
+    void write(String packageName, String options);
 }

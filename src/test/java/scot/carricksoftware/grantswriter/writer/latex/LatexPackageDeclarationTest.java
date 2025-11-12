@@ -32,7 +32,7 @@ class LatexPackageDeclarationTest {
     void writeTest() {
         String packageName = GetRandomString();
         @SuppressWarnings("SpellCheckingInspection") String required = "\\usepackage{" + packageName + "}";
-        latexPackageDeclaration.write(packageName);
+        latexPackageDeclaration.write(packageName, "");
         verify(fileWriterMock).writeLine(required);
     }
 }

@@ -13,7 +13,7 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 public class WriteBaseImageImpl implements WriteBaseImage {
 
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
     private final FileWriter fileWriter;
 
     public WriteBaseImageImpl(FileWriter fileWriter, LatexDivisionHeader latexDivisionHeader) {

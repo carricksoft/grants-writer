@@ -19,11 +19,13 @@ public class LatexPackageDeclarationImpl implements LatexPackageDeclaration {
     }
 
     @Override
-    public void write(String packageName) {
-        String sb = LatexConstants.USE_PACKAGE_TERM +
-                packageName +
-                LatexConstants.TERM_END;
-        fileWriter.writeLine(sb);
+    public void write(String packageName, String options) {
+        if (options == null || options.isEmpty()) {
+            String sb = LatexConstants.USE_PACKAGE_TERM +
+                    packageName +
+                    LatexConstants.TERM_END;
+            fileWriter.writeLine(sb);
+        }
     }
 
 }

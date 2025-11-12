@@ -43,8 +43,8 @@ class LatexDocumentStartTest {
         documentStart.write();
 
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
-        inorder.verify(latexPackageDeclarationMock).write("longtable");
-        inorder.verify(latexPackageDeclarationMock).write("graphicx");
+        inorder.verify(latexPackageDeclarationMock).write("longtable", "");
+        inorder.verify(latexPackageDeclarationMock).write("graphicx", "");
         inorder.verify(fileWriterMock).writeLine("\\setsecnumdepth{subsubsection}");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }

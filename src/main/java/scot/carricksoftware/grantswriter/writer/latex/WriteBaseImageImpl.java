@@ -16,7 +16,6 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 @Component
 public class WriteBaseImageImpl implements WriteBaseImage {
 
-
     @SuppressWarnings({"unused"})
     private final FileWriter fileWriter;
     private final LatexBlock latexBlock;
@@ -33,22 +32,43 @@ public class WriteBaseImageImpl implements WriteBaseImage {
     @Override
     public void write(BaseImage baseImage) {
         createActualImage(baseImage.getImage());
+        latexBlock.begin("figure", "");
         latexBlock.begin("center", "");
-        //noinspection SpellCheckingInspection
+        writeImage(baseImage);
+        writeCaption(baseImage.getCaption());
+        latexBlock.end("center");
+        latexBlock.end("figure");
+    }
+
+    private void writeCaption(String caption) {
+        if (caption != null  && !caption.isEmpty()) {
+            fileWriter.writeLine("\\caption{" + caption + "}");
+        }
+    }
+
+    private void writeImage(BaseImage baseImage) {
+        double scaleFactor = 0.25 / 100;
+        double scaleHeight = 400 * scaleFactor;
+        double scaleWidth = 400 * scaleFactor;
         fileWriter.writeLine("\\includegraphics[" +
-                "max width=0.25\\linewidth" +
+                "max width=" +
+                String.format("%.2f", scaleWidth) +
+                "\\linewidth" +
                 "," +
-                "max height=0.25\\linewidth" +
+                "max height=" +
+                String.format("%.2f", scaleHeight) +
+                "\\linewidth" +
                 "]" +
                 LatexConstants.TERM_START +
                 ApplicationConstants.TEMP_DIRECTORY  +
                 baseImage.getImage().getFileName() +
                 LatexConstants.TERM_END);
-        latexBlock.end("center");
     }
 
     private void createActualImage(Image image) {
         String fileName = ApplicationConstants.TEMP_DIRECTORY + image.getFileName();
         stringToFileConverter.convert(image.getImageData(), fileName);
     }
+
+
 }

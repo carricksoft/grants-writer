@@ -35,7 +35,11 @@ public class WriteBaseImageImpl implements WriteBaseImage {
         createActualImage(baseImage.getImage());
         latexBlock.begin("center", "");
         //noinspection SpellCheckingInspection
-        fileWriter.writeLine("\\includegraphics[max width=0.25\\linewidth, max height=0.25\\linewidth,]" +
+        fileWriter.writeLine("\\includegraphics[" +
+                "max width=0.25\\linewidth" +
+                "," +
+                "max height=0.25\\linewidth" +
+                "]" +
                 LatexConstants.TERM_START +
                 ApplicationConstants.TEMP_DIRECTORY  +
                 baseImage.getImage().getFileName() +

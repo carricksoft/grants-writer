@@ -21,6 +21,7 @@ public class WriteBaseImageImpl implements WriteBaseImage {
     private final LatexBlock latexBlock;
     private final StringToFileConverter stringToFileConverter;
 
+
     public WriteBaseImageImpl(FileWriter fileWriter,
                               LatexBlock latexBlock,
                               StringToFileConverter stringToFileConverter) {

@@ -29,10 +29,30 @@ class LatexPackageDeclarationTest {
     }
 
     @Test
-    void writeTest() {
+    void nullOptionTest() {
         String packageName = GetRandomString();
-        @SuppressWarnings("SpellCheckingInspection") String required = "\\usepackage{" + packageName + "}";
+        String required = "\\usepackage{" + packageName + "}";
+        latexPackageDeclaration.write(packageName, null);
+        verify(fileWriterMock).writeLine(required);
+    }
+
+    @Test
+    void emptyOptionTest() {
+        String packageName = GetRandomString();
+        String required = "\\usepackage{" + packageName + "}";
         latexPackageDeclaration.write(packageName, "");
         verify(fileWriterMock).writeLine(required);
     }
+
+    @Test
+    void nonNullOptionTest() {
+        String packageName = GetRandomString();
+        String options = GetRandomString();
+        String required = "\\usepackage["+ options + "]" +
+                "{" + packageName + "}";
+        latexPackageDeclaration.write(packageName, options);
+        verify(fileWriterMock).writeLine(required);
+    }
+
+
 }

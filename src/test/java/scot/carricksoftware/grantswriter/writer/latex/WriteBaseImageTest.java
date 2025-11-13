@@ -80,7 +80,7 @@ class WriteBaseImageTest {
         String caption = GetRandomString();
         baseImage.setCaption(caption);
         writeBaseImage.write(baseImage);
-        verify(fileWriterMock, times(0)).writeLine("\\caption{" + caption +" }");
+        verify(fileWriterMock, times(1)).writeLine("\\caption{" + caption +"}");
     }
 
 

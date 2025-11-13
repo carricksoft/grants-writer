@@ -43,7 +43,6 @@ public class PersonSectionHeaderImpl implements PersonSectionHeader {
     private void writePersonImage(final Image image) {
         createActualImage(image);
         latexBlock.begin("center", "");
-        //noinspection SpellCheckingInspection
         fileWriter.writeLine("\\includegraphics[width=0.25\\linewidth]" +
                 LatexConstants.TERM_START +
                 ApplicationConstants.TEMP_DIRECTORY  +

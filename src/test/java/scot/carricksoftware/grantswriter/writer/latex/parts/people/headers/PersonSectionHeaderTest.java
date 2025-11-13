@@ -84,7 +84,6 @@ class PersonSectionHeaderTest {
         when(personMock.getImage()).thenReturn(imageMock);
 
         personSectionHeader.write(personMock);
-        //noinspection SpellCheckingInspection
         verify(fileWriterMock).writeLine("\\includegraphics[width=0.25\\linewidth]{/tmp/" + fileName + "}");
 
     }

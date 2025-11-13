@@ -34,13 +34,22 @@ class CombinedServiceTest {
     }
 
     @Test
-    void testGetPersonContent() {
+    void getPersonContentTest() {
         Person person = GetRandomPerson();
         CombinedContentList result = new CombinedContentListImpl();
         when(combinedPersonServiceMock.getPersonContent(person)).thenReturn(result);
 
         assertEquals(result, combinedService.getPersonContent(person));
     }
+
+    @Test
+    void getAppendixContentTest() {
+        CombinedContentList result = new CombinedContentListImpl();
+        when(combinedAppendixServiceMock.getAppendixContent()).thenReturn(result);
+
+        assertEquals(result, combinedService.getAppendixContent());
+    }
+
 
 
 }

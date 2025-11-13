@@ -16,7 +16,7 @@ import scot.carricksoftware.grantswriter.domains.images.BaseImage;
 import scot.carricksoftware.grantswriter.domains.images.Image;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.*;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,7 +34,6 @@ class WriteBaseImageTest {
     private StringToFileConverter stringToFileConverterMock;
 
     private BaseImage baseImage;
-    private Image image;
     private String imageData;
     private String fileName;
 
@@ -42,16 +41,16 @@ class WriteBaseImageTest {
     void setUp() {
         writeBaseImage = new WriteBaseImageImpl(fileWriterMock, latexBlockMock, stringToFileConverterMock);
         baseImage = new BaseImage();
-        image = new Image();
+        Image image = new Image();
         imageData = GetRandomString();
         fileName = GetRandomString();
         image.setImageData(imageData);
         image.setFileName(fileName);
+        baseImage.setImage(image);
     }
 
     @Test
     void theBlockIsWrittenTest() {
-        baseImage.setImage(image);
         InOrder inorder = inOrder(stringToFileConverterMock, latexBlockMock, latexBlockMock, latexBlockMock);
         writeBaseImage.write(baseImage);
 
@@ -61,5 +60,28 @@ class WriteBaseImageTest {
         inorder.verify(latexBlockMock).end("center");
         inorder.verify(latexBlockMock).end("figure");
     }
+
+    @Test
+    void nullCaptionTest() {
+        baseImage.setCaption(null);
+        writeBaseImage.write(baseImage);
+        verify(fileWriterMock, times(0)).writeLine("\\caption{}");
+    }
+
+    @Test
+    void emptyCaptionTest() {
+        baseImage.setCaption("");
+        writeBaseImage.write(baseImage);
+        verify(fileWriterMock, times(0)).writeLine("\\caption{}");
+    }
+
+    @Test
+    void validCaptionTest() {
+        String caption = GetRandomString();
+        baseImage.setCaption(caption);
+        writeBaseImage.write(baseImage);
+        verify(fileWriterMock, times(0)).writeLine("\\caption{" + caption +" }");
+    }
+
 
 }

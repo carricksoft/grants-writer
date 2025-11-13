@@ -19,6 +19,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomLong;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -35,11 +36,19 @@ class AppendixTextServiceTest {
     }
 
     @Test
-    void testFindAllTest() {
+    void findAllTest() {
         List<AppendixText> appendixTextList = new ArrayList<>();
         appendixTextList.add(new AppendixText());
         when(appendixTextRepositoryMock.findAll()).thenReturn(appendixTextList);
         assertEquals(appendixTextList, appendixTextService.findAll());
     }
 
+
+    @Test
+    void findByIdTest() {
+        Long id = GetRandomLong();
+        AppendixText appendixText = new AppendixText();
+        when(appendixTextRepositoryMock.findById(id)).thenReturn(appendixText);
+        assertEquals(appendixText, appendixTextService.findById(id));
+    }
 }

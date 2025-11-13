@@ -49,8 +49,8 @@ public class WriteBaseImageImpl implements WriteBaseImage {
 
     private void writeImage(BaseImage baseImage) {
         double scaleFactor = 0.25 / 100;
-        double scaleHeight = 400 * scaleFactor;
-        double scaleWidth = 400 * scaleFactor;
+        double scaleHeight = Double.parseDouble(baseImage.getHeight()) * scaleFactor;
+        double scaleWidth = Double.parseDouble(baseImage.getWidth()) * scaleFactor;
         fileWriter.writeLine("\\includegraphics[" +
                 "max width=" +
                 String.format("%.2f", scaleWidth) +

@@ -46,6 +46,8 @@ class WriteBaseImageTest {
         fileName = GetRandomString();
         image.setImageData(imageData);
         image.setFileName(fileName);
+        baseImage.setHeight("400");
+        baseImage.setWidth("400");
         baseImage.setImage(image);
     }
 

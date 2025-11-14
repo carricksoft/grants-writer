@@ -10,9 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import scot.carricksoftware.grantswriter.domains.text.BaseText;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
+import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomInteger;
 
 @ExtendWith(MockitoExtension.class)
 class WriteBaseTextTest {
@@ -25,14 +28,33 @@ class WriteBaseTextTest {
     @Mock
     private FileWriter fileWriterMock;
 
+    private BaseText baseText;
+    private Integer level;
+    private String heading;
+    private String content;
+
     @BeforeEach
     void setUp() {
         writeBaseText = new WriteBaseTextImpl(fileWriterMock, latexDivisionHeaderMock);
+        baseText = new BaseText();
+        level = GetRandomInteger();
+        heading = GetRandomString();
+        content = GetRandomString();
+        baseText.setLevel(level.toString());
+        baseText.setHeading(heading);
+        baseText.setContent(content);
     }
 
     @Test
-    void constructorTest() {
-        assertNotNull(writeBaseText);
+    void theHeaderIsCalledTest() {
+        writeBaseText.write(baseText);
+        verify(latexDivisionHeaderMock).write(level,heading);
+    }
+
+    @Test
+    void theContentIsWrittenTest() {
+        writeBaseText.write(baseText);
+        verify(fileWriterMock).writeLine(content);
     }
 
 }

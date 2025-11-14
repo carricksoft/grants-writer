@@ -90,4 +90,16 @@ class AppendixPartWriterTest {
         appendixPartWriter.write();
         verify(writeBaseTextMock).write(appendixText);
     }
+
+    @Test
+    void thePartHeaderIsWrittenTest() {
+        combined.setContentType("text");
+        combinedList.add(combined);
+        AppendixText appendixText = new AppendixText();
+        when(combinedContentListMock.getList()).thenReturn(combinedList);
+        when(appendixTextServiceMock.findById(any())).thenReturn(appendixText);
+
+        appendixPartWriter.write();
+        verify(appendixPartHeaderMock).write();
+    }
 }

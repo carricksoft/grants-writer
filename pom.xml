@@ -126,7 +126,27 @@
     </dependencies>
     <build>
 
-        <plugins>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>3.4.5</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.2</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>scot.carricksoftware.grantswriter.GrantsWriterApplication</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -161,48 +181,7 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
-
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.31.1</version>
-                <configuration>
-                    <changeLogFile>src/main/resources/db/changelog/master.xml</changeLogFile>
-                    <outputChangeLogFile>src/main/resources/db/changelog/migration/1.0_init.postgresql.sql
-                    </outputChangeLogFile>
-                    <diffChangeLogFile>src/main/resources/db/changelog/migration/_${diff.version}_migrate.sql
-                    </diffChangeLogFile>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                </configuration>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate6</artifactId>
-                        <version>4.31.1</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.data</groupId>
-                        <artifactId>spring-data-jpa</artifactId>
-                        <version>3.0.2</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>io.hypersistence</groupId>
-                        <artifactId>hypersistence-utils-hibernate-60</artifactId>
-                        <version>3.9.4</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                        <version>2.14.2</version>
-                    </dependency>
-
-                </dependencies>
-
-            </plugin>
-
-
-        </plugins>
+            </plugins>
     </build>
 
 </project>

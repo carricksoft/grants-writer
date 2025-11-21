@@ -14,10 +14,12 @@ public class CombinedServiceImpl implements CombinedService {
 
     private final CombinedPersonService combinedPersonService;
     private final CombinedAppendixService combinedAppendixService;
+    private final CombinedDocumentService combinedDocumentService;
 
-    public CombinedServiceImpl(CombinedPersonService combinedPersonService, CombinedAppendixService combinedAppendixService) {
+    public CombinedServiceImpl(CombinedPersonService combinedPersonService, CombinedAppendixService combinedAppendixService, CombinedDocumentService combinedDocumentService) {
         this.combinedPersonService = combinedPersonService;
         this.combinedAppendixService = combinedAppendixService;
+        this.combinedDocumentService = combinedDocumentService;
     }
 
     @Override
@@ -31,4 +33,8 @@ public class CombinedServiceImpl implements CombinedService {
     }
 
 
+    @Override
+    public CombinedContentList getDocumentContent() {
+        return combinedDocumentService.getDocumentContent();
+    }
 }

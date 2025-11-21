@@ -27,10 +27,14 @@ class CombinedServiceTest {
     private CombinedPersonService combinedPersonServiceMock;
     @Mock
     private CombinedAppendixService combinedAppendixServiceMock;
+    @Mock
+    private CombinedDocumentService combinedDocumentServiceMock;
 
     @BeforeEach
     void setUp() {
-        combinedService = new CombinedServiceImpl(combinedPersonServiceMock, combinedAppendixServiceMock);
+        combinedService = new CombinedServiceImpl(combinedPersonServiceMock,
+                combinedAppendixServiceMock,
+                combinedDocumentServiceMock);
     }
 
     @Test
@@ -49,6 +53,15 @@ class CombinedServiceTest {
 
         assertEquals(result, combinedService.getAppendixContent());
     }
+
+    @Test
+    void getDocumentContentTest() {
+        CombinedContentList result = new CombinedContentListImpl();
+        when(combinedDocumentServiceMock.getDocumentContent()).thenReturn(result);
+
+        assertEquals(result, combinedService.getDocumentContent());
+    }
+
 
 
 

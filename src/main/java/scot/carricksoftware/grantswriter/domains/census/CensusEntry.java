@@ -5,14 +5,12 @@
 
 package scot.carricksoftware.grantswriter.domains.census;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
 @Entity
+@Table(name="`census_entry`")
 public class CensusEntry extends BaseEntity {
 
     @Column(name = "`name`")

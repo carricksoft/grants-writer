@@ -7,10 +7,12 @@ package scot.carricksoftware.grantswriter.domains.places;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import scot.carricksoftware.grantswriter.BaseEntity;
 
 
 @Entity
+@Table(name="`country`")
 public class Country extends BaseEntity {
 
     @Column(name = "`name`")

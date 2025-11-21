@@ -5,17 +5,13 @@
 
 package scot.carricksoftware.grantswriter.domains.census;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.enums.census.CensusDate;
 
 @Entity
+@Table(name="`census`")
 public class Census extends BaseEntity {
 
     @Enumerated(EnumType.STRING)

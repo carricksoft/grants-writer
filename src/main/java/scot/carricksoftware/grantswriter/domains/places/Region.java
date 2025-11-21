@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 import scot.carricksoftware.grantswriter.BaseEntity;
 
 @Entity
+@Table(name="`region`")
 public class Region extends BaseEntity {
 
     @Column(name = "`name`")

@@ -8,9 +8,11 @@ package scot.carricksoftware.grantswriter.domains.places;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import scot.carricksoftware.grantswriter.BaseEntity;
 
 @Entity
+@Table(name="`organisation`")
 public class Organisation extends BaseEntity {
 
     @Column(name = "`name`")

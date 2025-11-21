@@ -5,10 +5,7 @@
 
 package scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
@@ -16,6 +13,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 
 
 @Entity
+@Table(name="`divorce_certificate`")
 public class DivorceCertificate extends BaseEntity {
 
     @ManyToOne

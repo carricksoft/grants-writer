@@ -5,17 +5,13 @@
 
 package scot.carricksoftware.grantswriter.domains.people;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import org.springframework.stereotype.Component;
+import jakarta.persistence.*;
 import scot.carricksoftware.grantswriter.BaseEntity;
 import scot.carricksoftware.grantswriter.domains.images.Image;
 
 
 @Entity
-@Component
+@Table(name="`person`")
 public class Person extends BaseEntity {
 
     @ManyToOne

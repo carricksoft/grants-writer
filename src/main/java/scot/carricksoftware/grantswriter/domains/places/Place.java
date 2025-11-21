@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 import scot.carricksoftware.grantswriter.BaseEntity;
 
 @Entity
+@Table(name="`place`")
 public class Place extends BaseEntity {
 
     @Column(name = "`name`")

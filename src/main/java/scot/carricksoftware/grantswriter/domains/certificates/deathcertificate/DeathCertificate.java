@@ -5,13 +5,7 @@
 
 package scot.carricksoftware.grantswriter.domains.certificates.deathcertificate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import scot.carricksoftware.grantswriter.constants.ApplicationConstants;
 import scot.carricksoftware.grantswriter.domains.certificates.BaseCertificate;
@@ -20,6 +14,7 @@ import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.enums.general.Sex;
 
 @Entity
+@Table(name="`death_certificate`")
 public class DeathCertificate extends BaseCertificate {
 
 

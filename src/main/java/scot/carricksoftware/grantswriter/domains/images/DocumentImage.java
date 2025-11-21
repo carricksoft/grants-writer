@@ -8,8 +8,9 @@ package scot.carricksoftware.grantswriter.domains.images;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name="`appendix_image`")
-public class AppendixImage extends BaseImage {
+@Entity(name="document_image")
+@Table(name="`document_image`")
+public class DocumentImage extends BaseImage {
+
 
 }

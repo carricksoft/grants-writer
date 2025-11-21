@@ -24,7 +24,10 @@ public class TexWriterImpl implements TexWriter {
     private final PartsWriter partsWriter;
 
 
-    public TexWriterImpl(FileWriter fileWriter, LatexDocumentStart docStart, LatexDocumentEnd docEnd, PartsWriter partsWriter) {
+    public TexWriterImpl(FileWriter fileWriter,
+                         LatexDocumentStart docStart,
+                         LatexDocumentEnd docEnd,
+                         PartsWriter partsWriter) {
         this.fileWriter = fileWriter;
         this.docStart = docStart;
         this.docEnd = docEnd;

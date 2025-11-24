@@ -56,19 +56,16 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
         }
     }
 
-    @SuppressWarnings("unused")
     private void gatherFather(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByFather(person);
         gatherBirthCertificateFatherTimeLineData.gather(birthCertificates);
     }
 
-    @SuppressWarnings("unused")
     private void gatherMother(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByMother(person);
         gatherBirthCertificateMotherTimeLineData.gather(birthCertificates);
     }
 
-    @SuppressWarnings("unused")
     private void gatherInformant(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByInformant(person);
         gatherBirthCertificateInformantTimeLineData.gather(birthCertificates);

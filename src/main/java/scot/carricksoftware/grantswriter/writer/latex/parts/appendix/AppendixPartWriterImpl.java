@@ -45,6 +45,7 @@ public class AppendixPartWriterImpl implements AppendixPartWriter {
         this.combinedService = combinedService;
     }
 
+    @SuppressWarnings("DuplicatedCode")
     public void write() {
         logger.debug("AppendixPartsImpl::write()");
         appendixPartHeader.write();

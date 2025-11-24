@@ -38,6 +38,7 @@ public class DocumentPartWriterImpl implements DocumentPartWriter {
     }
 
 
+    @SuppressWarnings("DuplicatedCode")
     public void write() {
         logger.debug("DocumentPartsImpl::write()");
 

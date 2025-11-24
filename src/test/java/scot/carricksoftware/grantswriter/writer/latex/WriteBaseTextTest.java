@@ -29,7 +29,9 @@ class WriteBaseTextTest {
     private FileWriter fileWriterMock;
 
     private BaseText baseText;
+    @SuppressWarnings("FieldCanBeLocal")
     private Integer level;
+    @SuppressWarnings("FieldCanBeLocal")
     private String heading;
     private String content;
 

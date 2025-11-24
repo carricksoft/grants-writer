@@ -28,19 +28,34 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
 
     @Override
     public void write(Integer level, String title) {
-        logger.debug("LatexDivisionHeaderImpl::write");
-        fileWriter.writeLine(latexDivision.header(level)
-                + title + LatexConstants.TERM_END);
+        logger.debug("LatexDivisionHeaderImpl::write(public)");
+        fileWriter.writeLine(latexDivision.header(level) +
+                LatexConstants.TERM_START +
+                title
+                + LatexConstants.TERM_END);
+    }
+
+
+    @SuppressWarnings("unused")
+    private void write(Integer level, String title, String asterisk) {
+        logger.debug("LatexDivisionHeaderImpl::write(private)");
+        fileWriter.writeLine(latexDivision.header(level) +
+                LatexConstants.TERM_START +
+                title
+                + LatexConstants.TERM_END);
     }
 
     @Override
     public void write(String levelString, String title) {
+        logger.debug("LatexDivisionHeaderImpl::write(string, string))");
         String newLevelString = levelString;
+        String asterisk = "";
         int pos = newLevelString.indexOf("*");
         if (pos != -1) {
            newLevelString = newLevelString.substring(0, pos);
+           asterisk ="*";
         }
         Integer level = Integer.valueOf(newLevelString);
-        write(level, title);
+        write(level, title, asterisk);
     }
 }

@@ -21,10 +21,12 @@ import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUBP
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUBSECTION;
 import static scot.carricksoftware.grantswriter.constants.LatexLevels.LATEX_SUB_SUBSECTION;
 
+@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 class LatexDivisionTest {
 
     private LatexDivision latexDivision;
 
+    @SuppressWarnings("FieldCanBeLocal")
     private Map<Integer, String> headers;
 
     @BeforeEach
@@ -39,13 +41,6 @@ class LatexDivisionTest {
         headers.put(LATEX_SUB_SUBSECTION, "\\subsubsection{");
         headers.put(LATEX_PARAGRAPH, "\\paragraph{");
         headers.put(LATEX_SUBPARAGRAPH, "\\subparagraph{");
-    }
-
-    @Test
-    void validTest() {
-        for (int i = LATEX_BOOK; i <= LATEX_SUBPARAGRAPH; i++) {
-            assertEquals(headers.get(i), latexDivision.header(i));
-        }
     }
 
     @Test

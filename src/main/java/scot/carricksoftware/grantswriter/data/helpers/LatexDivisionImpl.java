@@ -26,14 +26,14 @@ public class LatexDivisionImpl implements  LatexDivision {
 
     public LatexDivisionImpl() {
         headers = new HashMap<>();
-        headers.put(LATEX_BOOK, "\\book{");
-        headers.put(LATEX_PART, "\\part{");
-        headers.put(LATEX_CHAPTER, "\\chapter{");
-        headers.put(LATEX_SECTION, "\\section{");
-        headers.put(LATEX_SUBSECTION, "\\subsection{");
-        headers.put(LATEX_SUB_SUBSECTION, "\\subsubsection{");
-        headers.put(LATEX_PARAGRAPH, "\\paragraph{");
-        headers.put(LATEX_SUBPARAGRAPH, "\\subparagraph{");
+        headers.put(LATEX_BOOK, "\\book");
+        headers.put(LATEX_PART, "\\part");
+        headers.put(LATEX_CHAPTER, "\\chapter");
+        headers.put(LATEX_SECTION, "\\section");
+        headers.put(LATEX_SUBSECTION, "\\subsection");
+        headers.put(LATEX_SUB_SUBSECTION, "\\subsubsection");
+        headers.put(LATEX_PARAGRAPH, "\\paragraph");
+        headers.put(LATEX_SUBPARAGRAPH, "\\subparagraph");
     }
 
     @Override

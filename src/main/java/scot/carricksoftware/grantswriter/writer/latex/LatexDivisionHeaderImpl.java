@@ -36,7 +36,6 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
     }
 
 
-    @SuppressWarnings("unused")
     private void write(Integer level, String title, String asterisk) {
         logger.debug("LatexDivisionHeaderImpl::write(private)");
         fileWriter.writeLine(latexDivision.header(level) +

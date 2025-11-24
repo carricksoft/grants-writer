@@ -10,10 +10,10 @@ import scot.carricksoftware.grantswriter.domains.text.DocumentText;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 
-@SuppressWarnings("unused")
+
 @Repository
 public interface DocumentTextRepository extends ReadOnlyRepository<DocumentText, Long> {
-    @SuppressWarnings("unused")
+
     Iterable<DocumentText> findAll();
     DocumentText findById(Long id);
 }

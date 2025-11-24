@@ -13,6 +13,5 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 public interface DocumentImageRepository extends ReadOnlyRepository<DocumentImage, Long> {
     Iterable<DocumentImage> findAll();
 
-    @SuppressWarnings("unused")
     DocumentImage findById(Long id);
 }

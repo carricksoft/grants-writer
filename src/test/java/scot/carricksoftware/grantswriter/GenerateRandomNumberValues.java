@@ -9,12 +9,10 @@ import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class GenerateRandomNumberValues {
 
     private static final Random rand = new Random();
-
     public static Long GetRandomLong() {
         return rand.nextLong();
     }
@@ -23,6 +21,5 @@ public class GenerateRandomNumberValues {
     public static Integer GetRandomInteger() {
         return rand.nextInt();
     }
-
 
 }

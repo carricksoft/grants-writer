@@ -11,8 +11,7 @@ import scot.carricksoftware.grantswriter.domains.images.DocumentImage;
 import java.util.List;
 
 public interface DocumentImageService {
-    @SuppressWarnings("unused")
+
     List<DocumentImage> findAll();
-    @SuppressWarnings("unused")
     DocumentImage findById(Long id);
 }

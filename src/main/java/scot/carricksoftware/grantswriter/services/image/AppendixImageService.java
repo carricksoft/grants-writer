@@ -11,8 +11,8 @@ import scot.carricksoftware.grantswriter.domains.images.AppendixImage;
 import java.util.List;
 
 public interface AppendixImageService {
-    @SuppressWarnings("unused")
+
     List<AppendixImage> findAll();
-    @SuppressWarnings("unused")
+
     AppendixImage findById(Long id);
 }

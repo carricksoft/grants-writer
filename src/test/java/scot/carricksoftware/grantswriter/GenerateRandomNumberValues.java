@@ -19,6 +19,7 @@ public class GenerateRandomNumberValues {
         return rand.nextLong();
     }
 
+    @SuppressWarnings("unused")
     public static Integer GetRandomInteger() {
         return rand.nextInt();
     }

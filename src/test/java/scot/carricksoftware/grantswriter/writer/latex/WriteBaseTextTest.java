@@ -15,7 +15,6 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 
 import static org.mockito.Mockito.verify;
 import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
-import static scot.carricksoftware.grantswriter.GenerateRandomNumberValues.GetRandomInteger;
 
 @ExtendWith(MockitoExtension.class)
 class WriteBaseTextTest {
@@ -31,7 +30,6 @@ class WriteBaseTextTest {
     private BaseText baseText;
     @SuppressWarnings("FieldCanBeLocal")
     private Integer level;
-    @SuppressWarnings("FieldCanBeLocal")
     private String heading;
     private String content;
 
@@ -39,7 +37,7 @@ class WriteBaseTextTest {
     void setUp() {
         writeBaseText = new WriteBaseTextImpl(fileWriterMock, latexDivisionHeaderMock);
         baseText = new BaseText();
-        level = GetRandomInteger();
+        level = 1;
         heading = GetRandomString();
         content = GetRandomString();
         baseText.setLevel(level.toString());
@@ -47,11 +45,16 @@ class WriteBaseTextTest {
         baseText.setContent(content);
     }
 
-
     @Test
     void theContentIsWrittenTest() {
         writeBaseText.write(baseText);
         verify(fileWriterMock).writeLine(content);
+    }
+
+    @Test
+    void theHeaderIsWrittenTest() {
+        writeBaseText.write(baseText);
+        verify(latexDivisionHeaderMock).write("1", heading);
     }
 
 }

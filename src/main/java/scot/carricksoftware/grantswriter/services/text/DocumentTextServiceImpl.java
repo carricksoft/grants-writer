@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DocumentTextServiceImpl implements DocumentTextService {
+public class DocumentTextServiceImpl extends TextServiceImpl implements DocumentTextService {
     private static final Logger logger = LogManager.getLogger(DocumentTextServiceImpl.class);
 
     @SuppressWarnings({"unused"})

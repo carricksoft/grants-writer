@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AppendixTextServiceImpl implements AppendixTextService {
+public class AppendixTextServiceImpl extends TextServiceImpl implements AppendixTextService {
     private static final Logger logger = LogManager.getLogger(AppendixTextServiceImpl.class);
 
     @SuppressWarnings({"unused"})

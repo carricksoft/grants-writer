@@ -40,6 +40,7 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
     private void write(Integer level, String title, String asterisk) {
         logger.debug("LatexDivisionHeaderImpl::write(private)");
         fileWriter.writeLine(latexDivision.header(level) +
+                asterisk +
                 LatexConstants.TERM_START +
                 title
                 + LatexConstants.TERM_END);

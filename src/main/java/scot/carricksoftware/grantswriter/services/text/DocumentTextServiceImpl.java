@@ -18,7 +18,6 @@ import java.util.List;
 public class DocumentTextServiceImpl extends TextServiceImpl implements DocumentTextService {
     private static final Logger logger = LogManager.getLogger(DocumentTextServiceImpl.class);
 
-    @SuppressWarnings({"unused"})
     private final DocumentTextRepository documentTextRepository;
 
     public DocumentTextServiceImpl(DocumentTextRepository documentTextRepository) {

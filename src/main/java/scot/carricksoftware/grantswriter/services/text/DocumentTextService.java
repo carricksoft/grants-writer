@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public interface DocumentTextService extends TextService {
 
-    @SuppressWarnings("unused")
     List<DocumentText> findAll();
 
     DocumentText findById(Long id);

@@ -18,7 +18,6 @@ import java.util.List;
 public class AppendixTextServiceImpl extends TextServiceImpl implements AppendixTextService {
     private static final Logger logger = LogManager.getLogger(AppendixTextServiceImpl.class);
 
-    @SuppressWarnings({"unused"})
     private final AppendixTextRepository appendixTextRepository;
 
     public AppendixTextServiceImpl(AppendixTextRepository appendixTextRepository) {

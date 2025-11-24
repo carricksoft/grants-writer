@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public interface AppendixTextService extends TextService {
 
-    @SuppressWarnings("unused")
     List<AppendixText> findAll();
 
     AppendixText findById(Long id);

@@ -13,12 +13,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.helpers.LatexDivision;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 @ExtendWith(MockitoExtension.class)
 class LatexDivisionHeaderTest {
 
-    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    @SuppressWarnings({"unused"})
     private LatexDivisionHeader header;
 
     @Mock
@@ -32,8 +34,16 @@ class LatexDivisionHeaderTest {
     }
 
     @Test
-    void dummyTest() {
-        assertTrue(true);
+    void writeTest() {
+        Integer level = 1;
+        String title = GetRandomString();
+        String description = GetRandomString();
+        when(latexDivisionMock.header(level)).thenReturn(description);
+
+        header.write(level,title);
+
+        verify(fileWriterMock).writeLine(description + "{" + title + "}");
     }
+
 
  }

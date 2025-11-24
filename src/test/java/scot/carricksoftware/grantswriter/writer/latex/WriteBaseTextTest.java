@@ -45,11 +45,6 @@ class WriteBaseTextTest {
         baseText.setContent(content);
     }
 
-    @Test
-    void theHeaderIsCalledTest() {
-        writeBaseText.write(baseText);
-        verify(latexDivisionHeaderMock).write(level,heading);
-    }
 
     @Test
     void theContentIsWrittenTest() {

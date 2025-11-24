@@ -23,7 +23,7 @@ public class WriteBaseTextImpl implements WriteBaseText {
 
     @Override
     public void write(BaseText baseText) {
-        latexDivisionHeader.write(Integer.parseInt(baseText.getLevel()), baseText.getHeading());
+        latexDivisionHeader.write(baseText.getLevel(), baseText.getHeading());
         fileWriter.writeLine(baseText.getContent());
     }
 }

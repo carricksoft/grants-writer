@@ -35,7 +35,12 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
 
     @Override
     public void write(String levelString, String title) {
-        Integer level = Integer.valueOf(levelString);
+        String newLevelString = levelString;
+        int pos = newLevelString.indexOf("*");
+        if (pos != -1) {
+           newLevelString = newLevelString.substring(0, pos);
+        }
+        Integer level = Integer.valueOf(newLevelString);
         write(level, title);
     }
 }

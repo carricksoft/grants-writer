@@ -6,6 +6,5 @@
 package scot.carricksoftware.grantswriter.writer.latex.parts.document;
 
 public interface DocumentPartWriter {
-    @SuppressWarnings("unused")
     void write();
 }

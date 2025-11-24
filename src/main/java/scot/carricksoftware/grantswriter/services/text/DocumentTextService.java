@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-public interface DocumentTextService {
+public interface DocumentTextService extends TextService {
 
     @SuppressWarnings("unused")
     List<DocumentText> findAll();

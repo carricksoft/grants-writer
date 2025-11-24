@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-public interface AppendixTextService {
+public interface AppendixTextService extends TextService {
 
     @SuppressWarnings("unused")
     List<AppendixText> findAll();

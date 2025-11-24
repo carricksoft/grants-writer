@@ -8,6 +8,6 @@ package scot.carricksoftware.grantswriter.writer.latex;
 import scot.carricksoftware.grantswriter.domains.images.BaseImage;
 
 public interface WriteBaseImage {
-    @SuppressWarnings("unused")
+
     void write(BaseImage baseImage);
 }

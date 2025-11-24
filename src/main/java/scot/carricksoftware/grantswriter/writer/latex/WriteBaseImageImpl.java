@@ -16,7 +16,6 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 @Component
 public class WriteBaseImageImpl implements WriteBaseImage {
 
-    @SuppressWarnings({"unused"})
     private final FileWriter fileWriter;
     private final LatexBlock latexBlock;
     private final StringToFileConverter stringToFileConverter;

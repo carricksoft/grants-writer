@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.text.AppendixText;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
-
-@SuppressWarnings("unused")
 @Repository
 public interface AppendixTextRepository extends ReadOnlyRepository<AppendixText, Long> {
 

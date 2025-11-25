@@ -7,7 +7,7 @@ package scot.carricksoftware.grantswriter.enums.general;
 
 public enum Sex {
 
-    @SuppressWarnings("unused") MALE("Male"),
+    MALE("Male"),
     FEMALE ("Female");
 
     @SuppressWarnings("unused")

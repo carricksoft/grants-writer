@@ -39,12 +39,17 @@ class LatexDocumentStartTest {
 
     @Test
     public void writeTest() {
-        InOrder inorder = inOrder(fileWriterMock, latexPackageDeclarationMock, fileWriterMock, fileWriterMock, fileWriterMock);
+        InOrder inorder = inOrder(fileWriterMock,
+                latexPackageDeclarationMock,
+                fileWriterMock,
+                fileWriterMock,
+                fileWriterMock);
         documentStart.write();
 
         inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
         inorder.verify(latexPackageDeclarationMock).write("longtable", "");
         inorder.verify(latexPackageDeclarationMock).write("adjustbox", "export");
+        inorder.verify(latexPackageDeclarationMock).write("placeins", "");
         inorder.verify(fileWriterMock).writeLine("\\setsecnumdepth{subsubsection}");
         inorder.verify(fileWriterMock).writeLine("\\begin{document}");
     }

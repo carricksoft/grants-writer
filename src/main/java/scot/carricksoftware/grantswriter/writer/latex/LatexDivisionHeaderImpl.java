@@ -38,6 +38,7 @@ public class LatexDivisionHeaderImpl implements LatexDivisionHeader {
 
     private void write(Integer level, String title, String asterisk) {
         logger.debug("LatexDivisionHeaderImpl::write(private)");
+        fileWriter.writeLine(LatexConstants.FLOAT_BARRIER);
         fileWriter.writeLine(latexDivision.header(level) +
                 asterisk +
                 LatexConstants.TERM_START +

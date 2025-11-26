@@ -30,7 +30,6 @@ class LatexLongTabLeEndTest {
     @Test
     void writeTest() {
         latexLongTabLeEnd.write();
-        //noinspection SpellCheckingInspection
         verify(fileWriterMock).writeLine("\\end{longtable}");
     }
 }

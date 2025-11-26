@@ -31,7 +31,7 @@ class LatexLongTableStartTest {
     @Test
     void writeTest() {
         String columns = GetRandomString();
-        @SuppressWarnings("SpellCheckingInspection") String required = "\\begin{longtable}{" + columns + "}";
+        String required = "\\begin{longtable}{" + columns + "}";
         latexLongTableStart.write(columns);
         verify(fileWriterMock).writeLine(required);
     }

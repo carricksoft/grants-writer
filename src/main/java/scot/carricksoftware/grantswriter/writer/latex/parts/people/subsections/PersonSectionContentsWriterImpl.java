@@ -12,7 +12,9 @@ import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentType;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
+import scot.carricksoftware.grantswriter.services.image.PersonImageService;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
+import scot.carricksoftware.grantswriter.writer.latex.WriteBaseImage;
 import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 
 import java.util.List;
@@ -23,20 +25,25 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
     private static final Logger logger = LogManager.getLogger(PersonSectionContentsWriterImpl.class);
 
     private final PersonTextService personTextService;
-
+    private final PersonImageService personImageService;
     private final CombinedService combinedService;
-
     private final WriteBaseText writeBaseText;
+    private final WriteBaseImage writeBaseImage;
 
     public PersonSectionContentsWriterImpl(
             PersonTextService personTextService,
+            PersonImageService personImageService,
             CombinedService combinedService,
-            WriteBaseText writeBaseText) {
+            WriteBaseText writeBaseText,
+            WriteBaseImage writeBaseImage) {
         this.personTextService = personTextService;
+        this.personImageService = personImageService;
         this.combinedService = combinedService;
         this.writeBaseText = writeBaseText;
+        this.writeBaseImage = writeBaseImage;
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @Override
     public void write(Person person) {
         logger.info("PersonSectionContentsWriterImpl.write()");
@@ -44,6 +51,11 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
         for (Combined combined : combinedList) {
             if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
                 writeBaseText.write(personTextService.findById(combined.getContentId()));
+            }
+            else {
+                if (combined.getContentType().equals(CombinedContentType.IMAGE.label)) {
+                    writeBaseImage.write(personImageService.findById(combined.getContentId()));
+                }
             }
        }
     }

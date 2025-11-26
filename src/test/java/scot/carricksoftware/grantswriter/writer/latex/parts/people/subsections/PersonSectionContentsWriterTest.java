@@ -16,7 +16,9 @@ import scot.carricksoftware.grantswriter.combined.CombinedImpl;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
+import scot.carricksoftware.grantswriter.services.image.PersonImageService;
 import scot.carricksoftware.grantswriter.services.text.PersonTextService;
+import scot.carricksoftware.grantswriter.writer.latex.WriteBaseImage;
 import scot.carricksoftware.grantswriter.writer.latex.WriteBaseText;
 
 import java.util.ArrayList;
@@ -33,8 +35,10 @@ class PersonSectionContentsWriterTest {
     private PersonSectionContentsWriter personSectionContentsWriter;
 
     @Mock private PersonTextService personTextServiceMock;
+    @Mock private PersonImageService personImageServiceMock;
     @Mock private CombinedService combinedServiceMock;
     @Mock private WriteBaseText writeBaseTextMock;
+    @Mock private WriteBaseImage writeBaseImageMock;
 
     @Mock
     private CombinedContentList combinedContentListMock;
@@ -47,7 +51,12 @@ class PersonSectionContentsWriterTest {
 
     @BeforeEach
     void setUp() {
-        personSectionContentsWriter = new PersonSectionContentsWriterImpl(personTextServiceMock, combinedServiceMock, writeBaseTextMock);
+        personSectionContentsWriter = new PersonSectionContentsWriterImpl(
+                personTextServiceMock,
+                personImageServiceMock,
+                combinedServiceMock,
+                writeBaseTextMock,
+                writeBaseImageMock);
         combined = new CombinedImpl();
         person = GetRandomPerson();
         when(combinedServiceMock.getPersonContent(person)).thenReturn(combinedContentListMock);

@@ -30,10 +30,9 @@ public class LatexDocumentStartImpl implements LatexDocumentStart {
     public void write() {
         logger.info("LatexDocumentStartImpl.write()");
         fileWriter.writeLine(LatexConstants.DOCUMENT_CLASS);
-        //noinspection SpellCheckingInspection
         latexPackageDeclaration.write("longtable","");
-        //noinspection SpellCheckingInspection
         latexPackageDeclaration.write("adjustbox", "export");
+        latexPackageDeclaration.write("placeins", "");
         fileWriter.writeLine(LatexConstants.SECTION_NUMBERING);
         fileWriter.writeLine(LatexConstants.DOCUMENT_START);
     }

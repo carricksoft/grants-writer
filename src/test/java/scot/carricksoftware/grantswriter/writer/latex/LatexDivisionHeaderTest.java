@@ -58,13 +58,25 @@ class LatexDivisionHeaderTest {
     }
 
     @Test
-    void floatBarrierTest() {
+    void writeStringFloatBarrierTest() {
         Integer level = 1;
         String title = GetRandomString();
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
         header.write(level.toString(),title);
+
+        verify(fileWriterMock).writeLine("\\FloatBarrier");
+    }
+
+    @Test
+    void writeFloatBarrierTest() {
+        Integer level = 1;
+        String title = GetRandomString();
+        String description = GetRandomString();
+        when(latexDivisionMock.header(level)).thenReturn(description);
+
+        header.write(level,title);
 
         verify(fileWriterMock).writeLine("\\FloatBarrier");
     }

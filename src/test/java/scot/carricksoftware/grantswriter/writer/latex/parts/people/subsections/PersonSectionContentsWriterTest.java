@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.combined.Combined;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.combined.CombinedImpl;
+import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.text.PersonText;
 import scot.carricksoftware.grantswriter.services.combined.CombinedService;
@@ -72,5 +73,17 @@ class PersonSectionContentsWriterTest {
 
         personSectionContentsWriter.write(person);
         verify(writeBaseTextMock).write(personText);
+    }
+
+    @Test
+    void imagesAreCorrectlyRoutedTest() {
+        combined.setContentType("image");
+        combinedList.add(combined);
+        PersonImage personImage = new PersonImage();
+        when(combinedContentListMock.getList()).thenReturn(combinedList);
+        when(personImageServiceMock.findById(any())).thenReturn(personImage);
+
+        personSectionContentsWriter.write(person);
+        verify(writeBaseImageMock).write(personImage);
     }
 }

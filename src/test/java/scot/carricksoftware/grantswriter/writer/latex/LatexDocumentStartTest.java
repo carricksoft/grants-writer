@@ -16,7 +16,6 @@ import scot.carricksoftware.grantswriter.writer.FileWriter;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.inOrder;
 
-@SuppressWarnings("SpellCheckingInspection")
 @ExtendWith(SpringExtension.class)
 class LatexDocumentStartTest {
 
@@ -46,7 +45,7 @@ class LatexDocumentStartTest {
                 fileWriterMock);
         documentStart.write();
 
-        inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, twoside]{memoir}");
+        inorder.verify(fileWriterMock).writeLine("\\documentclass[a4paper,11pt, oneside]{memoir}");
         inorder.verify(latexPackageDeclarationMock).write("longtable", "");
         inorder.verify(latexPackageDeclarationMock).write("adjustbox", "export");
         inorder.verify(latexPackageDeclarationMock).write("placeins", "");

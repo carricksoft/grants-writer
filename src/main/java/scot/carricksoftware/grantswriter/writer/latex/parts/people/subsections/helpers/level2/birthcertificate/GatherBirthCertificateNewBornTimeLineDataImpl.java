@@ -77,7 +77,7 @@ public class GatherBirthCertificateNewBornTimeLineDataImpl implements GatherBirt
     }
 
     private void addMotherAndFather(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {
-        logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::AddMotherAndFather for " +  birthCertificate.getNewBorn().getFirstName()+  " " + birthCertificate.getNewBorn().getLastName());
+        logger.info("GatherBirthCertificateNewBornTimeLineDataImpl::AddMotherAndFather");
 
         List<String> existingValues = timeLine.get(getDMY(birthCertificate.getWhenRegistered()));
         if (existingValues == null) {

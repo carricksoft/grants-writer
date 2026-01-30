@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
 
-@SuppressWarnings("SpellCheckingInspection")
 @Component
 public class LatexDocumentStartImpl implements LatexDocumentStart {
 

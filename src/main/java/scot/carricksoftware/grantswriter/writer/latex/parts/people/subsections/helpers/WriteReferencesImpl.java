@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
-import scot.carricksoftware.grantswriter.writer.latex.LatexItemiseStart;
+import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeStart;
 import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeEnd;
 
 import java.util.SortedSet;
@@ -23,16 +23,16 @@ public class WriteReferencesImpl implements WriteReferences {
 
     private final FileWriter fileWriter;
     private final TimeLineData timeLineData;
-    private final LatexItemiseStart latexItemiseStart;
+    private final LatexItemizeStart latexItemizeStart;
     private final LatexItemizeEnd latexItemizeEnd;
 
     public WriteReferencesImpl(FileWriter fileWriter,
                                TimeLineData timeLineData,
-                               LatexItemiseStart latexItemiseStart,
+                               LatexItemizeStart latexItemizeStart,
                                LatexItemizeEnd latexItemizeEnd) {
         this.fileWriter = fileWriter;
         this.timeLineData = timeLineData;
-        this.latexItemiseStart = latexItemiseStart;
+        this.latexItemizeStart = latexItemizeStart;
         this.latexItemizeEnd = latexItemizeEnd;
     }
 
@@ -41,7 +41,7 @@ public class WriteReferencesImpl implements WriteReferences {
         logger.info("WriteReferences::write");
         SortedSet<String> references = timeLineData.getRefs();
         if (!references.isEmpty()) {
-            latexItemiseStart.write();
+            latexItemizeStart.write();
             writeTheData(references);
             latexItemizeEnd.write();
         }

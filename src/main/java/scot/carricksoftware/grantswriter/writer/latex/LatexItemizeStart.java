@@ -5,7 +5,7 @@
 
 package scot.carricksoftware.grantswriter.writer.latex;
 
-public interface LatexItemiseStart {
+public interface LatexItemizeStart {
 
     void write();
 }

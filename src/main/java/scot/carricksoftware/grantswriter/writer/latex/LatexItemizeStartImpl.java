@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 
 @Component
-public class LatexItemiseStartImpl implements LatexItemiseStart {
+public class LatexItemizeStartImpl implements LatexItemizeStart {
 
-    private static final Logger logger = LogManager.getLogger(LatexItemiseStartImpl.class);
+    private static final Logger logger = LogManager.getLogger(LatexItemizeStartImpl.class);
 
     private final LatexBlock latexBlock;
 
-    public LatexItemiseStartImpl(LatexBlock latexBlock) {
+    public LatexItemizeStartImpl(LatexBlock latexBlock) {
         this.latexBlock = latexBlock;
     }
 

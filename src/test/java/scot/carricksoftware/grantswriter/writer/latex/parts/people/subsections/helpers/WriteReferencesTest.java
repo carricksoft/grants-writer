@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
-import scot.carricksoftware.grantswriter.writer.latex.LatexItemiseStart;
+import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeStart;
 import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeEnd;
 
 
@@ -27,7 +27,7 @@ class WriteReferencesTest {
     @Mock
     private FileWriter fileWriterMock;
     @Mock
-    private LatexItemiseStart latexItemiseStartMock;
+    private LatexItemizeStart latexItemizeStartMock;
     @Mock
     private LatexItemizeEnd latexItemizeEndMock;
     @Mock
@@ -38,7 +38,7 @@ class WriteReferencesTest {
         writeReferences = new WriteReferencesImpl(
                 fileWriterMock,
                 timeLineDataMock,
-                latexItemiseStartMock,
+                latexItemizeStartMock,
                 latexItemizeEndMock);
     }
 

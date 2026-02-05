@@ -39,9 +39,24 @@ class LatexBlockRunningTest {
     }
 
     @Test
-    void beginRunningBlockTest() {
+    void beginRunningBlockNullTest() {
         String expected = "\\begin{" + blockName + "}";
         latexBlock.beginRunningBlock(blockName, null);
+        verify(fileWriterMock).writeLine(expected);
+    }
+
+    @Test
+    void beginRunningBlockEmptyOptionsTest() {
+        String expected = "\\begin{" + blockName +"}";
+        latexBlock.beginRunningBlock(blockName, "");
+        verify(fileWriterMock).writeLine(expected);
+    }
+
+    @Test
+    void beginRunningBlockOptionsTest() {
+        String options = GetRandomString();
+        String expected = "\\begin{" + blockName + "}[" + options + "]";
+        latexBlock.beginRunningBlock(blockName, options);
         verify(fileWriterMock).writeLine(expected);
     }
 }

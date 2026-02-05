@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.constants.LatexConstants;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.writer.FileWriter;
-import scot.carricksoftware.grantswriter.writer.latex.LatexLongTabLeEnd;
-import scot.carricksoftware.grantswriter.writer.latex.LatexLongTableStart;
+import scot.carricksoftware.grantswriter.writer.latex.LatexItemiseStart;
+import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeEnd;
 
 import java.util.SortedSet;
 
@@ -22,35 +22,35 @@ public class WriteReferencesImpl implements WriteReferences {
     private static final Logger logger = LogManager.getLogger(WriteReferencesImpl.class);
 
     private final FileWriter fileWriter;
-    private final LatexLongTableStart latexLongTableStart;
-    private final LatexLongTabLeEnd latexLongTabLeEnd;
     private final TimeLineData timeLineData;
+    private final LatexItemiseStart latexItemiseStart;
+    private final LatexItemizeEnd latexItemizeEnd;
 
     public WriteReferencesImpl(FileWriter fileWriter,
-                               LatexLongTableStart latexLongTableStart,
-                               LatexLongTabLeEnd latexLongTabLeEnd,
-                               TimeLineData timeLineData) {
+                               TimeLineData timeLineData,
+                               LatexItemiseStart latexItemiseStart,
+                               LatexItemizeEnd latexItemizeEnd) {
         this.fileWriter = fileWriter;
-        this.latexLongTableStart = latexLongTableStart;
-        this.latexLongTabLeEnd = latexLongTabLeEnd;
         this.timeLineData = timeLineData;
+        this.latexItemiseStart = latexItemiseStart;
+        this.latexItemizeEnd = latexItemizeEnd;
     }
 
     @Override
     public void write() {
         logger.info("WriteReferences::write");
-
-        latexLongTableStart.write("l");
-        writeTheData();
-        latexLongTabLeEnd.write();
+        SortedSet<String> references = timeLineData.getRefs();
+        if (!references.isEmpty()) {
+            latexItemiseStart.write();
+            writeTheData(references);
+            latexItemizeEnd.write();
+        }
     }
 
-    private void writeTheData() {
+    private void writeTheData(  SortedSet<String> references) {
         logger.info("WriteReferences::writeTheData");
-        SortedSet<String> references = timeLineData.getRefs();
         for (String reference : references) {
-            String line =
-                    reference + LatexConstants.TABLE_LINE_END;
+            String line = LatexConstants.ITEM + " " + reference;
             fileWriter.writeLine(line);
         }
     }

@@ -31,4 +31,18 @@ public class LatexBlockImpl implements LatexBlock {
     public void end(String blockName) {
         fileWriter.writeLine( "}" + "\\end" + "{"  + blockName + "}");
     }
+
+    @Override
+    public void beginRunningBlock(String blockName, String options) {
+        String text = ("\\begin") + "{" + blockName + "}";
+        if (options != null && !options.isEmpty()) {
+            text += "[" + options + "]";
+        }
+        fileWriter.writeLine(text);
+    }
+
+    @Override
+    public void endRunningBlock(String blockName) {
+        fileWriter.writeLine( "\\end" + "{"  + blockName + "}");
+    }
 }

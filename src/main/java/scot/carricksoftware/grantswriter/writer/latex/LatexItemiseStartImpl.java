@@ -24,6 +24,6 @@ public class LatexItemiseStartImpl implements LatexItemiseStart {
     @Override
     public void write() {
         logger.info("LatexItemiseStartImpl.write()");
-        latexBlock.begin(LatexConstants.ITEMIZE, "");
+        latexBlock.beginRunningBlock(LatexConstants.ITEMIZE, "");
     }
 }

@@ -9,5 +9,10 @@ public interface LatexBlock {
 
 
     void begin(String blockName, String options);
+
     void end(String blockName);
+
+    void beginRunningBlock(String blockName, String options);
+    void endRunningBlock(String blockName);
+
 }

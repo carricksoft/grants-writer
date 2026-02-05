@@ -19,7 +19,8 @@ public class LatexConstants {
     public static final String DOCUMENT_START = "\\begin{document}";
     public static final String DOCUMENT_END = "\\end{document}";
     public static final String FLOAT_BARRIER = "\\FloatBarrier";
-    public static final String ITEMIZE = "Itemize";
+    public static final String ITEM = "\\item";
+    public static final String ITEMIZE = "itemize";
     public static final String LONG_TABLE_END = "\\end{longtable}";
     public static final String LONG_TABLE_START = "\\begin{longtable}{";
     public static final String SECTION_NUMBERING = "\\setsecnumdepth{subsubsection}";

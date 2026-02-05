@@ -20,6 +20,6 @@ public class LatexItemizeEndImpl implements LatexItemizeEnd {
 
     @Override
     public void write() {
-        latexBlock.end(LatexConstants.ITEMIZE);
+        latexBlock.endRunningBlock(LatexConstants.ITEMIZE);
     }
 }

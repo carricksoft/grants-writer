@@ -16,7 +16,12 @@ import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeStart;
 import scot.carricksoftware.grantswriter.writer.latex.LatexItemizeEnd;
 
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -43,8 +48,13 @@ class WriteReferencesTest {
     }
 
     @Test
-    void writeTest() {
-        assertTrue(true);
+    void writeNoReferencesTest() {
+        SortedSet<String> references = new TreeSet<>();
+        when (timeLineDataMock.getRefs()).thenReturn(references);
+        writeReferences.write();
+        verifyNoInteractions(latexItemizeStartMock);
+        verifyNoInteractions(latexItemizeEndMock);
+        verifyNoInteractions(fileWriterMock);
     }
 
     @Test

@@ -42,4 +42,5 @@ class PersonSubSectionReferencesWriterTest {
         inOrder.verify(latexSubSectionHeaderMock).write("References");
         inOrder.verify(writeReferencesMock).write();
     }
+
 }

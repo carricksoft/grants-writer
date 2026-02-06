@@ -42,7 +42,7 @@ public class WriteTimeLineImpl implements WriteTimeLine {
     public void write() {
         logger.info("PersonSubSectionTimeLineWriterImp::write");
 
-        latexLongTableStart.write("l l");
+        latexLongTableStart.write("p{0.2\\textwidth} p{0.7\\textwidth}");
         writeTheData();
         latexLongTabLeEnd.write();
     }

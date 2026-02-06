@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
@@ -20,8 +21,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.verifyNoInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static scot.carricksoftware.grantswriter.GenerateCertificateRandomValues.GetRandomString;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -55,6 +56,20 @@ class WriteReferencesTest {
         verifyNoInteractions(latexItemizeStartMock);
         verifyNoInteractions(latexItemizeEndMock);
         verifyNoInteractions(fileWriterMock);
+    }
+
+    @Test
+    void writeReferencesTest() {
+        SortedSet<String> references = new TreeSet<>();
+        String reference = GetRandomString();
+        references.add(reference);
+        when (timeLineDataMock.getRefs()).thenReturn(references);
+
+        InOrder inOrder = inOrder(latexItemizeStartMock, fileWriterMock, latexItemizeEndMock);
+        writeReferences.write();
+        inOrder.verify(latexItemizeStartMock).write();
+        inOrder.verify(fileWriterMock).writeLine("\\item " + reference);
+        inOrder.verify(latexItemizeEndMock).write();
     }
 
     @Test

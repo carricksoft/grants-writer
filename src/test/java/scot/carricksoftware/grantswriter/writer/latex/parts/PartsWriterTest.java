@@ -14,6 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import scot.carricksoftware.grantswriter.writer.latex.parts.appendix.AppendixPartWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.document.DocumentPartWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.PeoplePartWriter;
+import scot.carricksoftware.grantswriter.writer.latex.parts.places.PlacesPartWriter;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.inOrder;
@@ -26,13 +27,18 @@ class PartsWriterTest {
     @Mock
     PeoplePartWriter peoplePartWriterMock;
     @Mock
+    PlacesPartWriter placesPartWriterMock;
+    @Mock
     AppendixPartWriter appendixPartWriterMock;
     @Mock
     DocumentPartWriter documentPartWriterMock;
 
     @BeforeEach
     void setUp() {
-        partsWriter = new PartsWriterImpl(peoplePartWriterMock, appendixPartWriterMock, documentPartWriterMock);
+        partsWriter = new PartsWriterImpl(peoplePartWriterMock,
+                placesPartWriterMock,
+                appendixPartWriterMock,
+                documentPartWriterMock);
     }
 
     @Test
@@ -42,10 +48,14 @@ class PartsWriterTest {
 
     @Test
     void writeTest() {
-        InOrder inorder = inOrder(documentPartWriterMock, peoplePartWriterMock, appendixPartWriterMock);
+        InOrder inorder = inOrder(documentPartWriterMock,
+                peoplePartWriterMock,
+                placesPartWriterMock,
+                appendixPartWriterMock);
         partsWriter.write();
         inorder.verify(documentPartWriterMock).write();
         inorder.verify(peoplePartWriterMock).write();
+        inorder.verify(placesPartWriterMock).write();
         inorder.verify(appendixPartWriterMock).write();
 
     }

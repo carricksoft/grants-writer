@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateBrideTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateBrideTimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateFirstWitnessTimeLineDataImpl;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateSecondWitnessTimeLineDataImpl;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateGroomTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateFirstWitnessTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateSecondWitnessTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateGroomTimeLineData;
 
 import java.util.List;
 
@@ -25,17 +25,17 @@ public class GatherPeopleMarriageCertificateTimeLineDataImpl implements GatherPe
     private static final Logger logger = LogManager.getLogger(GatherPeopleMarriageCertificateTimeLineDataImpl.class);
 
     private final MarriageCertificateService marriageCertificateService;
-    private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData;
-    private final GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData;
-    private final GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl;
-    private final GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl;
+    private final GatherPeopleMarriageCertificateBrideTimeLineData gatherPeopleMarriageCertificateBrideTimeLineData;
+    private final GatherPeopleMarriageCertificateGroomTimeLineData gatherPeopleMarriageCertificateGroomTimeLineData;
+    private final GatherPeopleMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl;
+    private final GatherPeopleMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl;
 
     public GatherPeopleMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
-                                                           GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData,
-                                                           GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData, GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl, GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl) {
+                                                           GatherPeopleMarriageCertificateBrideTimeLineData gatherPeopleMarriageCertificateBrideTimeLineData,
+                                                           GatherPeopleMarriageCertificateGroomTimeLineData gatherPeopleMarriageCertificateGroomTimeLineData, GatherPeopleMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl, GatherPeopleMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl) {
         this.marriageCertificateService = marriageCertificateService;
-        this.gatherMarriageCertificateBrideTimeLineData = gatherMarriageCertificateBrideTimeLineData;
-        this.gatherMarriageCertificateGroomTimeLineData = gatherMarriageCertificateGroomTimeLineData;
+        this.gatherPeopleMarriageCertificateBrideTimeLineData = gatherPeopleMarriageCertificateBrideTimeLineData;
+        this.gatherPeopleMarriageCertificateGroomTimeLineData = gatherPeopleMarriageCertificateGroomTimeLineData;
         this.gatherMarriageCertificateFirstWitnessTimeLineDataImpl = gatherMarriageCertificateFirstWitnessTimeLineDataImpl;
         this.gatherMarriageCertificateSecondWitnessTimeLineDataImpl = gatherMarriageCertificateSecondWitnessTimeLineDataImpl;
     }
@@ -53,7 +53,7 @@ public class GatherPeopleMarriageCertificateTimeLineDataImpl implements GatherPe
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherBride");
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByBride(person);
         if (!marriageCertificates.isEmpty()) {
-            gatherMarriageCertificateBrideTimeLineData.gather(marriageCertificates);
+            gatherPeopleMarriageCertificateBrideTimeLineData.gather(marriageCertificates);
         }
     }
 
@@ -61,7 +61,7 @@ public class GatherPeopleMarriageCertificateTimeLineDataImpl implements GatherPe
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherGroom");
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByGroom(person);
         if (!marriageCertificates.isEmpty()) {
-            gatherMarriageCertificateGroomTimeLineData.gather(marriageCertificates);
+            gatherPeopleMarriageCertificateGroomTimeLineData.gather(marriageCertificates);
         }
     }
 

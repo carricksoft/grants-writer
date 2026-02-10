@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.divorcecertificate.DivorceCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherDivorceCertificateFirstPartyTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherDivorceCertificateSecondPartyTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherPeopleDivorceCertificateFirstPartyTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherPeopleDivorceCertificateSecondPartyTimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate.DivorceCertificate;
 
 
@@ -24,15 +24,15 @@ public class GatherPeopleDivorceCertificateTimeLineDataImpl implements GatherPeo
 
     private final DivorceCertificateService divorceCertificateService;
 
-    private final GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineData;
-    private final GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineData;
+    private final GatherPeopleDivorceCertificateFirstPartyTimeLineData gatherPeopleDivorceCertificateFirstPartyTimeLineData;
+    private final GatherPeopleDivorceCertificateSecondPartyTimeLineData gatherPeopleDivorceCertificateSecondPartyTimeLineData;
 
     public GatherPeopleDivorceCertificateTimeLineDataImpl(DivorceCertificateService divorceCertificateService,
-                                                          GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineData,
-                                                          GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineData) {
+                                                          GatherPeopleDivorceCertificateFirstPartyTimeLineData gatherPeopleDivorceCertificateFirstPartyTimeLineData,
+                                                          GatherPeopleDivorceCertificateSecondPartyTimeLineData gatherPeopleDivorceCertificateSecondPartyTimeLineData) {
         this.divorceCertificateService = divorceCertificateService;
-        this.gatherDivorceCertificateFirstPartyTimeLineData = gatherDivorceCertificateFirstPartyTimeLineData;
-        this.gatherDivorceCertificateSecondPartyTimeLineData = gatherDivorceCertificateSecondPartyTimeLineData;
+        this.gatherPeopleDivorceCertificateFirstPartyTimeLineData = gatherPeopleDivorceCertificateFirstPartyTimeLineData;
+        this.gatherPeopleDivorceCertificateSecondPartyTimeLineData = gatherPeopleDivorceCertificateSecondPartyTimeLineData;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class GatherPeopleDivorceCertificateTimeLineDataImpl implements GatherPeo
         logger.debug("GatherDivorceCertificateTimeLineDataImpl::gatherParty");
         List<DivorceCertificate> divorceCertificates = divorceCertificateService.findAllByFirstParty(person);
         if (!divorceCertificates.isEmpty()) {
-            gatherDivorceCertificateFirstPartyTimeLineData.gather(divorceCertificates);
+            gatherPeopleDivorceCertificateFirstPartyTimeLineData.gather(divorceCertificates);
         }
     }
 
@@ -54,7 +54,7 @@ public class GatherPeopleDivorceCertificateTimeLineDataImpl implements GatherPeo
         logger.debug("GatherDivorceCertificateTimeLineDataImpl::gatherSecondParty");
         List<DivorceCertificate> divorceCertificates = divorceCertificateService.findAllBySecondParty(person);
         if (!divorceCertificates.isEmpty()) {
-            gatherDivorceCertificateSecondPartyTimeLineData.gather(divorceCertificates);
+            gatherPeopleDivorceCertificateSecondPartyTimeLineData.gather(divorceCertificates);
         }
     }
 

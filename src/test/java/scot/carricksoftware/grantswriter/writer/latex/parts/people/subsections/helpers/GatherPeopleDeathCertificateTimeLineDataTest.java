@@ -13,8 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.deathcertificate.DeathCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateDeceasedTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateInformantTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateDeceasedTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateInformantTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +32,9 @@ class GatherPeopleDeathCertificateTimeLineDataTest {
     @Mock
     private DeathCertificateService deathCertificateServiceMock;
     @Mock
-    private GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineDataMock;
+    private GatherPeopleDeathCertificateDeceasedTimeLineData gatherPeopleDeathCertificateDeceasedTimeLineDataMock;
     @Mock
-    private GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineDataMock;
+    private GatherPeopleDeathCertificateInformantTimeLineData gatherPeopleDeathCertificateInformantTimeLineDataMock;
 
     List<DeathCertificate> deathCertificates;
     Person person;
@@ -43,8 +43,8 @@ class GatherPeopleDeathCertificateTimeLineDataTest {
     void setUp() {
         gatherPeopleDeathCertificateTimeLineData = new GatherPeopleDeathCertificateTimeLineDataImpl(
                 deathCertificateServiceMock,
-                gatherDeathCertificateDeceasedTimeLineDataMock,
-                gatherDeathCertificateInformantTimeLineDataMock);
+                gatherPeopleDeathCertificateDeceasedTimeLineDataMock,
+                gatherPeopleDeathCertificateInformantTimeLineDataMock);
         deathCertificates = new ArrayList<>();
 
         person = GetRandomPerson();
@@ -57,14 +57,14 @@ class GatherPeopleDeathCertificateTimeLineDataTest {
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
 
         gatherPeopleDeathCertificateTimeLineData.gather(person);
-        verify(gatherDeathCertificateDeceasedTimeLineDataMock).gather(deathCertificates);
+        verify(gatherPeopleDeathCertificateDeceasedTimeLineDataMock).gather(deathCertificates);
     }
 
     @Test
     void nullDeceasedTest() {
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
         gatherPeopleDeathCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherDeathCertificateDeceasedTimeLineDataMock);
+        verifyNoInteractions(gatherPeopleDeathCertificateDeceasedTimeLineDataMock);
     }
 
     @Test
@@ -73,7 +73,7 @@ class GatherPeopleDeathCertificateTimeLineDataTest {
         deathCertificates.add(deathCertificate);
         when(deathCertificateServiceMock.findAllByInformant(person)).thenReturn(deathCertificates);
         gatherPeopleDeathCertificateTimeLineData.gather(person);
-        verify(gatherDeathCertificateInformantTimeLineDataMock).gather(deathCertificates);
+        verify(gatherPeopleDeathCertificateInformantTimeLineDataMock).gather(deathCertificates);
 
     }
 

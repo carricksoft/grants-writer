@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.deathcertificate.DeathCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateDeceasedTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherDeathCertificateInformantTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateDeceasedTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateInformantTimeLineData;
 
 import java.util.List;
 
@@ -22,13 +22,13 @@ public class GatherPeopleDeathCertificateTimeLineDataImpl implements GatherPeopl
     private static final Logger logger = LogManager.getLogger(GatherPeopleDeathCertificateTimeLineDataImpl.class);
 
     private final DeathCertificateService deathCertificateService;
-    private final GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData;
-    private final GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData;
+    private final GatherPeopleDeathCertificateDeceasedTimeLineData gatherPeopleDeathCertificateDeceasedTimeLineData;
+    private final GatherPeopleDeathCertificateInformantTimeLineData gatherPeopleDeathCertificateInformantTimeLineData;
 
-    public GatherPeopleDeathCertificateTimeLineDataImpl(DeathCertificateService deathCertificateService, GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData, GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData) {
+    public GatherPeopleDeathCertificateTimeLineDataImpl(DeathCertificateService deathCertificateService, GatherPeopleDeathCertificateDeceasedTimeLineData gatherPeopleDeathCertificateDeceasedTimeLineData, GatherPeopleDeathCertificateInformantTimeLineData gatherPeopleDeathCertificateInformantTimeLineData) {
         this.deathCertificateService = deathCertificateService;
-        this.gatherDeathCertificateDeceasedTimeLineData = gatherDeathCertificateDeceasedTimeLineData;
-        this.gatherDeathCertificateInformantTimeLineData = gatherDeathCertificateInformantTimeLineData;
+        this.gatherPeopleDeathCertificateDeceasedTimeLineData = gatherPeopleDeathCertificateDeceasedTimeLineData;
+        this.gatherPeopleDeathCertificateInformantTimeLineData = gatherPeopleDeathCertificateInformantTimeLineData;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class GatherPeopleDeathCertificateTimeLineDataImpl implements GatherPeopl
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherDeceased");
         List<DeathCertificate> deathCertificates = deathCertificateService.findAllByDeceased(person);
         if (!deathCertificates.isEmpty()) {
-            gatherDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
+            gatherPeopleDeathCertificateDeceasedTimeLineData.gather(deathCertificates);
         }
     }
 
@@ -50,7 +50,7 @@ public class GatherPeopleDeathCertificateTimeLineDataImpl implements GatherPeopl
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherInformant");
         List<DeathCertificate> deathCertificates = deathCertificateService.findAllByInformant(person);
         if (!deathCertificates.isEmpty()) {
-            gatherDeathCertificateInformantTimeLineData.gather(deathCertificates);
+            gatherPeopleDeathCertificateInformantTimeLineData.gather(deathCertificates);
         }
     }
 

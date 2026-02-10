@@ -13,8 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.divorcecertificate.DivorceCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.divorcecertificate.DivorceCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherDivorceCertificateFirstPartyTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherDivorceCertificateSecondPartyTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherPeopleDivorceCertificateFirstPartyTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.divorcecertificate.GatherPeopleDivorceCertificateSecondPartyTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +32,9 @@ class GatherPeopleDivorceCertificateTimeLineDataTest {
     @Mock
     private DivorceCertificateService divorceCertificateServiceMock;
     @Mock
-    private GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineDataMock;
+    private GatherPeopleDivorceCertificateFirstPartyTimeLineData gatherPeopleDivorceCertificateFirstPartyTimeLineDataMock;
     @Mock
-    private GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineDataMock;
+    private GatherPeopleDivorceCertificateSecondPartyTimeLineData gatherPeopleDivorceCertificateSecondPartyTimeLineDataMock;
 
     List<DivorceCertificate> divorceCertificates;
     Person person;
@@ -43,8 +43,8 @@ class GatherPeopleDivorceCertificateTimeLineDataTest {
     void setUp() {
         gatherPeopleDivorceCertificateTimeLineData = new GatherPeopleDivorceCertificateTimeLineDataImpl(
                 divorceCertificateServiceMock,
-                gatherDivorceCertificateFirstPartyTimeLineDataMock,
-                gatherDivorceCertificateSecondPartyTimeLineDataMock);
+                gatherPeopleDivorceCertificateFirstPartyTimeLineDataMock,
+                gatherPeopleDivorceCertificateSecondPartyTimeLineDataMock);
         divorceCertificates = new ArrayList<>();
 
         person = GetRandomPerson();
@@ -55,14 +55,14 @@ class GatherPeopleDivorceCertificateTimeLineDataTest {
     void nullFirstPartyTest() {
         when(divorceCertificateServiceMock.findAllByFirstParty(person)).thenReturn(divorceCertificates);
         gatherPeopleDivorceCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherDivorceCertificateFirstPartyTimeLineDataMock);
+        verifyNoInteractions(gatherPeopleDivorceCertificateFirstPartyTimeLineDataMock);
     }
 
     @Test
     void nullSecondPartyTest() {
         when(divorceCertificateServiceMock.findAllBySecondParty(person)).thenReturn(divorceCertificates);
         gatherPeopleDivorceCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherDivorceCertificateSecondPartyTimeLineDataMock);
+        verifyNoInteractions(gatherPeopleDivorceCertificateSecondPartyTimeLineDataMock);
     }
 
     @Test
@@ -70,7 +70,7 @@ class GatherPeopleDivorceCertificateTimeLineDataTest {
         divorceCertificates.add(new DivorceCertificate());
         when(divorceCertificateServiceMock.findAllByFirstParty(person)).thenReturn(divorceCertificates);
         gatherPeopleDivorceCertificateTimeLineData.gather(person);
-        verify(gatherDivorceCertificateFirstPartyTimeLineDataMock).gather(divorceCertificates);
+        verify(gatherPeopleDivorceCertificateFirstPartyTimeLineDataMock).gather(divorceCertificates);
     }
 
     @Test
@@ -78,7 +78,7 @@ class GatherPeopleDivorceCertificateTimeLineDataTest {
         divorceCertificates.add(new DivorceCertificate());
         when(divorceCertificateServiceMock.findAllBySecondParty(person)).thenReturn(divorceCertificates);
         gatherPeopleDivorceCertificateTimeLineData.gather(person);
-        verify(gatherDivorceCertificateSecondPartyTimeLineDataMock).gather(divorceCertificates);
+        verify(gatherPeopleDivorceCertificateSecondPartyTimeLineDataMock).gather(divorceCertificates);
     }
 
 }

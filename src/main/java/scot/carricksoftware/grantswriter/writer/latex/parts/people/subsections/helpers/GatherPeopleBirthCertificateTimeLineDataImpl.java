@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateMotherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateInformantTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateMotherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateNewBornTimeLineData;
 
 import java.util.List;
 
@@ -21,24 +21,24 @@ public class GatherPeopleBirthCertificateTimeLineDataImpl implements GatherPeopl
 
     private final BirthCertificateService birthCertificateService;
 
-    private final GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData;
+    private final GatherPeopleBirthCertificateNewBornTimeLineData gatherPeopleBirthCertificateNewBornTimeLineData;
 
-    private final GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData;
+    private final GatherPeopleBirthCertificateFatherTimeLineData gatherPeopleBirthCertificateFatherTimeLineData;
 
-    private final GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData;
+    private final GatherPeopleBirthCertificateMotherTimeLineData gatherPeopleBirthCertificateMotherTimeLineData;
 
-    private final GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData;
+    private final GatherPeopleBirthCertificateInformantTimeLineData gatherPeopleBirthCertificateInformantTimeLineData;
 
     public GatherPeopleBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                        GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData,
-                                                        GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData,
-                                                        GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData,
-                                                        GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData) {
+                                                        GatherPeopleBirthCertificateNewBornTimeLineData gatherPeopleBirthCertificateNewBornTimeLineData,
+                                                        GatherPeopleBirthCertificateFatherTimeLineData gatherPeopleBirthCertificateFatherTimeLineData,
+                                                        GatherPeopleBirthCertificateMotherTimeLineData gatherPeopleBirthCertificateMotherTimeLineData,
+                                                        GatherPeopleBirthCertificateInformantTimeLineData gatherPeopleBirthCertificateInformantTimeLineData) {
         this.birthCertificateService = birthCertificateService;
-        this.gatherBirthCertificateNewBornTimeLineData = gatherBirthCertificateNewBornTimeLineData;
-        this.gatherBirthCertificateFatherTimeLineData = gatherBirthCertificateFatherTimeLineData;
-        this.gatherBirthCertificateMotherTimeLineData = gatherBirthCertificateMotherTimeLineData;
-        this.gatherBirthCertificateInformantTimeLineData = gatherBirthCertificateInformantTimeLineData;
+        this.gatherPeopleBirthCertificateNewBornTimeLineData = gatherPeopleBirthCertificateNewBornTimeLineData;
+        this.gatherPeopleBirthCertificateFatherTimeLineData = gatherPeopleBirthCertificateFatherTimeLineData;
+        this.gatherPeopleBirthCertificateMotherTimeLineData = gatherPeopleBirthCertificateMotherTimeLineData;
+        this.gatherPeopleBirthCertificateInformantTimeLineData = gatherPeopleBirthCertificateInformantTimeLineData;
     }
 
     @Override
@@ -52,23 +52,23 @@ public class GatherPeopleBirthCertificateTimeLineDataImpl implements GatherPeopl
     private void gatherNewBorn(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByNewBorn(person);
         if (!birthCertificates.isEmpty()) {
-            gatherBirthCertificateNewBornTimeLineData.gather(birthCertificates);
+            gatherPeopleBirthCertificateNewBornTimeLineData.gather(birthCertificates);
         }
     }
 
     private void gatherFather(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByFather(person);
-        gatherBirthCertificateFatherTimeLineData.gather(birthCertificates);
+        gatherPeopleBirthCertificateFatherTimeLineData.gather(birthCertificates);
     }
 
     private void gatherMother(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByMother(person);
-        gatherBirthCertificateMotherTimeLineData.gather(birthCertificates);
+        gatherPeopleBirthCertificateMotherTimeLineData.gather(birthCertificates);
     }
 
     private void gatherInformant(Person person) {
         List<BirthCertificate> birthCertificates = birthCertificateService.findAllByInformant(person);
-        gatherBirthCertificateInformantTimeLineData.gather(birthCertificates);
+        gatherPeopleBirthCertificateInformantTimeLineData.gather(birthCertificates);
     }
 
 

@@ -13,10 +13,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateFatherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateInformantTimeLineDataImpl;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateMotherTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherBirthCertificateNewBornTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateFatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateInformantTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateMotherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.birthcertificate.GatherPeopleBirthCertificateNewBornTimeLineData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +34,13 @@ class GatherPeopleBirthCertificateTimeLineDataTest {
     @Mock
     private BirthCertificateService birthCertificateServiceMock;
     @Mock
-    private GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineDataMock;
+    private GatherPeopleBirthCertificateNewBornTimeLineData gatherPeopleBirthCertificateNewBornTimeLineDataMock;
     @Mock
-    private GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineDataMock;
+    private GatherPeopleBirthCertificateFatherTimeLineData gatherPeopleBirthCertificateFatherTimeLineDataMock;
     @Mock
-    private GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineDataMock;
+    private GatherPeopleBirthCertificateMotherTimeLineData gatherPeopleBirthCertificateMotherTimeLineDataMock;
     @Mock
-    private GatherBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineDataMock;
+    private GatherPeopleBirthCertificateInformantTimeLineDataImpl gatherBirthCertificateInformantTimeLineDataMock;
 
     List<BirthCertificate> birthCertificates;
     Person person;
@@ -49,9 +49,9 @@ class GatherPeopleBirthCertificateTimeLineDataTest {
     void setUp() {
         gatherPeopleBirthCertificateTimeLineData = new GatherPeopleBirthCertificateTimeLineDataImpl(
                 birthCertificateServiceMock,
-                gatherBirthCertificateNewBornTimeLineDataMock,
-                gatherBirthCertificateFatherTimeLineDataMock,
-                gatherBirthCertificateMotherTimeLineDataMock,
+                gatherPeopleBirthCertificateNewBornTimeLineDataMock,
+                gatherPeopleBirthCertificateFatherTimeLineDataMock,
+                gatherPeopleBirthCertificateMotherTimeLineDataMock,
                 gatherBirthCertificateInformantTimeLineDataMock);
         birthCertificates = new ArrayList<>();
 
@@ -65,28 +65,28 @@ class GatherPeopleBirthCertificateTimeLineDataTest {
         when(birthCertificateServiceMock.findAllByNewBorn(person)).thenReturn(birthCertificates);
 
         gatherPeopleBirthCertificateTimeLineData.gather(person);
-        verify(gatherBirthCertificateNewBornTimeLineDataMock).gather(birthCertificates);
+        verify(gatherPeopleBirthCertificateNewBornTimeLineDataMock).gather(birthCertificates);
     }
 
     @Test
     void nullTest() {
         when(birthCertificateServiceMock.findAllByNewBorn(person)).thenReturn(birthCertificates);
         gatherPeopleBirthCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherBirthCertificateNewBornTimeLineDataMock);
+        verifyNoInteractions(gatherPeopleBirthCertificateNewBornTimeLineDataMock);
     }
 
     @Test
     void gatherBirthCertificateFatherIsCalledTest() {
         when(birthCertificateServiceMock.findAllByFather(person)).thenReturn(birthCertificates);
         gatherPeopleBirthCertificateTimeLineData.gather(person);
-        verify(gatherBirthCertificateFatherTimeLineDataMock).gather(birthCertificates);
+        verify(gatherPeopleBirthCertificateFatherTimeLineDataMock).gather(birthCertificates);
     }
 
     @Test
     void gatherBirthCertificateMotherIsCalledTest() {
         when(birthCertificateServiceMock.findAllByMother(person)).thenReturn(birthCertificates);
         gatherPeopleBirthCertificateTimeLineData.gather(person);
-        verify(gatherBirthCertificateMotherTimeLineDataMock).gather(birthCertificates);
+        verify(gatherPeopleBirthCertificateMotherTimeLineDataMock).gather(birthCertificates);
     }
 
     @Test

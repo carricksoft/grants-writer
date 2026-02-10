@@ -13,10 +13,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateBrideTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateFirstWitnessTimeLineDataImpl;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateGroomTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherMarriageCertificateSecondWitnessTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateBrideTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateFirstWitnessTimeLineDataImpl;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateGroomTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.marriagecertificate.GatherPeopleMarriageCertificateSecondWitnessTimeLineDataImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +34,13 @@ class GatherMarriageCertificateBrideAndGroomTimeLineDataTest {
     @Mock
     private MarriageCertificateService marriageCertificateServiceMock;
     @Mock
-    private GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineDataMock;
+    private GatherPeopleMarriageCertificateBrideTimeLineData gatherPeopleMarriageCertificateBrideTimeLineDataMock;
     @Mock
-    private GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineDataMock;
+    private GatherPeopleMarriageCertificateGroomTimeLineData gatherPeopleMarriageCertificateGroomTimeLineDataMock;
     @Mock
-    private GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineData;
+    private GatherPeopleMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineData;
     @Mock
-    private GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineData;
+    private GatherPeopleMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineData;
 
     List<MarriageCertificate> marriageCertificates;
     Person person;
@@ -49,8 +49,8 @@ class GatherMarriageCertificateBrideAndGroomTimeLineDataTest {
     void setUp() {
         gatherPeopleMarriageCertificateTimeLineData = new GatherPeopleMarriageCertificateTimeLineDataImpl(
                 marriageCertificateServiceMock,
-                gatherMarriageCertificateBrideTimeLineDataMock,
-                gatherMarriageCertificateGroomTimeLineDataMock,
+                gatherPeopleMarriageCertificateBrideTimeLineDataMock,
+                gatherPeopleMarriageCertificateGroomTimeLineDataMock,
                 gatherMarriageCertificateFirstWitnessTimeLineData,
                 gatherMarriageCertificateSecondWitnessTimeLineData);
         marriageCertificates = new ArrayList<>();
@@ -66,14 +66,14 @@ class GatherMarriageCertificateBrideAndGroomTimeLineDataTest {
         when(marriageCertificateServiceMock.findAllByBride(person)).thenReturn(marriageCertificates);
 
         gatherPeopleMarriageCertificateTimeLineData.gather(person);
-        verify(gatherMarriageCertificateBrideTimeLineDataMock).gather(marriageCertificates);
+        verify(gatherPeopleMarriageCertificateBrideTimeLineDataMock).gather(marriageCertificates);
     }
 
     @Test
     void nullTest() {
         when(marriageCertificateServiceMock.findAllByBride(person)).thenReturn(marriageCertificates);
         gatherPeopleMarriageCertificateTimeLineData.gather(person);
-        verifyNoInteractions(gatherMarriageCertificateBrideTimeLineDataMock);
+        verifyNoInteractions(gatherPeopleMarriageCertificateBrideTimeLineDataMock);
     }
 
     @Test
@@ -83,7 +83,7 @@ class GatherMarriageCertificateBrideAndGroomTimeLineDataTest {
         marriageCertificates.add(marriageCertificate);
         when(marriageCertificateServiceMock.findAllByBride(person)).thenReturn(marriageCertificates);
         gatherPeopleMarriageCertificateTimeLineData.gather(person);
-        verify(gatherMarriageCertificateBrideTimeLineDataMock).gather(marriageCertificates);
+        verify(gatherPeopleMarriageCertificateBrideTimeLineDataMock).gather(marriageCertificates);
     }
 
     @Test
@@ -93,7 +93,7 @@ class GatherMarriageCertificateBrideAndGroomTimeLineDataTest {
         marriageCertificates.add(marriageCertificate);
         when(marriageCertificateServiceMock.findAllByGroom(person)).thenReturn(marriageCertificates);
         gatherPeopleMarriageCertificateTimeLineData.gather(person);
-        verify(gatherMarriageCertificateGroomTimeLineDataMock).gather(marriageCertificates);
+        verify(gatherPeopleMarriageCertificateGroomTimeLineDataMock).gather(marriageCertificates);
     }
 
 

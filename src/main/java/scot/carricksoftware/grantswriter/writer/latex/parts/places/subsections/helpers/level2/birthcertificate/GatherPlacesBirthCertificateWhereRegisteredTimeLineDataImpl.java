@@ -45,7 +45,7 @@ public class GatherPlacesBirthCertificateWhereRegisteredTimeLineDataImpl impleme
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add(birthCertificate.getNewBorn() + " Birth registered here. ");
+        existingValues.add("Birth of " + birthCertificate.getNewBorn() + " registered here. ");
         timeLine.put(getDMY(birthCertificate.getWhereRegistered()), existingValues);
 
     }

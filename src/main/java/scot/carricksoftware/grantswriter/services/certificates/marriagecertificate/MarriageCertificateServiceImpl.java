@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.certificates.marriagecertificate.MarriageCertificateRepository;
 
 import java.util.ArrayList;
@@ -68,6 +69,18 @@ public class MarriageCertificateServiceImpl implements MarriageCertificateServic
             result.add(marriageCertificate);
         }
         return result;
+    }
+
+    @Override
+    public List<MarriageCertificate> findAllByWhereMarried(Place place) {
+        logger.debug("MarriageCertificateServiceImpl::findAllByWhereMarried");
+        List<MarriageCertificate> result = new ArrayList<>();
+        Iterable<MarriageCertificate> marriageCertificatesIterable = marriageCertificateRepository.findAllByWhereMarried(place);
+        for (MarriageCertificate marriageCertificate : marriageCertificatesIterable) {
+            result.add(marriageCertificate);
+        }
+        return result;
+
     }
 
 }

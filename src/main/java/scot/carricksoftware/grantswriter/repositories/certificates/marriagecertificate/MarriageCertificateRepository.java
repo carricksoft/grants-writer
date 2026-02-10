@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.repositories.certificates.marriagecert
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @Repository
@@ -20,4 +21,6 @@ public interface MarriageCertificateRepository extends ReadOnlyRepository<Marria
     Iterable<MarriageCertificate> findAllByFirstWitness(Person person);
 
     Iterable<MarriageCertificate> findAllBySecondWitness(Person person);
+
+    Iterable<MarriageCertificate> findAllByWhereMarried(Place place);
 }

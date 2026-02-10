@@ -7,6 +7,7 @@ package scot.carricksoftware.grantswriter.services.certificates.marriagecertific
 
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface MarriageCertificateService {
     List<MarriageCertificate> findAllByFirstWitness(Person person);
 
     List<MarriageCertificate> findAllBySecondWitness(Person person);
+
+    List<MarriageCertificate> findAllByWhereMarried(Place place);
 }

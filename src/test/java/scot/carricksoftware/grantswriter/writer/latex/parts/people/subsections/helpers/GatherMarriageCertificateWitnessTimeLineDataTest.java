@@ -28,7 +28,7 @@ import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRa
 @ExtendWith(MockitoExtension.class)
 class GatherMarriageCertificateWitnessTimeLineDataTest {
 
-    private GatherMarriageCertificateTimeLineData gatherMarriageCertificateTimeLineData;
+    private GatherPeopleMarriageCertificateTimeLineData gatherPeopleMarriageCertificateTimeLineData;
 
     @Mock
     private MarriageCertificateService marriageCertificateServiceMock;
@@ -46,7 +46,7 @@ class GatherMarriageCertificateWitnessTimeLineDataTest {
 
     @BeforeEach
     void setUp() {
-        gatherMarriageCertificateTimeLineData = new GatherMarriageCertificateTimeLineDataImpl(
+        gatherPeopleMarriageCertificateTimeLineData = new GatherPeopleMarriageCertificateTimeLineDataImpl(
                 marriageCertificateServiceMock,
                 gatherMarriageCertificateBrideTimeLineDataMock,
                 gatherMarriageCertificateGroomTimeLineDataMock,
@@ -62,14 +62,14 @@ class GatherMarriageCertificateWitnessTimeLineDataTest {
     @Test
     void gatherMarriageCertificateFirstWitnessIsCalledTest() {
         when(marriageCertificateServiceMock.findAllByFirstWitness(person)).thenReturn(marriageCertificates);
-        gatherMarriageCertificateTimeLineData.gather(person);
+        gatherPeopleMarriageCertificateTimeLineData.gather(person);
         verify(gatherMarriageCertificateFirstWitnessTimeLineDataMock).gather(marriageCertificates);
     }
 
     @Test
     void gatherMarriageCertificateSecondWitnessIsCalledTest() {
         when(marriageCertificateServiceMock.findAllBySecondWitness(person)).thenReturn(marriageCertificates);
-        gatherMarriageCertificateTimeLineData.gather(person);
+        gatherPeopleMarriageCertificateTimeLineData.gather(person);
         verify(gatherMarriageCertificateSecondWitnessTimeLineDataMock).gather(marriageCertificates);
     }
 

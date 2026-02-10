@@ -25,9 +25,9 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class GatherDeathCertificateTimeLineDataTest {
+class GatherPeopleDeathCertificateTimeLineDataTest {
 
-    private GatherDeathCertificateTimeLineData gatherDeathCertificateTimeLineData;
+    private GatherPeopleDeathCertificateTimeLineData gatherPeopleDeathCertificateTimeLineData;
 
     @Mock
     private DeathCertificateService deathCertificateServiceMock;
@@ -41,7 +41,7 @@ class GatherDeathCertificateTimeLineDataTest {
 
     @BeforeEach
     void setUp() {
-        gatherDeathCertificateTimeLineData = new GatherDeathCertificateTimeLineDataImpl(
+        gatherPeopleDeathCertificateTimeLineData = new GatherPeopleDeathCertificateTimeLineDataImpl(
                 deathCertificateServiceMock,
                 gatherDeathCertificateDeceasedTimeLineDataMock,
                 gatherDeathCertificateInformantTimeLineDataMock);
@@ -56,14 +56,14 @@ class GatherDeathCertificateTimeLineDataTest {
         deathCertificates.add(deathCertificate);
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
 
-        gatherDeathCertificateTimeLineData.gather(person);
+        gatherPeopleDeathCertificateTimeLineData.gather(person);
         verify(gatherDeathCertificateDeceasedTimeLineDataMock).gather(deathCertificates);
     }
 
     @Test
     void nullDeceasedTest() {
         when(deathCertificateServiceMock.findAllByDeceased(person)).thenReturn(deathCertificates);
-        gatherDeathCertificateTimeLineData.gather(person);
+        gatherPeopleDeathCertificateTimeLineData.gather(person);
         verifyNoInteractions(gatherDeathCertificateDeceasedTimeLineDataMock);
     }
 
@@ -72,7 +72,7 @@ class GatherDeathCertificateTimeLineDataTest {
         DeathCertificate deathCertificate = new DeathCertificate();
         deathCertificates.add(deathCertificate);
         when(deathCertificateServiceMock.findAllByInformant(person)).thenReturn(deathCertificates);
-        gatherDeathCertificateTimeLineData.gather(person);
+        gatherPeopleDeathCertificateTimeLineData.gather(person);
         verify(gatherDeathCertificateInformantTimeLineDataMock).gather(deathCertificates);
 
     }

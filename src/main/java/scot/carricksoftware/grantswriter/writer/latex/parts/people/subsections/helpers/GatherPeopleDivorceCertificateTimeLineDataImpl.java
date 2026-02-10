@@ -19,17 +19,17 @@ import java.util.List;
 
 
 @Component
-public class GatherDivorceCertificateTimeLineDataImpl implements GatherDivorceCertificateTimeLineData {
-    private static final Logger logger = LogManager.getLogger(GatherDivorceCertificateTimeLineDataImpl.class);
+public class GatherPeopleDivorceCertificateTimeLineDataImpl implements GatherPeopleDivorceCertificateTimeLineData {
+    private static final Logger logger = LogManager.getLogger(GatherPeopleDivorceCertificateTimeLineDataImpl.class);
 
     private final DivorceCertificateService divorceCertificateService;
 
     private final GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineData;
     private final GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineData;
 
-    public GatherDivorceCertificateTimeLineDataImpl(DivorceCertificateService divorceCertificateService,
-                                                    GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineData,
-                                                    GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineData) {
+    public GatherPeopleDivorceCertificateTimeLineDataImpl(DivorceCertificateService divorceCertificateService,
+                                                          GatherDivorceCertificateFirstPartyTimeLineData gatherDivorceCertificateFirstPartyTimeLineData,
+                                                          GatherDivorceCertificateSecondPartyTimeLineData gatherDivorceCertificateSecondPartyTimeLineData) {
         this.divorceCertificateService = divorceCertificateService;
         this.gatherDivorceCertificateFirstPartyTimeLineData = gatherDivorceCertificateFirstPartyTimeLineData;
         this.gatherDivorceCertificateSecondPartyTimeLineData = gatherDivorceCertificateSecondPartyTimeLineData;

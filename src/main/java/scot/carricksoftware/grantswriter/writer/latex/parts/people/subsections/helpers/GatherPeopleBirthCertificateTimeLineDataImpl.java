@@ -17,7 +17,7 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.h
 import java.util.List;
 
 @Component
-public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertificateTimeLineData {
+public class GatherPeopleBirthCertificateTimeLineDataImpl implements GatherPeopleBirthCertificateTimeLineData {
 
     private final BirthCertificateService birthCertificateService;
 
@@ -29,11 +29,11 @@ public class GatherBirthCertificateTimeLineDataImpl implements GatherBirthCertif
 
     private final GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData;
 
-    public GatherBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                  GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData,
-                                                  GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData,
-                                                  GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData,
-                                                  GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData) {
+    public GatherPeopleBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
+                                                        GatherBirthCertificateNewBornTimeLineData gatherBirthCertificateNewBornTimeLineData,
+                                                        GatherBirthCertificateFatherTimeLineData gatherBirthCertificateFatherTimeLineData,
+                                                        GatherBirthCertificateMotherTimeLineData gatherBirthCertificateMotherTimeLineData,
+                                                        GatherBirthCertificateInformantTimeLineData gatherBirthCertificateInformantTimeLineData) {
         this.birthCertificateService = birthCertificateService;
         this.gatherBirthCertificateNewBornTimeLineData = gatherBirthCertificateNewBornTimeLineData;
         this.gatherBirthCertificateFatherTimeLineData = gatherBirthCertificateFatherTimeLineData;

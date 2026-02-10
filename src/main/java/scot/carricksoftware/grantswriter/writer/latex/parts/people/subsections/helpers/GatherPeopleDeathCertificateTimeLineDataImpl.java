@@ -18,14 +18,14 @@ import java.util.List;
 
 
 @Component
-public class GatherDeathCertificateTimeLineDataImpl implements GatherDeathCertificateTimeLineData {
-    private static final Logger logger = LogManager.getLogger(GatherDeathCertificateTimeLineDataImpl.class);
+public class GatherPeopleDeathCertificateTimeLineDataImpl implements GatherPeopleDeathCertificateTimeLineData {
+    private static final Logger logger = LogManager.getLogger(GatherPeopleDeathCertificateTimeLineDataImpl.class);
 
     private final DeathCertificateService deathCertificateService;
     private final GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData;
     private final GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData;
 
-    public GatherDeathCertificateTimeLineDataImpl(DeathCertificateService deathCertificateService, GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData, GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData) {
+    public GatherPeopleDeathCertificateTimeLineDataImpl(DeathCertificateService deathCertificateService, GatherDeathCertificateDeceasedTimeLineData gatherDeathCertificateDeceasedTimeLineData, GatherDeathCertificateInformantTimeLineData gatherDeathCertificateInformantTimeLineData) {
         this.deathCertificateService = deathCertificateService;
         this.gatherDeathCertificateDeceasedTimeLineData = gatherDeathCertificateDeceasedTimeLineData;
         this.gatherDeathCertificateInformantTimeLineData = gatherDeathCertificateInformantTimeLineData;

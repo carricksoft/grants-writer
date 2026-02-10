@@ -7,6 +7,6 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.
 
 import scot.carricksoftware.grantswriter.domains.people.Person;
 
-public interface GatherTimeLineData {
-    void gather(Person person);
+public interface GatherPeopleDeathCertificateTimeLineData {
+   void gather(Person person);
 }

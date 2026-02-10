@@ -17,7 +17,7 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.P
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherPeopleTimeLineData;
 
 import static org.mockito.Mockito.inOrder;
 
@@ -35,7 +35,7 @@ class PersonSectionTest {
     @Mock
     private Person personMock;
     @Mock
-    private GatherTimeLineData gatherTimeLineDataMock;
+    private GatherPeopleTimeLineData gatherPeopleTimeLineDataMock;
     @Mock
     private PersonSectionContentsWriter personSectionContentsWriterMock;
     @Mock
@@ -48,7 +48,7 @@ class PersonSectionTest {
                 personSubSectionTimeLineWriterMock,
                 personSubSectionReferencesWriterMock,
                 clearExistingTimeLineDataMock,
-                gatherTimeLineDataMock,
+                gatherPeopleTimeLineDataMock,
                 personSectionContentsWriterMock);
     }
 
@@ -58,14 +58,14 @@ class PersonSectionTest {
                 personSectionHeaderMock,
                 personSectionContentsWriterMock,
                 clearExistingTimeLineDataMock,
-                gatherTimeLineDataMock,
+                gatherPeopleTimeLineDataMock,
                 personSubSectionTimeLineWriterMock,
                 personSubSectionReferencesWriterMock);
         personSection.write(personMock);
         inorder.verify(personSectionHeaderMock).write(personMock);
         inorder.verify(personSectionContentsWriterMock).write(personMock);
         inorder.verify(clearExistingTimeLineDataMock).clear();
-        inorder.verify(gatherTimeLineDataMock).gather(personMock);
+        inorder.verify(gatherPeopleTimeLineDataMock).gather(personMock);
         inorder.verify(personSubSectionTimeLineWriterMock).write();
         inorder.verify(personSubSectionReferencesWriterMock).write();
     }

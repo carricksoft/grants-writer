@@ -3,11 +3,11 @@ TexController -> TexWriter -> PartsWriter -> PeoplePartWriter -> (PeoplePartHead
 
 TexController::start -> TexWriter::write -> (docStart::write, partsWriter::write, docEnd::write)
 partsWriter::write -> partsWriter::write -> peoplePartWriter::write  -> (for each person)::personSection::write
-personSection::write -> (personSectionHeader::write, clearExistingTimeLineData::clear, gatherTimeLineData::gather,
+personSection::write -> (personSectionHeader::write, clearExistingTimeLineData::clear, gatherPeopleTimeLineData::gather,
            personSubSectionTimeLineWriter::write, personSubSectionReferencesWriter::write
 
 
-gatherTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather, GatherDeathCertificateTimeLineDate::gather)
+gatherPeopleTimeLineData::gather -> (gatherCensusTimeLineData::gather, GatherBirthCertificateTimeLineData::gather, GatherDeathCertificateTimeLineDate::gather)
 
 
 GatherBirthCertificateTimeLineData::gather -> (GatherBirthCertificateNewBornTimeLineData::gather,  )

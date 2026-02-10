@@ -21,8 +21,8 @@ import java.util.List;
 
 
 @Component
-public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriageCertificateTimeLineData {
-    private static final Logger logger = LogManager.getLogger(GatherMarriageCertificateTimeLineDataImpl.class);
+public class GatherPeopleMarriageCertificateTimeLineDataImpl implements GatherPeopleMarriageCertificateTimeLineData {
+    private static final Logger logger = LogManager.getLogger(GatherPeopleMarriageCertificateTimeLineDataImpl.class);
 
     private final MarriageCertificateService marriageCertificateService;
     private final GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData;
@@ -30,9 +30,9 @@ public class GatherMarriageCertificateTimeLineDataImpl implements GatherMarriage
     private final GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl;
     private final GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl;
 
-    public GatherMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
-                                                     GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData,
-                                                     GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData, GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl, GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl) {
+    public GatherPeopleMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
+                                                           GatherMarriageCertificateBrideTimeLineData gatherMarriageCertificateBrideTimeLineData,
+                                                           GatherMarriageCertificateGroomTimeLineData gatherMarriageCertificateGroomTimeLineData, GatherMarriageCertificateFirstWitnessTimeLineDataImpl gatherMarriageCertificateFirstWitnessTimeLineDataImpl, GatherMarriageCertificateSecondWitnessTimeLineDataImpl gatherMarriageCertificateSecondWitnessTimeLineDataImpl) {
         this.marriageCertificateService = marriageCertificateService;
         this.gatherMarriageCertificateBrideTimeLineData = gatherMarriageCertificateBrideTimeLineData;
         this.gatherMarriageCertificateGroomTimeLineData = gatherMarriageCertificateGroomTimeLineData;

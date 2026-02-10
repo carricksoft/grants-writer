@@ -8,7 +8,7 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.places.sections;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherPeopleTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.headers.PlaceSectionHeader;
 
 @Component
@@ -18,12 +18,12 @@ public class PlaceSectionImpl implements PlaceSection {
 //    private final PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter;
  //   private final PersonSubSectionReferencesWriter personSubSectionReferencesWriter;
     private final ClearExistingTimeLineData clearExistingTimeLineData;
-    private final GatherTimeLineData gatherTimeLineData;
+    private final GatherPeopleTimeLineData gatherPeopleTimeLineData;
 
-    public PlaceSectionImpl(PlaceSectionHeader placeSectionHeader, ClearExistingTimeLineData clearExistingTimeLineData, GatherTimeLineData gatherTimeLineData) {
+    public PlaceSectionImpl(PlaceSectionHeader placeSectionHeader, ClearExistingTimeLineData clearExistingTimeLineData, GatherPeopleTimeLineData gatherPeopleTimeLineData) {
         this.placeSectionHeader = placeSectionHeader;
         this.clearExistingTimeLineData = clearExistingTimeLineData;
-        this.gatherTimeLineData = gatherTimeLineData;
+        this.gatherPeopleTimeLineData = gatherPeopleTimeLineData;
     }
 
     @Override

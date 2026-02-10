@@ -12,7 +12,7 @@ import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.P
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherPeopleTimeLineData;
 
 @Component
 public class PersonSectionImpl implements PersonSection {
@@ -21,20 +21,20 @@ public class PersonSectionImpl implements PersonSection {
     private final PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter;
     private final PersonSubSectionReferencesWriter personSubSectionReferencesWriter;
     private final ClearExistingTimeLineData clearExistingTimeLineData;
-    private final GatherTimeLineData gatherTimeLineData;
+    private final GatherPeopleTimeLineData gatherPeopleTimeLineData;
     private final PersonSectionContentsWriter personSectionContentsWriter;
 
     public PersonSectionImpl(PersonSectionHeader personSectionHeader,
                              PersonSubSectionTimeLineWriter personSubSectionTimeLineWriter,
                              PersonSubSectionReferencesWriter personSubSectionReferencesWriter,
                              ClearExistingTimeLineData clearExistingTimeLineData,
-                             GatherTimeLineData gatherTimeLineData,
+                             GatherPeopleTimeLineData gatherPeopleTimeLineData,
                              PersonSectionContentsWriter personSectionContentsWriter) {
         this.personSectionHeader = personSectionHeader;
         this.personSubSectionTimeLineWriter = personSubSectionTimeLineWriter;
         this.personSubSectionReferencesWriter = personSubSectionReferencesWriter;
         this.clearExistingTimeLineData = clearExistingTimeLineData;
-        this.gatherTimeLineData = gatherTimeLineData;
+        this.gatherPeopleTimeLineData = gatherPeopleTimeLineData;
         this.personSectionContentsWriter = personSectionContentsWriter;
     }
 
@@ -43,7 +43,7 @@ public class PersonSectionImpl implements PersonSection {
         personSectionHeader.write(person);
         personSectionContentsWriter.write(person);
         clearExistingTimeLineData.clear();
-        gatherTimeLineData.gather(person);
+        gatherPeopleTimeLineData.gather(person);
         personSubSectionTimeLineWriter.write();
         personSubSectionReferencesWriter.write();
     }

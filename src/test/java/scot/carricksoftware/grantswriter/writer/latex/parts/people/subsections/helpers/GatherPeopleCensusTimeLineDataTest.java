@@ -22,9 +22,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class GatherCensusTimeLineDataTest {
+class GatherPeopleCensusTimeLineDataTest {
 
-    private GatherCensusTimeLineData gatherCensusTimeLineData;
+    private GatherPeopleCensusTimeLineData gatherPeopleCensusTimeLineData;
 
     @Mock
     CensusEntryService censusEntryServiceMock;
@@ -35,14 +35,14 @@ class GatherCensusTimeLineDataTest {
 
     @BeforeEach
     void setUp() {
-        gatherCensusTimeLineData = new GatherCensusTimeLineDataImpl(censusEntryServiceMock, timeLineDataMock);
+        gatherPeopleCensusTimeLineData = new GatherPeopleCensusTimeLineDataImpl(censusEntryServiceMock, timeLineDataMock);
     }
 
     @Test
     void gatherTest() {
         List<CensusEntry> censusEntryList = new ArrayList<>();
         when(censusEntryServiceMock.findAllByPerson(personMock)).thenReturn(censusEntryList);
-        gatherCensusTimeLineData.gather(personMock);
+        gatherPeopleCensusTimeLineData.gather(personMock);
 
         verify(timeLineDataMock).addCensusEntry(censusEntryList);
     }

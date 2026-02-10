@@ -12,7 +12,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 @Component
 public class GatherPeopleTimeLineDataImpl implements GatherPeopleTimeLineData {
 
-    private final GatherCensusTimeLineData gatherCensusTimeLineData;
+    private final GatherPeopleCensusTimeLineData gatherPeopleCensusTimeLineData;
     private final GatherPeopleBirthCertificateTimeLineData gatherPeopleBirthCertificateTimeLineData;
     private final GatherPeopleDeathCertificateTimeLineData gatherPeopleDeathCertificateTimeLineData;
     private final GatherPeopleMarriageCertificateTimeLineData gatherPeopleMarriageCertificateTimeLineData;
@@ -20,8 +20,8 @@ public class GatherPeopleTimeLineDataImpl implements GatherPeopleTimeLineData {
 
     @Autowired
     public GatherPeopleTimeLineDataImpl(
-            GatherCensusTimeLineData gatherCensusTimeLineData, GatherPeopleBirthCertificateTimeLineData gatherPeopleBirthCertificateTimeLineData, GatherPeopleDeathCertificateTimeLineData gatherPeopleDeathCertificateTimeLineData, GatherPeopleMarriageCertificateTimeLineData gatherPeopleMarriageCertificateTimeLineData, GatherPeopleDivorceCertificateTimeLineData gatherPeopleDivorceCertificateTimeLineData) {
-        this.gatherCensusTimeLineData = gatherCensusTimeLineData;
+            GatherPeopleCensusTimeLineData gatherPeopleCensusTimeLineData, GatherPeopleBirthCertificateTimeLineData gatherPeopleBirthCertificateTimeLineData, GatherPeopleDeathCertificateTimeLineData gatherPeopleDeathCertificateTimeLineData, GatherPeopleMarriageCertificateTimeLineData gatherPeopleMarriageCertificateTimeLineData, GatherPeopleDivorceCertificateTimeLineData gatherPeopleDivorceCertificateTimeLineData) {
+        this.gatherPeopleCensusTimeLineData = gatherPeopleCensusTimeLineData;
         this.gatherPeopleBirthCertificateTimeLineData = gatherPeopleBirthCertificateTimeLineData;
         this.gatherPeopleDeathCertificateTimeLineData = gatherPeopleDeathCertificateTimeLineData;
         this.gatherPeopleMarriageCertificateTimeLineData = gatherPeopleMarriageCertificateTimeLineData;
@@ -30,7 +30,7 @@ public class GatherPeopleTimeLineDataImpl implements GatherPeopleTimeLineData {
 
     @Override
     public void gather(Person person) {
-        gatherCensusTimeLineData.gather(person);
+        gatherPeopleCensusTimeLineData.gather(person);
         gatherPeopleBirthCertificateTimeLineData.gather(person);
         gatherPeopleDeathCertificateTimeLineData.gather(person);
         gatherPeopleMarriageCertificateTimeLineData.gather(person);

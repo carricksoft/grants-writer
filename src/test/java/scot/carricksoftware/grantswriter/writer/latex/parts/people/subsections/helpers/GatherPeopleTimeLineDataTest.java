@@ -20,7 +20,7 @@ class GatherPeopleTimeLineDataTest {
     private GatherPeopleTimeLineData gatherPeopleTimeLineData;
 
     @Mock
-    private GatherCensusTimeLineData gatherCensusTimeLineDataMock;
+    private GatherPeopleCensusTimeLineData gatherPeopleCensusTimeLineDataMock;
     @Mock
     private GatherPeopleBirthCertificateTimeLineData gatherPeopleBirthCertificateTimeLineDataMock;
     @Mock
@@ -34,7 +34,7 @@ class GatherPeopleTimeLineDataTest {
 
     @BeforeEach
     void setUp() {
-        gatherPeopleTimeLineData = new GatherPeopleTimeLineDataImpl(gatherCensusTimeLineDataMock,
+        gatherPeopleTimeLineData = new GatherPeopleTimeLineDataImpl(gatherPeopleCensusTimeLineDataMock,
                 gatherPeopleBirthCertificateTimeLineDataMock,
                 gatherPeopleDeathCertificateTimeLineDataMock,
                 gatherPeopleMarriageCertificateTimeLineDataMock,
@@ -44,7 +44,7 @@ class GatherPeopleTimeLineDataTest {
     @Test
     void gatherCensusEntryDataTest() {
         gatherPeopleTimeLineData.gather(personMock);
-        verify(gatherCensusTimeLineDataMock).gather(personMock);
+        verify(gatherPeopleCensusTimeLineDataMock).gather(personMock);
     }
 
     @Test

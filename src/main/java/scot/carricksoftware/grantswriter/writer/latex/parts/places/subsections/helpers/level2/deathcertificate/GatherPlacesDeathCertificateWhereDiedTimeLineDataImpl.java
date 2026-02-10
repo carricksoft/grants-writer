@@ -40,7 +40,7 @@ public class GatherPlacesDeathCertificateWhereDiedTimeLineDataImpl implements Ga
     private void addWhereDied(TreeMap<DMY, List<String>> timeLine, DeathCertificate deathCertificate) {
         logger.info("GatherPlacesDeathCertificateFatherTimeLineDataImpl::AddWhereDied");
 
-        List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhenDied()));
+        List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhereDied().toString()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }

@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.repositories.certificates.birthcertifi
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @Repository
@@ -20,4 +21,8 @@ public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCert
     Iterable<BirthCertificate> findAllByMother(Person person);
 
     Iterable<BirthCertificate> findAllByInformant(Person person);
+
+    Iterable<BirthCertificate> findAllByWhereBorn(Place place);
+
+    Iterable<BirthCertificate> findAllByWhereRegistered(String string);
 }

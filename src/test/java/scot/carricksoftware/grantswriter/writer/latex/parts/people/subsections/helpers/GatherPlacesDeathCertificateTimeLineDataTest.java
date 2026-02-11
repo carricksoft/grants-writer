@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class GatherPeopleDeathCertificateTimeLineDataTest {
+class GatherPlacesDeathCertificateTimeLineDataTest {
 
     private GatherPeopleDeathCertificateTimeLineData gatherPeopleDeathCertificateTimeLineData;
 

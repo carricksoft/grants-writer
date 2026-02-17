@@ -9,7 +9,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.B
 
 import java.util.List;
 
-public interface GatherPlacesBirthCertificateWhereBornTimeLineData {
+public interface GatherPlaceBirthCertificateWhereRegisteredTimeLineData {
    void gather(List<BirthCertificate> birthCertificates);
 
 }

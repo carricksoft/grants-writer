@@ -18,41 +18,42 @@ import java.util.List;
 import java.util.TreeMap;
 
 @Component
-public class GatherPlacesDeathCertificateWhereRegisteredTimeLineDataImpl implements GatherPlacesDeathCertificateWhereRegisteredTimeLineData {
+public class GatherPlaceDeathCertificateWhereDiedTimeLineDataImpl implements GatherPlaceDeathCertificateWhereDiedTimeLineData {
 
     private final TimeLineData timelineData;
 
-    private static final Logger logger = LogManager.getLogger(GatherPlacesDeathCertificateWhereRegisteredTimeLineDataImpl.class);
+    private static final Logger logger = LogManager.getLogger(GatherPlaceDeathCertificateWhereDiedTimeLineDataImpl.class);
 
-    public GatherPlacesDeathCertificateWhereRegisteredTimeLineDataImpl(TimeLineData timelineData) {
+    public GatherPlaceDeathCertificateWhereDiedTimeLineDataImpl(TimeLineData timelineData) {
         this.timelineData = timelineData;
     }
 
     @Override
     public void gather(List<DeathCertificate> deathCertificates) {
-        logger.info("GatherPlacesDeathCertificateWhereRegisteredTimeLineDataImpl::Gather");
+        logger.info("GatherPlaceDeathCertificateWhereDiedTimeLineDataImpl::Gather");
         for (DeathCertificate deathCertificate : deathCertificates) {
-            addWhereRegistered(timelineData.getTimeLine(), deathCertificate);
+            addWhereDied(timelineData.getTimeLine(), deathCertificate);
             addRefs(deathCertificate);
         }
     }
 
-    private void addWhereRegistered(TreeMap<DMY, List<String>> timeLine, DeathCertificate deathCertificate) {
+    private void addWhereDied(TreeMap<DMY, List<String>> timeLine, DeathCertificate deathCertificate) {
         logger.info("GatherPlacesDeathCertificateFatherTimeLineDataImpl::AddWhereDied");
 
-        List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhenRegistered()));
+        List<String> existingValues = timeLine.get(getDMY(deathCertificate.getWhenDied()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add("Death of " +  deathCertificate.getDeceased() + " registered here.");
-        timeLine.put(getDMY(deathCertificate.getWhereRegistered()), existingValues);
+        existingValues.add(deathCertificate.getDeceased() + " Died here.");
+        timeLine.put(getDMY(deathCertificate.getWhenDied().toString()), existingValues);
 
     }
 
     private void addRefs(DeathCertificate deathCertificate) {
         timelineData.getRefs().add("Death Certificate for : " + deathCertificate.getDeceased());
     }
+
 
     private DMY getDMY(String dateKey) {
         DMY dmyKey = new DMYImpl();

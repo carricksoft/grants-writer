@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.certificates.deathcertificate.DeathCertificateRepository;
 
 
@@ -44,6 +45,28 @@ public class DeathCertificateServiceImpl implements DeathCertificateService {
         logger.debug("PersonServiceImpl::findAllBySpouse");
         List<DeathCertificate> result = new ArrayList<>();
         Iterable<DeathCertificate> deathCertificatesIterable = deathCertificateRepository.findAllBySpouse(person);
+        for (DeathCertificate deathCertificate : deathCertificatesIterable) {
+            result.add(deathCertificate);
+        }
+        return result;
+    }
+
+    @Override
+    public List<DeathCertificate> findAllByWhereDied(Place place) {
+        logger.debug("PersonServiceImpl::findAllByWhereDied");
+        List<DeathCertificate> result = new ArrayList<>();
+        Iterable<DeathCertificate> deathCertificatesIterable = deathCertificateRepository.findAllByWhereDied(place);
+        for (DeathCertificate deathCertificate : deathCertificatesIterable) {
+            result.add(deathCertificate);
+        }
+        return result;
+    }
+
+    @Override
+    public List<DeathCertificate> findAllByWhereRegistered(Place place) {
+        logger.debug("PersonServiceImpl::findAllByWhereRegistered");
+        List<DeathCertificate> result = new ArrayList<>();
+        Iterable<DeathCertificate> deathCertificatesIterable = deathCertificateRepository.findAllByWhereRegistered(place);
         for (DeathCertificate deathCertificate : deathCertificatesIterable) {
             result.add(deathCertificate);
         }

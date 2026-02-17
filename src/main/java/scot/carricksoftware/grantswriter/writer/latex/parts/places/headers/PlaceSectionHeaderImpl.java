@@ -33,6 +33,7 @@ public class PlaceSectionHeaderImpl implements PlaceSectionHeader {
     @Override
     public void write(Place place) {
         latexSectionHeader.write(place.toString());
+
 //        if (place.getImage() != null) {
 //            writePersonImage(place.getImage());
 //        }

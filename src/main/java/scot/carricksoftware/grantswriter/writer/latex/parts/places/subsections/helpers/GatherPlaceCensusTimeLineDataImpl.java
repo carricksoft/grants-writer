@@ -14,12 +14,12 @@ import scot.carricksoftware.grantswriter.services.census.CensusService;
 import java.util.List;
 
 @Component
-public class GatherPlacesCensusTimeLineDataImpl implements GatherPlacesCensusTimeLineData {
+public class GatherPlaceCensusTimeLineDataImpl implements GatherPlaceCensusTimeLineData {
 
     private final CensusService censusService;
     private final TimeLineData timelineData;
 
-    public GatherPlacesCensusTimeLineDataImpl(CensusService censusService, TimeLineData timelineData) {
+    public GatherPlaceCensusTimeLineDataImpl(CensusService censusService, TimeLineData timelineData) {
         this.censusService = censusService;
         this.timelineData = timelineData;
     }

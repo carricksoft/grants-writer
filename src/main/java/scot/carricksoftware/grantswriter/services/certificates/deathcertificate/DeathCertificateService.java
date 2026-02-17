@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.services.certificates.deathcertificate
 
 import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface DeathCertificateService {
     List<DeathCertificate> findAllByInformant(Person person);
 
     List<DeathCertificate> findAllBySpouse(Person person);
+
+    List<DeathCertificate> findAllByWhereDied(Place place);
+
+    List<DeathCertificate> findAllByWhereRegistered(Place place);
 }

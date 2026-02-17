@@ -17,15 +17,15 @@ import java.util.List;
 
 
 @Component
-public class GatherPlacesMarriageCertificateTimeLineDataImpl implements GatherPlacesMarriageCertificateTimeLineData {
-    private static final Logger logger = LogManager.getLogger(GatherPlacesMarriageCertificateTimeLineDataImpl.class);
+public class GatherPlaceMarriageCertificateTimeLineDataImpl implements GatherPlaceMarriageCertificateTimeLineData {
+    private static final Logger logger = LogManager.getLogger(GatherPlaceMarriageCertificateTimeLineDataImpl.class);
 
     private final MarriageCertificateService marriageCertificateService;
     private final GatherPlacesMarriageCertificateWhereMarriedTimeLineData gatherPlacesMarriageCertificateWhereMarriedTimeLineData;
 
 
-    public GatherPlacesMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
-                                                           GatherPlacesMarriageCertificateWhereMarriedTimeLineData gatherPlacesMarriageCertificateWhereMarriedTimeLineData) {
+    public GatherPlaceMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
+                                                          GatherPlacesMarriageCertificateWhereMarriedTimeLineData gatherPlacesMarriageCertificateWhereMarriedTimeLineData) {
         this.marriageCertificateService = marriageCertificateService;
         this.gatherPlacesMarriageCertificateWhereMarriedTimeLineData = gatherPlacesMarriageCertificateWhereMarriedTimeLineData;
     }

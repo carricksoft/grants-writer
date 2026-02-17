@@ -8,6 +8,7 @@ package scot.carricksoftware.grantswriter.repositories.certificates.deathcertifi
 import org.springframework.stereotype.Repository;
 import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 
 @Repository
@@ -18,4 +19,8 @@ public interface DeathCertificateRepository extends ReadOnlyRepository<DeathCert
     Iterable<DeathCertificate> findAllByInformant(Person person);
 
     Iterable<DeathCertificate> findAllBySpouse(Person person);
+
+    Iterable<DeathCertificate> findAllByWhereDied(Place place);
+
+    Iterable<DeathCertificate> findAllByWhereRegistered(Place place);
 }

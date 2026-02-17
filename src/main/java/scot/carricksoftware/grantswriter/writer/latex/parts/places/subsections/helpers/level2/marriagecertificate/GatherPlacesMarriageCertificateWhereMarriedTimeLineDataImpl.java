@@ -30,7 +30,7 @@ public class GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl impleme
 
     @Override
     public void gather(List<MarriageCertificate> marriageCertificates) {
-        logger.info("GatherPlacesMarriageCertificateNewDiedTimeLineDataImpl::Gather");
+        logger.info("GatherPlaceMarriageCertificateWhereMarriedTimeLineDataImpl::Gather");
         for (MarriageCertificate marriageCertificate : marriageCertificates) {
             addWhereMarried(timelineData.getTimeLine(), marriageCertificate);
             addRefs(marriageCertificate);
@@ -38,7 +38,7 @@ public class GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl impleme
     }
 
     private void addWhereMarried(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
-        logger.info("GatherPlacesMarriageCertificateFatherTimeLineDataImpl::AddWhereMarried");
+        logger.info("GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl::AddWhereMarried");
 
         List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhereMarried().toString()));
         if (existingValues == null) {

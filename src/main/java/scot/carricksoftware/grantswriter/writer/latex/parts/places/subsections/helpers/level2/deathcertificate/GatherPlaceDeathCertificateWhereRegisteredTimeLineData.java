@@ -9,7 +9,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.D
 
 import java.util.List;
 
-public interface GatherPlacesDeathCertificateWhereDiedTimeLineData {
+public interface GatherPlaceDeathCertificateWhereRegisteredTimeLineData {
    void gather(List<DeathCertificate> deathCertificates);
 
 }

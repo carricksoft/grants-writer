@@ -40,7 +40,7 @@ public class PlaceSectionContentsWriterImpl implements PlaceSectionContentsWrite
         List<Combined> combinedList = combinedService.getPlaceContent(place).getList();
         for (Combined combined : combinedList) {
             if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {
-  //              writeBaseText.write(placeTextService.findById(combined.getContentId()));
+  //             writeBaseText.write(placeTextService.findById(combined.getContentId()));
             }
             else {
                 if (combined.getContentType().equals(CombinedContentType.IMAGE.label)) {

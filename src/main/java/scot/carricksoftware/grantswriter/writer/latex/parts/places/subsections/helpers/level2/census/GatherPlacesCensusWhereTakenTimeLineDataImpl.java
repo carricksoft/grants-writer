@@ -38,6 +38,7 @@ public class GatherPlacesCensusWhereTakenTimeLineDataImpl implements GatherPlace
             addWhereTaken(timelineData.getTimeLine(), census);
             addRefs(census);
         }
+        var z = -1;
     }
 
     private void addWhereTaken(TreeMap<DMY, List<String>> timeLine, Census census) {

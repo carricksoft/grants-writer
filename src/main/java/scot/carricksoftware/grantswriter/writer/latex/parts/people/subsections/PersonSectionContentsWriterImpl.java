@@ -46,7 +46,7 @@ public class PersonSectionContentsWriterImpl implements PersonSectionContentsWri
     @SuppressWarnings("DuplicatedCode")
     @Override
     public void write(Person person) {
-        logger.info("PersonSectionContentsWriterImpl.write()");
+        logger.info("PersonSectionContentsWriterImpl.write("+ person.toString()+ ")");
         List<Combined> combinedList = combinedService.getPersonContent(person).getList();
         for (Combined combined : combinedList) {
             if (combined.getContentType().equals(CombinedContentType.TEXT.label)) {

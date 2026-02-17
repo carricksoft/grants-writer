@@ -5,9 +5,9 @@
 
 package scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers;
 
-import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 
-public interface GatherPlacesBirthCertificateTimeLineData {
+public interface GatherPlaceBirthCertificateTimeLineData {
 
-   void gather(Person person);
+   void gather(Place place);
 }

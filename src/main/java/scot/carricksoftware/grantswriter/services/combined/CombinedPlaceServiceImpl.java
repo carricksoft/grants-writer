@@ -32,7 +32,6 @@ public class CombinedPlaceServiceImpl implements CombinedPlaceService {
         CombinedContentList result = new CombinedContentListImpl();
         addPlaceText(place, result);
         addPlaceImage(place, result);
-        result.sort();
         return result;
     }
 

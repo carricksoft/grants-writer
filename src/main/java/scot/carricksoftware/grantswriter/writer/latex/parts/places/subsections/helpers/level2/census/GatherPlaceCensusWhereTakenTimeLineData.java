@@ -9,6 +9,6 @@ import scot.carricksoftware.grantswriter.domains.census.Census;
 
 import java.util.List;
 
-public interface GatherPlacesCensusWhereTakenTimeLineData {
+public interface GatherPlaceCensusWhereTakenTimeLineData {
    void gather(List<Census> censuses);
 }

@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.TreeMap;
 
 @Component
-public class GatherPlacesCensusWhereTakenTimeLineDataImpl implements GatherPlacesCensusWhereTakenTimeLineData{
+public class GatherPlaceCensusWhereTakenTimeLineDataImpl implements GatherPlaceCensusWhereTakenTimeLineData {
 
-    private static final Logger logger = LogManager.getLogger(GatherPlacesCensusWhereTakenTimeLineDataImpl.class);
+    private static final Logger logger = LogManager.getLogger(GatherPlaceCensusWhereTakenTimeLineDataImpl.class);
 
     private final TimeLineData timelineData;
     private final CensusService censusService;
 
-    public GatherPlacesCensusWhereTakenTimeLineDataImpl(TimeLineData timelineData, CensusService censusService) {
+    public GatherPlaceCensusWhereTakenTimeLineDataImpl(TimeLineData timelineData, CensusService censusService) {
         this.timelineData = timelineData;
         this.censusService = censusService;
     }
@@ -38,24 +38,23 @@ public class GatherPlacesCensusWhereTakenTimeLineDataImpl implements GatherPlace
             addWhereTaken(timelineData.getTimeLine(), census);
             addRefs(census);
         }
-        var z = -1;
     }
 
     private void addWhereTaken(TreeMap<DMY, List<String>> timeLine, Census census) {
-        logger.info("GatherBirthCertificateFatherTimeLineDataImpl::AddWhereBorn");
+        logger.info("GatherPlaceCensusTimeLineDataImpl::AddWhereTaken");
 
-        List<String> existingValues = timeLine.get(getDMY(census.getCensusDate().toString()));
+        List<String> existingValues = timeLine.get(getDMY(census.getCensusDate().label));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add(census.getCensusDate() + "Census Taken here.");
-        timeLine.put(getDMY(census.getCensusDate().toString()), existingValues);
+        existingValues.add(census.getCensusDate().label + " Census Taken here.");
+        timeLine.put(getDMY(census.getCensusDate().label), existingValues);
 
     }
 
     private void addRefs(Census census) {
-        timelineData.getRefs().add("Census : " + census.getPlace() + " at " + census.getCensusDate());
+        timelineData.getRefs().add("Census : " + census.getPlace().toString() + " at " + census.getCensusDate().label);
     }
 
 

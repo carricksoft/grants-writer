@@ -10,6 +10,7 @@ import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.census.Census;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.census.CensusService;
+import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.census.GatherPlaceCensusWhereTakenTimeLineData;
 
 import java.util.List;
 
@@ -19,14 +20,21 @@ public class GatherPlaceCensusTimeLineDataImpl implements GatherPlaceCensusTimeL
     private final CensusService censusService;
     private final TimeLineData timelineData;
 
-    public GatherPlaceCensusTimeLineDataImpl(CensusService censusService, TimeLineData timelineData) {
+    final GatherPlaceCensusWhereTakenTimeLineData gatherPlaceCensusWhereTakenTimeLineData;
+
+    public GatherPlaceCensusTimeLineDataImpl(CensusService censusService,
+                                             TimeLineData timelineData,
+                                             GatherPlaceCensusWhereTakenTimeLineData gatherPlaceCensusWhereTakenTimeLineData) {
         this.censusService = censusService;
         this.timelineData = timelineData;
+        this.gatherPlaceCensusWhereTakenTimeLineData = gatherPlaceCensusWhereTakenTimeLineData;
     }
 
     @Override
     public void gather(Place place) {
         List<Census> censusList = censusService.findAllByPlace(place);
-
+        if (!censusList.isEmpty()) {
+            gatherPlaceCensusWhereTakenTimeLineData.gather(censusList);
+        }
     }
 }

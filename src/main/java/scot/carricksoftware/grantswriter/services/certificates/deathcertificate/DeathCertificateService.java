@@ -22,5 +22,4 @@ public interface DeathCertificateService {
 
     List<DeathCertificate> findAllByWhereDied(Place place);
 
-    List<DeathCertificate> findAllByWhereRegistered(Place place);
 }

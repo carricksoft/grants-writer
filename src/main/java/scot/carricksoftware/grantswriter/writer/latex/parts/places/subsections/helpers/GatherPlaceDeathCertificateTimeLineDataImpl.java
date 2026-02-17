@@ -8,10 +8,10 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
+import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.certificates.deathcertificate.DeathCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.deathcertificate.GatherPlaceDeathCertificateWhereDiedTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.deathcertificate.GatherPlaceDeathCertificateWhereRegisteredTimeLineData;
 
 import java.util.List;
 
@@ -22,37 +22,27 @@ public class GatherPlaceDeathCertificateTimeLineDataImpl implements GatherPlaceD
 
     private final DeathCertificateService deathCertificateService;
     private final GatherPlaceDeathCertificateWhereDiedTimeLineData gatherPlaceDeathCertificateWhereDiedTimeLineData;
-    private final GatherPlaceDeathCertificateWhereRegisteredTimeLineData gatherPlaceDeathCertificateWhereRegisteredTimeLineData;
 
     public GatherPlaceDeathCertificateTimeLineDataImpl(DeathCertificateService deathCertificateService,
-                                                       GatherPlaceDeathCertificateWhereDiedTimeLineData gatherPlaceDeathCertificateWhereDiedTimeLineData,
-                                                       GatherPlaceDeathCertificateWhereRegisteredTimeLineData gatherPlaceDeathCertificateWhereRegisteredTimeLineData) {
+                                                       GatherPlaceDeathCertificateWhereDiedTimeLineData gatherPlaceDeathCertificateWhereDiedTimeLineData) {
         this.deathCertificateService = deathCertificateService;
           this.gatherPlaceDeathCertificateWhereDiedTimeLineData = gatherPlaceDeathCertificateWhereDiedTimeLineData;
-        this.gatherPlaceDeathCertificateWhereRegisteredTimeLineData = gatherPlaceDeathCertificateWhereRegisteredTimeLineData;
     }
 
     @Override
     public void gather(Place place) {
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gather");
         gatherWhereDied(place);
-  //      gatherWhereRegistered(place);
     }
 
     private void gatherWhereDied(Place place) {
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherDeceased");
-    //    List<DeathCertificate> deathCertificates = deathCertificateService.findAllByWhereDied(place);
-     //   if (!deathCertificates.isEmpty()) {
-    //        gatherPlaceDeathCertificateWhereDiedTimeLineData.gather(deathCertificates);
-    //    }
+       List<DeathCertificate> deathCertificates = deathCertificateService.findAllByWhereDied(place);
+       if (!deathCertificates.isEmpty()) {
+            gatherPlaceDeathCertificateWhereDiedTimeLineData.gather(deathCertificates);
+        }
     }
 
-    private void gatherWhereRegistered(Place place) {
-  //      logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherInformant");
-  //      List<DeathCertificate> deathCertificates = deathCertificateService.findAllByWhereRegistered(place);
-  //      if (!deathCertificates.isEmpty()) {
-  //          gatherPlaceDeathCertificateWhereRegisteredTimeLineData.gather(deathCertificates);
-     //   }
-    }
+
 
 }

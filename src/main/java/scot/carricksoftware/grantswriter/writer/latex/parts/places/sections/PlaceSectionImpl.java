@@ -10,7 +10,6 @@ import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionReferencesWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.PersonSubSectionTimeLineWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.ClearExistingTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.GatherPeopleTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.headers.PlaceSectionHeader;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.PlaceSectionContentsWriter;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.GatherPlaceTimeLineData;

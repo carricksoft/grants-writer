@@ -22,5 +22,4 @@ public interface DeathCertificateRepository extends ReadOnlyRepository<DeathCert
 
     Iterable<DeathCertificate> findAllByWhereDied(Place place);
 
-    Iterable<DeathCertificate> findAllByWhereRegistered(Place place);
 }

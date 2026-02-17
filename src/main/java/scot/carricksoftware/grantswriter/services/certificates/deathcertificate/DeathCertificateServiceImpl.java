@@ -63,17 +63,6 @@ public class DeathCertificateServiceImpl implements DeathCertificateService {
     }
 
     @Override
-    public List<DeathCertificate> findAllByWhereRegistered(Place place) {
-        logger.debug("PersonServiceImpl::findAllByWhereRegistered");
-        List<DeathCertificate> result = new ArrayList<>();
-        Iterable<DeathCertificate> deathCertificatesIterable = deathCertificateRepository.findAllByWhereRegistered(place);
-        for (DeathCertificate deathCertificate : deathCertificatesIterable) {
-            result.add(deathCertificate);
-        }
-        return result;
-    }
-
-    @Override
     public List<DeathCertificate> findAllByInformant(Person person) {
         logger.debug("PersonServiceImpl::findAllByInformant");
         List<DeathCertificate> result = new ArrayList<>();

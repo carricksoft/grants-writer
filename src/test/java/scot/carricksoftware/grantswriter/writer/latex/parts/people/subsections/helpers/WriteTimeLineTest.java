@@ -55,6 +55,7 @@ class WriteTimeLineTest {
     void writeTest() {
         writeTimeLine.write();
         InOrder inOrder = inOrder(latexLongTableStartMock, latexLongTabLeEndMock);
+        //noinspection SpellCheckingInspection
         inOrder.verify(latexLongTableStartMock).write("p{0.2\\textwidth} p{0.7\\textwidth}");
         inOrder.verify(latexLongTabLeEndMock).write();
     }

@@ -46,7 +46,7 @@ public class GatherPlaceDeathCertificateWhereDiedTimeLineDataImpl implements Gat
         }
 
         existingValues.add(deathCertificate.getDeceased() + " Died here.");
-        timeLine.put(getDMY(deathCertificate.getWhenDied().toString()), existingValues);
+        timeLine.put(getDMY(deathCertificate.getWhenDied()), existingValues);
 
     }
 

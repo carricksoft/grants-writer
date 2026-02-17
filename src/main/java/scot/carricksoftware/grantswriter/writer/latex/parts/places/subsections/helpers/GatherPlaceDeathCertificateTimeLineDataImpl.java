@@ -8,12 +8,8 @@ package scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.domains.certificates.deathcertificate.DeathCertificate;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.certificates.deathcertificate.DeathCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateDeceasedTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.people.subsections.helpers.level2.deathcertificate.GatherPeopleDeathCertificateInformantTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.deathcertificate.GatherPlaceDeathCertificateWhereDiedTimeLineData;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.deathcertificate.GatherPlaceDeathCertificateWhereRegisteredTimeLineData;
 
@@ -39,7 +35,7 @@ public class GatherPlaceDeathCertificateTimeLineDataImpl implements GatherPlaceD
     @Override
     public void gather(Place place) {
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gather");
- //       gatherWhereDied(place);
+        gatherWhereDied(place);
   //      gatherWhereRegistered(place);
     }
 

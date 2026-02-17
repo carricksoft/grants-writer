@@ -32,11 +32,9 @@ public class GatherPlaceTimeLineDataImpl implements GatherPlaceTimeLineData {
 
     @Override
     public void gather(Place place) {
-       gatherPlaceCensusTimeLineData.gather(place);
-       var x = -1;
+   //    gatherPlaceCensusTimeLineData.gather(place);
        gatherPlaceBirthCertificateTimeLineData.gather(place);
-       var y = -1;
-   //     gatherPlaceDeathCertificateTimeLineData.gather(place);
+   //    gatherPlaceDeathCertificateTimeLineData.gather(place);
   //      gatherPlaceMarriageCertificateTimeLineData.gather(place);
     }
 }

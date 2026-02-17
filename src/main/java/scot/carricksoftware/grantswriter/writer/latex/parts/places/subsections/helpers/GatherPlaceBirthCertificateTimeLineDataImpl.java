@@ -10,7 +10,6 @@ import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.B
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.certificates.birthcertificate.BirthCertificateService;
 import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.birthcertificate.GatherPlaceBirthCertificateWhereBornTimeLineData;
-import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.birthcertificate.GatherPlaceBirthCertificateWhereRegisteredTimeLineData;
 
 import java.util.List;
 
@@ -21,21 +20,16 @@ public class GatherPlaceBirthCertificateTimeLineDataImpl implements GatherPlaceB
 
     private final GatherPlaceBirthCertificateWhereBornTimeLineData gatherPlaceBirthCertificateWhereBornTimeLineData;
 
-    private final GatherPlaceBirthCertificateWhereRegisteredTimeLineData gatherPlaceBirthCertificateWhereRegisteredTimeLineData;
-
 
     public GatherPlaceBirthCertificateTimeLineDataImpl(BirthCertificateService birthCertificateService,
-                                                       GatherPlaceBirthCertificateWhereBornTimeLineData gatherPlaceBirthCertificateWhereBornTimeLineData,
-                                                       GatherPlaceBirthCertificateWhereRegisteredTimeLineData gatherPlaceBirthCertificateWhereRegisteredTimeLineData) {
+                                                       GatherPlaceBirthCertificateWhereBornTimeLineData gatherPlaceBirthCertificateWhereBornTimeLineData) {
         this.birthCertificateService = birthCertificateService;
         this.gatherPlaceBirthCertificateWhereBornTimeLineData = gatherPlaceBirthCertificateWhereBornTimeLineData;
-        this.gatherPlaceBirthCertificateWhereRegisteredTimeLineData = gatherPlaceBirthCertificateWhereRegisteredTimeLineData;
     }
 
     @Override
     public void gather(Place place) {
         gatherWhereBorn(place);
-        gatherWhereRegistered(place);
     }
 
     private void gatherWhereBorn(Place place) {
@@ -44,11 +38,5 @@ public class GatherPlaceBirthCertificateTimeLineDataImpl implements GatherPlaceB
             gatherPlaceBirthCertificateWhereBornTimeLineData.gather(birthCertificates);
         }
     }
-
-    private void gatherWhereRegistered(Place place) {
-        List<BirthCertificate> birthCertificates = birthCertificateService.findAllByWhereRegistered(place);
-        gatherPlaceBirthCertificateWhereRegisteredTimeLineData.gather(birthCertificates);
-    }
-
 
 }

@@ -24,5 +24,4 @@ public interface BirthCertificateService {
 
     List<BirthCertificate> findAllByWhereBorn(Place place);
 
-    List<BirthCertificate> findAllByWhereRegistered(Place place);
 }

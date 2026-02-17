@@ -24,5 +24,4 @@ public interface BirthCertificateRepository extends ReadOnlyRepository<BirthCert
 
     Iterable<BirthCertificate> findAllByWhereBorn(Place place);
 
-    Iterable<BirthCertificate> findAllByWhereRegistered(String string);
 }

@@ -82,14 +82,4 @@ public class BirthCertificateServiceImpl implements BirthCertificateService {
         return result;
     }
 
-    @Override
-    public List<BirthCertificate> findAllByWhereRegistered(Place place) {
-        logger.debug("BirthCertificateServiceImpl::findAllByWhereRegistered");
-        List<BirthCertificate> result = new ArrayList<>();
-        Iterable<BirthCertificate> birthCertificatesIterable = birthCertificateRepository.findAllByWhereRegistered(place.toString());
-        for (BirthCertificate birthCertificate : birthCertificatesIterable) {
-            result.add(birthCertificate);
-        }
-        return result;
-    }
 }

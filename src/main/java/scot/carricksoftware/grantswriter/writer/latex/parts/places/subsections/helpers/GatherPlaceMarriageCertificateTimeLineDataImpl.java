@@ -37,7 +37,7 @@ public class GatherPlaceMarriageCertificateTimeLineDataImpl implements GatherPla
     }
 
     private void gatherWhereMarried(Place place) {
-        logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherBride");
+        logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherWhereMarried");
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByWhereMarried(place);
         if (!marriageCertificates.isEmpty()) {
             gatherPlacesMarriageCertificateWhereMarriedTimeLineData.gather(marriageCertificates);

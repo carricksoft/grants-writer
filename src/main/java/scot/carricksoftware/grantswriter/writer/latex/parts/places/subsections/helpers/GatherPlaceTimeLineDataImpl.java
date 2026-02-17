@@ -34,7 +34,7 @@ public class GatherPlaceTimeLineDataImpl implements GatherPlaceTimeLineData {
     public void gather(Place place) {
    //    gatherPlaceCensusTimeLineData.gather(place);
    //    gatherPlaceBirthCertificateTimeLineData.gather(place);
-       gatherPlaceDeathCertificateTimeLineData.gather(place);
-  //      gatherPlaceMarriageCertificateTimeLineData.gather(place);
+   //    gatherPlaceDeathCertificateTimeLineData.gather(place);
+       gatherPlaceMarriageCertificateTimeLineData.gather(place);
     }
 }

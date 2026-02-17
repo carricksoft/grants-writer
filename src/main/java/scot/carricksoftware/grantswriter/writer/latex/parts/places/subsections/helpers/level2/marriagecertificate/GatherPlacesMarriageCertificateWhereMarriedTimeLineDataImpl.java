@@ -40,12 +40,12 @@ public class GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl impleme
     private void addWhereMarried(TreeMap<DMY, List<String>> timeLine, MarriageCertificate marriageCertificate) {
         logger.info("GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl::AddWhereMarried");
 
-        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhereMarried().toString()));
+        List<String> existingValues = timeLine.get(getDMY(marriageCertificate.getWhenMarried()));
         if (existingValues == null) {
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add(marriageCertificate.getBride() + "and " + marriageCertificate.getGroom() + " Married  here.");
+        existingValues.add(marriageCertificate.getBride() + "and " + marriageCertificate.getGroom() + " Married here.");
         timeLine.put(getDMY(marriageCertificate.getWhenMarried()), existingValues);
 
     }

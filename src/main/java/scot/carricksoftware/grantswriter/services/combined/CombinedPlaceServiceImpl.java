@@ -12,7 +12,7 @@ import scot.carricksoftware.grantswriter.domains.images.PlaceImage;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.domains.text.PlaceText;
 import scot.carricksoftware.grantswriter.repositories.place.PlaceImageRepository;
-import scot.carricksoftware.grantswriter.repositories.place.PlaceTextRepository;
+import scot.carricksoftware.grantswriter.repositories.text.PlaceTextRepository;
 
 @Service
 public class CombinedPlaceServiceImpl implements CombinedPlaceService {

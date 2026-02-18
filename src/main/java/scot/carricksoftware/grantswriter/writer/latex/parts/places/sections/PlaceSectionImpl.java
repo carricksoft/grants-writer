@@ -39,7 +39,7 @@ public class PlaceSectionImpl implements PlaceSection {
     @Override
     public void write(Place place) {
         placeSectionHeader.write(place);
-   //     placeSectionContentsWriter.write(place);
+        placeSectionContentsWriter.write(place);
         clearExistingTimeLineData.clear();
         gatherPlaceTimeLineData.gather(place);
         personSubSectionTimeLineWriter.write();

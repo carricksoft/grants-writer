@@ -48,7 +48,7 @@ public class GatherPlaceCensusWhereTakenTimeLineDataImpl implements GatherPlaceC
             existingValues = new ArrayList<>();
         }
 
-        existingValues.add(census.getCensusDate().label + " Census Taken here.");
+        existingValues.add("Census Taken here.");
         timeLine.put(getDMY(census.getCensusDate().label), existingValues);
 
     }
@@ -56,7 +56,6 @@ public class GatherPlaceCensusWhereTakenTimeLineDataImpl implements GatherPlaceC
     private void addRefs(Census census) {
         timelineData.getRefs().add("Census : " + census.getPlace().toString() + " at " + census.getCensusDate().label);
     }
-
 
 
     private DMY getDMY(String dateKey) {

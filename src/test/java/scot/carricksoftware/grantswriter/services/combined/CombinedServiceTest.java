@@ -13,10 +13,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import scot.carricksoftware.grantswriter.combined.CombinedContentList;
 import scot.carricksoftware.grantswriter.combined.CombinedContentListImpl;
 import scot.carricksoftware.grantswriter.domains.people.Person;
+import scot.carricksoftware.grantswriter.domains.places.Place;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
+import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
 
 @ExtendWith(MockitoExtension.class)
 class CombinedServiceTest {
@@ -63,6 +65,15 @@ class CombinedServiceTest {
         when(combinedDocumentServiceMock.getDocumentContent()).thenReturn(result);
 
         assertEquals(result, combinedService.getDocumentContent());
+    }
+
+    @Test
+    void getPlaceContentTest() {
+        Place place = GetRandomPlace();
+        CombinedContentList result = new CombinedContentListImpl();
+        when(combinedPlaceServiceMock.getPlaceContent(place)).thenReturn(result);
+
+        assertEquals(result, combinedService.getPlaceContent(place));
     }
 
 

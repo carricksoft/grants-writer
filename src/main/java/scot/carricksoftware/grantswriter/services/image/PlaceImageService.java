@@ -12,6 +12,5 @@ import scot.carricksoftware.grantswriter.domains.places.Place;
 import java.util.List;
 
 public interface PlaceImageService {
-    List<PlaceImage> findAllByPlace(Place place);
     PlaceImage findById(Long id);
 }

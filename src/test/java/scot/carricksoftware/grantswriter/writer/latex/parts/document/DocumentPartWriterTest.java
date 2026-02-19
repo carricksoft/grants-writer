@@ -34,12 +34,18 @@ class DocumentPartWriterTest {
     @SuppressWarnings({"unused"})
     private DocumentPartWriter documentPartWriter;
 
-    @Mock private WriteBaseText writeBaseTextMock;
-    @Mock private WriteBaseImage writeBaseImageMock;
-    @Mock private DocumentTextService documentTextServiceMock;
-    @Mock private DocumentImageService documentImageServiceMock;
-    @Mock private CombinedService combinedServiceMock;
-    @Mock private CombinedContentList combinedContentListMock;
+    @Mock
+    private WriteBaseText writeBaseTextMock;
+    @Mock
+    private WriteBaseImage writeBaseImageMock;
+    @Mock
+    private DocumentTextService documentTextServiceMock;
+    @Mock
+    private DocumentImageService documentImageServiceMock;
+    @Mock
+    private CombinedService combinedServiceMock;
+    @Mock
+    private CombinedContentList combinedContentListMock;
 
 
     @SuppressWarnings("unused")
@@ -83,7 +89,6 @@ class DocumentPartWriterTest {
         documentPartWriter.write();
         verify(writeBaseTextMock).write(documentText);
     }
-
 
 
 }

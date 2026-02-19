@@ -51,7 +51,7 @@ class WriteReferencesTest {
     @Test
     void writeNoReferencesTest() {
         SortedSet<String> references = new TreeSet<>();
-        when (timeLineDataMock.getRefs()).thenReturn(references);
+        when(timeLineDataMock.getRefs()).thenReturn(references);
         writeReferences.write();
         verifyNoInteractions(latexItemizeStartMock);
         verifyNoInteractions(latexItemizeEndMock);
@@ -63,7 +63,7 @@ class WriteReferencesTest {
         SortedSet<String> references = new TreeSet<>();
         String reference = GetRandomString();
         references.add(reference);
-        when (timeLineDataMock.getRefs()).thenReturn(references);
+        when(timeLineDataMock.getRefs()).thenReturn(references);
 
         InOrder inOrder = inOrder(latexItemizeStartMock, fileWriterMock, latexItemizeEndMock);
         writeReferences.write();

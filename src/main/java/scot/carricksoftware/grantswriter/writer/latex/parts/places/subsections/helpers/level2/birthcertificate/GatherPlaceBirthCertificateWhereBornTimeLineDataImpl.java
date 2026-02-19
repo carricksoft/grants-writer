@@ -34,7 +34,6 @@ public class GatherPlaceBirthCertificateWhereBornTimeLineDataImpl implements Gat
             addWhereBorn(timelineData.getTimeLine(), birthCertificate);
             addRefs(birthCertificate);
         }
-        var z = -1;
     }
 
     private void addWhereBorn(TreeMap<DMY, List<String>> timeLine, BirthCertificate birthCertificate) {

@@ -9,11 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import scot.carricksoftware.grantswriter.domains.images.PlaceImage;
-import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.repositories.place.PlaceImageRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PlaceImageServiceImpl implements PlaceImageService {
@@ -27,18 +24,8 @@ public class PlaceImageServiceImpl implements PlaceImageService {
     }
 
     @Override
-    public List<PlaceImage> findAllByPlace(Place place) {
-        logger.debug("PlaceServiceImpl::findAllByPlace");
-        List<PlaceImage> result = new ArrayList<>();
-        Iterable<PlaceImage> placeImageIterable = placeImageRepository.findAllByPlace(place);
-        for (PlaceImage placeImage : placeImageIterable) {
-            result.add(placeImage);
-        }
-        return result;
-    }
-
-    @Override
     public PlaceImage findById(Long id) {
+        logger.info("PlaceImageService::findById");
         return placeImageRepository.findById(id);
     }
 }

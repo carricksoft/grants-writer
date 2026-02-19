@@ -47,7 +47,7 @@ class LatexBlockRunningTest {
 
     @Test
     void beginRunningBlockEmptyOptionsTest() {
-        String expected = "\\begin{" + blockName +"}";
+        String expected = "\\begin{" + blockName + "}";
         latexBlock.beginRunningBlock(blockName, "");
         verify(fileWriterMock).writeLine(expected);
     }

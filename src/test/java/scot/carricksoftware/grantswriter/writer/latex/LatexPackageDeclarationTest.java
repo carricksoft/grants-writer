@@ -48,7 +48,7 @@ class LatexPackageDeclarationTest {
     void nonNullOptionTest() {
         String packageName = GetRandomString();
         String options = GetRandomString();
-        String required = "\\usepackage["+ options + "]" +
+        String required = "\\usepackage[" + options + "]" +
                 "{" + packageName + "}";
         latexPackageDeclaration.write(packageName, options);
         verify(fileWriterMock).writeLine(required);

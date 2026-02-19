@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class GenerateRandomNumberValues {
 
     private static final Random rand = new Random();
+
     public static Long GetRandomLong() {
         return rand.nextLong();
     }

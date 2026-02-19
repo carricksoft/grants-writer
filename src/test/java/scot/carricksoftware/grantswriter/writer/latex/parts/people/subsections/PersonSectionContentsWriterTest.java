@@ -35,11 +35,16 @@ class PersonSectionContentsWriterTest {
 
     private PersonSectionContentsWriter personSectionContentsWriter;
 
-    @Mock private PersonTextService personTextServiceMock;
-    @Mock private PersonImageService personImageServiceMock;
-    @Mock private CombinedService combinedServiceMock;
-    @Mock private WriteBaseText writeBaseTextMock;
-    @Mock private WriteBaseImage writeBaseImageMock;
+    @Mock
+    private PersonTextService personTextServiceMock;
+    @Mock
+    private PersonImageService personImageServiceMock;
+    @Mock
+    private CombinedService combinedServiceMock;
+    @Mock
+    private WriteBaseText writeBaseTextMock;
+    @Mock
+    private WriteBaseImage writeBaseImageMock;
 
     @Mock
     private CombinedContentList combinedContentListMock;

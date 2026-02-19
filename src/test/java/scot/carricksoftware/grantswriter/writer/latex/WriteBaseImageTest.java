@@ -56,7 +56,7 @@ class WriteBaseImageTest {
         InOrder inorder = inOrder(stringToFileConverterMock, latexBlockMock, latexBlockMock, latexBlockMock);
         writeBaseImage.write(baseImage);
 
-        inorder.verify(stringToFileConverterMock).convert(imageData, "/tmp/"+fileName);
+        inorder.verify(stringToFileConverterMock).convert(imageData, "/tmp/" + fileName);
         inorder.verify(latexBlockMock).begin("figure", "");
         inorder.verify(latexBlockMock).begin("center", "");
         inorder.verify(latexBlockMock).end("center");
@@ -82,7 +82,7 @@ class WriteBaseImageTest {
         String caption = GetRandomString();
         baseImage.setCaption(caption);
         writeBaseImage.write(baseImage);
-        verify(fileWriterMock, times(1)).writeLine("\\caption{" + caption +"}");
+        verify(fileWriterMock, times(1)).writeLine("\\caption{" + caption + "}");
     }
 
 

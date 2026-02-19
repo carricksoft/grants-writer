@@ -40,7 +40,7 @@ class LatexDivisionHeaderTest {
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
-        header.write(level,title);
+        header.write(level, title);
 
         verify(fileWriterMock).writeLine(description + "{" + title + "}");
     }
@@ -52,7 +52,7 @@ class LatexDivisionHeaderTest {
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
-        header.write(level.toString(),title);
+        header.write(level.toString(), title);
 
         verify(fileWriterMock).writeLine(description + "{" + title + "}");
     }
@@ -64,7 +64,7 @@ class LatexDivisionHeaderTest {
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
-        header.write(level.toString(),title);
+        header.write(level.toString(), title);
 
         verify(fileWriterMock).writeLine("\\FloatBarrier");
     }
@@ -76,7 +76,7 @@ class LatexDivisionHeaderTest {
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
-        header.write(level,title);
+        header.write(level, title);
 
         verify(fileWriterMock).writeLine("\\FloatBarrier");
     }
@@ -88,11 +88,10 @@ class LatexDivisionHeaderTest {
         String description = GetRandomString();
         when(latexDivisionMock.header(level)).thenReturn(description);
 
-        header.write(level +"*",title);
+        header.write(level + "*", title);
 
-        verify(fileWriterMock).writeLine(description + "*" +"{" + title + "}");
+        verify(fileWriterMock).writeLine(description + "*" + "{" + title + "}");
     }
-
 
 
 }

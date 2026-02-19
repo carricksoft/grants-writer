@@ -6,7 +6,6 @@
 package scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers;
 
 import org.springframework.stereotype.Component;
-import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.census.Census;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.census.CensusService;
@@ -18,15 +17,12 @@ import java.util.List;
 public class GatherPlaceCensusTimeLineDataImpl implements GatherPlaceCensusTimeLineData {
 
     private final CensusService censusService;
-    private final TimeLineData timelineData;
 
     final GatherPlaceCensusWhereTakenTimeLineData gatherPlaceCensusWhereTakenTimeLineData;
 
     public GatherPlaceCensusTimeLineDataImpl(CensusService censusService,
-                                             TimeLineData timelineData,
                                              GatherPlaceCensusWhereTakenTimeLineData gatherPlaceCensusWhereTakenTimeLineData) {
         this.censusService = censusService;
-        this.timelineData = timelineData;
         this.gatherPlaceCensusWhereTakenTimeLineData = gatherPlaceCensusWhereTakenTimeLineData;
     }
 

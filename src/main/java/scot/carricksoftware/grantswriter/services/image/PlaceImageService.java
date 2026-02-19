@@ -6,9 +6,7 @@
 package scot.carricksoftware.grantswriter.services.image;
 
 
-import scot.carricksoftware.grantswriter.domains.images.PersonImage;
 import scot.carricksoftware.grantswriter.domains.images.PlaceImage;
-import scot.carricksoftware.grantswriter.domains.people.Person;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 
 import java.util.List;

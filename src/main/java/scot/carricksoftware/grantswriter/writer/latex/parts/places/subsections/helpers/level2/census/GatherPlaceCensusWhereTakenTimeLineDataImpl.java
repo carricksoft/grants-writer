@@ -12,7 +12,6 @@ import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.DMYImpl;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.census.Census;
-import scot.carricksoftware.grantswriter.services.census.CensusService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +23,9 @@ public class GatherPlaceCensusWhereTakenTimeLineDataImpl implements GatherPlaceC
     private static final Logger logger = LogManager.getLogger(GatherPlaceCensusWhereTakenTimeLineDataImpl.class);
 
     private final TimeLineData timelineData;
-    private final CensusService censusService;
 
-    public GatherPlaceCensusWhereTakenTimeLineDataImpl(TimeLineData timelineData, CensusService censusService) {
+    public GatherPlaceCensusWhereTakenTimeLineDataImpl(TimeLineData timelineData) {
         this.timelineData = timelineData;
-        this.censusService = censusService;
     }
 
     @Override

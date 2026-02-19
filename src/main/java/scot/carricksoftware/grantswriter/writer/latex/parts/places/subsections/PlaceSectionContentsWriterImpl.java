@@ -40,6 +40,7 @@ public class PlaceSectionContentsWriterImpl implements PlaceSectionContentsWrite
         this.placeTextService = placeTextService;
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @Override
     public void write(Place place) {
         logger.info("PersonSectionContentsWriterImpl.write()");

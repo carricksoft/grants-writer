@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class MarriageCertificateServiceTest {
+class MarriageCertificateServicePersonTest {
 
     private MarriageCertificateService marriageCertificateService;
     private List<MarriageCertificate> marriageCertificateList;
@@ -53,24 +53,18 @@ class MarriageCertificateServiceTest {
     @Test
     void findAllByGroomTest() {
         when(marriageCertificateRepositoryMock.findAllByGroom(person)).thenReturn(marriageCertificateList);
-
-        List<MarriageCertificate> result = marriageCertificateService.findAllByGroom(person);
-        assertEquals(marriageCertificateList, result);
+        assertEquals(marriageCertificateList, marriageCertificateService.findAllByGroom(person));
     }
 
     @Test
     void findAllByFirstWitnessTest() {
         when(marriageCertificateRepositoryMock.findAllByFirstWitness(person)).thenReturn(marriageCertificateList);
-
-        List<MarriageCertificate> result = marriageCertificateService.findAllByFirstWitness(person);
-        assertEquals(marriageCertificateList, result);
+        assertEquals(marriageCertificateList, marriageCertificateService.findAllByFirstWitness(person));
     }
 
     @Test
     void findAllBySecondWitnessTest() {
         when(marriageCertificateRepositoryMock.findAllBySecondWitness(person)).thenReturn(marriageCertificateList);
-
-        List<MarriageCertificate> result = marriageCertificateService.findAllBySecondWitness(person);
-        assertEquals(marriageCertificateList, result);
+        assertEquals(marriageCertificateList,  marriageCertificateService.findAllBySecondWitness(person));
     }
 }

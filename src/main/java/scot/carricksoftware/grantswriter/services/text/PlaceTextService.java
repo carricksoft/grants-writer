@@ -8,12 +8,8 @@ package scot.carricksoftware.grantswriter.services.text;
 
 import scot.carricksoftware.grantswriter.domains.text.PlaceText;
 
-import java.util.List;
-
 public interface PlaceTextService {
 
     PlaceText findById(Long id);
-
-    List<PlaceText> findAll();
 
 }

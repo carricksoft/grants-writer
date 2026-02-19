@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import scot.carricksoftware.grantswriter.domains.text.PlaceText;
 import scot.carricksoftware.grantswriter.repositories.text.PlaceTextRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PlaceTextServiceImpl implements PlaceTextService {
@@ -27,15 +25,8 @@ public class PlaceTextServiceImpl implements PlaceTextService {
 
     @Override
     public PlaceText findById(Long id) {
+        logger.info("PlaceTextServiceImpl::findById");
         return placeTextRepository.findById(id);
     }
 
-    @Override
-    public List<PlaceText> findAll() {
-        logger.debug("PlaceTextServiceImpl::findAll");
-        List<PlaceText> result = new ArrayList<>();
-        Iterable<PlaceText> placeTextIterable = placeTextRepository.findAll();
-        placeTextIterable.forEach(result::add);
-        return result;
-    }
 }

@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 @ExtendWith(MockitoExtension.class)
-class BirthCertificateServiceTest {
+class BirthCertificateServicePeopleTest {
 
     private BirthCertificateService birthCertificateService;
 
@@ -45,32 +45,26 @@ class BirthCertificateServiceTest {
     @Test
     void findAllByNewBornTest() {
         when(birthCertificateRepositoryMock.findAllByNewBorn(person)).thenReturn(birthCertificateList);
-
-        List<BirthCertificate> result = birthCertificateService.findAllByNewBorn(person);
-        assertEquals(birthCertificateList, result);
+        assertEquals(birthCertificateList, birthCertificateService.findAllByNewBorn(person));
     }
 
     @Test
     void findAllByFatherTest() {
         when(birthCertificateRepositoryMock.findAllByFather(person)).thenReturn(birthCertificateList);
-
-        List<BirthCertificate> result = birthCertificateService.findAllByFather(person);
-        assertEquals(birthCertificateList, result);
+        assertEquals(birthCertificateList, birthCertificateService.findAllByFather(person));
     }
 
     @Test
     void findAllByMotherTest() {
         when(birthCertificateRepositoryMock.findAllByMother(person)).thenReturn(birthCertificateList);
-
-        List<BirthCertificate> result = birthCertificateService.findAllByMother(person);
-        assertEquals(birthCertificateList, result);
+        assertEquals(birthCertificateList, birthCertificateService.findAllByMother(person));
     }
 
     @Test
     void findAllByInformantTest() {
         when(birthCertificateRepositoryMock.findAllByInformant(person)).thenReturn(birthCertificateList);
-
-        List<BirthCertificate> result = birthCertificateService.findAllByInformant(person);
-        assertEquals(birthCertificateList, result);
+        assertEquals(birthCertificateList, birthCertificateService.findAllByInformant(person));
     }
+
+
 }

@@ -45,24 +45,18 @@ class DeathCertificateServiceTest {
     @Test
     void findAllByInformantTest() {
         when(deathCertificateRepositoryMock.findAllByInformant(person)).thenReturn(deathCertificateList);
-
-        List<DeathCertificate> result = deathCertificateService.findAllByInformant(person);
-        assertEquals(deathCertificateList, result);
+        assertEquals(deathCertificateList, deathCertificateService.findAllByInformant(person));
     }
 
     @Test
     void findAllByDeceasedTest() {
         when(deathCertificateRepositoryMock.findAllByDeceased(person)).thenReturn(deathCertificateList);
-
-        List<DeathCertificate> result = deathCertificateService.findAllByDeceased(person);
-        assertEquals(deathCertificateList, result);
+        assertEquals(deathCertificateList, deathCertificateService.findAllByDeceased(person));
     }
 
     @Test
     void findAllBySpouseTest() {
         when(deathCertificateRepositoryMock.findAllBySpouse(person)).thenReturn(deathCertificateList);
-
-        List<DeathCertificate> result = deathCertificateService.findAllBySpouse(person);
-        assertEquals(deathCertificateList, result);
+        assertEquals(deathCertificateList, deathCertificateService.findAllBySpouse(person));
     }
 }

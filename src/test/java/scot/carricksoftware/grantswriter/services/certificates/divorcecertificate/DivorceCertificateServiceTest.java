@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -31,28 +31,25 @@ public class DivorceCertificateServiceTest {
     @Mock
     DivorceCertificateRepository divorceCertificateRepositoryMock;
 
-    private Person person;
+    private List<DivorceCertificate> certificates;
 
     @BeforeEach
     public void setUp() {
         divorceCertificateService = new DivorceCertificateServiceImpl(divorceCertificateRepositoryMock);
-        person = GetRandomPerson();
+        certificates = new ArrayList<>();
+        certificates.add(new DivorceCertificate());
     }
 
     @Test
     public void findAllByFirstPartyTest() {
-        List<DivorceCertificate> certificates = new ArrayList<>();
-        certificates.add(new DivorceCertificate());
-        when(divorceCertificateRepositoryMock.findAllByFirstParty(person)).thenReturn(certificates);
-        assertEquals(certificates, divorceCertificateService.findAllByFirstParty(person));
+        when(divorceCertificateRepositoryMock.findAllByFirstParty(any(Person.class))).thenReturn(certificates);
+        assertEquals(certificates, divorceCertificateService.findAllByFirstParty(new Person()));
     }
 
     @Test
     public void findAllBySecondPartyTest() {
-        List<DivorceCertificate> certificates = new ArrayList<>();
-        certificates.add(new DivorceCertificate());
-        when(divorceCertificateRepositoryMock.findAllBySecondParty(person)).thenReturn(certificates);
-        assertEquals(certificates, divorceCertificateService.findAllBySecondParty(person));
+        when(divorceCertificateRepositoryMock.findAllBySecondParty(any(Person.class))).thenReturn(certificates);
+        assertEquals(certificates, divorceCertificateService.findAllBySecondParty(new Person()));
     }
 
 }

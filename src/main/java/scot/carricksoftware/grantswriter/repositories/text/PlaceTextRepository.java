@@ -13,10 +13,7 @@ import scot.carricksoftware.grantswriter.repositories.ReadOnlyRepository;
 @Repository
 public interface PlaceTextRepository extends ReadOnlyRepository<PlaceText, Long> {
 
-
     PlaceText findById(Long id);
-
     Iterable<PlaceText> findAllByPlace(Place place);
-
     Iterable<PlaceText> findAll();
 }

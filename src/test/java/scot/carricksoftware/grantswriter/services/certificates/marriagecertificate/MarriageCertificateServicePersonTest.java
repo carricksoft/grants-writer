@@ -65,6 +65,6 @@ class MarriageCertificateServicePersonTest {
     @Test
     void findAllBySecondWitnessTest() {
         when(marriageCertificateRepositoryMock.findAllBySecondWitness(person)).thenReturn(marriageCertificateList);
-        assertEquals(marriageCertificateList,  marriageCertificateService.findAllBySecondWitness(person));
+        assertEquals(marriageCertificateList, marriageCertificateService.findAllBySecondWitness(person));
     }
 }

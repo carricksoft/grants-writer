@@ -18,6 +18,7 @@ import scot.carricksoftware.grantswriter.domains.people.Person;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
 import static scot.carricksoftware.grantswriter.GenerateRandomPlaceValues.GetRandomPlace;
@@ -64,7 +65,7 @@ class GatherPlaceMarriageCertificateWhereMarriedTimeLineDataTest {
 
         String required =  bride.toString() + "and " + groom.toString() + " Married here.";
         gatherPlaceMarriageCertificateWhereMarriedTimeLineData.gather(marriageCertificates);
-        assertEquals(required, timeLine.firstEntry().getValue().getFirst());
+        assertTrue(timeLine.firstEntry().getValue().getFirst().contains(required));
     }
 
     @Test

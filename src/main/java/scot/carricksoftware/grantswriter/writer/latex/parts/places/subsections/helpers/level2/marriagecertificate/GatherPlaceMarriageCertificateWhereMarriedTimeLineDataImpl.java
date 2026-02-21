@@ -18,13 +18,13 @@ import java.util.List;
 import java.util.TreeMap;
 
 @Component
-public class GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl implements GatherPlacesMarriageCertificateWhereMarriedTimeLineData {
+public class GatherPlaceMarriageCertificateWhereMarriedTimeLineDataImpl implements GatherPlaceMarriageCertificateWhereMarriedTimeLineData {
 
     private final TimeLineData timelineData;
 
-    private static final Logger logger = LogManager.getLogger(GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl.class);
+    private static final Logger logger = LogManager.getLogger(GatherPlaceMarriageCertificateWhereMarriedTimeLineDataImpl.class);
 
-    public GatherPlacesMarriageCertificateWhereMarriedTimeLineDataImpl(TimeLineData timelineData) {
+    public GatherPlaceMarriageCertificateWhereMarriedTimeLineDataImpl(TimeLineData timelineData) {
         this.timelineData = timelineData;
     }
 

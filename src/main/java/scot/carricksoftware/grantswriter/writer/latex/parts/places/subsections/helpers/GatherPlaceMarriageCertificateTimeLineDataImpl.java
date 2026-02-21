@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificate.MarriageCertificate;
 import scot.carricksoftware.grantswriter.domains.places.Place;
 import scot.carricksoftware.grantswriter.services.certificates.marriagecertificate.MarriageCertificateService;
-import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.marriagecertificate.GatherPlacesMarriageCertificateWhereMarriedTimeLineData;
+import scot.carricksoftware.grantswriter.writer.latex.parts.places.subsections.helpers.level2.marriagecertificate.GatherPlaceMarriageCertificateWhereMarriedTimeLineData;
 
 import java.util.List;
 
@@ -21,13 +21,13 @@ public class GatherPlaceMarriageCertificateTimeLineDataImpl implements GatherPla
     private static final Logger logger = LogManager.getLogger(GatherPlaceMarriageCertificateTimeLineDataImpl.class);
 
     private final MarriageCertificateService marriageCertificateService;
-    private final GatherPlacesMarriageCertificateWhereMarriedTimeLineData gatherPlacesMarriageCertificateWhereMarriedTimeLineData;
+    private final GatherPlaceMarriageCertificateWhereMarriedTimeLineData gatherPlaceMarriageCertificateWhereMarriedTimeLineData;
 
 
     public GatherPlaceMarriageCertificateTimeLineDataImpl(MarriageCertificateService marriageCertificateService,
-                                                          GatherPlacesMarriageCertificateWhereMarriedTimeLineData gatherPlacesMarriageCertificateWhereMarriedTimeLineData) {
+                                                          GatherPlaceMarriageCertificateWhereMarriedTimeLineData gatherPlaceMarriageCertificateWhereMarriedTimeLineData) {
         this.marriageCertificateService = marriageCertificateService;
-        this.gatherPlacesMarriageCertificateWhereMarriedTimeLineData = gatherPlacesMarriageCertificateWhereMarriedTimeLineData;
+        this.gatherPlaceMarriageCertificateWhereMarriedTimeLineData = gatherPlaceMarriageCertificateWhereMarriedTimeLineData;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class GatherPlaceMarriageCertificateTimeLineDataImpl implements GatherPla
         logger.debug("GatherDeathCertificateTimeLineDataImpl::gatherWhereMarried");
         List<MarriageCertificate> marriageCertificates = marriageCertificateService.findAllByWhereMarried(place);
         if (!marriageCertificates.isEmpty()) {
-            gatherPlacesMarriageCertificateWhereMarriedTimeLineData.gather(marriageCertificates);
+            gatherPlaceMarriageCertificateWhereMarriedTimeLineData.gather(marriageCertificates);
         }
     }
 

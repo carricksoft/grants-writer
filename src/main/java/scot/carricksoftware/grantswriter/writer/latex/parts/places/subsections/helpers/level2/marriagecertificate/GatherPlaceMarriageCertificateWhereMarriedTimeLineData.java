@@ -9,7 +9,7 @@ import scot.carricksoftware.grantswriter.domains.certificates.marriagecertificat
 
 import java.util.List;
 
-public interface GatherPlacesMarriageCertificateWhereMarriedTimeLineData {
+public interface GatherPlaceMarriageCertificateWhereMarriedTimeLineData {
    void gather(List<MarriageCertificate> marriageCertificates);
 
 }

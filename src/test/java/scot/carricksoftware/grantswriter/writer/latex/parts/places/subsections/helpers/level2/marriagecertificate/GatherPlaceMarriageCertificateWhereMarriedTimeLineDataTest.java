@@ -65,7 +65,7 @@ class GatherPlaceMarriageCertificateWhereMarriedTimeLineDataTest {
 
         String required =  bride.toString() + "and " + groom.toString() + " Married here.";
         gatherPlaceMarriageCertificateWhereMarriedTimeLineData.gather(marriageCertificates);
-        assertTrue(timeLine.firstEntry().getValue().getFirst().contains(required));
+        assertTrue(timeLine.firstEntry().getValue().contains(required));
     }
 
     @Test

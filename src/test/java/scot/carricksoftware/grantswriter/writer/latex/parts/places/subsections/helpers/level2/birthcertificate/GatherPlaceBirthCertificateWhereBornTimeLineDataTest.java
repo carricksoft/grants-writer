@@ -14,12 +14,10 @@ import scot.carricksoftware.grantswriter.data.DMY;
 import scot.carricksoftware.grantswriter.data.TimeLineData;
 import scot.carricksoftware.grantswriter.domains.certificates.birthcertificate.BirthCertificate;
 import scot.carricksoftware.grantswriter.domains.people.Person;
-import scot.carricksoftware.grantswriter.domains.places.Place;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertTrue;
 import static scot.carricksoftware.grantswriter.GenerateRandomPeopleValues.GetRandomPerson;
@@ -37,8 +35,6 @@ class GatherPlaceBirthCertificateWhereBornTimeLineDataTest {
 
     private TreeMap<DMY, List<String>> timeLine;
 
-    private BirthCertificate birthCertificate;
-
     private Person person;
 
     @BeforeEach
@@ -47,8 +43,9 @@ class GatherPlaceBirthCertificateWhereBornTimeLineDataTest {
         person = GetRandomPerson();
         birthCertificates = new ArrayList<>();
 
-        birthCertificate = new BirthCertificate();
+        BirthCertificate birthCertificate = new BirthCertificate();
         setUpBirthCertificate(birthCertificate);
+        birthCertificates.add(birthCertificate);
         timeLine = new TreeMap<>();
 
     }
@@ -61,9 +58,6 @@ class GatherPlaceBirthCertificateWhereBornTimeLineDataTest {
 
     @Test
     void whereBornTest() {
-        Place place = GetRandomPlace();
-        birthCertificate.setWhereBorn(place);
-        birthCertificates.add(birthCertificate);
         when(timelineDataMock.getTimeLine()).thenReturn(timeLine);
 
         String required = person.toString() + " Born here.";
@@ -71,5 +65,14 @@ class GatherPlaceBirthCertificateWhereBornTimeLineDataTest {
         assertTrue(timeLine.firstEntry().getValue().contains(required));
     }
 
+    @Test
+    void AddRefsTest() {
+        SortedSet<String> refs = new TreeSet<>();
+        when(timelineDataMock.getRefs()).thenReturn(refs);
 
+        gatherPlaceBirthCertificateWhereBornTimeLineData.gather(birthCertificates);
+        assertEquals("Birth Certificate for : " + person.toString(), refs.first());
+
+    }
 }
+

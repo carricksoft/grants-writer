@@ -46,7 +46,6 @@ class GatherPlaceBirthCertificateTimeLineDataTest {
 
     @Test
     void emptyTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
         when(birthCertificateServiceMock.findAllByWhereBorn(place)).thenReturn(birthCertificates);
         gatherPlaceBirthCertificateTimeLineData.gather(place);
         verifyNoInteractions(gatherPlaceBirthCertificateNewBornTimeLineDataMock);
@@ -54,7 +53,6 @@ class GatherPlaceBirthCertificateTimeLineDataTest {
 
     @Test
     void nonEmptyTest() {
-        List<BirthCertificate> birthCertificates = new ArrayList<>();
         birthCertificates.add(new BirthCertificate());
         when(birthCertificateServiceMock.findAllByWhereBorn(place)).thenReturn(birthCertificates);
         gatherPlaceBirthCertificateTimeLineData.gather(place);

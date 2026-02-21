@@ -47,7 +47,6 @@ class GatherPlaceMarriageCertificateTimeLineDataTest {
 
     @Test
     void emptyTest() {
-        List<MarriageCertificate> marriageCertificates = new ArrayList<>();
         when(marriageCertificateServiceMock.findAllByWhereMarried(place)).thenReturn(marriageCertificates);
         gatherPlaceMarriageCertificateTimeLineData.gather(place);
         verifyNoInteractions(gatherPlaceMarriageCertificateWhereMarriedTimeLineDataMock);
@@ -55,7 +54,6 @@ class GatherPlaceMarriageCertificateTimeLineDataTest {
 
     @Test
     void nonEmptyTest() {
-        List<MarriageCertificate> marriageCertificates = new ArrayList<>();
         marriageCertificates.add(new MarriageCertificate());
         when(marriageCertificateServiceMock.findAllByWhereMarried(place)).thenReturn(marriageCertificates);
         gatherPlaceMarriageCertificateTimeLineData.gather(place);

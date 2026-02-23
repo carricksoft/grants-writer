@@ -32,7 +32,7 @@ public class WriteBaseImageImpl implements WriteBaseImage {
     @Override
     public void write(BaseImage baseImage) {
         createActualImage(baseImage.getImage());
-        latexBlock.begin("figure", "");
+        latexBlock.begin("figure", "hbt!");
         latexBlock.begin("center", "");
         writeImage(baseImage);
         writeCaption(baseImage.getCaption());

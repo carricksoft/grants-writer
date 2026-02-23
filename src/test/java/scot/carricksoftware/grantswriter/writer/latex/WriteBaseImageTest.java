@@ -57,7 +57,7 @@ class WriteBaseImageTest {
         writeBaseImage.write(baseImage);
 
         inorder.verify(stringToFileConverterMock).convert(imageData, "/tmp/" + fileName);
-        inorder.verify(latexBlockMock).begin("figure", "");
+        inorder.verify(latexBlockMock).begin("figure", "hbt!");
         inorder.verify(latexBlockMock).begin("center", "");
         inorder.verify(latexBlockMock).end("center");
         inorder.verify(latexBlockMock).end("figure");
